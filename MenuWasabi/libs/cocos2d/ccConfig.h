@@ -28,7 +28,7 @@
  cocos2d (cc) configuration file
 */
 
-/** @def CC_ENABLE_GL_STATE_CACHE
+/* @def CC_ENABLE_GL_STATE_CACHE
  If enabled, cocos2d will maintain an OpenGL state cache internally to avoid unnecessary switches.
  In order to use them, you have to use the following functions, insead of the the GL ones:
 	- ccGLUseProgram() instead of glUseProgram()
@@ -45,7 +45,7 @@
  @since v2.0.0
  */
 #ifndef CC_ENABLE_GL_STATE_CACHE
-#define CC_ENABLE_GL_STATE_CACHE 0
+#define CC_ENABLE_GL_STATE_CACHE 1
 #endif
 
 /** @def CC_ENABLE_DEPRECATED

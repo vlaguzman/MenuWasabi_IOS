@@ -10,6 +10,7 @@
 // Import the interfaces
 #import "IntroLayer.h"
 #import "HelloWorldLayer.h"
+#import "SushiLayer.h"
 
 
 #pragma mark - IntroLayer
@@ -47,7 +48,7 @@
 		background = [CCSprite spriteWithFile:@"Default.png"];
 		background.rotation = 90;
 	} else {
-		background = [CCSprite spriteWithFile:@"Default-Landscape~ipad.png"];
+		background = [CCSprite spriteWithFile:@"fondo3.png"];
 	}
 	background.position = ccp(size.width/2, size.height/2);
 
@@ -55,11 +56,11 @@
 	[self addChild: background];
 	
 	// In one second transition to the new scene
-	[self scheduleOnce:@selector(makeTransition:) delay:1];
+	[self scheduleOnce:@selector(makeTransition:) delay:0];
 }
 
 -(void) makeTransition:(ccTime)dt
 {
-	[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[HelloWorldLayer scene] withColor:ccWHITE]];
+	[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.0 scene:[SushiLayer node] withColor:ccWHITE]];
 }
 @end
