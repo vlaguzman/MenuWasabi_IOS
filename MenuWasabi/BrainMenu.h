@@ -13,13 +13,17 @@
 {
     int totalCuenta;
     int tipoPlatoActual;
+    NSMutableArray *platosAgregados;
 }
 
 @property int totalCuenta, tipoPlatoActual;
+@property (nonatomic, strong) NSMutableArray *platosAgregados;
 
 + (BrainMenu*) sharedInstance;
 
 -(void)agregarPlato:(Plato *)_plato;
 -(void)eliminarPlato:(Plato *)_plato;
+-(Plato *)demePlatoEnUbicacion:(int)_index;
+
 
 @end

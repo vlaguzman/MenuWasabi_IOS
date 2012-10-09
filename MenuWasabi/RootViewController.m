@@ -19,13 +19,14 @@
 #define tipoSopa 2
 
 @interface RootViewController()
+    
     @property (nonatomic, strong) Plato *sushi1, *sushi2, *sushi3, *sushi4, *sushi5, *sushi6, *sushi7, *sushi8, *sushi9, *sushi10,
     *sushi11, *sushi12, *sushi13, *sushi14, *sushi15, *sushi16, *sushi17, *sushi18, *sushi19, *sushi20,
     *sushi21, *sushi22, *sushi23, *sushi24, *sushi25, *sushi26, *sushi27, *sushi28, *sushi29, *sushi30,
     *sushi31, *sushi32, *sushi33, *sushi34, *sushi35, *sushi36, *sushi37, *sushi38, *sushi39;
     @property (nonatomic, strong) Plato *sopa1, *sopa2, *sopa3, *sopa4, *sopa5, *sopa6, *sopa7, *sopa8, *sopa9, *sopa10;
     @property (nonatomic, strong) NSDictionary *platos_sushi, *platos_sopa;
- //   @property (nonatomic, strong) BrainMenu *brain;
+
 @end
 
 
@@ -37,13 +38,8 @@ CCScene *scene;
 @synthesize sopa1, sopa2, sopa3, sopa4, sopa5, sopa6, sopa7, sopa8, sopa9, sopa10;
 @synthesize platos_sopa;
 
-//@synthesize brain = _brain;
-/*
--(BrainMenu *)brain{
-    if(!_brain) _brain = [[BrainMenu alloc]init];
-    return _brain;
-}
-*/
+
+
 // Add these new methods
 
 
@@ -215,27 +211,6 @@ CCScene *scene;
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (void)agregarPlato:(id)_id
-{
-
-    if([[BrainMenu sharedInstance] tipoPlatoActual]==tipoSushi)
-        [[BrainMenu sharedInstance] agregarPlato:[platos_sushi objectForKey:_id]];
-    else if ([[BrainMenu sharedInstance] tipoPlatoActual]==tipoSopa)
-        [[BrainMenu sharedInstance] agregarPlato:[platos_sopa objectForKey:_id]];
-    
-}
-- (void)eliminarPlato:(id)_id
-{
-    if([[BrainMenu sharedInstance] tipoPlatoActual]==tipoSushi)
-        [[BrainMenu sharedInstance] eliminarPlato:[platos_sushi objectForKey:_id]];
-    else if ([[BrainMenu sharedInstance] tipoPlatoActual]==tipoSopa)
-        [[BrainMenu sharedInstance] eliminarPlato:[platos_sopa objectForKey:_id]];
-        
-}
-
--(int)demeTotalCuenta{
-    return [[BrainMenu sharedInstance] totalCuenta];
-}
 
 -(void)crearPlatosSushi{
     CCLOG(@"Creadno Sushi...");
@@ -252,7 +227,7 @@ CCScene *scene;
     sushi2.nombre = @"Avocadocri spy roll";
     sushi2.fuente_img = @"avocadocrispyroll_big.png";
     sushi2.precio = 15000;
-    sushi1.tipo = tipoSushi;
+    sushi2.tipo = tipoSushi;
     //  sushi1.pedido = NO;
     
     if(sushi3==nil) sushi3 = [[Plato alloc]init];
@@ -260,7 +235,7 @@ CCScene *scene;
     sushi3.nombre = @"Bananguil sweet";
     sushi3.fuente_img = @"bananguilsweet_big.png";
     sushi3.precio = 18000;
-    sushi1.tipo = tipoSushi;
+    sushi3.tipo = tipoSushi;
     //  sushi1.pedido = NO;
     
     if(sushi4==nil) sushi4 = [[Plato alloc]init];
@@ -268,7 +243,7 @@ CCScene *scene;
     sushi4.nombre = @"California roll";
     sushi4.fuente_img = @"californiaroll_big.png";
     sushi4.precio = 11000;
-    sushi1.tipo = tipoSushi;
+    sushi4.tipo = tipoSushi;
     //  sushi1.pedido = NO;
     
     if(sushi5==nil) sushi5 = [[Plato alloc]init];
@@ -276,7 +251,7 @@ CCScene *scene;
     sushi5.nombre = @"California spicy";
     sushi5.fuente_img = @"californiaspicy_big.png";
     sushi5.precio = 10000;
-    sushi1.tipo = tipoSushi;
+    sushi5.tipo = tipoSushi;
     //  sushi1.pedido = NO;
     
     if(sushi6==nil) sushi6 = [[Plato alloc]init];
@@ -284,7 +259,7 @@ CCScene *scene;
     sushi6.nombre = @"Crazy roll";
     sushi6.fuente_img = @"crazyroll_big.png";
     sushi6.precio = 13000;
-    sushi1.tipo = tipoSushi;
+    sushi6.tipo = tipoSushi;
     //  sushi1.pedido = NO;
     
     if(sushi7==nil) sushi7 = [[Plato alloc]init];
@@ -292,7 +267,7 @@ CCScene *scene;
     sushi7.nombre = @"Ebikan roll";
     sushi7.fuente_img = @"ebikanroll_big.png";
     sushi7.precio = 14000;
-    sushi1.tipo = tipoSushi;
+    sushi7.tipo = tipoSushi;
     //  sushi1.pedido = NO;
     
     if(sushi8==nil) sushi8 = [[Plato alloc]init];
@@ -300,7 +275,7 @@ CCScene *scene;
     sushi8.nombre = @"Ebiroll";
     sushi8.fuente_img = @"ebiroll_big.png";
     sushi8.precio = 16000;
-    sushi1.tipo = tipoSushi;
+    sushi8.tipo = tipoSushi;
     //  sushi1.pedido = NO;
     
     if(sushi9==nil) sushi9 = [[Plato alloc]init];
@@ -308,7 +283,7 @@ CCScene *scene;
     sushi9.nombre = @"Ebitempura";
     sushi9.fuente_img = @"ebitempura_big.png";
     sushi9.precio = 17000;
-    sushi1.tipo = tipoSushi;
+    sushi9.tipo = tipoSushi;
     //  sushi1.pedido = NO;
     
     if(sushi10==nil) sushi10 = [[Plato alloc]init];
@@ -316,7 +291,7 @@ CCScene *scene;
     sushi10.nombre = @"Ebitropical";
     sushi10.fuente_img = @"ebitropical_big.png";
     sushi10.precio = 10000;
-    sushi1.tipo = tipoSushi;
+    sushi10.tipo = tipoSushi;
     //  sushi1.pedido = NO;
     
     if(sushi11==nil) sushi11 = [[Plato alloc]init];
@@ -324,7 +299,7 @@ CCScene *scene;
     sushi11.nombre = @"Ellsake roll";
     sushi11.fuente_img = @"ellsakeroll_big.png";
     sushi11.precio = 10000;
-    sushi1.tipo = tipoSushi;
+    sushi11.tipo = tipoSushi;
     //  sushi1.pedido = NO;
     
     if(sushi12==nil) sushi12 = [[Plato alloc]init];
@@ -332,7 +307,7 @@ CCScene *scene;
     sushi12.nombre = @"Fabi roll";
     sushi12.fuente_img = @"fabiroll_big.png";
     sushi12.precio = 10000;
-    sushi1.tipo = tipoSushi;
+    sushi12.tipo = tipoSushi;
     //  sushi1.pedido = NO;
     
     if(sushi13==nil) sushi13 = [[Plato alloc]init];
@@ -340,7 +315,7 @@ CCScene *scene;
     sushi13.nombre = @"Hot cream roll";
     sushi13.fuente_img = @"hotcreamroll_big.png";
     sushi13.precio = 10000;
-    sushi1.tipo = tipoSushi;
+    sushi13.tipo = tipoSushi;
     //  sushi1.pedido = NO;
     
     if(sushi14==nil) sushi14 = [[Plato alloc]init];
@@ -348,7 +323,7 @@ CCScene *scene;
     sushi14.nombre = @"Jens roll";
     sushi14.fuente_img = @"jensroll_big.png";
     sushi14.precio = 10000;
-    sushi1.tipo = tipoSushi;
+    sushi14.tipo = tipoSushi;
     //  sushi1.pedido = NO;
     
     if(sushi15==nil) sushi15 = [[Plato alloc]init];
@@ -356,7 +331,7 @@ CCScene *scene;
     sushi15.nombre = @"Jhoels roll";
     sushi15.fuente_img = @"jhoelsroll_big.png";
     sushi15.precio = 10000;
-    sushi1.tipo = tipoSushi;
+    sushi15.tipo = tipoSushi;
     //  sushi1.pedido = NO;
     
     if(sushi16==nil) sushi16 = [[Plato alloc]init];
@@ -364,7 +339,7 @@ CCScene *scene;
     sushi16.nombre = @"Kaniroll";
     sushi16.fuente_img = @"kaniroll_big.png";
     sushi16.precio = 10000;
-    sushi1.tipo = tipoSushi;
+    sushi16.tipo = tipoSushi;
     //  sushi1.pedido = NO;
     
     if(sushi17==nil) sushi17 = [[Plato alloc]init];
@@ -372,7 +347,7 @@ CCScene *scene;
     sushi17.nombre = @"Kanizu";
     sushi17.fuente_img = @"kanizu_big.png";
     sushi17.precio = 10000;
-    sushi1.tipo = tipoSushi;
+    sushi17.tipo = tipoSushi;
     //  sushi1.pedido = NO;
     
     if(sushi18==nil) sushi18 = [[Plato alloc]init];
@@ -380,7 +355,7 @@ CCScene *scene;
     sushi18.nombre = @"Kappamaki";
     sushi18.fuente_img = @"kappamaki_big.png";
     sushi18.precio = 10000;
-    sushi1.tipo = tipoSushi;
+    sushi18.tipo = tipoSushi;
     //  sushi1.pedido = NO;
     
     if(sushi19==nil) sushi19 = [[Plato alloc]init];
@@ -388,7 +363,7 @@ CCScene *scene;
     sushi19.nombre = @"Katsuroll";
     sushi19.fuente_img = @"katsuroll_big.png";
     sushi19.precio = 10000;
-    sushi1.tipo = tipoSushi;
+    sushi19.tipo = tipoSushi;
     //  sushi1.pedido = NO;
     
     if(sushi20==nil) sushi20 = [[Plato alloc]init];
@@ -396,7 +371,7 @@ CCScene *scene;
     sushi20.nombre = @"Magicroll";
     sushi20.fuente_img = @"magicroll_big.png";
     sushi20.precio = 10000;
-    sushi1.tipo = tipoSushi;
+    sushi20.tipo = tipoSushi;
     //  sushi1.pedido = NO;
     
     if(sushi21==nil) sushi21 = [[Plato alloc]init];
@@ -404,7 +379,7 @@ CCScene *scene;
     sushi21.nombre = @"Marmariroll";
     sushi21.fuente_img = @"marmariroll_big.png";
     sushi21.precio = 10000;
-    sushi1.tipo = tipoSushi;
+    sushi21.tipo = tipoSushi;
     //  sushi1.pedido = NO;
     
     if(sushi22==nil) sushi22 = [[Plato alloc]init];
@@ -412,7 +387,7 @@ CCScene *scene;
     sushi22.nombre = @"Ojo de tigre";
     sushi22.fuente_img = @"ojodetigre_big.png";
     sushi22.precio = 10000;
-    sushi1.tipo = tipoSushi;
+    sushi22.tipo = tipoSushi;
     //  sushi1.pedido = NO;
     
     if(sushi23==nil) sushi23 = [[Plato alloc]init];
@@ -420,7 +395,7 @@ CCScene *scene;
     sushi23.nombre = @"Peach roll mix";
     sushi23.fuente_img = @"peachrollmix_big.png";
     sushi23.precio = 10000;
-    sushi1.tipo = tipoSushi;
+    sushi23.tipo = tipoSushi;
     //  sushi1.pedido = NO;
     
     if(sushi24==nil) sushi24 = [[Plato alloc]init];
@@ -428,7 +403,7 @@ CCScene *scene;
     sushi24.nombre = @"Philadelphia roll";
     sushi24.fuente_img = @"philadelphiaroll_big.png";
     sushi24.precio = 10000;
-    sushi1.tipo = tipoSushi;
+    sushi24.tipo = tipoSushi;
     //  sushi1.pedido = NO;
     
     if(sushi25==nil) sushi25 = [[Plato alloc]init];
@@ -436,7 +411,7 @@ CCScene *scene;
     sushi25.nombre = @"Rrainbow roll";
     sushi25.fuente_img = @"rainbowroll_big.png";
     sushi25.precio = 10000;
-    sushi1.tipo = tipoSushi;
+    sushi25.tipo = tipoSushi;
     //  sushi1.pedido = NO;
     
     if(sushi26==nil) sushi26 = [[Plato alloc]init];
@@ -444,7 +419,7 @@ CCScene *scene;
     sushi26.nombre = @"Sakemaki";
     sushi26.fuente_img = @"sakemaki_big.png";
     sushi26.precio = 10000;
-    sushi1.tipo = tipoSushi;
+    sushi26.tipo = tipoSushi;
     //  sushi1.pedido = NO;
     
     if(sushi27==nil) sushi27 = [[Plato alloc]init];
@@ -452,7 +427,7 @@ CCScene *scene;
     sushi27.nombre = @"Saketempura roll";
     sushi27.fuente_img = @"saketempuraroll_big.png";
     sushi27.precio = 10000;
-    sushi1.tipo = tipoSushi;
+    sushi27.tipo = tipoSushi;
     //  sushi1.pedido = NO;
     
     if(sushi28==nil) sushi28 = [[Plato alloc]init];
@@ -460,7 +435,7 @@ CCScene *scene;
     sushi28.nombre = @"Skinroll";
     sushi28.fuente_img = @"skinroll_big.png";
     sushi28.precio = 10000;
-    sushi1.tipo = tipoSushi;
+    sushi28.tipo = tipoSushi;
     //  sushi1.pedido = NO;
     
     if(sushi29==nil) sushi29 = [[Plato alloc]init];
@@ -468,7 +443,7 @@ CCScene *scene;
     sushi29.nombre = @"Sonanroll";
     sushi29.fuente_img = @"sonanroll_big.png";
     sushi29.precio = 10000;
-    sushi1.tipo = tipoSushi;
+    sushi29.tipo = tipoSushi;
     //  sushi1.pedido = NO;
     
     if(sushi30==nil) sushi30 = [[Plato alloc]init];
@@ -476,7 +451,7 @@ CCScene *scene;
     sushi30.nombre = @"Spicy roll sake";
     sushi30.fuente_img = @"spicyrollsake_big.png";
     sushi30.precio = 10000;
-    sushi1.tipo = tipoSushi;
+    sushi30.tipo = tipoSushi;
     //  sushi1.pedido = NO;
     
     if(sushi31==nil) sushi31 = [[Plato alloc]init];
@@ -484,7 +459,7 @@ CCScene *scene;
     sushi31.nombre = @"Spicy roll tuna";
     sushi31.fuente_img = @"spicyrolltuna_big.png";
     sushi31.precio = 10000;
-    sushi1.tipo = tipoSushi;
+    sushi31.tipo = tipoSushi;
     //  sushi1.pedido = NO;
     
     if(sushi32==nil) sushi32 = [[Plato alloc]init];
@@ -492,7 +467,7 @@ CCScene *scene;
     sushi32.nombre = @"Spider roll";
     sushi32.fuente_img = @"spiderroll_big.png";
     sushi32.precio = 10000;
-    sushi1.tipo = tipoSushi;
+    sushi32.tipo = tipoSushi;
     //  sushi1.pedido = NO;
     
     if(sushi33==nil) sushi33 = [[Plato alloc]init];
@@ -500,7 +475,7 @@ CCScene *scene;
     sushi33.nombre = @"Tako roll";
     sushi33.fuente_img = @"takoroll_big.png";
     sushi33.precio = 10000;
-    sushi1.tipo = tipoSushi;
+    sushi33.tipo = tipoSushi;
     //  sushi1.pedido = NO;
     
     if(sushi34==nil) sushi34 = [[Plato alloc]init];
@@ -508,7 +483,7 @@ CCScene *scene;
     sushi34.nombre = @"Tekkamaki";
     sushi34.fuente_img = @"tekkamaki_big.png";
     sushi34.precio = 10000;
-    sushi1.tipo = tipoSushi;
+    sushi34.tipo = tipoSushi;
     //  sushi1.pedido = NO;
     
     if(sushi35==nil) sushi35 = [[Plato alloc]init];
@@ -516,7 +491,7 @@ CCScene *scene;
     sushi35.nombre = @"Tiradito roll";
     sushi35.fuente_img = @"tiraditoroll_big.png";
     sushi35.precio = 10000;
-    sushi1.tipo = tipoSushi;
+    sushi35.tipo = tipoSushi;
     //  sushi1.pedido = NO;
     
     if(sushi36==nil) sushi36 = [[Plato alloc]init];
@@ -524,7 +499,7 @@ CCScene *scene;
     sushi36.nombre = @"Tropical roll";
     sushi36.fuente_img = @"tropicalroll_big.png";
     sushi36.precio = 10000;
-    sushi1.tipo = tipoSushi;
+    sushi36.tipo = tipoSushi;
     //  sushi1.pedido = NO;
     
     if(sushi37==nil) sushi37 = [[Plato alloc]init];
@@ -532,7 +507,7 @@ CCScene *scene;
     sushi37.nombre = @"Vegetariano";
     sushi37.fuente_img = @"vegetariano_big.png";
     sushi37.precio = 10000;
-    sushi1.tipo = tipoSushi;
+    sushi37.tipo = tipoSushi;
     //  sushi1.pedido = NO;
     
     if(sushi38==nil) sushi38 = [[Plato alloc]init];
@@ -540,7 +515,7 @@ CCScene *scene;
     sushi38.nombre = @"Wasabi roll";
     sushi38.fuente_img = @"wasabiroll_big.png";
     sushi38.precio = 10000;
-    sushi1.tipo = tipoSushi;
+    sushi38.tipo = tipoSushi;
     //  sushi1.pedido = NO;
     
     if(sushi39==nil) sushi39 = [[Plato alloc]init];
@@ -548,7 +523,7 @@ CCScene *scene;
     sushi39.nombre = @"Yolscar roll";
     sushi39.fuente_img = @"yolscarroll_big.png";
     sushi39.precio = 10000;
-    sushi1.tipo = tipoSushi;
+    sushi39.tipo = tipoSushi;
     //  sushi1.pedido = NO;
     
 }
@@ -557,70 +532,70 @@ CCScene *scene;
     CCLOG(@"Creadno Sopas...");
     
     if(sopa1==nil) sopa1 = [[Plato alloc]init];
-    sopa1.id_plato =1;
+    sopa1.id_plato =101;
     sopa1.nombre = @"Anagomaki";
     sopa1.fuente_img = @"anagomaki_big.png";
     sopa1.precio = 8000;
     sopa1.tipo = tipoSopa;
     
     if(sopa2==nil) sopa2 = [[Plato alloc]init];
-    sopa2.id_plato =2;
+    sopa2.id_plato =102;
     sopa2.nombre = @"Anagomaki";
     sopa2.fuente_img = @"anagomaki_big.png";
     sopa2.precio = 7000;
     sopa2.tipo = tipoSopa;
     
     if(sopa3==nil) sopa3 = [[Plato alloc]init];
-    sopa3.id_plato =3;
+    sopa3.id_plato =103;
     sopa3.nombre = @"Anagomaki";
     sopa3.fuente_img = @"anagomaki_big.png";
     sopa3.precio = 8000;
     sopa3.tipo = tipoSopa;
     
     if(sopa4==nil) sopa4 = [[Plato alloc]init];
-    sopa4.id_plato =4;
+    sopa4.id_plato =104;
     sopa4.nombre = @"Anagomaki";
     sopa4.fuente_img = @"anagomaki_big.png";
     sopa4.precio = 7000;
     sopa4.tipo = tipoSopa;
     
     if(sopa5==nil) sopa5 = [[Plato alloc]init];
-    sopa5.id_plato =5;
+    sopa5.id_plato =105;
     sopa5.nombre = @"Anagomaki";
     sopa5.fuente_img = @"anagomaki_big.png";
     sopa5.precio = 8000;
     sopa5.tipo = tipoSopa;
     
     if(sopa6==nil) sopa6 = [[Plato alloc]init];
-    sopa6.id_plato =6;
+    sopa6.id_plato =106;
     sopa6.nombre = @"Anagomaki";
     sopa6.fuente_img = @"anagomaki_big.png";
     sopa6.precio = 7000;
     sopa6.tipo = tipoSopa;
     
     if(sopa7==nil) sopa7 = [[Plato alloc]init];
-    sopa7.id_plato =7;
+    sopa7.id_plato =107;
     sopa7.nombre = @"Anagomaki";
     sopa7.fuente_img = @"anagomaki_big.png";
     sopa7.precio = 8000;
     sopa7.tipo = tipoSopa;
     
     if(sopa8==nil) sopa8 = [[Plato alloc]init];
-    sopa8.id_plato =8;
+    sopa8.id_plato =108;
     sopa8.nombre = @"Anagomaki";
     sopa8.fuente_img = @"anagomaki_big.png";
     sopa8.precio = 7000;
     sopa8.tipo = tipoSopa;
     
     if(sopa9==nil) sopa9 = [[Plato alloc]init];
-    sopa9.id_plato =9;
+    sopa9.id_plato =109;
     sopa9.nombre = @"Anagomaki";
     sopa9.fuente_img = @"anagomaki_big.png";
     sopa9.precio = 8000;
     sopa9.tipo = tipoSopa;
     
     if(sopa10==nil) sopa10 = [[Plato alloc]init];
-    sopa10.id_plato =10;
+    sopa10.id_plato =110;
     sopa10.nombre = @"Anagomaki";
     sopa10.fuente_img = @"anagomaki_big.png";
     sopa10.precio = 7000;
@@ -658,7 +633,48 @@ CCScene *scene;
     return plato_return.precio;
 }
 
+- (int)demeNumeroPlatosEnOrden
+{
+   
+   /* int n = [BrainMenu sharedInstance].platosAgregados.count;
+    for (int m=0; m<n; m++) {
+        Plato *p = [[BrainMenu sharedInstance] demePlatoEnUbicacion:m];
+        CCLOG(@"NOMBRE PLATO: %@ PRECIO: %i", p.nombre, p.precio);
+    }*/
+    return [BrainMenu sharedInstance].platosAgregados.count;
+}
 
+- (Plato *)demeDatosPlatoEnUbicacion:(int)_ubicacion{
+   // NSArray *datosPlatoEnOrden;
+    
+     Plato *p = [[BrainMenu sharedInstance] demePlatoEnUbicacion:_ubicacion];
+    //datosPlatoEnOrden = [[NSArray alloc] initWithObjects:p.id_plato, p.nombre, p.precio, p.fuente_img, nil];
+    return p;
+}
+
+
+- (void)agregarPlato:(id)_id
+{
+    
+    if([[BrainMenu sharedInstance] tipoPlatoActual]==tipoSushi)
+        [[BrainMenu sharedInstance] agregarPlato:[platos_sushi objectForKey:_id]];
+    else if ([[BrainMenu sharedInstance] tipoPlatoActual]==tipoSopa)
+        [[BrainMenu sharedInstance] agregarPlato:[platos_sopa objectForKey:_id]];
+   
+    
+}
+- (void)eliminarPlato:(id)_id
+{
+    if([[BrainMenu sharedInstance] tipoPlatoActual]==tipoSushi)
+        [[BrainMenu sharedInstance] eliminarPlato:[platos_sushi objectForKey:_id]];
+    else if ([[BrainMenu sharedInstance] tipoPlatoActual]==tipoSopa)
+        [[BrainMenu sharedInstance] eliminarPlato:[platos_sopa objectForKey:_id]];
+    
+}
+
+-(int)demeTotalCuenta{
+    return [[BrainMenu sharedInstance] totalCuenta];
+}
 
 @end
 

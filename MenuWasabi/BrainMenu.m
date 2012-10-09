@@ -9,7 +9,7 @@
 #import "BrainMenu.h"
 
 @interface BrainMenu()
-@property (nonatomic, strong) NSMutableArray *platosAgregados;
+
 
 @end
 
@@ -27,8 +27,8 @@ static BrainMenu *sharedBrainMenu = nil;
         sharedBrainMenu = [[super allocWithZone:NULL] init];;
     }
     return sharedBrainMenu;
+    
 }
-
 
 -(NSMutableArray *)platosAgregados
 {
@@ -40,23 +40,26 @@ static BrainMenu *sharedBrainMenu = nil;
 
 -(void)agregarPlato:(Plato *)_plato
 {
-    NSLog(@"TOTAL %i PRECIO PLATO %i", _totalCuenta, _plato.precio);
     _totalCuenta += _plato.precio;
-    
     [self.platosAgregados addObject:_plato];
+    
+
 }
 
 -(void)eliminarPlato:(Plato *)_plato
 {
     _totalCuenta -= _plato.precio;
     [self.platosAgregados removeObject:_plato];
+    
 }
 
--(int)demeTotalCuenta
-{
-    NSLog(@"Estoy sumando dentro del cerebrobrobro %i", _totalCuenta);
-    return _totalCuenta;
+-(Plato *)demePlatoEnUbicacion:(int)_index{
+    Plato *aux = [[Plato alloc]init];
+    aux = [_platosAgregados objectAtIndex:_index];
+    NSLog(@"AGREGADO PLATO  %i, %@, %@", aux.precio, aux.nombre, aux.fuente_img);
+    return aux;
 }
+
 
 + (id)allocWithZone:(NSZone *)zone
 {

@@ -221,7 +221,7 @@ BOOL bool_swipe = YES;
         [[[CCDirector sharedDirector] openGLView] addGestureRecognizer:_swipeRightRecognizer];
         [self.swipeRightRecognizer release];
         
-        [self updateTotalCount];
+        [self updateTotalBill];
     }
     
     return self;
@@ -413,7 +413,6 @@ BOOL bool_swipe = YES;
 
 -(void) onPushSceneTran: (CCMenuItemImage *) sender
 {
-    
     CCLOG(@" TITLE %@", [sender userObject]);
     iactualPlate = [sender tag];
     [self desaparecerMenus];
@@ -503,10 +502,10 @@ BOOL bool_swipe = YES;
     itemPrecio.tag = iactualPlate;
     [menu_precios addChild:itemPrecio];
     [menu_precios alignItemsHorizontallyWithPadding:paddingPrices];
-    [self updateTotalCount];
+    [self updateTotalBill];
 }
 
--(void) updateTotalCount{
+-(void) updateTotalBill{
     NSString *str_total = [[NSString alloc]initWithFormat:@"$ %i", [_rootViewController demeTotalCuenta]];
     [label_total setString:str_total];
 }
@@ -543,6 +542,7 @@ BOOL bool_swipe = YES;
 
 - (void) dealloc
 {
+    
     [_swipeLeftRecognizer release];
     _swipeLeftRecognizer = nil;
     [_swipeRightRecognizer release];

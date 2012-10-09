@@ -49,6 +49,7 @@ CCMenu *menu_precios;
 CGSize winSize;
 
 BOOL bool_swipe_sopas = YES;
+
 @implementation SopasLayer
 @synthesize swipeLeftRecognizer = _swipeLeftRecognizer;
 @synthesize swipeRightRecognizer = _swipeRightRecognizer;
@@ -221,7 +222,8 @@ BOOL bool_swipe_sopas = YES;
         [[[CCDirector sharedDirector] openGLView] addGestureRecognizer:_swipeRightRecognizer];
         [self.swipeRightRecognizer release];
         
-        [self updateTotalCount];
+        [self updateTotalBill];
+        [self loadMenuResume];
     }
     
     return self;
@@ -379,45 +381,73 @@ BOOL bool_swipe_sopas = YES;
 {
     [self desaparecerElementos];
     [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(aparecerMenus:) userInfo:nil repeats:NO];
-    
 }
 
 
 -(void) onAddPlate:(id) sender
 {
     [_rootViewController agregarPlato:@(iactualPlate)];
+    [self addOnMenu];
+    [self updateTotalBill];
+}
+
+-(void) addOnMenu{
+
+    [self loadPlateWithIdPlate:iactualPlate withSourceImg:@"btn_sushi.png" withSourceClose:@"btn_cerrar.png" withPrice:[_rootViewController demePrecioPlatoPorId:@(iactualPlate)]];
+
+}
+
+-(void) loadMenuResume{
+    Plato *platoTemp = [[Plato alloc]init];
+    int cantidadPlatos = [_rootViewController demeNumeroPlatosEnOrden];
+    for (int n=0; n<cantidadPlatos; n++) {
+        platoTemp = [_rootViewController demeDatosPlatoEnUbicacion:n];
+        [self loadPlateWithIdPlate:platoTemp.id_plato withSourceImg:@"btn_sushi.png" withSourceClose:@"btn_cerrar.png" withPrice:platoTemp.precio];
+    }
+}
+
+-(void)loadPlateWithIdPlate:(int) _idPlate withSourceImg:(NSString *) _sourceImg withSourceClose:(NSString *) _sourceImgClose withPrice:(int) _price{
     CCMenuItemImage *itemImg, *itemCerrar;
     CCMenuItemLabel *itemPrecio;
     
+    //Creo una imagen para agregar al menu
+    itemImg = [CCMenuItemImage itemWithNormalImage:_sourceImg selectedImage:_sourceImg target:nil selector:nil];
+    //asigno el id del plato actual en caso de necesitar eliminarlo
     
-    itemImg = [CCMenuItemImage itemWithNormalImage:@"btn_sushi.png" selectedImage:@"btn_sushi.png" target:nil selector:nil];
-    itemImg.tag = iactualPlate;
+    // NSInteger num = [datosPlato objectAtIndex:0];
+    itemImg.tag = _idPlate;
+    //agrego la iamgen al menu de imagenes y organizo el menu
     [menu_pedidos addChild:itemImg];
     [menu_pedidos alignItemsHorizontally];
     
-    itemCerrar = [CCMenuItemImage itemWithNormalImage:@"btn_cerrar.png" selectedImage:@"btn_cerrar.png" target:self selector:@selector(onDeletePlate:)];
-    itemCerrar.tag = iactualPlate;
+    //Creo una imagen para el btn cerrar
+    itemCerrar = [CCMenuItemImage itemWithNormalImage:_sourceImgClose selectedImage:_sourceImgClose target:self selector:@selector(onDeletePlate:)];
+    //asigno el mismo id que el de la imagen para cuando sea necesario eliminar la imagen
+    itemCerrar.tag = _idPlate;
+    //agrego la imagen a un menu que contiene los botones cerrar y lo organizo
     [menu_eliminar addChild:itemCerrar];
     [menu_eliminar alignItemsHorizontally];
     
+    //Creo un label para mostrar el valor del plato
     CCLabelTTF *precio_plato = [[CCLabelTTF alloc]initWithString:@"precio" fontName:@"Marker Felt" fontSize:18];
     
-    NSString *str_precio = [[NSString alloc]initWithFormat:@"$ %i", [_rootViewController demePrecioPlatoPorId:@(iactualPlate)]];
+    //rtaigo el precio del plato actual
+    NSString *str_precio = [[NSString alloc]initWithFormat:@"$ %i", _price];
     CCLOG(@" Precio %@", str_precio);
+    //agrego el precio al label creado
     [precio_plato setString:str_precio];
-    
+    //agrego el label a un menu y le asigno el mismo id que las imagenes anteriores
     itemPrecio = [CCMenuItemLabel itemWithLabel:precio_plato];
-    itemPrecio.tag = iactualPlate;
+    itemPrecio.tag = _idPlate;
     [menu_precios addChild:itemPrecio];
     [menu_precios alignItemsHorizontallyWithPadding:paddingPrices];
-    
-    [self updateTotalCount];
-    
 }
 
--(void) updateTotalCount{
+-(void) updateTotalBill{
+    CCLOG(@"Estos son los platos q sean han pedido %i", [_rootViewController demeNumeroPlatosEnOrden]);
     NSString *str_total = [[NSString alloc]initWithFormat:@"$ %i", [_rootViewController demeTotalCuenta]];
     [label_total setString:str_total];
+    
 }
 
 -(void) onDeletePlate:(id) sender

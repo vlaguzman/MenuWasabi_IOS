@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Plato.h"
 //#import "MenuViewController.h"
 
 @interface RootViewController : UIViewController
@@ -21,5 +22,8 @@
 - (void)agregarPlato:(id)_id;
 - (void)eliminarPlato:(id)_id;
 - (void)cambiarEstadoPedido:(id)_id;
+- (int)demeNumeroPlatosEnOrden;
+
+- (Plato *)demeDatosPlatoEnUbicacion:(int)_ubicacion;
 
 @end
