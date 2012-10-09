@@ -35,10 +35,11 @@
                         ];
     glView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     [self.view insertSubview:glView atIndex:0];
+   
     [[CCDirector sharedDirector] setOpenGLView:glView];
-    
     CCScene *scene =  [SopasLayer sceneWithVC:self] ;
     [[CCDirector sharedDirector] runWithScene:scene];
+    //[[CCDirector sharedDirector] replaceScene:scene];
 }
 -(void) iniciarPlatos{
     platos_sopa = [[NSDictionary alloc] initWithObjectsAndKeys:sopa1, @(1), sopa2, @(2), sopa3, @(3), sopa4, @(4), sopa5, @(5), sopa6, @(6), sopa7, @(7), sopa8, @(8), sopa9, @(9), sopa10, @(10),  nil];

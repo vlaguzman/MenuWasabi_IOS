@@ -9,6 +9,10 @@
 #import "MenuViewController.h"
 #import "cocos2d.h"
 #import "CCActionInterval.h"
+#import "BrainMenu.h"
+
+#define tipoSushi 1
+#define tipoSopa 2
 
 @interface MenuViewController ()
 
@@ -149,14 +153,18 @@
     if (_rootViewController == nil) {
         self.rootViewController = [[[RootViewController alloc] initWithNibName:nil bundle:nil] autorelease];
     }
+ 
+    [[BrainMenu sharedInstance] setTipoPlatoActual:tipoSushi];
     [self.navigationController pushViewController:_rootViewController animated:YES];
 }
 - (void)layerSopas:(id)arg {
     [self moverBotones];
-    if (_sopasViewController == nil) {
-        self.sopasViewController = [[[SopasViewController alloc] initWithNibName:nil bundle:nil] autorelease];
+    if (_rootViewController == nil) {
+        self.rootViewController = [[[RootViewController alloc] initWithNibName:nil bundle:nil] autorelease];
     }
-    [self.navigationController pushViewController:_sopasViewController animated:YES];
+    [[BrainMenu sharedInstance] setTipoPlatoActual:tipoSopa];
+    [self.navigationController pushViewController:_rootViewController animated:YES];
+    
 }
 
 

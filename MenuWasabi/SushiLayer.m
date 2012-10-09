@@ -119,7 +119,7 @@ BOOL bool_swipe = YES;
         CCMenuItemImage *itemAux;
         menu = [[CCMenu alloc]init];
         for (int i = 1; i <= 39; i++) {
-            itemAux = [CCMenuItemImage itemWithNormalImage:[_rootViewController demeFuenteImagenPlatoPorId:@(i) conTipoPlato:tipoSushi] selectedImage:[_rootViewController demeFuenteImagenPlatoPorId:@(i) conTipoPlato:tipoSushi] target:self selector:@selector(onPushSceneTran:)];
+            itemAux = [CCMenuItemImage itemWithNormalImage:[_rootViewController demeFuenteImagenPlatoPorId:@(i)] selectedImage:[_rootViewController demeFuenteImagenPlatoPorId:@(i)] target:self selector:@selector(onPushSceneTran:)];
             //itemAux.userObject=@(i);
             itemAux.tag=i;
             [menu addChild:itemAux];
@@ -493,7 +493,7 @@ BOOL bool_swipe = YES;
     
     CCLabelTTF *precio_plato = [[CCLabelTTF alloc]initWithString:@"precio" fontName:@"Marker Felt" fontSize:18];
     
-    NSString *str_precio = [[NSString alloc]initWithFormat:@"$ %i", [_rootViewController demePrecioPlatoPorId:@(iactualPlate) conTipoPlato:tipoSushi]];
+    NSString *str_precio = [[NSString alloc]initWithFormat:@"$ %i", [_rootViewController demePrecioPlatoPorId:@(iactualPlate)]];
     CCLOG(@" Precio %@", str_precio);
     [precio_plato setString:str_precio];
     

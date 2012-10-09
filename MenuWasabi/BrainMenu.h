@@ -12,9 +12,10 @@
 @interface BrainMenu : NSObject
 {
     int totalCuenta;
+    int tipoPlatoActual;
 }
 
-@property int totalCuenta;
+@property int totalCuenta, tipoPlatoActual;
 
 + (BrainMenu*) sharedInstance;
 

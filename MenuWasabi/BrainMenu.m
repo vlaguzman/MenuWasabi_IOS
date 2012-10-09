@@ -17,6 +17,7 @@
 
 @synthesize platosAgregados = _platosAgregados;
 @synthesize totalCuenta = _totalCuenta;
+@synthesize tipoPlatoActual = _tipoPlatoActual;
 
 static BrainMenu *sharedBrainMenu = nil;
 

@@ -65,26 +65,31 @@ BOOL bool_swipe_sopas = YES;
 	return scene;
 }
 
-+(CCScene *) sceneWithVC:(SopasViewController *)sopasViewController
+//+(CCScene *) sceneWithVC:(SopasViewController *)sopasViewController
++(CCScene *) sceneWithVC:(RootViewController *)rootViewController
 {
 	// 'scene' is an autorelease object.
 	CCScene *scene = [CCScene node];
 	// 'layer' is an autorelease object.
     
     SopasLayer *layer = [[[SopasLayer alloc]
-                          initWithVC:sopasViewController] autorelease];
+                          initWithVC:rootViewController] autorelease];
+                          //initWithVC:sopasViewController] autorelease];
+    
 	// add layer as a child to scene
 	[scene addChild: layer];
 	// return the scene
 	return scene;
 }
 
--(id) initWithVC: (SopasViewController *) sopasViewController
+//-(id) initWithVC: (SopasViewController *) sopasViewController
+-(id) initWithVC: (RootViewController *) rootViewController
 {
     
     if( (self=[super init] )) {
         
-        _sopasViewController = sopasViewController;
+       // _sopasViewController = sopasViewController;
+        _rootViewController = rootViewController;
         
         CGSize winSize = [[CCDirector sharedDirector] winSize];
         self.isTouchEnabled = YES;
@@ -114,7 +119,7 @@ BOOL bool_swipe_sopas = YES;
         CCMenuItemImage *itemAux;
         menu = [[CCMenu alloc]init];
         for (int i = 1; i <= 10; i++) {
-            itemAux = [CCMenuItemImage itemWithNormalImage:[_sopasViewController demeFuenteImagenPlatoPorId:@(i)] selectedImage:[_sopasViewController demeFuenteImagenPlatoPorId:@(i)] target:self selector:@selector(onPushSceneTran:)];
+            itemAux = [CCMenuItemImage itemWithNormalImage:[_rootViewController demeFuenteImagenPlatoPorId:@(i)] selectedImage:[_rootViewController demeFuenteImagenPlatoPorId:@(i)] target:self selector:@selector(onPushSceneTran:)];
             //itemAux.userObject=@(i);
             itemAux.tag=i;
             [menu addChild:itemAux];
@@ -378,7 +383,7 @@ BOOL bool_swipe_sopas = YES;
 
 -(void) onAddPlate:(id) sender
 {
-    [_sopasViewController agregarPlato:@(iactualPlate)];
+    [_rootViewController agregarPlato:@(iactualPlate)];
     CCMenuItemImage *itemImg, *itemCerrar;
     CCMenuItemLabel *itemPrecio;
     
@@ -395,7 +400,7 @@ BOOL bool_swipe_sopas = YES;
     
     CCLabelTTF *precio_plato = [[CCLabelTTF alloc]initWithString:@"precio" fontName:@"Marker Felt" fontSize:18];
     
-    NSString *str_precio = [[NSString alloc]initWithFormat:@"$ %i", [_sopasViewController demePrecioPlatoPorId:@(iactualPlate)]];
+    NSString *str_precio = [[NSString alloc]initWithFormat:@"$ %i", [_rootViewController demePrecioPlatoPorId:@(iactualPlate)]];
     CCLOG(@" Precio %@", str_precio);
     [precio_plato setString:str_precio];
     
@@ -406,7 +411,7 @@ BOOL bool_swipe_sopas = YES;
     
     
     
-    NSString *str_total = [[NSString alloc]initWithFormat:@"$ %i", [_sopasViewController demeTotalCuenta]];
+    NSString *str_total = [[NSString alloc]initWithFormat:@"$ %i", [_rootViewController demeTotalCuenta]];
     [label_total setString:str_total];
     
 }
@@ -414,7 +419,7 @@ BOOL bool_swipe_sopas = YES;
 -(void) onDeletePlate:(id) sender
 {
     NSInteger _tag = [sender tag];
-    [_sopasViewController eliminarPlato:@([sender tag])];
+    [_rootViewController eliminarPlato:@([sender tag])];
     [menu_pedidos removeChildByTag:_tag cleanup:YES];
     [menu_precios removeChildByTag:_tag cleanup:YES];
     [menu_eliminar removeChild:sender cleanup:YES];
@@ -422,7 +427,7 @@ BOOL bool_swipe_sopas = YES;
     [menu_eliminar alignItemsHorizontally];
     [menu_precios alignItemsHorizontallyWithPadding:paddingPrices];
     
-    NSString *str_total = [[NSString alloc]initWithFormat:@"$ %i", [_sopasViewController demeTotalCuenta]];
+    NSString *str_total = [[NSString alloc]initWithFormat:@"$ %i", [_rootViewController demeTotalCuenta]];
     [label_total setString:str_total];
     
 }

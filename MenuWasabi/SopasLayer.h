@@ -9,10 +9,12 @@
 #import <Foundation/Foundation.h>
 #import <GameKit/GameKit.h>
 #import "cocos2d.h"
-#import "SopasViewController.h"
+//#import "SopasViewController.h"
+#import "RootViewController.h"
 
 @interface SopasLayer : CCLayer {
-    SopasViewController *_sopasViewController;
+    //SopasViewController *_sopasViewController;
+    RootViewController *_rootViewController;
     UISwipeGestureRecognizer * _swipeLeftRecognizer;
     UISwipeGestureRecognizer * _swipeRightRecognizer;
 }
@@ -20,6 +22,6 @@
 @property (nonatomic, strong) UISwipeGestureRecognizer * swipeRightRecognizer;
 
 +(CCScene *) scene;
-+(CCScene *) sceneWithVC:(SopasViewController *)sopasViewController;
-
+//+(CCScene *) sceneWithVC:(SopasViewController *)sopasViewController;
++(CCScene *) sceneWithVC:(RootViewController *)rootViewController;
 @end
