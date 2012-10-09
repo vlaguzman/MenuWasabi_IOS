@@ -21,7 +21,7 @@
 @implementation MenuViewController
 
 @synthesize rootViewController = _rootViewController;
-@synthesize sopasViewController = _sopasViewController;
+
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -37,7 +37,6 @@
 {
     [super viewDidLoad];
     [self moverBotones];
-    
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -171,8 +170,6 @@
 - (void)dealloc {
     [_rootViewController release];
     _rootViewController = nil;
-    [_sopasViewController release];
-    _sopasViewController = nil;
     [btn_sushi release];
     [btn_centro release];
     [btn_wok release];

@@ -628,8 +628,6 @@ CCScene *scene;
     
 }
 
-
-
 -(NSString *)demeNombrePlatoPorId:(id)_id{
     
     Plato *plato_return;

@@ -220,6 +220,8 @@ BOOL bool_swipe = YES;
         _swipeRightRecognizer.direction=UISwipeGestureRecognizerDirectionLeft;
         [[[CCDirector sharedDirector] openGLView] addGestureRecognizer:_swipeRightRecognizer];
         [self.swipeRightRecognizer release];
+        
+        [self updateTotalCount];
     }
     
     return self;
@@ -501,12 +503,12 @@ BOOL bool_swipe = YES;
     itemPrecio.tag = iactualPlate;
     [menu_precios addChild:itemPrecio];
     [menu_precios alignItemsHorizontallyWithPadding:paddingPrices];
-    
+    [self updateTotalCount];
+}
 
-    
+-(void) updateTotalCount{
     NSString *str_total = [[NSString alloc]initWithFormat:@"$ %i", [_rootViewController demeTotalCuenta]];
     [label_total setString:str_total];
-    
 }
 
 -(void) onDeletePlate:(id) sender

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "RootViewController.h"
-#import "SopasViewController.h"
+
 @interface MenuViewController : UIViewController
 {
     
@@ -26,12 +26,12 @@
     IBOutlet UIButton *fondo_btn;
    
     RootViewController *_rootViewController;
-    SopasViewController *_sopasViewController;
+   
 }
 
 
 @property (retain) RootViewController *rootViewController;
-@property (retain) SopasViewController *sopasViewController;
+
 
 - (IBAction)viewTapped:(id)sender;
 - (IBAction)viewSopas:(id)sender;

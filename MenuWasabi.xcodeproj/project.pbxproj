@@ -153,8 +153,6 @@
 		C1E968AD16149C1F006E58F3 /* plato_pequeno.png in Resources */ = {isa = PBXBuildFile; fileRef = C1E968A516149C1F006E58F3 /* plato_pequeno.png */; };
 		C1E968AE16149C1F006E58F3 /* plato_pequeno2.png in Resources */ = {isa = PBXBuildFile; fileRef = C1E968A616149C1F006E58F3 /* plato_pequeno2.png */; };
 		C1E968FC1614AEC4006E58F3 /* SopasLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C1E968FB1614AEC4006E58F3 /* SopasLayer.m */; };
-		C1E969001614B0FE006E58F3 /* SopasViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1E968FE1614B0FD006E58F3 /* SopasViewController.m */; };
-		C1E969011614B0FE006E58F3 /* SopasViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1E968FF1614B0FE006E58F3 /* SopasViewController.xib */; };
 		C1E969091614E97B006E58F3 /* btn_principal2.png in Resources */ = {isa = PBXBuildFile; fileRef = C1E969081614E97A006E58F3 /* btn_principal2.png */; };
 		C1E9690B1614EB88006E58F3 /* fondo_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = C1E9690A1614EB87006E58F3 /* fondo_btn.png */; };
 		C1E9690D1614EEE4006E58F3 /* btn_principal.png in Resources */ = {isa = PBXBuildFile; fileRef = C1E9690C1614EEE3006E58F3 /* btn_principal.png */; };
@@ -509,9 +507,6 @@
 		C1E968A616149C1F006E58F3 /* plato_pequeno2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plato_pequeno2.png; sourceTree = "<group>"; };
 		C1E968FA1614AEC4006E58F3 /* SopasLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SopasLayer.h; sourceTree = "<group>"; };
 		C1E968FB1614AEC4006E58F3 /* SopasLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SopasLayer.m; sourceTree = "<group>"; };
-		C1E968FD1614B0FD006E58F3 /* SopasViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SopasViewController.h; sourceTree = "<group>"; };
-		C1E968FE1614B0FD006E58F3 /* SopasViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SopasViewController.m; sourceTree = "<group>"; };
-		C1E968FF1614B0FE006E58F3 /* SopasViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SopasViewController.xib; sourceTree = "<group>"; };
 		C1E969081614E97A006E58F3 /* btn_principal2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_principal2.png; sourceTree = "<group>"; };
 		C1E9690A1614EB87006E58F3 /* fondo_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fondo_btn.png; sourceTree = "<group>"; };
 		C1E9690C1614EEE3006E58F3 /* btn_principal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_principal.png; sourceTree = "<group>"; };
@@ -655,17 +650,14 @@
 				C1EFBF88160D08010005ECF1 /* RootViewController.h */,
 				C1EFBF89160D08010005ECF1 /* RootViewController.m */,
 				C1559D0A1611F311007512AA /* RootViewController.xib */,
-				C1E968FD1614B0FD006E58F3 /* SopasViewController.h */,
-				C1E968FE1614B0FD006E58F3 /* SopasViewController.m */,
-				C1E968FF1614B0FE006E58F3 /* SopasViewController.xib */,
 				C1EFBF66160CC4700005ECF1 /* SushiLayer.h */,
 				C1EFBF67160CC4700005ECF1 /* SushiLayer.m */,
+				C1E968FA1614AEC4006E58F3 /* SopasLayer.h */,
+				C1E968FB1614AEC4006E58F3 /* SopasLayer.m */,
 				C1D3B699161A3D7E00542A4C /* Plato.h */,
 				C1D3B69A161A3D7F00542A4C /* Plato.m */,
 				C11339BA161B4DFC003F2D4E /* BrainMenu.h */,
 				C11339BB161B4DFC003F2D4E /* BrainMenu.m */,
-				C1E968FA1614AEC4006E58F3 /* SopasLayer.h */,
-				C1E968FB1614AEC4006E58F3 /* SopasLayer.m */,
 				C10A67B9160CBBF400489A45 /* HelloWorldLayer.h */,
 				C10A67BA160CBBF400489A45 /* HelloWorldLayer.m */,
 				C10A67BC160CBBF400489A45 /* IntroLayer.h */,
@@ -1231,7 +1223,6 @@
 				C1E968AC16149C1F006E58F3 /* plato_grande3.png in Resources */,
 				C1E968AD16149C1F006E58F3 /* plato_pequeno.png in Resources */,
 				C1E968AE16149C1F006E58F3 /* plato_pequeno2.png in Resources */,
-				C1E969011614B0FE006E58F3 /* SopasViewController.xib in Resources */,
 				C1E969091614E97B006E58F3 /* btn_principal2.png in Resources */,
 				C1E9690B1614EB88006E58F3 /* fondo_btn.png in Resources */,
 				C1E9690D1614EEE4006E58F3 /* btn_principal.png in Resources */,
@@ -1400,7 +1391,6 @@
 				C1EFBF8A160D08010005ECF1 /* RootViewController.m in Sources */,
 				C1EFBF98160D11780005ECF1 /* MenuViewController.m in Sources */,
 				C1E968FC1614AEC4006E58F3 /* SopasLayer.m in Sources */,
-				C1E969001614B0FE006E58F3 /* SopasViewController.m in Sources */,
 				C1D3B69B161A3D8000542A4C /* Plato.m in Sources */,
 				C11339BC161B4DFC003F2D4E /* BrainMenu.m in Sources */,
 			);
