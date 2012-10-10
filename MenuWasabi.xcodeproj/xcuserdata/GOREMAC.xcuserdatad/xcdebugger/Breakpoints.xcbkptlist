@@ -8,11 +8,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "MenuWasabi/RootViewController.m"
-         timestampString = "371514924.632651"
+         timestampString = "371602387.05659"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "613"
-         endingLineNumber = "613"
+         startingLineNumber = "785"
+         endingLineNumber = "785"
          landmarkName = "-demeNombrePlatoPorId:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -53,6 +53,19 @@
          startingLineNumber = "39"
          endingLineNumber = "39"
          landmarkName = "-setupCocos2D"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "MenuWasabi/SushiLayer.m"
+         timestampString = "371595874.726677"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "196"
+         endingLineNumber = "196"
+         landmarkName = "-initWithVC:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

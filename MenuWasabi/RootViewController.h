@@ -17,6 +17,7 @@
 - (IBAction)menuTapped:(id)sender;
 - (NSString *)demeNombrePlatoPorId:(id)_id;
 - (NSString *)demeFuenteImagenPlatoPorId:(id)_id;
+- (NSString *)demeFuenteImagenGrandePlatoPorId:(id)_id;
 - (int)demePrecioPlatoPorId:(id)_id;
 - (int)demeTotalCuenta;
 - (void)agregarPlato:(id)_id;

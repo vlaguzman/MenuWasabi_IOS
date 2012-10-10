@@ -24,6 +24,9 @@
 #define tFast     0.5
 #define espacio 120
 #define posInicial 100
+#define posicionInicialMenuVertical -9600
+#define paddingPlatesMenu 526
+#define paddingDescriptionPlatesMenu 500
 //Padding asignado a los labels que contienen los precios
 #define paddingPrices 30
 //Cada tipo de plato tiene un identificador para efecto de carag de imagenes
@@ -45,7 +48,7 @@ CGFloat finalX;
 CGFloat finalY;
 CGFloat animationDuration;
 
-CCMenu *menu, *menu2, *menu_atras, *menu_agregar, *menu_barra, *menu_pedidos, *menu_eliminar;
+CCMenu *menu, *menu2, *menu_atras, *menu_agregar, *menu_barra, *menu_pedidos, *menu_eliminar, *menu_platosgrandes, *menu_detalles;
 CCMenu *menu_precios;
 CGSize winSize;
 
@@ -120,12 +123,11 @@ BOOL bool_swipe = YES;
         menu = [[CCMenu alloc]init];
         for (int i = 1; i <= 39; i++) {
             itemAux = [CCMenuItemImage itemWithNormalImage:[_rootViewController demeFuenteImagenPlatoPorId:@(i)] selectedImage:[_rootViewController demeFuenteImagenPlatoPorId:@(i)] target:self selector:@selector(onPushSceneTran:)];
-            //itemAux.userObject=@(i);
+            
             itemAux.tag=i;
             [menu addChild:itemAux];
             
         }
-        
         [menu alignItemsHorizontallyWithPadding:espacio];
 		[self addChild: menu];
         
@@ -135,23 +137,45 @@ BOOL bool_swipe = YES;
             itemAux = [CCMenuItemImage itemWithNormalImage:@"nombres.png" selectedImage:@"nombres.png" target:self selector:@selector(onPushSceneTran:)];
             [menu2 addChild:itemAux];
         }
-            
         menu2.position = CGPointMake(500, 550);
 		[menu2 alignItemsHorizontallyWithPadding:90];
 		[self addChild: menu2];
         
+        //Se genera un menu para las imagenes de los platos grandes
+        menu_platosgrandes = [[CCMenu alloc]init];
+        for(int i = 1; i<=39; i++){
+            itemAux =  [CCMenuItemImage itemWithNormalImage:[_rootViewController demeFuenteImagenGrandePlatoPorId:@(i)] selectedImage:[_rootViewController demeFuenteImagenGrandePlatoPorId:@(i)] target:self selector:@selector(onPushSceneTran:)];
+            [menu_platosgrandes addChild:itemAux];
+        }
+        menu_platosgrandes.position = CGPointMake(1200, posicionInicialMenuVertical);
+        [menu_platosgrandes alignItemsVerticallyWithPadding:200];
+        [self addChild:menu_platosgrandes];
         
-        //Imagen del plato grande oculta
-        plato_grande1 = [CCSprite spriteWithFile:@"plato_grande3.png" rect:CGRectMake(0, 0, 357, 275)];
-        plato_grande1.position = ccp(-200, winSize.height/2);
+        //Se genera un menú para las descripciones de los platos grandes
+        menu_detalles = [[CCMenu alloc]init];
+        for(int i = 1; i<=39; i++){
+            itemAux =  [CCMenuItemImage itemWithNormalImage:@"plato_descripcion.png" selectedImage:@"plato_descripcion.png" target:self selector:@selector(onPushSceneTran:)];
+            [menu_detalles addChild:itemAux];
+        }
         
-        [self addChild:plato_grande1];
+        menu_detalles.position = CGPointMake(-200, winSize.height/2);
+        [menu_detalles alignItemsVerticallyWithPadding:paddingDescriptionPlatesMenu];
+        [self addChild:menu_detalles];
         
-        //Descripción del plato grande oculta
-        descripcion = [CCSprite spriteWithFile:@"plato_descripcion.png" rect:CGRectMake(0, 0, 204, 115)];
-        descripcion.position = ccp(300, winSize.height+100);
+        /*
+            //Imagen del plato grande oculta
+            plato_grande1 = [CCSprite spriteWithFile:@"plato_grande3.png" rect:CGRectMake(0, 0, 357, 275)];
+            plato_grande1.position = ccp(-200, winSize.height/2);
         
-        [self addChild:descripcion];
+            [self addChild:plato_grande1];
+        
+            //Descripción del plato grande oculta
+            descripcion = [CCSprite spriteWithFile:@"plato_descripcion.png" rect:CGRectMake(0, 0, 204, 115)];
+            descripcion.position = ccp(300, winSize.height+100);
+        
+            [self addChild:descripcion];
+        */
+        
         
         CCMenuItemImage *item_atras = [CCMenuItemImage itemWithNormalImage:@"btn_regresar.png" selectedImage:@"btn_regresar.png" target:self selector:@selector(onGoBack:)];
         
@@ -169,6 +193,8 @@ BOOL bool_swipe = YES;
         [menu_agregar alignItemsVertically];
         [self addChild:menu_agregar];
         
+       // [item_agregar setDisabledImage:@"p.png"];
+       // item_agregar.opacity = [GLubyte alloc];
         
         CCMenuItemImage *item_barra = [CCMenuItemImage itemWithNormalImage:@"barra_agregar.png" selectedImage:@"barra_agregar.png" target:self selector:@selector(onUpDown:)];
         
@@ -222,6 +248,7 @@ BOOL bool_swipe = YES;
         [self.swipeRightRecognizer release];
         
         [self updateTotalBill];
+        [self loadMenuResume];
     }
     
     return self;
@@ -413,7 +440,7 @@ BOOL bool_swipe = YES;
 
 -(void) onPushSceneTran: (CCMenuItemImage *) sender
 {
-    CCLOG(@" TITLE %@", [sender userObject]);
+    CCLOG(@" onPushSceneTran Tag sender: %i", [sender tag]);
     iactualPlate = [sender tag];
     [self desaparecerMenus];
     [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(aparecerElementos:) userInfo:nil repeats:NO];
@@ -437,16 +464,23 @@ BOOL bool_swipe = YES;
 
 -(void)aparecerElementos:(id)arg{
     winSize = [[CCDirector sharedDirector] winSize];
-    [self moveSprite: plato_grande1 with_pox:winSize.width/2 with_posy:winSize.height/2 withTimeTransition:1.0];
-    [self moveSprite: descripcion with_pox:300 with_posy:500 withTimeTransition:1.0];
+    
+    //[self moveSprite: plato_grande1 with_pox:winSize.width/2 with_posy:winSize.height/2 withTimeTransition:1.0];
+    //[self moveSprite: descripcion with_pox:300 with_posy:500 withTimeTransition:1.0];
+    CCLOG(@"POSICION Y y %f %i", menu_platosgrandes.position.y, iactualPlate);
+    [menu_platosgrandes setPosition:ccp(menu_platosgrandes.position.x, posicionInicialMenuVertical+(paddingPlatesMenu*(iactualPlate-1)))];
+    
+    [self delplazarMenu_withMenu:menu_platosgrandes withXpox:winSize.width/2 withYpos:menu_platosgrandes.position.y withTimeTransition:1.0];
+    [self delplazarMenu_withMenu:menu_detalles withXpox:300 withYpos:500 withTimeTransition:1.0];
     [self delplazarMenu_withMenu:menu_atras withXpox:940 withYpos:740 withTimeTransition:1.0];
     [self delplazarMenu_withMenu:menu_agregar withXpox:640 withYpos:350 withTimeTransition:1.0];
 }
 
 -(void)desaparecerElementos{
     winSize = [[CCDirector sharedDirector] winSize];
-    [self moveSprite: plato_grande1 with_pox:-200 with_posy:winSize.height/2 withTimeTransition:1.0];
-    [self moveSprite: descripcion with_pox:300 with_posy:winSize.height+100 withTimeTransition:1.0];
+    
+    [self delplazarMenu_withMenu:menu_platosgrandes withXpox:1200 withYpos:menu_platosgrandes.position.y withTimeTransition:1.0];
+    [self delplazarMenu_withMenu:menu_detalles withXpox:-200 withYpos:500 withTimeTransition:1.0];
     [self delplazarMenu_withMenu:menu_atras withXpox:940 withYpos:winSize.height+100 withTimeTransition:1.0];
     [self delplazarMenu_withMenu:menu_agregar withXpox:640 withYpos:winSize.height+100 withTimeTransition:1.0];
 
@@ -474,36 +508,61 @@ BOOL bool_swipe = YES;
     
 }
 
-
 -(void) onAddPlate:(id) sender
 {
     [_rootViewController agregarPlato:@(iactualPlate)];
+    [self loadPlateWithIdPlate:iactualPlate withSourceImg:@"btn_sushi.png" withSourceClose:@"btn_cerrar.png" withPrice:[_rootViewController demePrecioPlatoPorId:@(iactualPlate)]];
+    [self updateTotalBill];
+}
+
+
+
+-(void) loadMenuResume{
+    Plato *platoTemp = [[Plato alloc]init];
+    int cantidadPlatos = [_rootViewController demeNumeroPlatosEnOrden];
+    for (int n=0; n<cantidadPlatos; n++) {
+        platoTemp = [_rootViewController demeDatosPlatoEnUbicacion:n];
+        [self loadPlateWithIdPlate:platoTemp.id_plato withSourceImg:platoTemp.fuente_img_peq withSourceClose:@"btn_cerrar.png" withPrice:platoTemp.precio];
+    }
+}
+
+-(void)loadPlateWithIdPlate:(int) _idPlate withSourceImg:(NSString *) _sourceImg withSourceClose:(NSString *) _sourceImgClose withPrice:(int) _price{
     CCMenuItemImage *itemImg, *itemCerrar;
     CCMenuItemLabel *itemPrecio;
     
-    
-    itemImg = [CCMenuItemImage itemWithNormalImage:@"btn_sushi.png" selectedImage:@"btn_sushi.png" target:nil selector:nil];
-    itemImg.tag = iactualPlate;
+    //Creo una imagen para agregar al menu
+    itemImg = [CCMenuItemImage itemWithNormalImage:_sourceImg selectedImage:_sourceImg target:nil selector:nil];
+    //asigno el id del plato actual en caso de necesitar eliminarlo
+    CCLOG(@" loadPlateWithIdPlate _idPlate: %i", _idPlate);
+    // NSInteger num = [datosPlato objectAtIndex:0];
+    itemImg.tag = _idPlate;
+    //agrego la iamgen al menu de imagenes y organizo el menu
     [menu_pedidos addChild:itemImg];
     [menu_pedidos alignItemsHorizontally];
     
-    itemCerrar = [CCMenuItemImage itemWithNormalImage:@"btn_cerrar.png" selectedImage:@"btn_cerrar.png" target:self selector:@selector(onDeletePlate:)];
-    itemCerrar.tag = iactualPlate;
+    //Creo una imagen para el btn cerrar
+    itemCerrar = [CCMenuItemImage itemWithNormalImage:_sourceImgClose selectedImage:_sourceImgClose target:self selector:@selector(onDeletePlate:)];
+    //asigno el mismo id que el de la imagen para cuando sea necesario eliminar la imagen
+    itemCerrar.tag = _idPlate;
+    //agrego la imagen a un menu que contiene los botones cerrar y lo organizo
     [menu_eliminar addChild:itemCerrar];
     [menu_eliminar alignItemsHorizontally];
     
+    //Creo un label para mostrar el valor del plato
     CCLabelTTF *precio_plato = [[CCLabelTTF alloc]initWithString:@"precio" fontName:@"Marker Felt" fontSize:18];
     
-    NSString *str_precio = [[NSString alloc]initWithFormat:@"$ %i", [_rootViewController demePrecioPlatoPorId:@(iactualPlate)]];
+    //rtaigo el precio del plato actual
+    NSString *str_precio = [[NSString alloc]initWithFormat:@"$ %i", _price];
     CCLOG(@" Precio %@", str_precio);
+    //agrego el precio al label creado
     [precio_plato setString:str_precio];
-    
+    //agrego el label a un menu y le asigno el mismo id que las imagenes anteriores
     itemPrecio = [CCMenuItemLabel itemWithLabel:precio_plato];
-    itemPrecio.tag = iactualPlate;
+    itemPrecio.tag = _idPlate;
     [menu_precios addChild:itemPrecio];
     [menu_precios alignItemsHorizontallyWithPadding:paddingPrices];
-    [self updateTotalBill];
 }
+
 
 -(void) updateTotalBill{
     NSString *str_total = [[NSString alloc]initWithFormat:@"$ %i", [_rootViewController demeTotalCuenta]];

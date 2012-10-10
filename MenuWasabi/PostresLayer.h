@@ -1,8 +1,8 @@
 //
-//  SopasLayer.h
+//  PostresLayer.h
 //  MenuWasabi
 //
-//  Created by GIOVANNI LOPEZ on 27/09/12.
+//  Created by GIOVANNI LOPEZ on 10/10/12.
 //  Copyright 2012 __MyCompanyName__. All rights reserved.
 //
 
@@ -11,8 +11,7 @@
 #import "cocos2d.h"
 #import "RootViewController.h"
 
-@interface SopasLayer : CCLayer {
-
+@interface PostresLayer : CCNode {
     RootViewController *_rootViewController;
     UISwipeGestureRecognizer * _swipeLeftRecognizer;
     UISwipeGestureRecognizer * _swipeRightRecognizer;

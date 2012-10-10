@@ -10,13 +10,13 @@
 
 @interface Plato : NSObject
 {
-    NSString *nombre, *fuente_img;
+    NSString *nombre, *fuente_img, *fuente_img_grande, *fuente_img_peq;
     int id_plato, precio, tipo;
     BOOL pedido;
 }
 
 @property int id_plato, precio, tipo;
 @property BOOL pedido;
-@property (nonatomic, strong) NSString *nombre, *fuente_img;
+@property (nonatomic, strong) NSString *nombre, *fuente_img, *fuente_img_grande, *fuente_img_peq;
 
 @end

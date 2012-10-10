@@ -387,15 +387,11 @@ BOOL bool_swipe_sopas = YES;
 -(void) onAddPlate:(id) sender
 {
     [_rootViewController agregarPlato:@(iactualPlate)];
-    [self addOnMenu];
+    [self loadPlateWithIdPlate:iactualPlate withSourceImg:@"btn_sushi.png" withSourceClose:@"btn_cerrar.png" withPrice:[_rootViewController demePrecioPlatoPorId:@(iactualPlate)]];
     [self updateTotalBill];
 }
 
--(void) addOnMenu{
 
-    [self loadPlateWithIdPlate:iactualPlate withSourceImg:@"btn_sushi.png" withSourceClose:@"btn_cerrar.png" withPrice:[_rootViewController demePrecioPlatoPorId:@(iactualPlate)]];
-
-}
 
 -(void) loadMenuResume{
     Plato *platoTemp = [[Plato alloc]init];

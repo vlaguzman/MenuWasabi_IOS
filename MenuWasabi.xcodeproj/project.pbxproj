@@ -139,6 +139,18 @@
 		C12E6CFA1610CE17009BB015 /* fondo4.png in Resources */ = {isa = PBXBuildFile; fileRef = C12E6CF91610CE17009BB015 /* fondo4.png */; };
 		C12E6D011610D2FE009BB015 /* fondo5.png in Resources */ = {isa = PBXBuildFile; fileRef = C12E6D001610D2FE009BB015 /* fondo5.png */; };
 		C1559D0B1611F311007512AA /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1559D0A1611F311007512AA /* RootViewController.xib */; };
+		C155EDE4162620E000421599 /* PostresLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C155EDE3162620E000421599 /* PostresLayer.m */; };
+		C155EDE91626230500421599 /* sopa_chiraschi-sushi.png in Resources */ = {isa = PBXBuildFile; fileRef = C155EDE81626230500421599 /* sopa_chiraschi-sushi.png */; };
+		C155EDEB1626231000421599 /* sopa_chiraschi-sushi_p.png in Resources */ = {isa = PBXBuildFile; fileRef = C155EDEA1626231000421599 /* sopa_chiraschi-sushi_p.png */; };
+		C155EDF51626239000421599 /* entrada_eby-crispy.png in Resources */ = {isa = PBXBuildFile; fileRef = C155EDED1626239000421599 /* entrada_eby-crispy.png */; };
+		C155EDF61626239000421599 /* entrada_kany-kamma-ball.png in Resources */ = {isa = PBXBuildFile; fileRef = C155EDEE1626239000421599 /* entrada_kany-kamma-ball.png */; };
+		C155EDF71626239000421599 /* entrada_niguiri-salmon.png in Resources */ = {isa = PBXBuildFile; fileRef = C155EDEF1626239000421599 /* entrada_niguiri-salmon.png */; };
+		C155EDF81626239000421599 /* entrada_oriental_taste.png in Resources */ = {isa = PBXBuildFile; fileRef = C155EDF01626239000421599 /* entrada_oriental_taste.png */; };
+		C155EDF91626239000421599 /* entrada_sashimi.png in Resources */ = {isa = PBXBuildFile; fileRef = C155EDF11626239000421599 /* entrada_sashimi.png */; };
+		C155EDFA1626239000421599 /* entrada_sea-mix-open.png in Resources */ = {isa = PBXBuildFile; fileRef = C155EDF21626239000421599 /* entrada_sea-mix-open.png */; };
+		C155EDFB1626239000421599 /* entrada_summer-rolls.png in Resources */ = {isa = PBXBuildFile; fileRef = C155EDF31626239000421599 /* entrada_summer-rolls.png */; };
+		C155EDFC1626239000421599 /* entrada_tacos-thai.png in Resources */ = {isa = PBXBuildFile; fileRef = C155EDF41626239000421599 /* entrada_tacos-thai.png */; };
+		C155EE001626325B00421599 /* EntradasLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C155EDFF1626325B00421599 /* EntradasLayer.m */; };
 		C1D3B69B161A3D8000542A4C /* Plato.m in Sources */ = {isa = PBXBuildFile; fileRef = C1D3B69A161A3D7F00542A4C /* Plato.m */; };
 		C1E87519161CEAFB0020486A /* barra_agregar.png in Resources */ = {isa = PBXBuildFile; fileRef = C1E87517161CEAFB0020486A /* barra_agregar.png */; };
 		C1E8751A161CEAFB0020486A /* btn_agregar.png in Resources */ = {isa = PBXBuildFile; fileRef = C1E87518161CEAFB0020486A /* btn_agregar.png */; };
@@ -491,6 +503,20 @@
 		C12E6CF91610CE17009BB015 /* fondo4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fondo4.png; sourceTree = "<group>"; };
 		C12E6D001610D2FE009BB015 /* fondo5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fondo5.png; sourceTree = "<group>"; };
 		C1559D0A1611F311007512AA /* RootViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RootViewController.xib; sourceTree = "<group>"; };
+		C155EDE2162620E000421599 /* PostresLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostresLayer.h; sourceTree = "<group>"; };
+		C155EDE3162620E000421599 /* PostresLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostresLayer.m; sourceTree = "<group>"; };
+		C155EDE81626230500421599 /* sopa_chiraschi-sushi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sopa_chiraschi-sushi.png"; sourceTree = "<group>"; };
+		C155EDEA1626231000421599 /* sopa_chiraschi-sushi_p.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sopa_chiraschi-sushi_p.png"; sourceTree = "<group>"; };
+		C155EDED1626239000421599 /* entrada_eby-crispy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "entrada_eby-crispy.png"; sourceTree = "<group>"; };
+		C155EDEE1626239000421599 /* entrada_kany-kamma-ball.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "entrada_kany-kamma-ball.png"; sourceTree = "<group>"; };
+		C155EDEF1626239000421599 /* entrada_niguiri-salmon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "entrada_niguiri-salmon.png"; sourceTree = "<group>"; };
+		C155EDF01626239000421599 /* entrada_oriental_taste.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = entrada_oriental_taste.png; sourceTree = "<group>"; };
+		C155EDF11626239000421599 /* entrada_sashimi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = entrada_sashimi.png; sourceTree = "<group>"; };
+		C155EDF21626239000421599 /* entrada_sea-mix-open.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "entrada_sea-mix-open.png"; sourceTree = "<group>"; };
+		C155EDF31626239000421599 /* entrada_summer-rolls.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "entrada_summer-rolls.png"; sourceTree = "<group>"; };
+		C155EDF41626239000421599 /* entrada_tacos-thai.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "entrada_tacos-thai.png"; sourceTree = "<group>"; };
+		C155EDFE1626325B00421599 /* EntradasLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntradasLayer.h; sourceTree = "<group>"; };
+		C155EDFF1626325B00421599 /* EntradasLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntradasLayer.m; sourceTree = "<group>"; };
 		C1D3B699161A3D7E00542A4C /* Plato.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Plato.h; sourceTree = "<group>"; };
 		C1D3B69A161A3D7F00542A4C /* Plato.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Plato.m; sourceTree = "<group>"; };
 		C1E87517161CEAFB0020486A /* barra_agregar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = barra_agregar.png; sourceTree = "<group>"; };
@@ -654,6 +680,10 @@
 				C1EFBF67160CC4700005ECF1 /* SushiLayer.m */,
 				C1E968FA1614AEC4006E58F3 /* SopasLayer.h */,
 				C1E968FB1614AEC4006E58F3 /* SopasLayer.m */,
+				C155EDE2162620E000421599 /* PostresLayer.h */,
+				C155EDE3162620E000421599 /* PostresLayer.m */,
+				C155EDFE1626325B00421599 /* EntradasLayer.h */,
+				C155EDFF1626325B00421599 /* EntradasLayer.m */,
 				C1D3B699161A3D7E00542A4C /* Plato.h */,
 				C1D3B69A161A3D7F00542A4C /* Plato.m */,
 				C11339BA161B4DFC003F2D4E /* BrainMenu.h */,
@@ -1034,6 +1064,38 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		C155EDE6162622A600421599 /* Sopas */ = {
+			isa = PBXGroup;
+			children = (
+				C155EDE81626230500421599 /* sopa_chiraschi-sushi.png */,
+				C155EDE7162622E600421599 /* pequenas */,
+			);
+			name = Sopas;
+			sourceTree = "<group>";
+		};
+		C155EDE7162622E600421599 /* pequenas */ = {
+			isa = PBXGroup;
+			children = (
+				C155EDEA1626231000421599 /* sopa_chiraschi-sushi_p.png */,
+			);
+			name = pequenas;
+			sourceTree = "<group>";
+		};
+		C155EDEC1626236800421599 /* Entradas */ = {
+			isa = PBXGroup;
+			children = (
+				C155EDED1626239000421599 /* entrada_eby-crispy.png */,
+				C155EDEE1626239000421599 /* entrada_kany-kamma-ball.png */,
+				C155EDEF1626239000421599 /* entrada_niguiri-salmon.png */,
+				C155EDF01626239000421599 /* entrada_oriental_taste.png */,
+				C155EDF11626239000421599 /* entrada_sashimi.png */,
+				C155EDF21626239000421599 /* entrada_sea-mix-open.png */,
+				C155EDF31626239000421599 /* entrada_summer-rolls.png */,
+				C155EDF41626239000421599 /* entrada_tacos-thai.png */,
+			);
+			name = Entradas;
+			sourceTree = "<group>";
+		};
 		C1EC4325161E420D0061DD45 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -1092,6 +1154,8 @@
 		C1EFBF9A160D139E0005ECF1 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				C155EDEC1626236800421599 /* Entradas */,
+				C155EDE6162622A600421599 /* Sopas */,
 				C1EF08A2161510C700BA0421 /* Sushi */,
 				C1E87517161CEAFB0020486A /* barra_agregar.png */,
 				C1E87518161CEAFB0020486A /* btn_agregar.png */,
@@ -1272,6 +1336,16 @@
 				C1E8751A161CEAFB0020486A /* btn_agregar.png in Resources */,
 				C1E876C4161CF5200020486A /* Default-Landscape~ipad.png in Resources */,
 				C1E876C6161CF5B40020486A /* Default-Landscape~ipad.png in Resources */,
+				C155EDE91626230500421599 /* sopa_chiraschi-sushi.png in Resources */,
+				C155EDEB1626231000421599 /* sopa_chiraschi-sushi_p.png in Resources */,
+				C155EDF51626239000421599 /* entrada_eby-crispy.png in Resources */,
+				C155EDF61626239000421599 /* entrada_kany-kamma-ball.png in Resources */,
+				C155EDF71626239000421599 /* entrada_niguiri-salmon.png in Resources */,
+				C155EDF81626239000421599 /* entrada_oriental_taste.png in Resources */,
+				C155EDF91626239000421599 /* entrada_sashimi.png in Resources */,
+				C155EDFA1626239000421599 /* entrada_sea-mix-open.png in Resources */,
+				C155EDFB1626239000421599 /* entrada_summer-rolls.png in Resources */,
+				C155EDFC1626239000421599 /* entrada_tacos-thai.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1393,6 +1467,8 @@
 				C1E968FC1614AEC4006E58F3 /* SopasLayer.m in Sources */,
 				C1D3B69B161A3D8000542A4C /* Plato.m in Sources */,
 				C11339BC161B4DFC003F2D4E /* BrainMenu.m in Sources */,
+				C155EDE4162620E000421599 /* PostresLayer.m in Sources */,
+				C155EE001626325B00421599 /* EntradasLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
