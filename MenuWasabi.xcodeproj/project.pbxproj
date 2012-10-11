@@ -151,8 +151,9 @@
 		C155EDFB1626239000421599 /* entrada_summer-rolls.png in Resources */ = {isa = PBXBuildFile; fileRef = C155EDF31626239000421599 /* entrada_summer-rolls.png */; };
 		C155EDFC1626239000421599 /* entrada_tacos-thai.png in Resources */ = {isa = PBXBuildFile; fileRef = C155EDF41626239000421599 /* entrada_tacos-thai.png */; };
 		C155EE001626325B00421599 /* EntradasLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C155EDFF1626325B00421599 /* EntradasLayer.m */; };
+		C155EE0216265A1D00421599 /* barra_agregar.png in Resources */ = {isa = PBXBuildFile; fileRef = C155EE0116265A1B00421599 /* barra_agregar.png */; };
 		C1D3B69B161A3D8000542A4C /* Plato.m in Sources */ = {isa = PBXBuildFile; fileRef = C1D3B69A161A3D7F00542A4C /* Plato.m */; };
-		C1E87519161CEAFB0020486A /* barra_agregar.png in Resources */ = {isa = PBXBuildFile; fileRef = C1E87517161CEAFB0020486A /* barra_agregar.png */; };
+		C1E87519161CEAFB0020486A /* barra_agregar_.png in Resources */ = {isa = PBXBuildFile; fileRef = C1E87517161CEAFB0020486A /* barra_agregar_.png */; };
 		C1E8751A161CEAFB0020486A /* btn_agregar.png in Resources */ = {isa = PBXBuildFile; fileRef = C1E87518161CEAFB0020486A /* btn_agregar.png */; };
 		C1E876C4161CF5200020486A /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = C1E876C3161CF5200020486A /* Default-Landscape~ipad.png */; };
 		C1E876C6161CF5B40020486A /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = C1E876C5161CF5B40020486A /* Default-Landscape~ipad.png */; };
@@ -517,9 +518,10 @@
 		C155EDF41626239000421599 /* entrada_tacos-thai.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "entrada_tacos-thai.png"; sourceTree = "<group>"; };
 		C155EDFE1626325B00421599 /* EntradasLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntradasLayer.h; sourceTree = "<group>"; };
 		C155EDFF1626325B00421599 /* EntradasLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntradasLayer.m; sourceTree = "<group>"; };
+		C155EE0116265A1B00421599 /* barra_agregar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = barra_agregar.png; path = ../../../Wasabi/wasabiFinal/app/corte/barra_agregar.png; sourceTree = "<group>"; };
 		C1D3B699161A3D7E00542A4C /* Plato.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Plato.h; sourceTree = "<group>"; };
 		C1D3B69A161A3D7F00542A4C /* Plato.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Plato.m; sourceTree = "<group>"; };
-		C1E87517161CEAFB0020486A /* barra_agregar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = barra_agregar.png; sourceTree = "<group>"; };
+		C1E87517161CEAFB0020486A /* barra_agregar_.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = barra_agregar_.png; sourceTree = "<group>"; };
 		C1E87518161CEAFB0020486A /* btn_agregar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_agregar.png; sourceTree = "<group>"; };
 		C1E876C3161CF5200020486A /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape~ipad.png"; sourceTree = "<group>"; };
 		C1E876C5161CF5B40020486A /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape~ipad.png"; sourceTree = "<group>"; };
@@ -1154,10 +1156,11 @@
 		C1EFBF9A160D139E0005ECF1 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				C155EE0116265A1B00421599 /* barra_agregar.png */,
 				C155EDEC1626236800421599 /* Entradas */,
 				C155EDE6162622A600421599 /* Sopas */,
 				C1EF08A2161510C700BA0421 /* Sushi */,
-				C1E87517161CEAFB0020486A /* barra_agregar.png */,
+				C1E87517161CEAFB0020486A /* barra_agregar_.png */,
 				C1E87518161CEAFB0020486A /* btn_agregar.png */,
 				C1EF08A016150A0A00BA0421 /* inicio.png */,
 				C1E9690E1614F2E5006E58F3 /* descripcion.png */,
@@ -1332,7 +1335,7 @@
 				C1EF08EE1615126500BA0421 /* vegetariano_big.png in Resources */,
 				C1EF08EF1615126500BA0421 /* wasabiroll_big.png in Resources */,
 				C1EF08F01615126500BA0421 /* yolscarroll_big.png in Resources */,
-				C1E87519161CEAFB0020486A /* barra_agregar.png in Resources */,
+				C1E87519161CEAFB0020486A /* barra_agregar_.png in Resources */,
 				C1E8751A161CEAFB0020486A /* btn_agregar.png in Resources */,
 				C1E876C4161CF5200020486A /* Default-Landscape~ipad.png in Resources */,
 				C1E876C6161CF5B40020486A /* Default-Landscape~ipad.png in Resources */,
@@ -1346,6 +1349,7 @@
 				C155EDFA1626239000421599 /* entrada_sea-mix-open.png in Resources */,
 				C155EDFB1626239000421599 /* entrada_summer-rolls.png in Resources */,
 				C155EDFC1626239000421599 /* entrada_tacos-thai.png in Resources */,
+				C155EE0216265A1D00421599 /* barra_agregar.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

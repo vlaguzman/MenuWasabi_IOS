@@ -12,7 +12,7 @@
 #import "cocos2d.h"
 #import "RootViewController.h"
 
-@interface EntradasLayer : CCNode 
+@interface EntradasLayer : CCLayer 
 {
     RootViewController * _rootViewController;
     UISwipeGestureRecognizer * _swipeLeftRecognizer;

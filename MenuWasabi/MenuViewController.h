@@ -35,6 +35,8 @@
 
 - (IBAction)viewTapped:(id)sender;
 - (IBAction)viewSopas:(id)sender;
+- (IBAction)viewEntradas:(id)sender;
+
 -(void)moverBoton:(UIButton *)botn_ posx:(int)x_ posy:(int)y_ alpha:(double)alpha_ duracion:(double)tiempo_ delay:(double)delay_;
 
 

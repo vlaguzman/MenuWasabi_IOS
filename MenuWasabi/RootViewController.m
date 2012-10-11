@@ -12,6 +12,7 @@
 #import "RootViewController.h"
 #import "SushiLayer.h"
 #import "SopasLayer.h"
+#import "EntradasLayer.h"
 #import "Plato.h"
 #import "BrainMenu.h"
 
@@ -55,6 +56,8 @@ CCScene *scene;
     [self iniciarPlatosSushi];
     [self crearPlatosSopa];
     [self iniciarPlatosSopa];
+    [self crearPlatosEntradas];
+    [self iniciarPlatosEntradas];
     EAGLView *glView = [EAGLView viewWithFrame:self.view.bounds
                                    pixelFormat:kEAGLColorFormatRGB565	// kEAGLColorFormatRGBA8
                                    depthFormat:0                        // GL_DEPTH_COMPONENT16_OES
@@ -69,27 +72,8 @@ CCScene *scene;
 }
 
 -(void) LoadScene{
-    if([[BrainMenu sharedInstance] tipoPlatoActual]==tipoSushi){
-        scene =  [SushiLayer sceneWithVC:self];
-    }else if ([[BrainMenu sharedInstance] tipoPlatoActual]==tipoTeppanyaki){
-        scene = [SushiLayer sceneWithVC:self];
-    }else if ([[BrainMenu sharedInstance] tipoPlatoActual]==tipoSopa){
-        scene = [SopasLayer sceneWithVC:self];
-    }else if ([[BrainMenu sharedInstance] tipoPlatoActual]==tipoEspeciales){
-        scene = [SushiLayer sceneWithVC:self];
-    }else if ([[BrainMenu sharedInstance] tipoPlatoActual]==tipoEntradas){
-        scene = [SushiLayer sceneWithVC:self];
-    }else if ([[BrainMenu sharedInstance] tipoPlatoActual]==tipoEnsaladas){
-        scene = [SushiLayer sceneWithVC:self];
-    }else if ([[BrainMenu sharedInstance] tipoPlatoActual]==tipoWok){
-        scene = [SushiLayer sceneWithVC:self];
-    }else if ([[BrainMenu sharedInstance] tipoPlatoActual]==tipoPostres){
-        scene = [SushiLayer sceneWithVC:self];
-    }else if ([[BrainMenu sharedInstance] tipoPlatoActual]==tipoBebidas){
-        scene = [SushiLayer sceneWithVC:self];
-    }else if ([[BrainMenu sharedInstance] tipoPlatoActual]==tipoLicores){
-        scene = [SushiLayer sceneWithVC:self];
-    }
+    scene =  [SushiLayer sceneWithVC:self];
+
 }
 
 -(void) iniciarPlatosSushi{
@@ -97,7 +81,7 @@ CCScene *scene;
 }
 
 -(void) iniciarPlatosTeppanyaki{
-    platos_teppanyaki = [[NSDictionary alloc] initWithObjectsAndKeys:nil, @(1),  nil];
+    CCLOG(@"OJO iniciarPlatosEnsaladas SIN IMPLEMENTAR");
 }
 
 -(void) iniciarPlatosSopa{
@@ -105,31 +89,31 @@ CCScene *scene;
 }
 
 -(void) iniciarPlatosEspeciales{
-    platos_especiales = [[NSDictionary alloc] initWithObjectsAndKeys:nil, @(1),  nil];
+    CCLOG(@"OJO iniciarPlatosEnsaladas SIN IMPLEMENTAR");
 }
 
 -(void) iniciarPlatosEntradas{
-    platos_entradas = [[NSDictionary alloc] initWithObjectsAndKeys:nil, @(1),  nil];
+    platos_entradas = [[NSDictionary alloc] initWithObjectsAndKeys:entrada1, @(1), entrada2, @(2), entrada3, @(3), entrada4, @(4), entrada5, @(5), entrada6, @(6), entrada7, @(7), entrada8, @(8), entrada9, @(9), nil];
 }
 
 -(void) iniciarPlatosEnsaladas{
-    platos_ensaladas = [[NSDictionary alloc] initWithObjectsAndKeys:nil, @(1),  nil];
+    CCLOG(@"OJO iniciarPlatosEnsaladas SIN IMPLEMENTAR");
 }
 
 -(void) iniciarPlatosWok{
-    platos_wok = [[NSDictionary alloc] initWithObjectsAndKeys:nil, @(1),  nil];
+   CCLOG(@"OJO iniciarPlatosEnsaladas SIN IMPLEMENTAR");
 }
 
 -(void) iniciarPostres{
-    platos_postres = [[NSDictionary alloc] initWithObjectsAndKeys:nil, @(1),  nil];
+   CCLOG(@"OJO iniciarPlatosEnsaladas SIN IMPLEMENTAR");
 }
 
 -(void) iniciarBebidas{
-    platos_bebidas = [[NSDictionary alloc] initWithObjectsAndKeys:nil, @(1),  nil];
+    CCLOG(@"OJO iniciarPlatosEnsaladas SIN IMPLEMENTAR");
 }
 
 -(void) iniciarLicores{
-    platos_licores = [[NSDictionary alloc] initWithObjectsAndKeys:nil, @(1),  nil];
+   CCLOG(@"OJO iniciarPlatosEnsaladas SIN IMPLEMENTAR");
 }
 
 - (void) viewWillAppear:(BOOL)animated
@@ -679,8 +663,8 @@ CCScene *scene;
     entrada1.id_plato =501;
     entrada1.nombre = @"Anagomaki";
     entrada1.fuente_img = @"entrada_eby-crispy.png";
-    entrada1.fuente_img_grande = @"entrada_eby-crispy.png";
-    entrada1.fuente_img_peq = @"entrada_eby-crispy_p.png";
+    entrada1.fuente_img_grande = @"entrada_tacos-thai_p.png";
+    entrada1.fuente_img_peq = @"entrada_tacos-thai_p.png";
     entrada1.precio = 8000;
     entrada1.tipo = tipoEntradas;
     

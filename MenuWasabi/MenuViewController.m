@@ -12,7 +12,15 @@
 #import "BrainMenu.h"
 
 #define tipoSushi 1
-#define tipoSopa 2
+#define tipoTeppanyaki 2
+#define tipoSopa 3
+#define tipoEspeciales 4
+#define tipoEntradas 5
+#define tipoEnsaladas 6
+#define tipoWok 7
+#define tipoPostres 8
+#define tipoBebidas 9
+#define tipoLicores 10
 
 @interface MenuViewController ()
 
@@ -125,6 +133,11 @@
     [NSTimer scheduledTimerWithTimeInterval:3.3 target:self selector:@selector(layerSopas:) userInfo:nil repeats:NO];
 }
 
+- (IBAction)viewEntradas:(id)sender {
+    [self salirMenu:sender];
+    [NSTimer scheduledTimerWithTimeInterval:3.3 target:self selector:@selector(layerEntradas:) userInfo:nil repeats:NO];
+}
+
 -(IBAction)salirMenu:(id)sender{
     
    [self moverBoton:fondo_btn posx:251 posy:126 alpha:0.0 duracion:3 delay:0.0];
@@ -145,8 +158,6 @@
       
 }
 
-
-
 - (void)layerSushi:(id)arg {
     [self moverBotones];
     if (_rootViewController == nil) {
@@ -165,7 +176,15 @@
     [self.navigationController pushViewController:_rootViewController animated:YES];
     
 }
-
+- (void)layerEntradas:(id)arg {
+    [self moverBotones];
+    if (_rootViewController == nil) {
+        self.rootViewController = [[[RootViewController alloc] initWithNibName:nil bundle:nil] autorelease];
+    }
+    [[BrainMenu sharedInstance] setTipoPlatoActual:tipoEntradas];
+    [self.navigationController pushViewController:_rootViewController animated:YES];
+    
+}
 
 - (void)dealloc {
     [_rootViewController release];

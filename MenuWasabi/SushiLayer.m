@@ -11,7 +11,7 @@
 #import "AppDelegate.h"
 #import "CCTouchDispatcher.h"
 #import "CCActionInterval.h"
-
+#import "BrainMenu.h"
 
 
 #define kMoveMedium 0.2
@@ -27,10 +27,24 @@
 #define posicionInicialMenuVertical -9600
 #define paddingPlatesMenu 526
 #define paddingDescriptionPlatesMenu 500
+//#define numPlatos 9
 //Padding asignado a los labels que contienen los precios
 #define paddingPrices 30
 //Cada tipo de plato tiene un identificador para efecto de carag de imagenes
 #define tipoSushi 1
+#define tipoTeppanyaki 2
+#define tipoSopa 3
+#define tipoEspeciales 4
+#define tipoEntradas 5
+#define tipoEnsaladas 6
+#define tipoWok 7
+#define tipoPostres 8
+#define tipoBebidas 9
+#define tipoLicores 10
+
+int numPlates = 1;
+
+
 
 CCSprite *plato_grande1, *descripcion, *cuadro_total;
 
@@ -94,6 +108,8 @@ BOOL bool_swipe = YES;
         
         _rootViewController = rootViewController;
         
+        [self changeValueNumPlates];
+        
         CGSize winSize = [[CCDirector sharedDirector] winSize];
         self.isTouchEnabled = YES;
         
@@ -121,7 +137,7 @@ BOOL bool_swipe = YES;
         //Se agregan las imagenes de todos los platos al menu
         CCMenuItemImage *itemAux;
         menu = [[CCMenu alloc]init];
-        for (int i = 1; i <= 39; i++) {
+        for (int i = 1; i <= numPlates; i++) {
             itemAux = [CCMenuItemImage itemWithNormalImage:[_rootViewController demeFuenteImagenPlatoPorId:@(i)] selectedImage:[_rootViewController demeFuenteImagenPlatoPorId:@(i)] target:self selector:@selector(onPushSceneTran:)];
             
             itemAux.tag=i;
@@ -133,7 +149,7 @@ BOOL bool_swipe = YES;
         
         //Se genera un segundo menu para gregar los lugares dónde se pondrán los títulos de los platos
         menu2 = [[CCMenu alloc]init];
-        for (int i = 1; i <= 39; i++) {
+        for (int i = 1; i <= numPlates; i++) {
             itemAux = [CCMenuItemImage itemWithNormalImage:@"nombres.png" selectedImage:@"nombres.png" target:self selector:@selector(onPushSceneTran:)];
             [menu2 addChild:itemAux];
         }
@@ -143,7 +159,7 @@ BOOL bool_swipe = YES;
         
         //Se genera un menu para las imagenes de los platos grandes
         menu_platosgrandes = [[CCMenu alloc]init];
-        for(int i = 1; i<=39; i++){
+        for(int i = 1; i<=numPlates; i++){
             itemAux =  [CCMenuItemImage itemWithNormalImage:[_rootViewController demeFuenteImagenGrandePlatoPorId:@(i)] selectedImage:[_rootViewController demeFuenteImagenGrandePlatoPorId:@(i)] target:self selector:@selector(onPushSceneTran:)];
             [menu_platosgrandes addChild:itemAux];
         }
@@ -153,7 +169,7 @@ BOOL bool_swipe = YES;
         
         //Se genera un menú para las descripciones de los platos grandes
         menu_detalles = [[CCMenu alloc]init];
-        for(int i = 1; i<=39; i++){
+        for(int i = 1; i<=numPlates; i++){
             itemAux =  [CCMenuItemImage itemWithNormalImage:@"plato_descripcion.png" selectedImage:@"plato_descripcion.png" target:self selector:@selector(onPushSceneTran:)];
             [menu_detalles addChild:itemAux];
         }
@@ -200,7 +216,7 @@ BOOL bool_swipe = YES;
         
         //menu agregar oculto
         menu_barra = [CCMenu menuWithItems:item_barra, nil];
-        menu_barra.position = CGPointMake(winSize.width/2+10, -100);
+        menu_barra.position = CGPointMake(winSize.width/2+10, -80);
         [menu_barra alignItemsVertically];
         [self addChild:menu_barra];
         
@@ -219,12 +235,12 @@ BOOL bool_swipe = YES;
         [menu_precios alignItemsHorizontally];
         [self addChild:menu_precios];
         
-        cuadro_total = [CCSprite spriteWithFile:@"nombres.png" rect:CGRectMake(0, 0, 188, 64)];
+        /*cuadro_total = [CCSprite spriteWithFile:@"nombres.png" rect:CGRectMake(0, 0, 188, 64)];
         cuadro_total.position = ccp(840, -100);
-        [self addChild:cuadro_total];
+        [self addChild:cuadro_total];*/
         
         label_total = [CCLabelTTF labelWithString:@"Total" fontName:@"Marker Felt" fontSize:44];
-		label_total.position =  ccp(840 , -100 );
+		label_total.position =  ccp(900 , -100 );
 		[self addChild: label_total];
     
         /*
@@ -254,7 +270,15 @@ BOOL bool_swipe = YES;
     return self;
 }
 
-
+-(void)changeValueNumPlates{
+    int tipoPlato = [[BrainMenu sharedInstance] tipoPlatoActual];
+    if(tipoPlato == tipoSushi)
+        numPlates = 39;
+    else if (tipoPlato == tipoSopa)
+        numPlates = 1;
+    else if (tipoPlato == tipoEntradas)
+        numPlates = 9;
+}
 
 /* FUNCION DE MOVIMIENTO USANDO EL PANUIGESTURE
 -(void)move:(id)sender {
@@ -464,9 +488,7 @@ BOOL bool_swipe = YES;
 
 -(void)aparecerElementos:(id)arg{
     winSize = [[CCDirector sharedDirector] winSize];
-    
-    //[self moveSprite: plato_grande1 with_pox:winSize.width/2 with_posy:winSize.height/2 withTimeTransition:1.0];
-    //[self moveSprite: descripcion with_pox:300 with_posy:500 withTimeTransition:1.0];
+
     CCLOG(@"POSICION Y y %f %i", menu_platosgrandes.position.y, iactualPlate);
     [menu_platosgrandes setPosition:ccp(menu_platosgrandes.position.x, posicionInicialMenuVertical+(paddingPlatesMenu*(iactualPlate-1)))];
     
@@ -588,15 +610,15 @@ BOOL bool_swipe = YES;
 -(void) onUpDown:(id) sender
 {
     int posy = menu_barra.position.y;
-    if(posy!=80) posy = 80;
+    if(posy!=80) posy = 100;
     else posy = -100;
     
     [self delplazarMenu_withMenu:menu_barra withXpox:menu_barra.position.x withYpos:posy withTimeTransition:0.5];
     [self delplazarMenu_withMenu:menu_pedidos withXpox:menu_pedidos.position.x withYpos:posy withTimeTransition:0.5];
-    [self delplazarMenu_withMenu:menu_eliminar withXpox:menu_eliminar.position.x withYpos:(posy + 80) withTimeTransition:0.5];
+    [self delplazarMenu_withMenu:menu_eliminar withXpox:menu_eliminar.position.x withYpos:(posy + 60) withTimeTransition:0.5];
     [self delplazarMenu_withMenu:menu_precios withXpox:menu_precios.position.x withYpos:(posy- 55) withTimeTransition:0.5];
     [self moveSprite: cuadro_total with_pox:cuadro_total.position.x with_posy:posy withTimeTransition:0.5];
-    [self moveLabel:label_total with_pox:label_total.position.x with_posy:posy withTimeTransition:0.5];
+    [self moveLabel:label_total with_pox:label_total.position.x with_posy:posy-10 withTimeTransition:0.5];
 }
 
 - (void) dealloc

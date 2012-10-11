@@ -26,8 +26,8 @@
 //Padding asignado a los labels que contienen los precios
 #define paddingPrices 30
 //Cada tipo de plato tiene un identificador para efecto de carag de imagenes
-#define tipoSushi 1
 
+#define numPlatos 1
 CCSprite *plato_grande1, *descripcion, *cuadro_total;
 
 CCLabelTTF *label, *label2;
@@ -119,7 +119,7 @@ BOOL bool_swipe_sopas = YES;
         //Se agregan las imagenes de todos los platos al menu
         CCMenuItemImage *itemAux;
         menu = [[CCMenu alloc]init];
-        for (int i = 1; i <= 10; i++) {
+        for (int i = 1; i <= numPlatos; i++) {
             itemAux = [CCMenuItemImage itemWithNormalImage:[_rootViewController demeFuenteImagenPlatoPorId:@(i)] selectedImage:[_rootViewController demeFuenteImagenPlatoPorId:@(i)] target:self selector:@selector(onPushSceneTran:)];
             //itemAux.userObject=@(i);
             itemAux.tag=i;
@@ -132,7 +132,7 @@ BOOL bool_swipe_sopas = YES;
         
         //Se genera un segundo menu para gregar los lugares dónde se pondrán los títulos de los platos
         menu2 = [[CCMenu alloc]init];
-        for (int i = 1; i <= 10; i++) {
+        for (int i = 1; i <= numPlatos; i++) {
             itemAux = [CCMenuItemImage itemWithNormalImage:@"nombres.png" selectedImage:@"nombres.png" target:self selector:@selector(onPushSceneTran:)];
             [menu2 addChild:itemAux];
         }
