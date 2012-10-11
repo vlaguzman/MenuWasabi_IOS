@@ -30,6 +30,13 @@
 //#define numPlatos 9
 //Padding asignado a los labels que contienen los precios
 #define paddingPrices 50
+#define paddingNombres 163
+//Posiciones Nombres Menu
+#define posXnombresSushi 530
+#define posYnombresSushi 540
+
+#define posXnombresSopas 500
+#define posYnombresSopas 538
 //Cada tipo de plato tiene un identificador para efecto de carag de imagenes
 #define tipoSushi 1
 #define tipoTeppanyaki 2
@@ -41,6 +48,9 @@
 #define tipoPostres 8
 #define tipoBebidas 9
 #define tipoLicores 10
+
+//Posiciones
+int posXnombres=0, posYnombres=0;
 
 int numPlates = 1;
 int posXPlatesMenu = 0, posYPlatesMenu = 0, posicionInicialMenuVertical = 0;
@@ -76,7 +86,7 @@ CGFloat finalX;
 CGFloat finalY;
 CGFloat animationDuration;
 
-CCMenu *menu, *menu_atras, *menu_agregar, *menu_barra, *menu_pedidos, *menu_eliminar, *menu_platosgrandes, *menu_detalles;
+CCMenu *menu, *menu_nombres, *menu_atras, *menu_agregar, *menu_barra, *menu_pedidos, *menu_eliminar, *menu_platosgrandes, *menu_detalles;
 CCMenu *menu_precios;
 CGSize winSize;
 
@@ -86,6 +96,46 @@ BOOL bool_swipe = YES;
 @implementation SushiLayer
 @synthesize swipeLeftRecognizer = _swipeLeftRecognizer;
 @synthesize swipeRightRecognizer = _swipeRightRecognizer;
+
+
+-(void)changeValueNumPlates{
+    int tipoPlato = [[BrainMenu sharedInstance] tipoPlatoActual];
+    if(tipoPlato == tipoSushi){
+        numPlates = 39;
+        
+        posXPlatesMenu =1200;
+        posicionInicialMenuVertical=-9600;
+        
+        paddingBigPlatesMenu = 230;
+        paddingTinyPlates = 70;
+        paddingClose = 100;
+        
+        posXnombres = posXnombresSushi;
+        posYnombres = posYnombresSushi;
+    }
+    else if (tipoPlato == tipoSopa){
+        numPlates = 1;
+        
+        posXPlatesMenu =1200;
+        posicionInicialMenuVertical=400;
+        
+        paddingBigPlatesMenu = 0;
+        paddingTinyPlates = 50;
+        paddingClose = 100;
+        
+        posXnombres = posXnombresSopas;
+        posYnombres = posYnombresSopas;
+        
+    }
+    else if (tipoPlato == tipoEntradas){
+        numPlates = 8;
+        
+        posXPlatesMenu =1200;
+        
+        posicionInicialMenuVertical=1200;
+        paddingBigPlatesMenu = 100;
+    }
+}
 
 +(CCScene *) scene
 {
@@ -158,21 +208,25 @@ BOOL bool_swipe = YES;
             [menu addChild:itemAux];
             
         }
+        
         [menu alignItemsHorizontallyWithPadding:espacio];
 		[self addChild: menu];
         
-        //Se genera un segundo menu para gregar los lugares dónde se pondrán los títulos de los platos
-       /* menu2 = [[CCMenu alloc]init];
-        for (int i = 1; i <= numPlates; i++) {
-            itemAux = [CCMenuItemImage itemWithNormalImage:@"nombres.png" selectedImage:@"nombres.png" target:self selector:@selector(onPushSceneTran:)];
-            [menu2 addChild:itemAux];
-        }
-        menu2.position = CGPointMake(500, 550);
-		[menu2 alignItemsHorizontallyWithPadding:90];
-		[self addChild: menu2];*/
-    
-        //Se genera un menu para las imagenes de los platos grandes
         
+        menu_nombres = [[CCMenu alloc]init];
+        CCMenuItemLabel *itemPlato;
+        CCLabelTTF *nombre_plato;
+        NSString *strnombrePlato;
+        for (int i = 1; i <= numPlates; i++) {
+            nombre_plato = [[CCLabelTTF alloc]initWithString:@"nombre" fontName:@"Marker Felt" fontSize:20];
+            strnombrePlato = [_rootViewController demeNombrePlatoPorId:@(i)];
+            [nombre_plato setString:strnombrePlato];
+            itemPlato = [CCMenuItemLabel itemWithLabel:nombre_plato];
+            [menu_nombres addChild:itemPlato];
+        }
+        menu_nombres.position = CGPointMake(posXnombres, posYnombres);
+        [menu_nombres alignItemsHorizontallyWithPadding:paddingNombres];
+        [self addChild:menu_nombres];
         
         
         menu_platosgrandes = [[CCMenu alloc]init];
@@ -288,38 +342,7 @@ BOOL bool_swipe = YES;
     return self;
 }
 
--(void)changeValueNumPlates{
-    int tipoPlato = [[BrainMenu sharedInstance] tipoPlatoActual];
-    if(tipoPlato == tipoSushi){
-        numPlates = 39;
-        
-        posXPlatesMenu =1200;
-        posicionInicialMenuVertical=-9460;
-        
-        paddingBigPlatesMenu = 230;
-        paddingTinyPlates = 70;
-        paddingClose = 100;
-    }
-    else if (tipoPlato == tipoSopa){
-        numPlates = 1;
-        
-        posXPlatesMenu =1200;
-        posicionInicialMenuVertical=400;
-        
-        paddingBigPlatesMenu = 0;
-        paddingTinyPlates = 50;
-        paddingClose = 100;
-        
-    }
-    else if (tipoPlato == tipoEntradas){
-        numPlates = 8;
-        
-        posXPlatesMenu =1200;
-       
-        posicionInicialMenuVertical=1200;
-        paddingBigPlatesMenu = 100;
-    }
-}
+
 
 /* FUNCION DE MOVIMIENTO USANDO EL PANUIGESTURE
 -(void)move:(id)sender {
@@ -433,7 +456,7 @@ BOOL bool_swipe = YES;
             pos = 5400;
         }
             [self delplazarMenu_withMenu: menu withXpox:pos withYpos:winSize.height/2 withTimeTransition:time_efect];
-          //  [self delplazarMenu_withMenu: menu2 withXpox:pos withYpos:550 withTimeTransition:time_efect];
+            [self delplazarMenu_withMenu: menu_nombres withXpox:pos withYpos:550 withTimeTransition:time_efect];
     }
 }
 
@@ -457,7 +480,7 @@ BOOL bool_swipe = YES;
             pos =-4355;
         }
         [self delplazarMenu_withMenu: menu withXpox:pos withYpos:winSize.height/2 withTimeTransition:time_efect];
-        //[self delplazarMenu_withMenu: menu2 withXpox:pos withYpos:550 withTimeTransition:time_efect];
+        [self delplazarMenu_withMenu: menu_nombres withXpox:pos withYpos:550 withTimeTransition:time_efect];
     }
     
 }
@@ -516,7 +539,7 @@ BOOL bool_swipe = YES;
     bool_swipe=YES;
     winSize = [[CCDirector sharedDirector] winSize];
     [self delplazarMenu_withMenu: menu withXpox:menu.position.x withYpos:winSize.height/2 withTimeTransition:1.0];
-   // [self delplazarMenu_withMenu: menu2 withXpox:menu2.position.x withYpos:550 withTimeTransition:1.0];
+    [self delplazarMenu_withMenu: menu_nombres withXpox:menu_nombres.position.x withYpos:550 withTimeTransition:1.0];
 }
 
 -(void)desaparecerMenus{
@@ -524,7 +547,7 @@ BOOL bool_swipe = YES;
     winSize = [[CCDirector sharedDirector] winSize];
     
     [self delplazarMenu_withMenu: menu withXpox:menu.position.x withYpos:winSize.height+200 withTimeTransition:1.0];
-    //[self delplazarMenu_withMenu: menu2 withXpox:menu2.position.x withYpos:winSize.height+(550-184) withTimeTransition:1.0];
+    [self delplazarMenu_withMenu: menu_nombres withXpox:menu_nombres.position.x withYpos:winSize.height+(550-184) withTimeTransition:1.0];
 }
 
 -(void)aparecerElementos:(id)arg{
@@ -555,8 +578,6 @@ BOOL bool_swipe = YES;
     id mover = [CCMoveTo actionWithDuration:_time position:ccp(_posx,_posyA)];
     [_menu runAction:mover];
 }
-
-
 
 
 -(void) moveSprite:(CCSprite *)_sprite with_pox:(float)_posx with_posy:(float)_posy withTimeTransition:(float)_time{

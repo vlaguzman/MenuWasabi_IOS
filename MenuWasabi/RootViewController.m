@@ -253,7 +253,7 @@ CCScene *scene;
     CCLOG(@"Creadno Sushi...");
     if(sushi1==nil) sushi1 = [[Plato alloc]init];
     sushi1.id_plato =1;
-    sushi1.nombre = @"Anagomaki";
+    sushi1.nombre = @"Anagomaki          ";
     sushi1.fuente_img = @"anagomaki_big.png";
     sushi1.fuente_img_grande = @"anagomaki_big_g.png";
     sushi1.fuente_img_peq = @"anagomaki_big_p.png";
@@ -273,7 +273,7 @@ CCScene *scene;
     
     if(sushi3==nil) sushi3 = [[Plato alloc]init];
     sushi3.id_plato = 3;
-    sushi3.nombre = @"Bananguil sweet";
+    sushi3.nombre = @"Bananguil sweet    ";
     sushi3.fuente_img = @"bananguilsweet_big.png";
     sushi3.fuente_img_grande = @"bananguilsweet_big_g.png";
     sushi3.fuente_img_peq = @"bananguilsweet_big_p.png";
@@ -283,7 +283,7 @@ CCScene *scene;
     
     if(sushi4==nil) sushi4 = [[Plato alloc]init];
     sushi4.id_plato =4;
-    sushi4.nombre = @"California roll";
+    sushi4.nombre = @"California roll    ";
     sushi4.fuente_img = @"californiaroll_big.png";
     sushi4.fuente_img_grande = @"californiaroll_big_g.png";
     sushi4.fuente_img_peq = @"californiaroll_big_p.png";
@@ -293,7 +293,7 @@ CCScene *scene;
     
     if(sushi5==nil) sushi5 = [[Plato alloc]init];
     sushi5.id_plato =5;
-    sushi5.nombre = @"California spicy";
+    sushi5.nombre = @"California spicy   ";
     sushi5.fuente_img = @"californiaspicy_big.png";
     sushi5.fuente_img_grande = @"californiaspicy_big_g.png";
     sushi5.fuente_img_peq = @"californiaspicy_big_p.png";
@@ -303,7 +303,7 @@ CCScene *scene;
     
     if(sushi6==nil) sushi6 = [[Plato alloc]init];
     sushi6.id_plato =6;
-    sushi6.nombre = @"Crazy roll";
+    sushi6.nombre = @"Crazy roll         ";
     sushi6.fuente_img = @"crazyroll_big.png";
     sushi6.fuente_img_grande = @"crazyroll_big_g.png";
     sushi6.fuente_img_peq = @"crazyroll_big_p.png";
@@ -313,7 +313,7 @@ CCScene *scene;
     
     if(sushi7==nil) sushi7 = [[Plato alloc]init];
     sushi7.id_plato =7;
-    sushi7.nombre = @"Ebikan roll";
+    sushi7.nombre = @"Ebikan roll        ";
     sushi7.fuente_img = @"ebikanroll_big.png";
     sushi7.fuente_img_grande = @"ebikanroll_big_g.png";
     sushi7.fuente_img_peq = @"ebikanroll_big_p.png";
@@ -323,7 +323,7 @@ CCScene *scene;
     
     if(sushi8==nil) sushi8 = [[Plato alloc]init];
     sushi8.id_plato =8;
-    sushi8.nombre = @"Ebiroll";
+    sushi8.nombre = @"Ebiroll           ";
     sushi8.fuente_img = @"ebiroll_big.png";
     sushi8.fuente_img_grande = @"ebiroll_big_g.png";
     sushi8.fuente_img_peq = @"ebiroll_big_p.png";
@@ -333,7 +333,7 @@ CCScene *scene;
     
     if(sushi9==nil) sushi9 = [[Plato alloc]init];
     sushi9.id_plato =9;
-    sushi9.nombre = @"Ebitempura";
+    sushi9.nombre = @"Ebitempura         ";
     sushi9.fuente_img = @"ebitempura_big.png";
     sushi9.fuente_img_grande = @"ebitempura_big_g.png";
     sushi9.fuente_img_peq = @"ebitempura_big_p.png";
@@ -343,7 +343,7 @@ CCScene *scene;
     
     if(sushi10==nil) sushi10 = [[Plato alloc]init];
     sushi10.id_plato =10;
-    sushi10.nombre = @"Ebitropical";
+    sushi10.nombre = @"Ebitropical        ";
     sushi10.fuente_img = @"ebitropical_big.png";
     sushi10.fuente_img_grande = @"ebitropical_big_g.png";
     sushi10.fuente_img_peq = @"ebitropical_big_p.png";
@@ -353,7 +353,7 @@ CCScene *scene;
     
     if(sushi11==nil) sushi11 = [[Plato alloc]init];
     sushi11.id_plato =11;
-    sushi11.nombre = @"Ellsake roll";
+    sushi11.nombre = @"Ellsake roll       ";
     sushi11.fuente_img = @"ellsakeroll_big.png";
     sushi11.fuente_img_grande = @"ellsakeroll_big_g.png";
     sushi11.fuente_img_peq = @"ellsakeroll_big_p.png";
@@ -363,7 +363,7 @@ CCScene *scene;
     
     if(sushi12==nil) sushi12 = [[Plato alloc]init];
     sushi12.id_plato =12;
-    sushi12.nombre = @"Fabi roll";
+    sushi12.nombre = @"Fabi roll          ";
     sushi12.fuente_img = @"fabiroll_big.png";
     sushi12.fuente_img_grande = @"fabiroll_big_g.png";
     sushi12.fuente_img_peq = @"fabiroll_big_p.png";
@@ -373,7 +373,7 @@ CCScene *scene;
     
     if(sushi13==nil) sushi13 = [[Plato alloc]init];
     sushi13.id_plato =13;
-    sushi13.nombre = @"Hot cream roll";
+    sushi13.nombre = @"Hot cream roll       ";
     sushi13.fuente_img = @"hotcreamroll_big.png";
     sushi13.fuente_img_grande = @"hotcreamroll_big_g.png";
     sushi13.fuente_img_peq = @"hotcreamroll_big_p.png";
@@ -383,7 +383,7 @@ CCScene *scene;
     
     if(sushi14==nil) sushi14 = [[Plato alloc]init];
     sushi14.id_plato =14;
-    sushi14.nombre = @"Jens roll";
+    sushi14.nombre = @"Jens roll          ";
     sushi14.fuente_img = @"jensroll_big.png";
     sushi14.fuente_img_grande = @"jensroll_big_g.png";
     sushi14.fuente_img_peq = @"jensroll_big_p.png";
@@ -393,7 +393,7 @@ CCScene *scene;
     
     if(sushi15==nil) sushi15 = [[Plato alloc]init];
     sushi15.id_plato =15;
-    sushi15.nombre = @"Jhoels roll";
+    sushi15.nombre = @"Jhoels roll        ";
     sushi15.fuente_img = @"jhoelsroll_big.png";
     sushi15.fuente_img_grande = @"jhoelsroll_big_g.png";
     sushi15.fuente_img_peq = @"jhoelsroll_big_p.png";
@@ -403,7 +403,7 @@ CCScene *scene;
     
     if(sushi16==nil) sushi16 = [[Plato alloc]init];
     sushi16.id_plato =16;
-    sushi16.nombre = @"Kaniroll";
+    sushi16.nombre = @"Kaniroll           ";
     sushi16.fuente_img = @"kaniroll_big.png";
     sushi16.fuente_img_grande = @"kaniroll_big_g.png";
     sushi16.fuente_img_peq = @"kaniroll_big_p.png";
@@ -413,7 +413,7 @@ CCScene *scene;
     
     if(sushi17==nil) sushi17 = [[Plato alloc]init];
     sushi17.id_plato =17;
-    sushi17.nombre = @"Kanizu";
+    sushi17.nombre = @"Kanizu             ";
     sushi17.fuente_img = @"kanizu_big.png";
     sushi17.fuente_img_grande = @"kanizu_big_g.png";
     sushi16.fuente_img_peq = @"kanizu_big_p.png";
@@ -423,7 +423,7 @@ CCScene *scene;
     
     if(sushi18==nil) sushi18 = [[Plato alloc]init];
     sushi18.id_plato =18;
-    sushi18.nombre = @"Kappamaki";
+    sushi18.nombre = @"Kappamaki          ";
     sushi18.fuente_img = @"kappamaki_big.png";
     sushi18.fuente_img_grande = @"kappamaki_big_g.png";
     sushi18.fuente_img_peq = @"kappamaki_big_p.png";
@@ -433,7 +433,7 @@ CCScene *scene;
     
     if(sushi19==nil) sushi19 = [[Plato alloc]init];
     sushi19.id_plato =19;
-    sushi19.nombre = @"Katsuroll";
+    sushi19.nombre = @"Katsuroll          ";
     sushi19.fuente_img = @"katsuroll_big.png";
     sushi19.fuente_img_grande = @"katsuroll_big_g.png";
     sushi19.fuente_img_peq = @"kappamaki_big_p.png";
@@ -443,7 +443,7 @@ CCScene *scene;
     
     if(sushi20==nil) sushi20 = [[Plato alloc]init];
     sushi20.id_plato =20;
-    sushi20.nombre = @"Magicroll";
+    sushi20.nombre = @"Magicroll          ";
     sushi20.fuente_img = @"magicroll_big.png";
     sushi20.fuente_img_grande = @"magicroll_big_g.png";
     sushi20.fuente_img_peq = @"magicroll_big_p.png";
@@ -453,7 +453,7 @@ CCScene *scene;
     
     if(sushi21==nil) sushi21 = [[Plato alloc]init];
     sushi21.id_plato =21;
-    sushi21.nombre = @"Marmariroll";
+    sushi21.nombre = @"Marmariroll        ";
     sushi21.fuente_img = @"marmariroll_big.png";
     sushi21.fuente_img_grande = @"marmariroll_big_g.png";
     sushi21.fuente_img_peq = @"marmariroll_big_p.png";
@@ -463,7 +463,7 @@ CCScene *scene;
     
     if(sushi22==nil) sushi22 = [[Plato alloc]init];
     sushi22.id_plato =22;
-    sushi22.nombre = @"Ojo de tigre";
+    sushi22.nombre = @"Ojo de tigre       ";
     sushi22.fuente_img = @"ojodetigre_big.png";
     sushi22.fuente_img_grande = @"ojodetigre_big_g.png";
     sushi22.fuente_img_peq = @"ojodetigre_big_p.png";
@@ -473,7 +473,7 @@ CCScene *scene;
     
     if(sushi23==nil) sushi23 = [[Plato alloc]init];
     sushi23.id_plato =23;
-    sushi23.nombre = @"Peach roll mix";
+    sushi23.nombre = @"Peach roll mix     ";
     sushi23.fuente_img = @"peachrollmix_big.png";
     sushi23.fuente_img_grande = @"peachrollmix_big_g.png";
     sushi23.fuente_img_peq = @"peachrollmix_big_p.png";
@@ -481,29 +481,31 @@ CCScene *scene;
     sushi23.tipo = tipoSushi;
     //  sushi1.pedido = NO;
     
+   
     if(sushi24==nil) sushi24 = [[Plato alloc]init];
     sushi24.id_plato =24;
-    sushi24.nombre = @"Philadelphia roll";
+    sushi24.nombre = @"Philadelphia roll  ";
     sushi24.fuente_img = @"philadelphiaroll_big.png";
     sushi24.fuente_img_grande = @"philadelphiaroll_big_g.png";
-    sushi24.fuente_img_peq = @"philadelphiaroll_big_p.png";
+    sushi24.fuente_img_peq = @"philadelphiaroll_big_p.png.png";
     sushi24.precio = 10000;
     sushi24.tipo = tipoSushi;
     //  sushi1.pedido = NO;
     
+     CCLOG(@"FALTA AGREGAR TODAS LA IMAGENES DE RAINBOW - SUSHI 25");
     if(sushi25==nil) sushi25 = [[Plato alloc]init];
     sushi25.id_plato =25;
-    sushi25.nombre = @"Rrainbow roll";
-    sushi25.fuente_img = @"rainbowroll_big.png";
-    sushi25.fuente_img_grande = @"rainbowroll_big_g.png";
-    sushi25.fuente_img_peq = @"rainbowroll_big_p.png";
+    sushi25.nombre = @"Rrainbow roll      ";
+    sushi25.fuente_img = @"californiaroll_big.png";
+    sushi25.fuente_img_grande = @"californiaroll_big_g.png";
+    sushi25.fuente_img_peq = @"californiaroll_big_p.png";
     sushi25.precio = 10000;
     sushi25.tipo = tipoSushi;
     //  sushi1.pedido = NO;
     
     if(sushi26==nil) sushi26 = [[Plato alloc]init];
     sushi26.id_plato =26;
-    sushi26.nombre = @"Sakemaki";
+    sushi26.nombre = @"Sakemaki           ";
     sushi26.fuente_img = @"sakemaki_big.png";
     sushi26.fuente_img_grande= @"sakemaki_big_g.png";
     sushi26.fuente_img_peq = @"sakemaki_big_p.png";
@@ -513,7 +515,7 @@ CCScene *scene;
     
     if(sushi27==nil) sushi27 = [[Plato alloc]init];
     sushi27.id_plato =27;
-    sushi27.nombre = @"Saketempura roll";
+    sushi27.nombre = @"Saketempura roll   ";
     sushi27.fuente_img = @"saketempuraroll_big.png";
     sushi27.fuente_img_grande= @"saketempuraroll_big_g.png";
     sushi27.fuente_img_peq = @"saketempuraroll_big_p.png";
@@ -523,7 +525,7 @@ CCScene *scene;
     
     if(sushi28==nil) sushi28 = [[Plato alloc]init];
     sushi28.id_plato =28;
-    sushi28.nombre = @"Skinroll";
+    sushi28.nombre = @"Skinroll           ";
     sushi28.fuente_img = @"skinroll_big.png";
     sushi28.fuente_img_grande = @"skinroll_big_g.png";
     sushi28.fuente_img_peq = @"skinroll_big_p.png";
@@ -533,7 +535,7 @@ CCScene *scene;
     
     if(sushi29==nil) sushi29 = [[Plato alloc]init];
     sushi29.id_plato =29;
-    sushi29.nombre = @"Sonanroll";
+    sushi29.nombre = @"Sonanroll          ";
     sushi29.fuente_img = @"sonanroll_big.png";
     sushi29.fuente_img_grande = @"sonanroll_big_g.png";
     sushi29.fuente_img_peq = @"sonanroll_big_p.png";
@@ -543,7 +545,7 @@ CCScene *scene;
     
     if(sushi30==nil) sushi30 = [[Plato alloc]init];
     sushi30.id_plato =30;
-    sushi30.nombre = @"Spicy roll sake";
+    sushi30.nombre = @"Spicy roll sake    ";
     sushi30.fuente_img = @"spicyrollsake_big.png";
     sushi30.fuente_img_grande = @"spicyrollsake_big_g.png";
     sushi30.fuente_img_peq = @"spicyrollsake_big_p.png";
@@ -553,7 +555,7 @@ CCScene *scene;
     
     if(sushi31==nil) sushi31 = [[Plato alloc]init];
     sushi31.id_plato =31;
-    sushi31.nombre = @"Spicy roll tuna";
+    sushi31.nombre = @"Spicy roll tuna    ";
     sushi31.fuente_img = @"spicyrolltuna_big.png";
     sushi31.fuente_img_grande = @"spicyrolltuna_big_g.png";
     sushi31.fuente_img_peq = @"spicyrolltuna_big_p.png";
@@ -563,7 +565,7 @@ CCScene *scene;
     
     if(sushi32==nil) sushi32 = [[Plato alloc]init];
     sushi32.id_plato =32;
-    sushi32.nombre = @"Spider roll";
+    sushi32.nombre = @"Spider roll        ";
     sushi32.fuente_img = @"spiderroll_big.png";
     sushi32.fuente_img_grande = @"spiderroll_big_g.png";
     sushi32.fuente_img_peq = @"spiderroll_big_p.png";
@@ -573,7 +575,7 @@ CCScene *scene;
     
     if(sushi33==nil) sushi33 = [[Plato alloc]init];
     sushi33.id_plato =33;
-    sushi33.nombre = @"Tako roll";
+    sushi33.nombre = @"Tako roll          ";
     sushi33.fuente_img = @"takoroll_big.png";
     sushi33.fuente_img_grande = @"takoroll_big_g.png";
     sushi33.fuente_img_peq = @"takoroll_big_p.png";
@@ -583,7 +585,7 @@ CCScene *scene;
     
     if(sushi34==nil) sushi34 = [[Plato alloc]init];
     sushi34.id_plato =34;
-    sushi34.nombre = @"Tekkamaki";
+    sushi34.nombre = @"Tekkamaki          ";
     sushi34.fuente_img = @"tekkamaki_big.png";
     sushi34.fuente_img_grande= @"tekkamaki_big_g.png";
     sushi34.fuente_img_peq = @"tekkamaki_big_p.png";
@@ -593,7 +595,7 @@ CCScene *scene;
     
     if(sushi35==nil) sushi35 = [[Plato alloc]init];
     sushi35.id_plato =35;
-    sushi35.nombre = @"Tiradito roll";
+    sushi35.nombre = @"Tiradito roll      ";
     sushi35.fuente_img = @"tiraditoroll_big.png";
     sushi35.fuente_img_grande = @"tiraditoroll_big_g.png";
     sushi35.fuente_img_peq = @"tiraditoroll_big_p.png";
@@ -603,7 +605,7 @@ CCScene *scene;
     
     if(sushi36==nil) sushi36 = [[Plato alloc]init];
     sushi36.id_plato =36;
-    sushi36.nombre = @"Tropical roll";
+    sushi36.nombre = @"Tropical roll      ";
     sushi36.fuente_img = @"tropicalroll_big.png";
     sushi36.fuente_img_grande = @"tropicalroll_big_g.png";
     sushi36.fuente_img_peq = @"tropicalroll_big_p.png";
@@ -613,7 +615,7 @@ CCScene *scene;
     
     if(sushi37==nil) sushi37 = [[Plato alloc]init];
     sushi37.id_plato =37;
-    sushi37.nombre = @"Vegetariano";
+    sushi37.nombre = @"Vegetariano        ";
     sushi37.fuente_img = @"vegetariano_big.png";
     sushi37.fuente_img_grande = @"vegetariano_big_g.png";
     sushi37.fuente_img_peq = @"vegetariano_big_p.png";
@@ -623,7 +625,7 @@ CCScene *scene;
     
     if(sushi38==nil) sushi38 = [[Plato alloc]init];
     sushi38.id_plato =38;
-    sushi38.nombre = @"Wasabi roll";
+    sushi38.nombre = @"Wasabi roll        ";
     sushi38.fuente_img = @"wasabiroll_big.png";
     sushi38.fuente_img_grande = @"yolscarroll_big_g.png";
     sushi38.fuente_img_peq = @"yolscarroll_big_p.png";
@@ -633,7 +635,7 @@ CCScene *scene;
     
     if(sushi39==nil) sushi39 = [[Plato alloc]init];
     sushi39.id_plato =39;
-    sushi39.nombre = @"Yolscar roll";
+    sushi39.nombre = @"Yolscar roll       ";
     sushi39.fuente_img = @"yolscarroll_big.png";
     sushi39.fuente_img_grande = @"yolscarroll_big_g.png";
     sushi39.fuente_img_peq = @"yolscarroll_big_p.png";
