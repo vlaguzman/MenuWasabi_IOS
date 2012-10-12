@@ -139,7 +139,6 @@
 		C12E6CFA1610CE17009BB015 /* fondo4.png in Resources */ = {isa = PBXBuildFile; fileRef = C12E6CF91610CE17009BB015 /* fondo4.png */; };
 		C12E6D011610D2FE009BB015 /* fondo5.png in Resources */ = {isa = PBXBuildFile; fileRef = C12E6D001610D2FE009BB015 /* fondo5.png */; };
 		C1559D0B1611F311007512AA /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1559D0A1611F311007512AA /* RootViewController.xib */; };
-		C155EDE4162620E000421599 /* PostresLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C155EDE3162620E000421599 /* PostresLayer.m */; };
 		C155EDEB1626231000421599 /* sopa_chiraschi-sushi_p.png in Resources */ = {isa = PBXBuildFile; fileRef = C155EDEA1626231000421599 /* sopa_chiraschi-sushi_p.png */; };
 		C155EDF51626239000421599 /* entrada_eby-crispy_g.png in Resources */ = {isa = PBXBuildFile; fileRef = C155EDED1626239000421599 /* entrada_eby-crispy_g.png */; };
 		C155EDF61626239000421599 /* entrada_kany-kamma-ball_g.png in Resources */ = {isa = PBXBuildFile; fileRef = C155EDEE1626239000421599 /* entrada_kany-kamma-ball_g.png */; };
@@ -149,7 +148,6 @@
 		C155EDFA1626239000421599 /* entrada_sea-mix-open_g.png in Resources */ = {isa = PBXBuildFile; fileRef = C155EDF21626239000421599 /* entrada_sea-mix-open_g.png */; };
 		C155EDFB1626239000421599 /* entrada_summer-rolls_g.png in Resources */ = {isa = PBXBuildFile; fileRef = C155EDF31626239000421599 /* entrada_summer-rolls_g.png */; };
 		C155EDFC1626239000421599 /* entrada_tacos-thai_g.png in Resources */ = {isa = PBXBuildFile; fileRef = C155EDF41626239000421599 /* entrada_tacos-thai_g.png */; };
-		C155EE001626325B00421599 /* EntradasLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C155EDFF1626325B00421599 /* EntradasLayer.m */; };
 		C155EE0216265A1D00421599 /* barra_agregar.png in Resources */ = {isa = PBXBuildFile; fileRef = C155EE0116265A1B00421599 /* barra_agregar.png */; };
 		C155EE051626648300421599 /* sopa_chiraschi-sushi.png in Resources */ = {isa = PBXBuildFile; fileRef = C155EE041626648300421599 /* sopa_chiraschi-sushi.png */; };
 		C155EE0C1626691C00421599 /* sopa_chiraschi-sushi_g.png in Resources */ = {isa = PBXBuildFile; fileRef = C155EE0B1626691C00421599 /* sopa_chiraschi-sushi_g.png */; };
@@ -295,7 +293,6 @@
 		C1E968AC16149C1F006E58F3 /* plato_grande3.png in Resources */ = {isa = PBXBuildFile; fileRef = C1E968A416149C1F006E58F3 /* plato_grande3.png */; };
 		C1E968AD16149C1F006E58F3 /* plato_pequeno.png in Resources */ = {isa = PBXBuildFile; fileRef = C1E968A516149C1F006E58F3 /* plato_pequeno.png */; };
 		C1E968AE16149C1F006E58F3 /* plato_pequeno2.png in Resources */ = {isa = PBXBuildFile; fileRef = C1E968A616149C1F006E58F3 /* plato_pequeno2.png */; };
-		C1E968FC1614AEC4006E58F3 /* SopasLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C1E968FB1614AEC4006E58F3 /* SopasLayer.m */; };
 		C1E969091614E97B006E58F3 /* btn_principal2.png in Resources */ = {isa = PBXBuildFile; fileRef = C1E969081614E97A006E58F3 /* btn_principal2.png */; };
 		C1E9690B1614EB88006E58F3 /* fondo_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = C1E9690A1614EB87006E58F3 /* fondo_btn.png */; };
 		C1E9690D1614EEE4006E58F3 /* btn_principal.png in Resources */ = {isa = PBXBuildFile; fileRef = C1E9690C1614EEE3006E58F3 /* btn_principal.png */; };
@@ -595,8 +592,6 @@
 		C12E6CF91610CE17009BB015 /* fondo4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fondo4.png; sourceTree = "<group>"; };
 		C12E6D001610D2FE009BB015 /* fondo5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fondo5.png; sourceTree = "<group>"; };
 		C1559D0A1611F311007512AA /* RootViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RootViewController.xib; sourceTree = "<group>"; };
-		C155EDE2162620E000421599 /* PostresLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostresLayer.h; sourceTree = "<group>"; };
-		C155EDE3162620E000421599 /* PostresLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostresLayer.m; sourceTree = "<group>"; };
 		C155EDEA1626231000421599 /* sopa_chiraschi-sushi_p.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sopa_chiraschi-sushi_p.png"; sourceTree = "<group>"; };
 		C155EDED1626239000421599 /* entrada_eby-crispy_g.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "entrada_eby-crispy_g.png"; sourceTree = "<group>"; };
 		C155EDEE1626239000421599 /* entrada_kany-kamma-ball_g.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "entrada_kany-kamma-ball_g.png"; sourceTree = "<group>"; };
@@ -606,8 +601,6 @@
 		C155EDF21626239000421599 /* entrada_sea-mix-open_g.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "entrada_sea-mix-open_g.png"; sourceTree = "<group>"; };
 		C155EDF31626239000421599 /* entrada_summer-rolls_g.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "entrada_summer-rolls_g.png"; sourceTree = "<group>"; };
 		C155EDF41626239000421599 /* entrada_tacos-thai_g.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "entrada_tacos-thai_g.png"; sourceTree = "<group>"; };
-		C155EDFE1626325B00421599 /* EntradasLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntradasLayer.h; sourceTree = "<group>"; };
-		C155EDFF1626325B00421599 /* EntradasLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntradasLayer.m; sourceTree = "<group>"; };
 		C155EE0116265A1B00421599 /* barra_agregar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = barra_agregar.png; path = ../../../Wasabi/wasabiFinal/app/corte/barra_agregar.png; sourceTree = "<group>"; };
 		C155EE041626648300421599 /* sopa_chiraschi-sushi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sopa_chiraschi-sushi.png"; sourceTree = "<group>"; };
 		C155EE0B1626691C00421599 /* sopa_chiraschi-sushi_g.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sopa_chiraschi-sushi_g.png"; sourceTree = "<group>"; };
@@ -755,8 +748,6 @@
 		C1E968A416149C1F006E58F3 /* plato_grande3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plato_grande3.png; sourceTree = "<group>"; };
 		C1E968A516149C1F006E58F3 /* plato_pequeno.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plato_pequeno.png; sourceTree = "<group>"; };
 		C1E968A616149C1F006E58F3 /* plato_pequeno2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plato_pequeno2.png; sourceTree = "<group>"; };
-		C1E968FA1614AEC4006E58F3 /* SopasLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SopasLayer.h; sourceTree = "<group>"; };
-		C1E968FB1614AEC4006E58F3 /* SopasLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SopasLayer.m; sourceTree = "<group>"; };
 		C1E969081614E97A006E58F3 /* btn_principal2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_principal2.png; sourceTree = "<group>"; };
 		C1E9690A1614EB87006E58F3 /* fondo_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fondo_btn.png; sourceTree = "<group>"; };
 		C1E9690C1614EEE3006E58F3 /* btn_principal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_principal.png; sourceTree = "<group>"; };
@@ -863,12 +854,6 @@
 				C1559D0A1611F311007512AA /* RootViewController.xib */,
 				C1EFBF66160CC4700005ECF1 /* SushiLayer.h */,
 				C1EFBF67160CC4700005ECF1 /* SushiLayer.m */,
-				C1E968FA1614AEC4006E58F3 /* SopasLayer.h */,
-				C1E968FB1614AEC4006E58F3 /* SopasLayer.m */,
-				C155EDE2162620E000421599 /* PostresLayer.h */,
-				C155EDE3162620E000421599 /* PostresLayer.m */,
-				C155EDFE1626325B00421599 /* EntradasLayer.h */,
-				C155EDFF1626325B00421599 /* EntradasLayer.m */,
 				C1D3B699161A3D7E00542A4C /* Plato.h */,
 				C1D3B69A161A3D7F00542A4C /* Plato.m */,
 				C11339BA161B4DFC003F2D4E /* BrainMenu.h */,
@@ -1898,11 +1883,8 @@
 				C1EFBF71160CD7470005ECF1 /* MainMenuViewController.m in Sources */,
 				C1EFBF8A160D08010005ECF1 /* RootViewController.m in Sources */,
 				C1EFBF98160D11780005ECF1 /* MenuViewController.m in Sources */,
-				C1E968FC1614AEC4006E58F3 /* SopasLayer.m in Sources */,
 				C1D3B69B161A3D8000542A4C /* Plato.m in Sources */,
 				C11339BC161B4DFC003F2D4E /* BrainMenu.m in Sources */,
-				C155EDE4162620E000421599 /* PostresLayer.m in Sources */,
-				C155EE001626325B00421599 /* EntradasLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
