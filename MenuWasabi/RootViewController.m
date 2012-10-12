@@ -247,6 +247,7 @@ CCScene *scene;
 }
 
 
+
 -(void)crearPlatosSushi{
     CCLOG(@"Creadno Sushi...");
     if(sushi1==nil) sushi1 = [[Plato alloc]init];
@@ -644,12 +645,17 @@ CCScene *scene;
     
 }
 
+-(void)crearPlatosTeppanyaki{
+    
+}
+
 -(void)crearPlatosSopa{
     CCLOG(@"Creadno Sopas...");
     
     if(sopa1==nil) sopa1 = [[Plato alloc]init];
     sopa1.id_plato =301;
     sopa1.nombre = @"Sopa Chiraschi Sushi";
+    sopa1.descripcion = @"Descripcion Descripcion \nDescripcion Descripcion";
     sopa1.fuente_img = @"sopa_chiraschi-sushi.png";
     sopa1.fuente_img_grande = @"sopa_chiraschi-sushi_grande.png";
     sopa1.fuente_img_peq = @"sopa_chiraschi-sushi_p.png";
@@ -658,14 +664,19 @@ CCScene *scene;
     
  }
 
+-(void)crearPlatosEspeciales{
+    
+}
+
 -(void)crearPlatosEntradas{
     CCLOG(@"Creadno Entradas...");
     
     if(entrada1==nil) entrada1 = [[Plato alloc]init];
     entrada1.id_plato =501;
     entrada1.nombre = @"Eby Crispy     ";
+    entrada1.descripcion = @"Descripcion Descripcion \nDescripcion Descripcion";
     entrada1.fuente_img = @"entrada_eby-crispy.png";
-    entrada1.fuente_img_grande = @"entrada_eby-crispy_g.png";
+    entrada1.fuente_img_grande = @"entrada_tacos-thai_g.png";
     entrada1.fuente_img_peq = @"entrada_eby-crispy_p.png";
     entrada1.precio = 8000;
     entrada1.tipo = tipoEntradas;
@@ -673,6 +684,7 @@ CCScene *scene;
     if(entrada2==nil) entrada2 = [[Plato alloc]init];
     entrada2.id_plato =502;
     entrada2.nombre = @"Kany Kamma Ball";
+    entrada2.descripcion =  @"Descripcion Descripcion \nDescripcion Descripcion";
     entrada2.fuente_img = @"entrada_kany-kamma-ball.png";
     entrada2.fuente_img_grande = @"entrada_kany-kamma-ball_g.png";
     entrada2.fuente_img_peq = @"entrada_kany-kamma-ball_p.png";
@@ -682,6 +694,7 @@ CCScene *scene;
     if(entrada3==nil) entrada3 = [[Plato alloc]init];
     entrada3.id_plato =503;
     entrada3.nombre = @"Niguiri Salmon ";
+    entrada3.descripcion = @"Descripcion Descripcion \nDescripcion Descripcion";
     entrada3.fuente_img = @"entrada_niguiri-salmon.png";
     entrada3.fuente_img_grande = @"entrada_niguiri-salmon_g.png";
     entrada3.fuente_img_peq = @"entrada_niguiri-salmon_p.png";
@@ -691,6 +704,7 @@ CCScene *scene;
     if(entrada4==nil) entrada4 = [[Plato alloc]init];
     entrada4.id_plato =504;
     entrada4.nombre = @"Oriental Taste ";
+    entrada4.descripcion =  @"Descripcion Descripcion \nDescripcion Descripcion";
     entrada4.fuente_img = @"entrada_oriental_taste.png";
     entrada4.fuente_img_grande = @"entrada_oriental_taste_g.png";
     entrada4.fuente_img_peq = @"entrada_oriental_taste_p.png";
@@ -700,6 +714,7 @@ CCScene *scene;
     if(entrada5==nil) entrada5 = [[Plato alloc]init];
     entrada5.id_plato =505;
     entrada5.nombre = @"Sashimi        ";
+    entrada5.descripcion = @"Descripcion Descripcion \nDescripcion Descripcion";
     entrada5.fuente_img = @"entrada_sashimi.png";
     entrada5.fuente_img_grande = @"entrada_sashimi_g.png";
     entrada5.fuente_img_peq = @"entrada_sashimi_p.png";
@@ -709,6 +724,7 @@ CCScene *scene;
     if(entrada6==nil) entrada6 = [[Plato alloc]init];
     entrada6.id_plato =506;
     entrada6.nombre = @"Sea Mix Open   ";
+    entrada6.descripcion =  @"Descripcion Descripcion \nDescripcion Descripcion";
     entrada6.fuente_img = @"entrada_sea-mix-open.png";
     entrada6.fuente_img_grande = @"entrada_sea-mix-open_g.png";
     entrada6.fuente_img_peq = @"entrada_sea-mix-open_p.png";
@@ -718,6 +734,7 @@ CCScene *scene;
     if(entrada7==nil) entrada7 = [[Plato alloc]init];
     entrada7.id_plato =507;
     entrada7.nombre = @"Summer Rolls   ";
+    entrada7.descripcion = @"Descripcion Descripcion \nDescripcion Descripcion";
     entrada7.fuente_img = @"entrada_summer-rolls.png";
     entrada7.fuente_img_grande = @"entrada_summer-rolls_g.png";
     entrada7.fuente_img_peq = @"entrada_summer-rolls_p.png";
@@ -727,6 +744,7 @@ CCScene *scene;
     if(entrada8==nil) entrada8 = [[Plato alloc]init];
     entrada8.id_plato =508;
     entrada8.nombre = @"Tacos Thai     ";
+    entrada8.descripcion = @"Descripcion Descripcion \nDescripcion Descripcion";;
     entrada8.fuente_img = @"entrada_tacos-thai.png";
     entrada8.fuente_img_grande = @"entrada_tacos-thai_g.png";
     entrada8.fuente_img_peq = @"entrada_tacos-thai_p.png";
@@ -735,31 +753,80 @@ CCScene *scene;
 
 }
 
+-(void)crearPlatosEnsaladas{
+    
+}
+
+-(void)crearPlatosWok{
+
+}
+
+-(void)crearPlatosPostres{
+
+}
+
+-(void)crearPlatosBebidas{
+
+}
+
+-(void)crearPlatosLicores{
+
+}
+
 -(NSString *)demeNombrePlatoPorId:(id)_id{
     
     Plato *plato_return;
-    if([[BrainMenu sharedInstance] tipoPlatoActual]==tipoSushi)
+    int tipoActual = [[BrainMenu sharedInstance] tipoPlatoActual];
+    if(tipoActual==tipoSushi)
         plato_return = [platos_sushi objectForKey:_id];
-    else if ([[BrainMenu sharedInstance] tipoPlatoActual]==tipoTeppanyaki)
+    else if (tipoActual==tipoTeppanyaki)
          plato_return = [platos_teppanyaki objectForKey:_id];
-    else if ([[BrainMenu sharedInstance] tipoPlatoActual]==tipoSopa)
+    else if (tipoActual==tipoSopa)
         plato_return = [platos_sopa objectForKey:_id];
-    else if ([[BrainMenu sharedInstance] tipoPlatoActual]==tipoEspeciales)
+    else if (tipoActual==tipoEspeciales)
         plato_return = [platos_especiales objectForKey:_id];
-    else if ([[BrainMenu sharedInstance] tipoPlatoActual]==tipoEntradas)
+    else if (tipoActual==tipoEntradas)
         plato_return = [platos_entradas objectForKey:_id];
-    else if ([[BrainMenu sharedInstance] tipoPlatoActual]==tipoEnsaladas)
+    else if (tipoActual==tipoEnsaladas)
         plato_return = [platos_ensaladas objectForKey:_id];
-    else if ([[BrainMenu sharedInstance] tipoPlatoActual]==tipoWok)
+    else if (tipoActual==tipoWok)
         plato_return = [platos_wok objectForKey:_id];
-    else if ([[BrainMenu sharedInstance] tipoPlatoActual]==tipoPostres)
+    else if (tipoActual==tipoPostres)
         plato_return = [platos_postres objectForKey:_id];
-    else if ([[BrainMenu sharedInstance] tipoPlatoActual]==tipoBebidas)
+    else if (tipoActual==tipoBebidas)
         plato_return = [platos_bebidas objectForKey:_id];
-    else if ([[BrainMenu sharedInstance] tipoPlatoActual]==tipoLicores)
+    else if (tipoActual==tipoLicores)
         plato_return = [platos_licores objectForKey:_id];
     
     return plato_return.nombre;
+}
+
+-(NSString *)demeDescripcionPlatoPorId:(id)_id{
+    
+    Plato *plato_return;
+    int tipoActual = [[BrainMenu sharedInstance] tipoPlatoActual];
+    if(tipoActual==tipoSushi)
+        plato_return = [platos_sushi objectForKey:_id];
+    else if (tipoActual==tipoTeppanyaki)
+        plato_return = [platos_teppanyaki objectForKey:_id];
+    else if (tipoActual==tipoSopa)
+        plato_return = [platos_sopa objectForKey:_id];
+    else if (tipoActual==tipoEspeciales)
+        plato_return = [platos_especiales objectForKey:_id];
+    else if (tipoActual==tipoEntradas)
+        plato_return = [platos_entradas objectForKey:_id];
+    else if (tipoActual==tipoEnsaladas)
+        plato_return = [platos_ensaladas objectForKey:_id];
+    else if (tipoActual==tipoWok)
+        plato_return = [platos_wok objectForKey:_id];
+    else if (tipoActual==tipoPostres)
+        plato_return = [platos_postres objectForKey:_id];
+    else if (tipoActual==tipoBebidas)
+        plato_return = [platos_bebidas objectForKey:_id];
+    else if (tipoActual==tipoLicores)
+        plato_return = [platos_licores objectForKey:_id];
+    
+    return plato_return.descripcion;
     
 }
 
@@ -842,25 +909,26 @@ CCScene *scene;
 
 - (int)demePrecioPlatoPorId:(id)_id{
     Plato *plato_return;
-    if([[BrainMenu sharedInstance] tipoPlatoActual]==tipoSushi)
+    int tipoActual = [[BrainMenu sharedInstance] tipoPlatoActual];
+    if(tipoActual==tipoSushi)
         plato_return = [platos_sushi objectForKey:_id];
-    else if ([[BrainMenu sharedInstance] tipoPlatoActual]==tipoTeppanyaki)
+    else if (tipoActual==tipoTeppanyaki)
         plato_return = [platos_teppanyaki objectForKey:_id];
-    else if ([[BrainMenu sharedInstance] tipoPlatoActual]==tipoSopa)
+    else if (tipoActual==tipoSopa)
         plato_return = [platos_sopa objectForKey:_id];
-    else if ([[BrainMenu sharedInstance] tipoPlatoActual]==tipoEspeciales)
+    else if (tipoActual==tipoEspeciales)
         plato_return = [platos_especiales objectForKey:_id];
-    else if ([[BrainMenu sharedInstance] tipoPlatoActual]==tipoEntradas)
+    else if (tipoActual==tipoEntradas)
         plato_return = [platos_entradas objectForKey:_id];
-    else if ([[BrainMenu sharedInstance] tipoPlatoActual]==tipoEnsaladas)
+    else if (tipoActual==tipoEnsaladas)
         plato_return = [platos_ensaladas objectForKey:_id];
-    else if ([[BrainMenu sharedInstance] tipoPlatoActual]==tipoWok)
+    else if (tipoActual==tipoWok)
         plato_return = [platos_wok objectForKey:_id];
-    else if ([[BrainMenu sharedInstance] tipoPlatoActual]==tipoPostres)
+    else if (tipoActual==tipoPostres)
         plato_return = [platos_postres objectForKey:_id];
-    else if ([[BrainMenu sharedInstance] tipoPlatoActual]==tipoBebidas)
+    else if (tipoActual==tipoBebidas)
         plato_return = [platos_bebidas objectForKey:_id];
-    else if ([[BrainMenu sharedInstance] tipoPlatoActual]==tipoLicores)
+    else if (tipoActual==tipoLicores)
         plato_return = [platos_licores objectForKey:_id];
     return plato_return.precio;
 }
@@ -878,50 +946,51 @@ CCScene *scene;
 
 - (void)agregarPlato:(id)_id
 {
-
-    if([[BrainMenu sharedInstance] tipoPlatoActual]==tipoSushi)
+    int tipoActual = [[BrainMenu sharedInstance] tipoPlatoActual];
+    if(tipoActual==tipoSushi)
         [[BrainMenu sharedInstance] agregarPlato:[platos_sushi objectForKey:_id]];
-    else if ([[BrainMenu sharedInstance] tipoPlatoActual]==tipoTeppanyaki)
+    else if (tipoActual==tipoTeppanyaki)
         [[BrainMenu sharedInstance] agregarPlato:[platos_teppanyaki objectForKey:_id]];
-    else if ([[BrainMenu sharedInstance] tipoPlatoActual]==tipoSopa)
+    else if (tipoActual==tipoSopa)
         [[BrainMenu sharedInstance] agregarPlato:[platos_sopa objectForKey:_id]];
-    else if ([[BrainMenu sharedInstance] tipoPlatoActual]==tipoEspeciales)
+    else if (tipoActual==tipoEspeciales)
         [[BrainMenu sharedInstance] agregarPlato:[platos_especiales objectForKey:_id]];
-    else if ([[BrainMenu sharedInstance] tipoPlatoActual]==tipoEntradas)
+    else if (tipoActual==tipoEntradas)
         [[BrainMenu sharedInstance] agregarPlato:[platos_entradas objectForKey:_id]];
-    else if ([[BrainMenu sharedInstance] tipoPlatoActual]==tipoEnsaladas)
+    else if (tipoActual==tipoEnsaladas)
         [[BrainMenu sharedInstance] agregarPlato:[platos_ensaladas objectForKey:_id]];
-    else if ([[BrainMenu sharedInstance] tipoPlatoActual]==tipoWok)
+    else if (tipoActual==tipoWok)
         [[BrainMenu sharedInstance] agregarPlato:[platos_wok objectForKey:_id]];
-    else if ([[BrainMenu sharedInstance] tipoPlatoActual]==tipoPostres)
+    else if (tipoActual==tipoPostres)
         [[BrainMenu sharedInstance] agregarPlato:[platos_postres objectForKey:_id]];
-    else if ([[BrainMenu sharedInstance] tipoPlatoActual]==tipoBebidas)
+    else if (tipoActual==tipoBebidas)
         [[BrainMenu sharedInstance] agregarPlato:[platos_bebidas objectForKey:_id]];
-    else if ([[BrainMenu sharedInstance] tipoPlatoActual]==tipoLicores)
+    else if (tipoActual==tipoLicores)
         [[BrainMenu sharedInstance] agregarPlato:[platos_licores objectForKey:_id]];
     
 }
 - (void)eliminarPlato:(id)_id
 {
-    if([[BrainMenu sharedInstance] tipoPlatoActual]==tipoSushi)
+    int tipoActual = [[BrainMenu sharedInstance] tipoPlatoActual];
+    if(tipoActual==tipoSushi)
         [[BrainMenu sharedInstance] eliminarPlato:[platos_sushi objectForKey:_id]];
-    else if ([[BrainMenu sharedInstance] tipoPlatoActual]==tipoTeppanyaki)
+    else if (tipoActual==tipoTeppanyaki)
         [[BrainMenu sharedInstance] eliminarPlato:[platos_teppanyaki objectForKey:_id]];
-    else if ([[BrainMenu sharedInstance] tipoPlatoActual]==tipoSopa)
+    else if (tipoActual==tipoSopa)
         [[BrainMenu sharedInstance] eliminarPlato:[platos_sopa objectForKey:_id]];
-    else if ([[BrainMenu sharedInstance] tipoPlatoActual]==tipoEspeciales)
+    else if (tipoActual==tipoEspeciales)
         [[BrainMenu sharedInstance] eliminarPlato:[platos_especiales objectForKey:_id]];
-    else if ([[BrainMenu sharedInstance] tipoPlatoActual]==tipoEntradas)
+    else if (tipoActual==tipoEntradas)
         [[BrainMenu sharedInstance] eliminarPlato:[platos_entradas objectForKey:_id]];
-    else if ([[BrainMenu sharedInstance] tipoPlatoActual]==tipoEnsaladas)
+    else if (tipoActual==tipoEnsaladas)
         [[BrainMenu sharedInstance] eliminarPlato:[platos_ensaladas objectForKey:_id]];
-    else if ([[BrainMenu sharedInstance] tipoPlatoActual]==tipoWok)
+    else if (tipoActual==tipoWok)
         [[BrainMenu sharedInstance] eliminarPlato:[platos_wok objectForKey:_id]];
-    else if ([[BrainMenu sharedInstance] tipoPlatoActual]==tipoPostres)
+    else if (tipoActual==tipoPostres)
         [[BrainMenu sharedInstance] eliminarPlato:[platos_postres objectForKey:_id]];
-    else if ([[BrainMenu sharedInstance] tipoPlatoActual]==tipoBebidas)
+    else if (tipoActual==tipoBebidas)
         [[BrainMenu sharedInstance] eliminarPlato:[platos_bebidas objectForKey:_id]];
-    else if ([[BrainMenu sharedInstance] tipoPlatoActual]==tipoLicores)
+    else if (tipoActual==tipoLicores)
         [[BrainMenu sharedInstance] eliminarPlato:[platos_licores objectForKey:_id]];
 }
 

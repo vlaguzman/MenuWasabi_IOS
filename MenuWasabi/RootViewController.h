@@ -19,6 +19,7 @@
 - (NSString *)demeFuenteImagenPlatoPorId:(id)_id;
 - (NSString *)demeFuenteImagenGrandePlatoPorId:(id)_id;
 - (NSString *)demeFuenteImagenPequenoPlatoPorId:(id)_id;
+- (NSString *)demeDescripcionPlatoPorId:(id)_id;
 - (int)demePrecioPlatoPorId:(id)_id;
 - (int)demeTotalCuenta;
 - (void)agregarPlato:(id)_id;

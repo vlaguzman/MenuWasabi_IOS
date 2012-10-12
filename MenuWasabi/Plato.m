@@ -10,10 +10,11 @@
 
 @implementation Plato
 
-@synthesize id_plato, nombre, fuente_img, fuente_img_grande, fuente_img_peq, pedido, precio, tipo;
+@synthesize id_plato, nombre, descripcion, fuente_img, fuente_img_grande, fuente_img_peq, pedido, precio, tipo;
 
 -(id)init{
     nombre = @"vacio";
+    descripcion = @"vacio";
     fuente_img = @"vacio";
     fuente_img_grande = @"vacio";
     fuente_img_peq = @"vacio";
