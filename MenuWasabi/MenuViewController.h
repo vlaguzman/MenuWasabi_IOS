@@ -36,6 +36,13 @@
 - (IBAction)viewTapped:(id)sender;
 - (IBAction)viewSopas:(id)sender;
 - (IBAction)viewEntradas:(id)sender;
+- (IBAction)viewLicores:(id)sender;
+- (IBAction)viewBebidas:(id)sender;
+- (IBAction)viewPostres:(id)sender;
+- (IBAction)viewEspeciales:(id)sender;
+- (IBAction)viewEnsaladas:(id)sender;
+- (IBAction)viewTeppanyaki:(id)sender;
+- (IBAction)viewWok:(id)sender;
 
 -(void)moverBoton:(UIButton *)botn_ posx:(int)x_ posy:(int)y_ alpha:(double)alpha_ duracion:(double)tiempo_ delay:(double)delay_;
 

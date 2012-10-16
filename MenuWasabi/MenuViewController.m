@@ -161,6 +161,36 @@
     [NSTimer scheduledTimerWithTimeInterval:3.3 target:self selector:@selector(layerEntradas:) userInfo:nil repeats:NO];
 }
 
+- (IBAction)viewLicores:(id)sender {
+}
+
+- (IBAction)viewBebidas:(id)sender {
+}
+
+- (IBAction)viewPostres:(id)sender {
+    [self salirMenu:sender];
+    [NSTimer scheduledTimerWithTimeInterval:3.3 target:self selector:@selector(layerPostres:) userInfo:nil repeats:NO];
+}
+
+- (IBAction)viewEspeciales:(id)sender {
+    [self salirMenu:sender];
+    [NSTimer scheduledTimerWithTimeInterval:3.3 target:self selector:@selector(layerEspeciales:) userInfo:nil repeats:NO];
+}
+
+- (IBAction)viewEnsaladas:(id)sender {
+    [self salirMenu:sender];
+    [NSTimer scheduledTimerWithTimeInterval:3.3 target:self selector:@selector(layerEnsaladas:) userInfo:nil repeats:NO];
+}
+
+- (IBAction)viewTeppanyaki:(id)sender {
+    [self salirMenu:sender];
+    [NSTimer scheduledTimerWithTimeInterval:3.3 target:self selector:@selector(layerTeppanyaki:) userInfo:nil repeats:NO];
+}
+
+- (IBAction)viewWok:(id)sender {
+}
+
+
 -(IBAction)salirMenu:(id)sender{
     
    [self moverBoton:fondo_btn posx:251 posy:126 alpha:0.0 duracion:3 delay:0.0];
@@ -204,31 +234,34 @@
  */
 
 - (void)layerSushi:(id)arg {
-    [self moverBotones];
-    if (_rootViewController == nil) {
-        self.rootViewController = [[[RootViewController alloc] initWithNibName:nil bundle:nil] autorelease];
-    }
- 
-    [[BrainMenu sharedInstance] setTipoPlatoActual:tipoSushi];
-    [self.navigationController pushViewController:_rootViewController animated:YES];
+    [self beginLayer:tipoSushi];
 }
 - (void)layerSopas:(id)arg {
-    [self moverBotones];
-    if (_rootViewController == nil) {
-        self.rootViewController = [[[RootViewController alloc] initWithNibName:nil bundle:nil] autorelease];
-    }
-    [[BrainMenu sharedInstance] setTipoPlatoActual:tipoSopa];
-    [self.navigationController pushViewController:_rootViewController animated:YES];
-    
+    [self beginLayer:tipoSopa];
 }
 - (void)layerEntradas:(id)arg {
+    [self beginLayer:tipoEntradas];   
+}
+- (void)layerEnsaladas:(id)arg {
+    [self beginLayer:tipoEnsaladas];
+}
+- (void)layerPostres:(id)arg {
+    [self beginLayer:tipoPostres];
+}
+- (void)layerEspeciales:(id)arg {
+    [self beginLayer:tipoEspeciales];
+}
+- (void)layerTeppanyaki:(id)arg {
+    [self beginLayer:tipoTeppanyaki];
+}
+
+- (void)beginLayer:(int)_tipo{
     [self moverBotones];
     if (_rootViewController == nil) {
         self.rootViewController = [[[RootViewController alloc] initWithNibName:nil bundle:nil] autorelease];
     }
-    [[BrainMenu sharedInstance] setTipoPlatoActual:tipoEntradas];
+    [[BrainMenu sharedInstance] setTipoPlatoActual:_tipo];
     [self.navigationController pushViewController:_rootViewController animated:YES];
-    
 }
 
 - (void)dealloc {

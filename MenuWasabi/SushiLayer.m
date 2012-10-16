@@ -36,10 +36,6 @@
 #define paddingDescriptionPlatesMenu 500
 
 //Padding asignado a los labels que contienen los precios
-#define paddingBigPlatesMenuSushi 240
-#define paddingBigPlatesMenuSopas 0
-#define paddingBigPlatesMenuEntradas 240
-
 #define paddingPrices 50
 #define paddingNombresSushi 142
 #define paddingNombresSopas 163
@@ -49,10 +45,10 @@
 
 //Posiciones Nombres Menu
 #define posXprincipalMenuSushi 130
-#define posXBigPlatesMenuSushi 1200
-#define posYBigPlatesMenuSushi -9850// Para bajar la primera imagen, disminuir el número
+#define posXBigPlatesMenu 1200
+
 #define posXBigPlatesMenuEntradas 1200
-#define posYBigPlatesMenuEntradas -1800
+
 #define posXBigPlatesDescription -200
 #define posXShowBigPlatesDescription 250
 #define posYBigPlatesDescription 500
@@ -83,10 +79,9 @@ int posYnombres=0;
 int posXprincipalMenu = 0;
 int limitMoveRight = 0, limitMoveLeft = 0;
 int numPlates = 1;
-int posXBigPlatesMenu = 0;
+
 int posYPlatesMenu = 0;
-int posYBigPlatesMenu = 0;
-int paddingBigPlatesMenu = 0;
+
 int paddingTinyPlates = 0;
 int paddingClose = 0;
 int paddingNombres = 0;
@@ -149,12 +144,8 @@ BOOL bool_swipe = YES;
     if(tipoPlato == tipoSushi){
         numPlates = 39;
         
-        posXBigPlatesMenu =posXBigPlatesMenuSushi;
-        posYBigPlatesMenu=posYBigPlatesMenuSushi;
-        
         posXprincipalMenu = posXprincipalMenuSushi;
         
-        paddingBigPlatesMenu = paddingBigPlatesMenuSushi;
         paddingTinyPlates = 70;
         paddingClose = 100;
         paddingNombres = paddingNombresSushi;
@@ -171,16 +162,72 @@ BOOL bool_swipe = YES;
     }
     else if (tipoPlato == tipoSopa){
         numPlates = 1;
-        
-        posXBigPlatesMenu =1200;
-        posYBigPlatesMenu=400;
-        
-        paddingBigPlatesMenu = paddingBigPlatesMenuSopas;
+     
         paddingTinyPlates = 50;
         paddingClose = 100;
         paddingNombres = paddingNombresSopas;
         
-//        spaceAmongBigPlates = spaceAmongBigPlatesSushi; // SOLO HAY UN PLATO POR AHORA
+        
+        posXnombres = posXnombresSopas;
+        posYnombres = posYnombresSopas;
+        
+    }
+    //PERSONALIZAR
+    else if (tipoPlato == tipoEnsaladas){
+        numPlates = 1;
+      
+        paddingTinyPlates = 50;
+        paddingClose = 100;
+        paddingNombres = paddingNombresSopas;
+        
+        
+        posXnombres = posXnombresSopas;
+        posYnombres = posYnombresSopas;
+        
+    }
+    //PERSONALIZAR
+    else if (tipoPlato == tipoEspeciales){
+        numPlates = 1;
+        
+        paddingTinyPlates = 50;
+        paddingClose = 100;
+        paddingNombres = paddingNombresSopas;
+        
+        
+        posXnombres = posXnombresSopas;
+        posYnombres = posYnombresSopas;
+        
+    }
+    //PERSONALIZAR
+    else if (tipoPlato == tipoPostres){
+        numPlates = 3;
+
+        paddingTinyPlates = 50;
+        paddingClose = 100;
+        paddingNombres = paddingNombresSopas;
+        
+   
+        paddingNombres = paddingNombresSushi;
+        paddingPrincipalPlates = paddingPrincipalPlatesSushi;
+        
+        
+        posXnombres = posXnombresSopas;
+        posYnombres = posYnombresSopas;
+        
+    }
+    
+    //PERSONALIZAR
+    else if (tipoPlato == tipoTeppanyaki){
+        numPlates = 2;
+        
+        paddingTinyPlates = 50;
+        paddingClose = 100;
+        paddingNombres = paddingNombresSopas;
+        
+        
+        paddingNombres = paddingNombresSushi;
+        paddingPrincipalPlates = paddingPrincipalPlatesSushi;
+        
         
         posXnombres = posXnombresSopas;
         posYnombres = posYnombresSopas;
@@ -188,10 +235,6 @@ BOOL bool_swipe = YES;
     }
     else if (tipoPlato == tipoEntradas){
         numPlates = 8;
-        
-        posXBigPlatesMenu =posXBigPlatesMenuEntradas;
-        posYBigPlatesMenu=posYBigPlatesMenuEntradas;
-        paddingBigPlatesMenu = paddingBigPlatesMenuEntradas;
         
         paddingTinyPlates = 50;
         paddingClose = 100;
@@ -589,7 +632,6 @@ BOOL bool_swipe = YES;
     
    
     [label_descripcion setString:[_rootViewController demeDescripcionPlatoPorId:@(iactualPlate)]];
-    [label_descripcion setString:@""];
     
     [itemAux2 setNormalImage:[CCMenuItemImage itemWithNormalImage:[_rootViewController demeFuenteImagenGrandePlatoPorId:@(iactualPlate)] selectedImage:[_rootViewController demeFuenteImagenGrandePlatoPorId:@(iactualPlate)]]];
     

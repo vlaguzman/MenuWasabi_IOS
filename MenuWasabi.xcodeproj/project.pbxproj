@@ -281,6 +281,33 @@
 		C1A9965E16273F4500592399 /* entrada_sea-mix-open.png in Resources */ = {isa = PBXBuildFile; fileRef = C1A9965616273F4500592399 /* entrada_sea-mix-open.png */; };
 		C1A9965F16273F4500592399 /* entrada_summer-rolls.png in Resources */ = {isa = PBXBuildFile; fileRef = C1A9965716273F4500592399 /* entrada_summer-rolls.png */; };
 		C1A9966016273F4500592399 /* entrada_tacos-thai.png in Resources */ = {isa = PBXBuildFile; fileRef = C1A9965816273F4500592399 /* entrada_tacos-thai.png */; };
+		C1C23C6E162DAB4400843CBA /* ceviche-mixto_g.png in Resources */ = {isa = PBXBuildFile; fileRef = C1C23C6C162DAB4400843CBA /* ceviche-mixto_g.png */; };
+		C1C23C6F162DAB4400843CBA /* tiradito-de-mero_g.png in Resources */ = {isa = PBXBuildFile; fileRef = C1C23C6D162DAB4400843CBA /* tiradito-de-mero_g.png */; };
+		C1C23C73162DAB5500843CBA /* ceviche-mixto.png in Resources */ = {isa = PBXBuildFile; fileRef = C1C23C71162DAB5500843CBA /* ceviche-mixto.png */; };
+		C1C23C74162DAB5500843CBA /* tiradito-de-mero.png in Resources */ = {isa = PBXBuildFile; fileRef = C1C23C72162DAB5500843CBA /* tiradito-de-mero.png */; };
+		C1C23C77162DAB7600843CBA /* ceviche-mixto_p.png in Resources */ = {isa = PBXBuildFile; fileRef = C1C23C75162DAB7600843CBA /* ceviche-mixto_p.png */; };
+		C1C23C78162DAB7600843CBA /* tiradito-de-mero_p.png in Resources */ = {isa = PBXBuildFile; fileRef = C1C23C76162DAB7600843CBA /* tiradito-de-mero_p.png */; };
+		C1C23C7F162DAEF600843CBA /* ensalada-de-pollo_g.png in Resources */ = {isa = PBXBuildFile; fileRef = C1C23C7E162DAEF600843CBA /* ensalada-de-pollo_g.png */; };
+		C1C23C81162DAF0600843CBA /* ensalada-de-pollo.png in Resources */ = {isa = PBXBuildFile; fileRef = C1C23C80162DAF0600843CBA /* ensalada-de-pollo.png */; };
+		C1C23C83162DAF1300843CBA /* ensalada-de-pollo_p.png in Resources */ = {isa = PBXBuildFile; fileRef = C1C23C82162DAF1300843CBA /* ensalada-de-pollo_p.png */; };
+		C1C23C8B162DBE1800843CBA /* Nutella-fruit-roll.png in Resources */ = {isa = PBXBuildFile; fileRef = C1C23C88162DBE1800843CBA /* Nutella-fruit-roll.png */; };
+		C1C23C8C162DBE1800843CBA /* Passion-fruit-sensation-cereza.png in Resources */ = {isa = PBXBuildFile; fileRef = C1C23C89162DBE1800843CBA /* Passion-fruit-sensation-cereza.png */; };
+		C1C23C8D162DBE1800843CBA /* Passion-fruit-sensation.png in Resources */ = {isa = PBXBuildFile; fileRef = C1C23C8A162DBE1800843CBA /* Passion-fruit-sensation.png */; };
+		C1C23C91162DBE2400843CBA /* Nutella-fruit-roll_g.png in Resources */ = {isa = PBXBuildFile; fileRef = C1C23C8E162DBE2400843CBA /* Nutella-fruit-roll_g.png */; };
+		C1C23C92162DBE2400843CBA /* Passion-fruit-sensation_g.png in Resources */ = {isa = PBXBuildFile; fileRef = C1C23C8F162DBE2400843CBA /* Passion-fruit-sensation_g.png */; };
+		C1C23C93162DBE2400843CBA /* Passion-fruit-sensation-cereza_g.png in Resources */ = {isa = PBXBuildFile; fileRef = C1C23C90162DBE2400843CBA /* Passion-fruit-sensation-cereza_g.png */; };
+		C1C23C97162DBE3300843CBA /* Nutella-fruit-roll_p.png in Resources */ = {isa = PBXBuildFile; fileRef = C1C23C94162DBE3300843CBA /* Nutella-fruit-roll_p.png */; };
+		C1C23C98162DBE3300843CBA /* Passion-fruit-sensation_p.png in Resources */ = {isa = PBXBuildFile; fileRef = C1C23C95162DBE3300843CBA /* Passion-fruit-sensation_p.png */; };
+		C1C23C99162DBE3300843CBA /* Passion-fruit-sensation-cereza_p.png in Resources */ = {isa = PBXBuildFile; fileRef = C1C23C96162DBE3300843CBA /* Passion-fruit-sensation-cereza_p.png */; };
+		C1C23CA4162DC4BF00843CBA /* eby-yaky_g.png in Resources */ = {isa = PBXBuildFile; fileRef = C1C23CA2162DC4BF00843CBA /* eby-yaky_g.png */; };
+		C1C23CA5162DC4BF00843CBA /* teppanyaki_carnes_g.png in Resources */ = {isa = PBXBuildFile; fileRef = C1C23CA3162DC4BF00843CBA /* teppanyaki_carnes_g.png */; };
+		C1C23CA8162DC4CE00843CBA /* eby-yaky.png in Resources */ = {isa = PBXBuildFile; fileRef = C1C23CA6162DC4CE00843CBA /* eby-yaky.png */; };
+		C1C23CA9162DC4CE00843CBA /* teppanyaki_carnes.png in Resources */ = {isa = PBXBuildFile; fileRef = C1C23CA7162DC4CE00843CBA /* teppanyaki_carnes.png */; };
+		C1C23CAC162DC4E000843CBA /* eby-yaky_p.png in Resources */ = {isa = PBXBuildFile; fileRef = C1C23CAA162DC4E000843CBA /* eby-yaky_p.png */; };
+		C1C23CAD162DC4E000843CBA /* teppanyaki_carnes_p.png in Resources */ = {isa = PBXBuildFile; fileRef = C1C23CAB162DC4E000843CBA /* teppanyaki_carnes_p.png */; };
+		C1C23CAF162DC52500843CBA /* titanic_g.png in Resources */ = {isa = PBXBuildFile; fileRef = C1C23CAE162DC52500843CBA /* titanic_g.png */; };
+		C1C23CB1162DC53000843CBA /* titanic.png in Resources */ = {isa = PBXBuildFile; fileRef = C1C23CB0162DC53000843CBA /* titanic.png */; };
+		C1C23CB3162DC53C00843CBA /* titanic_p.png in Resources */ = {isa = PBXBuildFile; fileRef = C1C23CB2162DC53C00843CBA /* titanic_p.png */; };
 		C1D3B69B161A3D8000542A4C /* Plato.m in Sources */ = {isa = PBXBuildFile; fileRef = C1D3B69A161A3D7F00542A4C /* Plato.m */; };
 		C1E87519161CEAFB0020486A /* barra_agregar_.png in Resources */ = {isa = PBXBuildFile; fileRef = C1E87517161CEAFB0020486A /* barra_agregar_.png */; };
 		C1E8751A161CEAFB0020486A /* btn_agregar.png in Resources */ = {isa = PBXBuildFile; fileRef = C1E87518161CEAFB0020486A /* btn_agregar.png */; };
@@ -734,6 +761,33 @@
 		C1A9965616273F4500592399 /* entrada_sea-mix-open.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "entrada_sea-mix-open.png"; sourceTree = "<group>"; };
 		C1A9965716273F4500592399 /* entrada_summer-rolls.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "entrada_summer-rolls.png"; sourceTree = "<group>"; };
 		C1A9965816273F4500592399 /* entrada_tacos-thai.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "entrada_tacos-thai.png"; sourceTree = "<group>"; };
+		C1C23C6C162DAB4400843CBA /* ceviche-mixto_g.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ceviche-mixto_g.png"; sourceTree = "<group>"; };
+		C1C23C6D162DAB4400843CBA /* tiradito-de-mero_g.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tiradito-de-mero_g.png"; sourceTree = "<group>"; };
+		C1C23C71162DAB5500843CBA /* ceviche-mixto.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ceviche-mixto.png"; sourceTree = "<group>"; };
+		C1C23C72162DAB5500843CBA /* tiradito-de-mero.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tiradito-de-mero.png"; sourceTree = "<group>"; };
+		C1C23C75162DAB7600843CBA /* ceviche-mixto_p.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ceviche-mixto_p.png"; sourceTree = "<group>"; };
+		C1C23C76162DAB7600843CBA /* tiradito-de-mero_p.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tiradito-de-mero_p.png"; sourceTree = "<group>"; };
+		C1C23C7E162DAEF600843CBA /* ensalada-de-pollo_g.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ensalada-de-pollo_g.png"; sourceTree = "<group>"; };
+		C1C23C80162DAF0600843CBA /* ensalada-de-pollo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ensalada-de-pollo.png"; sourceTree = "<group>"; };
+		C1C23C82162DAF1300843CBA /* ensalada-de-pollo_p.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ensalada-de-pollo_p.png"; sourceTree = "<group>"; };
+		C1C23C88162DBE1800843CBA /* Nutella-fruit-roll.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Nutella-fruit-roll.png"; sourceTree = "<group>"; };
+		C1C23C89162DBE1800843CBA /* Passion-fruit-sensation-cereza.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Passion-fruit-sensation-cereza.png"; sourceTree = "<group>"; };
+		C1C23C8A162DBE1800843CBA /* Passion-fruit-sensation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Passion-fruit-sensation.png"; sourceTree = "<group>"; };
+		C1C23C8E162DBE2400843CBA /* Nutella-fruit-roll_g.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Nutella-fruit-roll_g.png"; sourceTree = "<group>"; };
+		C1C23C8F162DBE2400843CBA /* Passion-fruit-sensation_g.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Passion-fruit-sensation_g.png"; sourceTree = "<group>"; };
+		C1C23C90162DBE2400843CBA /* Passion-fruit-sensation-cereza_g.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Passion-fruit-sensation-cereza_g.png"; sourceTree = "<group>"; };
+		C1C23C94162DBE3300843CBA /* Nutella-fruit-roll_p.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Nutella-fruit-roll_p.png"; sourceTree = "<group>"; };
+		C1C23C95162DBE3300843CBA /* Passion-fruit-sensation_p.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Passion-fruit-sensation_p.png"; sourceTree = "<group>"; };
+		C1C23C96162DBE3300843CBA /* Passion-fruit-sensation-cereza_p.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Passion-fruit-sensation-cereza_p.png"; sourceTree = "<group>"; };
+		C1C23CA2162DC4BF00843CBA /* eby-yaky_g.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "eby-yaky_g.png"; sourceTree = "<group>"; };
+		C1C23CA3162DC4BF00843CBA /* teppanyaki_carnes_g.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = teppanyaki_carnes_g.png; sourceTree = "<group>"; };
+		C1C23CA6162DC4CE00843CBA /* eby-yaky.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "eby-yaky.png"; sourceTree = "<group>"; };
+		C1C23CA7162DC4CE00843CBA /* teppanyaki_carnes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = teppanyaki_carnes.png; sourceTree = "<group>"; };
+		C1C23CAA162DC4E000843CBA /* eby-yaky_p.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "eby-yaky_p.png"; sourceTree = "<group>"; };
+		C1C23CAB162DC4E000843CBA /* teppanyaki_carnes_p.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = teppanyaki_carnes_p.png; sourceTree = "<group>"; };
+		C1C23CAE162DC52500843CBA /* titanic_g.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = titanic_g.png; sourceTree = "<group>"; };
+		C1C23CB0162DC53000843CBA /* titanic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = titanic.png; sourceTree = "<group>"; };
+		C1C23CB2162DC53C00843CBA /* titanic_p.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = titanic_p.png; sourceTree = "<group>"; };
 		C1D3B699161A3D7E00542A4C /* Plato.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Plato.h; sourceTree = "<group>"; };
 		C1D3B69A161A3D7F00542A4C /* Plato.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Plato.m; sourceTree = "<group>"; };
 		C1E87517161CEAFB0020486A /* barra_agregar_.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = barra_agregar_.png; sourceTree = "<group>"; };
@@ -1408,6 +1462,8 @@
 		C1A9964D16273CAE00592399 /* grandes */ = {
 			isa = PBXGroup;
 			children = (
+				C1C23C6C162DAB4400843CBA /* ceviche-mixto_g.png */,
+				C1C23C6D162DAB4400843CBA /* tiradito-de-mero_g.png */,
 				C155EDED1626239000421599 /* entrada_eby-crispy_g.png */,
 				C155EDEE1626239000421599 /* entrada_kany-kamma-ball_g.png */,
 				C155EDEF1626239000421599 /* entrada_niguiri-salmon_g.png */,
@@ -1423,6 +1479,8 @@
 		C1A9964E16273CC900592399 /* pequenas */ = {
 			isa = PBXGroup;
 			children = (
+				C1C23C75162DAB7600843CBA /* ceviche-mixto_p.png */,
+				C1C23C76162DAB7600843CBA /* tiradito-de-mero_p.png */,
 				C1A995FE162721E400592399 /* entrada_eby-crispy_p.png */,
 				C1A995FF162721E400592399 /* entrada_kany-kamma-ball_p.png */,
 				C1A99600162721E400592399 /* entrada_niguiri-salmon_p.png */,
@@ -1446,6 +1504,8 @@
 		C1A9965016273CE800592399 /* normales */ = {
 			isa = PBXGroup;
 			children = (
+				C1C23C71162DAB5500843CBA /* ceviche-mixto.png */,
+				C1C23C72162DAB5500843CBA /* tiradito-de-mero.png */,
 				C1A9965116273F4500592399 /* entrada_eby-crispy.png */,
 				C1A9965216273F4500592399 /* entrada_kany-kamma-ball.png */,
 				C1A9965316273F4500592399 /* entrada_niguiri-salmon.png */,
@@ -1458,32 +1518,10 @@
 			name = normales;
 			sourceTree = "<group>";
 		};
-		C1EC4325161E420D0061DD45 /* Fonts */ = {
-			isa = PBXGroup;
-			children = (
-				C1EC4327161E423E0061DD45 /* A Damn Mess.ttf */,
-			);
-			name = Fonts;
-			sourceTree = "<group>";
-		};
-		C1EF08A2161510C700BA0421 /* Sushi */ = {
-			isa = PBXGroup;
-			children = (
-				C1A995A61627125D00592399 /* normales */,
-				C1A995A116270D3800592399 /* pequenos */,
-				C1A995A016270D2D00592399 /* grandes */,
-				C1E876C5161CF5B40020486A /* Default-Landscape~ipad.png */,
-			);
-			name = Sushi;
-			sourceTree = "<group>";
-		};
-		C1EFBF9A160D139E0005ECF1 /* Images */ = {
+		C1C23C79162DAE8700843CBA /* Adicionales */ = {
 			isa = PBXGroup;
 			children = (
 				C155EE0116265A1B00421599 /* barra_agregar.png */,
-				C155EDEC1626236800421599 /* Entradas */,
-				C155EDE6162622A600421599 /* Sopas */,
-				C1EF08A2161510C700BA0421 /* Sushi */,
 				C1E87517161CEAFB0020486A /* barra_agregar_.png */,
 				C1E87518161CEAFB0020486A /* btn_agregar.png */,
 				C1EF08A016150A0A00BA0421 /* inicio.png */,
@@ -1518,6 +1556,185 @@
 				C1EFBFA5160D14230005ECF1 /* btn_wok.png */,
 				C1EFBF93160D0FB20005ECF1 /* fondo3.png */,
 				C1EFBF73160CD8710005ECF1 /* fondo1.png */,
+			);
+			name = Adicionales;
+			sourceTree = "<group>";
+		};
+		C1C23C7A162DAEBE00843CBA /* Ensaladas */ = {
+			isa = PBXGroup;
+			children = (
+				C1C23C7D162DAEDE00843CBA /* pequenas */,
+				C1C23C7C162DAED200843CBA /* normales */,
+				C1C23C7B162DAECC00843CBA /* grandes */,
+			);
+			name = Ensaladas;
+			sourceTree = "<group>";
+		};
+		C1C23C7B162DAECC00843CBA /* grandes */ = {
+			isa = PBXGroup;
+			children = (
+				C1C23C7E162DAEF600843CBA /* ensalada-de-pollo_g.png */,
+			);
+			name = grandes;
+			sourceTree = "<group>";
+		};
+		C1C23C7C162DAED200843CBA /* normales */ = {
+			isa = PBXGroup;
+			children = (
+				C1C23C80162DAF0600843CBA /* ensalada-de-pollo.png */,
+			);
+			name = normales;
+			sourceTree = "<group>";
+		};
+		C1C23C7D162DAEDE00843CBA /* pequenas */ = {
+			isa = PBXGroup;
+			children = (
+				C1C23C82162DAF1300843CBA /* ensalada-de-pollo_p.png */,
+			);
+			name = pequenas;
+			sourceTree = "<group>";
+		};
+		C1C23C84162DBDB500843CBA /* Postres */ = {
+			isa = PBXGroup;
+			children = (
+				C1C23C87162DBDD400843CBA /* grandes */,
+				C1C23C86162DBDC900843CBA /* normales */,
+				C1C23C85162DBDC300843CBA /* pequenas */,
+			);
+			name = Postres;
+			sourceTree = "<group>";
+		};
+		C1C23C85162DBDC300843CBA /* pequenas */ = {
+			isa = PBXGroup;
+			children = (
+				C1C23C94162DBE3300843CBA /* Nutella-fruit-roll_p.png */,
+				C1C23C95162DBE3300843CBA /* Passion-fruit-sensation_p.png */,
+				C1C23C96162DBE3300843CBA /* Passion-fruit-sensation-cereza_p.png */,
+			);
+			name = pequenas;
+			sourceTree = "<group>";
+		};
+		C1C23C86162DBDC900843CBA /* normales */ = {
+			isa = PBXGroup;
+			children = (
+				C1C23C88162DBE1800843CBA /* Nutella-fruit-roll.png */,
+				C1C23C89162DBE1800843CBA /* Passion-fruit-sensation-cereza.png */,
+				C1C23C8A162DBE1800843CBA /* Passion-fruit-sensation.png */,
+			);
+			name = normales;
+			sourceTree = "<group>";
+		};
+		C1C23C87162DBDD400843CBA /* grandes */ = {
+			isa = PBXGroup;
+			children = (
+				C1C23C8E162DBE2400843CBA /* Nutella-fruit-roll_g.png */,
+				C1C23C8F162DBE2400843CBA /* Passion-fruit-sensation_g.png */,
+				C1C23C90162DBE2400843CBA /* Passion-fruit-sensation-cereza_g.png */,
+			);
+			name = grandes;
+			sourceTree = "<group>";
+		};
+		C1C23C9A162DC45B00843CBA /* Teppanyaki */ = {
+			isa = PBXGroup;
+			children = (
+				C1C23C9D162DC48100843CBA /* grandes */,
+				C1C23C9C162DC47100843CBA /* pequenas */,
+				C1C23C9B162DC46A00843CBA /* normales */,
+			);
+			name = Teppanyaki;
+			sourceTree = "<group>";
+		};
+		C1C23C9B162DC46A00843CBA /* normales */ = {
+			isa = PBXGroup;
+			children = (
+				C1C23CA6162DC4CE00843CBA /* eby-yaky.png */,
+				C1C23CA7162DC4CE00843CBA /* teppanyaki_carnes.png */,
+			);
+			name = normales;
+			sourceTree = "<group>";
+		};
+		C1C23C9C162DC47100843CBA /* pequenas */ = {
+			isa = PBXGroup;
+			children = (
+				C1C23CAA162DC4E000843CBA /* eby-yaky_p.png */,
+				C1C23CAB162DC4E000843CBA /* teppanyaki_carnes_p.png */,
+			);
+			name = pequenas;
+			sourceTree = "<group>";
+		};
+		C1C23C9D162DC48100843CBA /* grandes */ = {
+			isa = PBXGroup;
+			children = (
+				C1C23CA2162DC4BF00843CBA /* eby-yaky_g.png */,
+				C1C23CA3162DC4BF00843CBA /* teppanyaki_carnes_g.png */,
+			);
+			name = grandes;
+			sourceTree = "<group>";
+		};
+		C1C23C9E162DC48E00843CBA /* Especiales */ = {
+			isa = PBXGroup;
+			children = (
+				C1C23CA1162DC4A500843CBA /* grandes */,
+				C1C23CA0162DC49D00843CBA /* normales */,
+				C1C23C9F162DC49600843CBA /* pequenas */,
+			);
+			name = Especiales;
+			sourceTree = "<group>";
+		};
+		C1C23C9F162DC49600843CBA /* pequenas */ = {
+			isa = PBXGroup;
+			children = (
+				C1C23CB2162DC53C00843CBA /* titanic_p.png */,
+			);
+			name = pequenas;
+			sourceTree = "<group>";
+		};
+		C1C23CA0162DC49D00843CBA /* normales */ = {
+			isa = PBXGroup;
+			children = (
+				C1C23CB0162DC53000843CBA /* titanic.png */,
+			);
+			name = normales;
+			sourceTree = "<group>";
+		};
+		C1C23CA1162DC4A500843CBA /* grandes */ = {
+			isa = PBXGroup;
+			children = (
+				C1C23CAE162DC52500843CBA /* titanic_g.png */,
+			);
+			name = grandes;
+			sourceTree = "<group>";
+		};
+		C1EC4325161E420D0061DD45 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				C1EC4327161E423E0061DD45 /* A Damn Mess.ttf */,
+			);
+			name = Fonts;
+			sourceTree = "<group>";
+		};
+		C1EF08A2161510C700BA0421 /* Sushi */ = {
+			isa = PBXGroup;
+			children = (
+				C1A995A61627125D00592399 /* normales */,
+				C1A995A116270D3800592399 /* pequenos */,
+				C1A995A016270D2D00592399 /* grandes */,
+				C1E876C5161CF5B40020486A /* Default-Landscape~ipad.png */,
+			);
+			name = Sushi;
+			sourceTree = "<group>";
+		};
+		C1EFBF9A160D139E0005ECF1 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				C1C23C9E162DC48E00843CBA /* Especiales */,
+				C1C23C9A162DC45B00843CBA /* Teppanyaki */,
+				C1C23C84162DBDB500843CBA /* Postres */,
+				C1C23C7A162DAEBE00843CBA /* Ensaladas */,
+				C1C23C79162DAE8700843CBA /* Adicionales */,
+				C155EDEC1626236800421599 /* Entradas */,
+				C155EDE6162622A600421599 /* Sopas */,
+				C1EF08A2161510C700BA0421 /* Sushi */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -1765,6 +1982,33 @@
 				C1A9965E16273F4500592399 /* entrada_sea-mix-open.png in Resources */,
 				C1A9965F16273F4500592399 /* entrada_summer-rolls.png in Resources */,
 				C1A9966016273F4500592399 /* entrada_tacos-thai.png in Resources */,
+				C1C23C6E162DAB4400843CBA /* ceviche-mixto_g.png in Resources */,
+				C1C23C6F162DAB4400843CBA /* tiradito-de-mero_g.png in Resources */,
+				C1C23C73162DAB5500843CBA /* ceviche-mixto.png in Resources */,
+				C1C23C74162DAB5500843CBA /* tiradito-de-mero.png in Resources */,
+				C1C23C77162DAB7600843CBA /* ceviche-mixto_p.png in Resources */,
+				C1C23C78162DAB7600843CBA /* tiradito-de-mero_p.png in Resources */,
+				C1C23C7F162DAEF600843CBA /* ensalada-de-pollo_g.png in Resources */,
+				C1C23C81162DAF0600843CBA /* ensalada-de-pollo.png in Resources */,
+				C1C23C83162DAF1300843CBA /* ensalada-de-pollo_p.png in Resources */,
+				C1C23C8B162DBE1800843CBA /* Nutella-fruit-roll.png in Resources */,
+				C1C23C8C162DBE1800843CBA /* Passion-fruit-sensation-cereza.png in Resources */,
+				C1C23C8D162DBE1800843CBA /* Passion-fruit-sensation.png in Resources */,
+				C1C23C91162DBE2400843CBA /* Nutella-fruit-roll_g.png in Resources */,
+				C1C23C92162DBE2400843CBA /* Passion-fruit-sensation_g.png in Resources */,
+				C1C23C93162DBE2400843CBA /* Passion-fruit-sensation-cereza_g.png in Resources */,
+				C1C23C97162DBE3300843CBA /* Nutella-fruit-roll_p.png in Resources */,
+				C1C23C98162DBE3300843CBA /* Passion-fruit-sensation_p.png in Resources */,
+				C1C23C99162DBE3300843CBA /* Passion-fruit-sensation-cereza_p.png in Resources */,
+				C1C23CA4162DC4BF00843CBA /* eby-yaky_g.png in Resources */,
+				C1C23CA5162DC4BF00843CBA /* teppanyaki_carnes_g.png in Resources */,
+				C1C23CA8162DC4CE00843CBA /* eby-yaky.png in Resources */,
+				C1C23CA9162DC4CE00843CBA /* teppanyaki_carnes.png in Resources */,
+				C1C23CAC162DC4E000843CBA /* eby-yaky_p.png in Resources */,
+				C1C23CAD162DC4E000843CBA /* teppanyaki_carnes_p.png in Resources */,
+				C1C23CAF162DC52500843CBA /* titanic_g.png in Resources */,
+				C1C23CB1162DC53000843CBA /* titanic.png in Resources */,
+				C1C23CB3162DC53C00843CBA /* titanic_p.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
