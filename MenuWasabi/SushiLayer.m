@@ -63,7 +63,7 @@
 
 //Espacio entre platos grandes - factor para cuando se muestran los platos
 #define spaceAmongBigPlatesSushi 538
-#define spaceAmongBigPlatesEntradas 638 // Si es necesario subir las imagenes, se aumenta el número
+#define spaceAmongBigPlatesEntradas 538 // 638 Si es necesario subir las imagenes, se aumenta el número
 
 //Cada tipo de plato tiene un identificador para efecto de carag de imagenes
 #define tipoSushi 1
@@ -133,6 +133,8 @@ CCMenu *menu, *menu_nombres, *menu_atras, *menu_agregar, *menu_barra, *menu_pedi
 CCMenu *menu_precios;
 CGSize winSize;
 
+CCMenu *menuprueba;
+CCMenuItemImage *itemAux2;
 BOOL bool_swipe = YES;
 
 
@@ -301,31 +303,18 @@ BOOL bool_swipe = YES;
         [menu_nombres alignItemsHorizontallyWithPadding:paddingNombres];
         [self addChild:menu_nombres];
         
-        
         menu_platosgrandes = [[CCMenu alloc]init];
-        for(int i = 1; i<=numPlates; i++){
-            
-            itemAux =  [CCMenuItemImage itemWithNormalImage:[_rootViewController demeFuenteImagenGrandePlatoPorId:@(i)] selectedImage:[_rootViewController demeFuenteImagenGrandePlatoPorId:@(i)] target:self selector:@selector(onPushSceneTran:)];
-            [menu_platosgrandes addChild:itemAux];
-        }
-        menu_platosgrandes.position = CGPointMake(posXBigPlatesMenu, posYBigPlatesMenu);
-        [menu_platosgrandes alignItemsVerticallyWithPadding:paddingBigPlatesMenu];
-        [self addChild:menu_platosgrandes];
+        itemAux2 = [CCMenuItemImage itemWithNormalImage:@"anagomaki_big.png" selectedImage:@"anagomaki_big.png"];
+        menu_platosgrandes.position = CGPointMake(posXBigPlatesMenu, winSize.height/2);
+        [menu_platosgrandes addChild:itemAux2];
         
-        //Se genera un menú para las descripciones de los platos grandes
-        /*
-         for(int i = 1; i<=numPlates; i++){
-         itemAux =  [CCMenuItemImage itemWithNormalImage:bigPlateDescription selectedImage:bigPlateDescription target:self selector:@selector(onPushSceneTran:)];
-         [menu_detalles addChild:itemAux];
-         }
-         */
+        [self addChild:menu_platosgrandes];
 
         menu_detalles = [[CCMenu alloc]init];
         itemAux =  [CCMenuItemImage itemWithNormalImage:bigPlateDescription selectedImage:bigPlateDescription target:self selector:@selector(onPushSceneTran:)];
         [menu_detalles addChild:itemAux];
         
         menu_detalles.position = CGPointMake(posXBigPlatesDescription, posYBigPlatesDescription);
-        CCLOG(@" POS Y winSize Height %i", (winSize.height/2));
         [menu_detalles alignItemsVerticallyWithPadding:paddingDescriptionPlatesMenu];
         [self addChild:menu_detalles];
                 
@@ -593,11 +582,17 @@ BOOL bool_swipe = YES;
 
 -(void) onPushSceneTran: (CCMenuItemImage *) sender
 {
+    
     CCLOG(@" onPushSceneTran Tag sender: %i", [sender tag]);
     iactualPlate = [sender tag];
     [self desaparecerMenus];
     
+   
     [label_descripcion setString:[_rootViewController demeDescripcionPlatoPorId:@(iactualPlate)]];
+    [label_descripcion setString:@""];
+    
+    [itemAux2 setNormalImage:[CCMenuItemImage itemWithNormalImage:[_rootViewController demeFuenteImagenGrandePlatoPorId:@(iactualPlate)] selectedImage:[_rootViewController demeFuenteImagenGrandePlatoPorId:@(iactualPlate)]]];
+    
     [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(aparecerElementos:) userInfo:nil repeats:NO];
     
 }
@@ -620,11 +615,8 @@ BOOL bool_swipe = YES;
 -(void)aparecerElementos:(id)arg{
     winSize = [[CCDirector sharedDirector] winSize];
 
-    CCLOG(@"POSICION Y y %f %i", menu_platosgrandes.position.y, iactualPlate);
-    
-    [menu_platosgrandes setPosition:ccp(menu_platosgrandes.position.x, posYBigPlatesMenu+(spaceAmongBigPlates*(iactualPlate-1)))];
-    
     [self delplazarMenu_withMenu:menu_platosgrandes withXpox:winSize.width/2 withYpos:menu_platosgrandes.position.y withTimeTransition:1.0];
+    
     [self delplazarMenu_withMenu:menu_detalles withXpox:posXShowBigPlatesDescription withYpos:posYBigPlatesDescription withTimeTransition:1.0];
     [self delplazarMenu_withMenu:menu_atras withXpox:940 withYpos:740 withTimeTransition:1.0];
     [self delplazarMenu_withMenu:menu_agregar withXpox:posXaparecerAgregar withYpos:posYaparecerAgregar withTimeTransition:1.0];
