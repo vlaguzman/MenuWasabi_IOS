@@ -16,6 +16,7 @@
 }
 - (IBAction)menuTapped:(id)sender;
 - (NSString *)demeNombrePlatoPorId:(id)_id;
+- (int)demeTipoPlatoPorId:(id)_id;
 - (NSString *)demeFuenteImagenPlatoPorId:(id)_id;
 - (NSString *)demeFuenteImagenGrandePlatoPorId:(id)_id;
 - (NSString *)demeFuenteImagenPequenoPlatoPorId:(id)_id;
@@ -23,7 +24,7 @@
 - (int)demePrecioPlatoPorId:(id)_id;
 - (int)demeTotalCuenta;
 - (void)agregarPlato:(id)_id;
-- (void)eliminarPlato:(id)_id;
+- (void)eliminarPlato:(id)_id withKindPlate:(int)_kind;
 - (void)cambiarEstadoPedido:(id)_id;
 - (int)demeNumeroPlatosEnOrden;
 

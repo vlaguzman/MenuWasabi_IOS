@@ -48,6 +48,7 @@ static BrainMenu *sharedBrainMenu = nil;
 
 -(void)eliminarPlato:(Plato *)_plato
 {
+    NSLog(@"estamos en eliminarPlato del BrainMenu y este es nombre : %@ del plato ", _plato.nombre);
     _totalCuenta -= _plato.precio;
     [self.platosAgregados removeObject:_plato];
     
