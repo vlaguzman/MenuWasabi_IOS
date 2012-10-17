@@ -12,6 +12,7 @@
 #import "RootViewController.h"
 #import "SushiLayer.h"
 #import "Plato.h"
+#import "TipoBebida.h"
 #import "BrainMenu.h"
 
 #define tipoSushi 1
@@ -33,7 +34,8 @@
     *sushi31, *sushi32, *sushi33, *sushi34, *sushi35, *sushi36, *sushi37, *sushi38, *sushi39;
     @property (nonatomic, strong) Plato *sopa1, *ensalada1, *especial1, *teppanyaki1, *teppanyaki2;
     @property (nonatomic, strong) Plato *entrada1, *entrada2, *entrada3, *entrada4, *entrada5, *entrada6, *entrada7, *entrada8, *entrada9, *entrada10;
-    @property (nonatomic, strong) Plato *postre1, *postre2, *postre3, *bebida1, *bebida2, *bebida3, *bebida4, *licor1, *licor2, *licor3, *licor4;
+    @property (nonatomic, strong) Plato *postre1, *postre2, *postre3;
+    @property (nonatomic, strong) TipoBebida *bebida1, *bebida2, *bebida3, *licor1, *licor2, *licor3, *licor4, *licor5, *licor6;
     @property (nonatomic, strong) NSDictionary *platos_sushi, *platos_teppanyaki, *platos_sopa, *platos_especiales, *platos_entradas, *platos_ensaladas, *platos_wok, *platos_postres, *platos_bebidas, *platos_licores;
 
 @end
@@ -41,7 +43,7 @@
 
 CCScene *scene;
 @implementation RootViewController
-@synthesize sushi1, sushi10, sushi11, sushi12, sushi13, sushi14, sushi15, sushi16, sushi17, sushi18, sushi19, sushi2, sushi20, sushi21, sushi22, sushi23, sushi24, sushi25, sushi26, sushi27, sushi28, sushi29, sushi3, sushi30, sushi31, sushi32, sushi33, sushi34, sushi35, sushi36, sushi37, sushi38,sushi39, sushi4, sushi5, sushi6, sushi7, sushi8, sushi9, sopa1, entrada1, entrada2, entrada3, entrada4, entrada5, entrada6, entrada7, entrada8, entrada9, entrada10, ensalada1, postre1, postre2, postre3, teppanyaki1, teppanyaki2, especial1, bebida1, bebida2, bebida3, bebida4, licor1, licor2, licor3, licor4;
+@synthesize sushi1, sushi10, sushi11, sushi12, sushi13, sushi14, sushi15, sushi16, sushi17, sushi18, sushi19, sushi2, sushi20, sushi21, sushi22, sushi23, sushi24, sushi25, sushi26, sushi27, sushi28, sushi29, sushi3, sushi30, sushi31, sushi32, sushi33, sushi34, sushi35, sushi36, sushi37, sushi38,sushi39, sushi4, sushi5, sushi6, sushi7, sushi8, sushi9, sopa1, entrada1, entrada2, entrada3, entrada4, entrada5, entrada6, entrada7, entrada8, entrada9, entrada10, ensalada1, postre1, postre2, postre3, teppanyaki1, teppanyaki2, especial1, bebida1, bebida2, bebida3, licor1, licor2, licor3, licor4, licor5, licor6;
 @synthesize platos_sushi, platos_sopa, platos_entradas, platos_teppanyaki, platos_bebidas, platos_ensaladas, platos_especiales, platos_licores, platos_postres, platos_wok;
 
 
@@ -119,11 +121,11 @@ CCScene *scene;
 }
 
 -(void) iniciarBebidas{
-    platos_bebidas = [[NSDictionary alloc] initWithObjectsAndKeys:bebida1, @(901), bebida2, @(902), bebida3, @(903), bebida4, @(904), nil];
+    platos_bebidas = [[NSDictionary alloc] initWithObjectsAndKeys:bebida1, @(901), bebida2, @(902), bebida3, @(903), nil];
 }
 
 -(void) iniciarLicores{
-   platos_licores = [[NSDictionary alloc] initWithObjectsAndKeys:licor1, @(1001), licor2, @(1002), licor3, @(1003), licor4, @(1004), nil];
+   platos_licores = [[NSDictionary alloc] initWithObjectsAndKeys:licor1, @(1001), licor2, @(1002), licor3, @(1003), licor4, @(1004), licor5, @(1005), licor6, @(1006), nil];
 }
 
 - (void) viewWillAppear:(BOOL)animated
@@ -334,7 +336,7 @@ CCScene *scene;
     
     if(sushi8==nil) sushi8 = [[Plato alloc]init];
     sushi8.id_plato =8;
-    sushi8.nombre = @"Ebiroll";
+    sushi8.nombre = @"Ebi roll";
     sushi8.fuente_img = @"ebiroll_big.png";
     sushi8.fuente_img_grande = @"ebiroll_big_g.png";
     sushi8.fuente_img_peq = @"ebiroll_big_p.png";
@@ -414,7 +416,7 @@ CCScene *scene;
     
     if(sushi16==nil) sushi16 = [[Plato alloc]init];
     sushi16.id_plato =16;
-    sushi16.nombre = @"Kaniroll";
+    sushi16.nombre = @"Kani roll";
     sushi16.fuente_img = @"kaniroll_big.png";
     sushi16.fuente_img_grande = @"kaniroll_big_g.png";
     sushi16.fuente_img_peq = @"kaniroll_big_p.png";
@@ -445,7 +447,7 @@ CCScene *scene;
     
     if(sushi19==nil) sushi19 = [[Plato alloc]init];
     sushi19.id_plato =19;
-    sushi19.nombre = @"Katsuroll";
+    sushi19.nombre = @"Katsu roll";
     sushi19.fuente_img = @"katsuroll_big.png";
     sushi19.fuente_img_grande = @"katsuroll_big_g.png";
     sushi19.fuente_img_peq = @"kappamaki_big_p.png";
@@ -455,7 +457,7 @@ CCScene *scene;
     
     if(sushi20==nil) sushi20 = [[Plato alloc]init];
     sushi20.id_plato =20;
-    sushi20.nombre = @"Magicroll";
+    sushi20.nombre = @"Magic roll";
     sushi20.fuente_img = @"magicroll_big.png";
     sushi20.fuente_img_grande = @"magicroll_big_g.png";
     sushi20.fuente_img_peq = @"magicroll_big_p.png";
@@ -465,7 +467,7 @@ CCScene *scene;
     
     if(sushi21==nil) sushi21 = [[Plato alloc]init];
     sushi21.id_plato =21;
-    sushi21.nombre = @"Marmariroll";
+    sushi21.nombre = @"Marmari roll";
     sushi21.fuente_img = @"marmariroll_big.png";
     sushi21.fuente_img_grande = @"marmariroll_big_g.png";
     sushi21.fuente_img_peq = @"marmariroll_big_p.png";
@@ -537,7 +539,7 @@ CCScene *scene;
     
     if(sushi28==nil) sushi28 = [[Plato alloc]init];
     sushi28.id_plato =28;
-    sushi28.nombre = @"Skinroll";
+    sushi28.nombre = @"Skin roll";
     sushi28.fuente_img = @"skinroll_big.png";
     sushi28.fuente_img_grande = @"skinroll_big_g.png";
     sushi28.fuente_img_peq = @"skinroll_big_p.png";
@@ -547,7 +549,7 @@ CCScene *scene;
     
     if(sushi29==nil) sushi29 = [[Plato alloc]init];
     sushi29.id_plato =29;
-    sushi29.nombre = @"Sonanroll";
+    sushi29.nombre = @"Sonan roll";
     sushi29.fuente_img = @"sonanroll_big.png";
     sushi29.fuente_img_grande = @"sonanroll_big_g.png";
     sushi29.fuente_img_peq = @"sonanroll_big_p.png";
@@ -864,14 +866,28 @@ CCScene *scene;
 
 -(void)crearPlatosBebidas{
 
-    if(bebida1==nil) bebida1 = [[Plato alloc]init];
-    bebida1.id_plato =901;
+    if(bebida1==nil) bebida1 = [[TipoBebida alloc]init];
+    bebida1.id_bebida =901;
     bebida1.nombre = @"Nutella fruit roll";
-    bebida1.descripcion = @"Descripcion Descripcion \nDescripcion Descripcion";
     bebida1.fuente_img = @"Nutella-fruit-roll.png";
     bebida1.fuente_img_grande = @"Nutella-fruit-roll_g.png";
     bebida1.fuente_img_peq = @"Nutella-fruit-roll_p.png";
-    bebida1.precio = 21000;
+    bebida1.tipo = tipoBebidas;
+    
+    if(bebida2==nil) bebida2 = [[TipoBebida alloc]init];
+    bebida2.id_bebida =902;
+    bebida2.nombre = @"Nutella fruit roll";
+    bebida2.fuente_img = @"Nutella-fruit-roll.png";
+    bebida2.fuente_img_grande = @"Nutella-fruit-roll_g.png";
+    bebida2.fuente_img_peq = @"Nutella-fruit-roll_p.png";
+    bebida2.tipo = tipoBebidas;
+    
+    if(bebida1==nil) bebida1 = [[TipoBebida alloc]init];
+    bebida1.id_bebida =903;
+    bebida1.nombre = @"Nutella fruit roll";
+    bebida1.fuente_img = @"Nutella-fruit-roll.png";
+    bebida1.fuente_img_grande = @"Nutella-fruit-roll_g.png";
+    bebida1.fuente_img_peq = @"Nutella-fruit-roll_p.png";
     bebida1.tipo = tipoBebidas;
 }
 

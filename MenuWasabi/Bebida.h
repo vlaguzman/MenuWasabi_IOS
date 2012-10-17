@@ -10,11 +10,11 @@
 
 @interface Bebida : NSObject
 {
-    NSString *nombre;
-    int id_plato, precio, tipo;
+    NSString *nombre, *categoria;
+    int id_plato, precio, precio_media, tipo;
 }
 
-@property int id_plato, precio, tipo;
-@property (nonatomic, strong) NSString *nombre;
+@property int id_plato, precio, precio_media, tipo;
+@property (nonatomic, strong) NSString *nombre, *categoria;
 
 @end

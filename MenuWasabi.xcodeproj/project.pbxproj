@@ -312,6 +312,10 @@
 		C1C4C36F162F20B5006AA580 /* flecha_total_up.png in Resources */ = {isa = PBXBuildFile; fileRef = C1C4C36E162F20B5006AA580 /* flecha_total_up.png */; };
 		C1C4C37A162F511F006AA580 /* TipoBebida.m in Sources */ = {isa = PBXBuildFile; fileRef = C1C4C379162F511F006AA580 /* TipoBebida.m */; };
 		C1C4C37D162F513D006AA580 /* Bebida.m in Sources */ = {isa = PBXBuildFile; fileRef = C1C4C37C162F513D006AA580 /* Bebida.m */; };
+		C1C4C381162F5AC5006AA580 /* beb_calientes.png in Resources */ = {isa = PBXBuildFile; fileRef = C1C4C37E162F5AC5006AA580 /* beb_calientes.png */; };
+		C1C4C382162F5AC5006AA580 /* gaseosa.png in Resources */ = {isa = PBXBuildFile; fileRef = C1C4C37F162F5AC5006AA580 /* gaseosa.png */; };
+		C1C4C383162F5AC5006AA580 /* jugos.png in Resources */ = {isa = PBXBuildFile; fileRef = C1C4C380162F5AC5006AA580 /* jugos.png */; };
+		C1C4C389162F6C23006AA580 /* pata_02.png in Resources */ = {isa = PBXBuildFile; fileRef = C1C4C388162F6C23006AA580 /* pata_02.png */; };
 		C1D3B69B161A3D8000542A4C /* Plato.m in Sources */ = {isa = PBXBuildFile; fileRef = C1D3B69A161A3D7F00542A4C /* Plato.m */; };
 		C1E87519161CEAFB0020486A /* barra_agregar_.png in Resources */ = {isa = PBXBuildFile; fileRef = C1E87517161CEAFB0020486A /* barra_agregar_.png */; };
 		C1E8751A161CEAFB0020486A /* btn_agregar.png in Resources */ = {isa = PBXBuildFile; fileRef = C1E87518161CEAFB0020486A /* btn_agregar.png */; };
@@ -799,6 +803,10 @@
 		C1C4C379162F511F006AA580 /* TipoBebida.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TipoBebida.m; sourceTree = "<group>"; };
 		C1C4C37B162F513C006AA580 /* Bebida.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bebida.h; sourceTree = "<group>"; };
 		C1C4C37C162F513D006AA580 /* Bebida.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bebida.m; sourceTree = "<group>"; };
+		C1C4C37E162F5AC5006AA580 /* beb_calientes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = beb_calientes.png; sourceTree = "<group>"; };
+		C1C4C37F162F5AC5006AA580 /* gaseosa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gaseosa.png; sourceTree = "<group>"; };
+		C1C4C380162F5AC5006AA580 /* jugos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = jugos.png; sourceTree = "<group>"; };
+		C1C4C388162F6C23006AA580 /* pata_02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pata_02.png; sourceTree = "<group>"; };
 		C1D3B699161A3D7E00542A4C /* Plato.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Plato.h; sourceTree = "<group>"; };
 		C1D3B69A161A3D7F00542A4C /* Plato.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Plato.m; sourceTree = "<group>"; };
 		C1E87517161CEAFB0020486A /* barra_agregar_.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = barra_agregar_.png; sourceTree = "<group>"; };
@@ -1537,6 +1545,7 @@
 		C1C23C79162DAE8700843CBA /* Adicionales */ = {
 			isa = PBXGroup;
 			children = (
+				C1C4C388162F6C23006AA580 /* pata_02.png */,
 				C1C4C36B162F1478006AA580 /* flecha_total_up.jpg */,
 				C1F0F767162EF5F200043C04 /* flecha_total.png */,
 				C155EE0116265A1B00421599 /* barra_agregar.png */,
@@ -1744,6 +1753,9 @@
 		C1C4C372162F4944006AA580 /* normales */ = {
 			isa = PBXGroup;
 			children = (
+				C1C4C37E162F5AC5006AA580 /* beb_calientes.png */,
+				C1C4C37F162F5AC5006AA580 /* gaseosa.png */,
+				C1C4C380162F5AC5006AA580 /* jugos.png */,
 			);
 			name = normales;
 			sourceTree = "<group>";
@@ -2095,6 +2107,10 @@
 				C1F0F768162EF5F200043C04 /* flecha_total.png in Resources */,
 				C1C4C36C162F1478006AA580 /* flecha_total_up.jpg in Resources */,
 				C1C4C36F162F20B5006AA580 /* flecha_total_up.png in Resources */,
+				C1C4C381162F5AC5006AA580 /* beb_calientes.png in Resources */,
+				C1C4C382162F5AC5006AA580 /* gaseosa.png in Resources */,
+				C1C4C383162F5AC5006AA580 /* jugos.png in Resources */,
+				C1C4C389162F6C23006AA580 /* pata_02.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

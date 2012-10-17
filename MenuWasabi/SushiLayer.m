@@ -27,10 +27,16 @@
 
 //Limites de la grilla de imagenes por el touch
 #define limitMoveRightSushi -140//9300//5150
-#define limitMoveRightEntradas 1170
 #define limitMoveLeftSushi -8870
-#define limitMoveLeftEntradas -100
 
+#define limitMoveLeftEntradas -100
+#define limitMoveRightEntradas -100//limite
+
+#define limitMoveLeftEnsaladas -100
+#define limitMoveRightEnsaladas 1170
+
+#define limitMoveLeftSopas -100
+#define limitMoveRightSopas 1170
 
 #define posInicial 100
 #define paddingDescriptionPlatesMenu 500
@@ -42,6 +48,15 @@
 
 //Posiciones Nombres Menu
 #define posXprincipalMenuSushi -140
+#define posXprincipalMenuTeppanyaki 170
+#define posXprincipalMenuSopa 270
+#define posXprincipalMenuEspeciales 270
+#define posXprincipalMenuEntradas -100
+#define posXprincipalMenuEnsaladas 270
+#define posXprincipalMenuWok 0
+#define posXprincipalMenuPostres 20
+
+
 #define posXBigPlatesMenu 1300
 
 #define posXBigPlatesMenuEntradas 1200
@@ -162,7 +177,6 @@ BOOL bool_swipe = YES;
         paddingTinyPlates = 70;
         paddingClose = 100;
 
-        
         limitMoveLeft = limitMoveLeftSushi;
         limitMoveRight = limitMoveRightSushi;
         
@@ -171,6 +185,8 @@ BOOL bool_swipe = YES;
     else if (tipoPlato == tipoTeppanyaki){
         KindFactor = kindFactorTeppanyaki;
         numPlates = 2;
+        
+        posXprincipalMenu = posXprincipalMenuTeppanyaki;
         
         paddingTinyPlates = 50;
         paddingClose = 100;
@@ -181,6 +197,8 @@ BOOL bool_swipe = YES;
         KindFactor = kindFactorSopa;
         numPlates = 1;
      
+        posXprincipalMenu = posXprincipalMenuSopa;
+        
         paddingTinyPlates = 50;
         paddingClose = 100;
 
@@ -190,6 +208,8 @@ BOOL bool_swipe = YES;
     else if (tipoPlato == tipoEspeciales){
         KindFactor = kindFactorEspeciales;
         numPlates = 1;
+        
+        posXprincipalMenu = posXprincipalMenuEspeciales;
         
         paddingTinyPlates = 50;
         paddingClose = 100;
@@ -204,6 +224,7 @@ BOOL bool_swipe = YES;
         paddingTinyPlates = 50;
         paddingClose = 100;
  
+        posXprincipalMenu = posXprincipalMenuEntradas;
         
         limitMoveLeft = limitMoveLeftEntradas;
         limitMoveRight = limitMoveRightEntradas;
@@ -213,6 +234,7 @@ BOOL bool_swipe = YES;
         KindFactor = kindFactorEnsaladas;
         numPlates = 1;
       
+        posXprincipalMenu = posXprincipalMenuEnsaladas;
         paddingTinyPlates = 50;
         paddingClose = 100;
 
@@ -223,6 +245,8 @@ BOOL bool_swipe = YES;
     else if (tipoPlato == tipoPostres){
         KindFactor = kindFactorPostres;
         numPlates = 3;
+        
+        posXprincipalMenu = posXprincipalMenuPostres;
 
         paddingTinyPlates = 50;
         paddingClose = 100;
@@ -342,8 +366,8 @@ BOOL bool_swipe = YES;
             
         }
         
-        if (([[BrainMenu sharedInstance] tipoPlatoActual]) == tipoSushi)
-            menu.position = CGPointMake(posXprincipalMenu, winSize.height/2);
+        //if (([[BrainMenu sharedInstance] tipoPlatoActual]) == tipoSushi)
+        menu.position = CGPointMake(posXprincipalMenu, winSize.height/2);
         
         CCLOG(@"posx %f posy %f", menu.position.x, menu.position.y);
    
@@ -585,7 +609,7 @@ BOOL bool_swipe = YES;
 */
 
 -(void)moveRight{
- 
+    if(numPlates > 4){
     if(bool_swipe){
         winSize = [[CCDirector sharedDirector] winSize];
         if(resul_dif<kMoveFast){
@@ -606,10 +630,12 @@ BOOL bool_swipe = YES;
             [self moveMenu_withMenu: menu withXpox:pos withYpos:winSize.height/2 withTimeTransition:time_efect];
         
     }
+    }
 }
 
 
 -(void)moveLeft{
+    if(numPlates>4){
     if(bool_swipe){
         winSize = [[CCDirector sharedDirector] winSize];
         if(resul_dif<kMoveFast){
@@ -629,6 +655,7 @@ BOOL bool_swipe = YES;
         }
         [self moveMenu_withMenu: menu withXpox:pos withYpos:winSize.height/2 withTimeTransition:time_efect];
         
+    }
     }
     
 }
