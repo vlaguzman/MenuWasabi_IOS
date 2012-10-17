@@ -37,7 +37,6 @@
 
 //Padding asignado a los labels que contienen los precios
 #define paddingPrices 50
-
 #define paddingPrincipalPlates 250//
 
 
@@ -50,10 +49,7 @@
 #define posXBigPlatesDescription -200
 #define posXShowBigPlatesDescription 250
 #define posYBigPlatesDescription 500
-#define posXnombresSushi -100//140
-#define posYnombresSushi 540
-#define posXnombresSopas 510
-#define posYnombresSopas 538
+
 
 #define posXItemImg1 80
 #define posXItemImg2 205
@@ -63,9 +59,6 @@
 #define posXItemImg6 705
 #define posYItemImg -80
 
-//Espacio entre platos grandes - factor para cuando se muestran los platos
-#define spaceAmongBigPlatesSushi 538
-#define spaceAmongBigPlatesEntradas 538 // 638 Si es necesario subir las imagenes, se aumenta el número
 
 //Cada tipo de plato tiene un identificador para efecto de carag de imagenes
 #define tipoSushi 1

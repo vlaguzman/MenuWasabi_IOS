@@ -310,6 +310,8 @@
 		C1C23CB3162DC53C00843CBA /* titanic_p.png in Resources */ = {isa = PBXBuildFile; fileRef = C1C23CB2162DC53C00843CBA /* titanic_p.png */; };
 		C1C4C36C162F1478006AA580 /* flecha_total_up.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C1C4C36B162F1478006AA580 /* flecha_total_up.jpg */; };
 		C1C4C36F162F20B5006AA580 /* flecha_total_up.png in Resources */ = {isa = PBXBuildFile; fileRef = C1C4C36E162F20B5006AA580 /* flecha_total_up.png */; };
+		C1C4C37A162F511F006AA580 /* TipoBebida.m in Sources */ = {isa = PBXBuildFile; fileRef = C1C4C379162F511F006AA580 /* TipoBebida.m */; };
+		C1C4C37D162F513D006AA580 /* Bebida.m in Sources */ = {isa = PBXBuildFile; fileRef = C1C4C37C162F513D006AA580 /* Bebida.m */; };
 		C1D3B69B161A3D8000542A4C /* Plato.m in Sources */ = {isa = PBXBuildFile; fileRef = C1D3B69A161A3D7F00542A4C /* Plato.m */; };
 		C1E87519161CEAFB0020486A /* barra_agregar_.png in Resources */ = {isa = PBXBuildFile; fileRef = C1E87517161CEAFB0020486A /* barra_agregar_.png */; };
 		C1E8751A161CEAFB0020486A /* btn_agregar.png in Resources */ = {isa = PBXBuildFile; fileRef = C1E87518161CEAFB0020486A /* btn_agregar.png */; };
@@ -793,6 +795,10 @@
 		C1C23CB2162DC53C00843CBA /* titanic_p.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = titanic_p.png; sourceTree = "<group>"; };
 		C1C4C36B162F1478006AA580 /* flecha_total_up.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = flecha_total_up.jpg; sourceTree = "<group>"; };
 		C1C4C36E162F20B5006AA580 /* flecha_total_up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flecha_total_up.png; sourceTree = "<group>"; };
+		C1C4C378162F511F006AA580 /* TipoBebida.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TipoBebida.h; sourceTree = "<group>"; };
+		C1C4C379162F511F006AA580 /* TipoBebida.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TipoBebida.m; sourceTree = "<group>"; };
+		C1C4C37B162F513C006AA580 /* Bebida.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bebida.h; sourceTree = "<group>"; };
+		C1C4C37C162F513D006AA580 /* Bebida.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bebida.m; sourceTree = "<group>"; };
 		C1D3B699161A3D7E00542A4C /* Plato.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Plato.h; sourceTree = "<group>"; };
 		C1D3B69A161A3D7F00542A4C /* Plato.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Plato.m; sourceTree = "<group>"; };
 		C1E87517161CEAFB0020486A /* barra_agregar_.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = barra_agregar_.png; sourceTree = "<group>"; };
@@ -916,6 +922,10 @@
 				C1EFBF67160CC4700005ECF1 /* SushiLayer.m */,
 				C1D3B699161A3D7E00542A4C /* Plato.h */,
 				C1D3B69A161A3D7F00542A4C /* Plato.m */,
+				C1C4C378162F511F006AA580 /* TipoBebida.h */,
+				C1C4C379162F511F006AA580 /* TipoBebida.m */,
+				C1C4C37B162F513C006AA580 /* Bebida.h */,
+				C1C4C37C162F513D006AA580 /* Bebida.m */,
 				C11339BA161B4DFC003F2D4E /* BrainMenu.h */,
 				C11339BB161B4DFC003F2D4E /* BrainMenu.m */,
 				C10A67B9160CBBF400489A45 /* HelloWorldLayer.h */,
@@ -1714,6 +1724,68 @@
 			name = grandes;
 			sourceTree = "<group>";
 		};
+		C1C4C370162F4923006AA580 /* Bebidas */ = {
+			isa = PBXGroup;
+			children = (
+				C1C4C373162F4949006AA580 /* grandes */,
+				C1C4C372162F4944006AA580 /* normales */,
+				C1C4C371162F493E006AA580 /* pequenas */,
+			);
+			name = Bebidas;
+			sourceTree = "<group>";
+		};
+		C1C4C371162F493E006AA580 /* pequenas */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = pequenas;
+			sourceTree = "<group>";
+		};
+		C1C4C372162F4944006AA580 /* normales */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = normales;
+			sourceTree = "<group>";
+		};
+		C1C4C373162F4949006AA580 /* grandes */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = grandes;
+			sourceTree = "<group>";
+		};
+		C1C4C374162F494F006AA580 /* Licores */ = {
+			isa = PBXGroup;
+			children = (
+				C1C4C377162F4965006AA580 /* grandes */,
+				C1C4C376162F495F006AA580 /* normales */,
+				C1C4C375162F4959006AA580 /* pequenas */,
+			);
+			name = Licores;
+			sourceTree = "<group>";
+		};
+		C1C4C375162F4959006AA580 /* pequenas */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = pequenas;
+			sourceTree = "<group>";
+		};
+		C1C4C376162F495F006AA580 /* normales */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = normales;
+			sourceTree = "<group>";
+		};
+		C1C4C377162F4965006AA580 /* grandes */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = grandes;
+			sourceTree = "<group>";
+		};
 		C1EC4325161E420D0061DD45 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -1736,6 +1808,8 @@
 		C1EFBF9A160D139E0005ECF1 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				C1C4C374162F494F006AA580 /* Licores */,
+				C1C4C370162F4923006AA580 /* Bebidas */,
 				C1C23C9E162DC48E00843CBA /* Especiales */,
 				C1C23C9A162DC45B00843CBA /* Teppanyaki */,
 				C1C23C84162DBDB500843CBA /* Postres */,
@@ -2141,6 +2215,8 @@
 				C1EFBF98160D11780005ECF1 /* MenuViewController.m in Sources */,
 				C1D3B69B161A3D8000542A4C /* Plato.m in Sources */,
 				C11339BC161B4DFC003F2D4E /* BrainMenu.m in Sources */,
+				C1C4C37A162F511F006AA580 /* TipoBebida.m in Sources */,
+				C1C4C37D162F513D006AA580 /* Bebida.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

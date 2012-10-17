@@ -33,7 +33,7 @@
     *sushi31, *sushi32, *sushi33, *sushi34, *sushi35, *sushi36, *sushi37, *sushi38, *sushi39;
     @property (nonatomic, strong) Plato *sopa1, *ensalada1, *especial1, *teppanyaki1, *teppanyaki2;
     @property (nonatomic, strong) Plato *entrada1, *entrada2, *entrada3, *entrada4, *entrada5, *entrada6, *entrada7, *entrada8, *entrada9, *entrada10;
-    @property (nonatomic, strong) Plato *postre1, *postre2, *postre3;
+    @property (nonatomic, strong) Plato *postre1, *postre2, *postre3, *bebida1, *bebida2, *bebida3, *bebida4, *licor1, *licor2, *licor3, *licor4;
     @property (nonatomic, strong) NSDictionary *platos_sushi, *platos_teppanyaki, *platos_sopa, *platos_especiales, *platos_entradas, *platos_ensaladas, *platos_wok, *platos_postres, *platos_bebidas, *platos_licores;
 
 @end
@@ -41,7 +41,7 @@
 
 CCScene *scene;
 @implementation RootViewController
-@synthesize sushi1, sushi10, sushi11, sushi12, sushi13, sushi14, sushi15, sushi16, sushi17, sushi18, sushi19, sushi2, sushi20, sushi21, sushi22, sushi23, sushi24, sushi25, sushi26, sushi27, sushi28, sushi29, sushi3, sushi30, sushi31, sushi32, sushi33, sushi34, sushi35, sushi36, sushi37, sushi38,sushi39, sushi4, sushi5, sushi6, sushi7, sushi8, sushi9, sopa1, entrada1, entrada2, entrada3, entrada4, entrada5, entrada6, entrada7, entrada8, entrada9, entrada10, ensalada1, postre1, postre2, postre3, teppanyaki1, teppanyaki2, especial1;
+@synthesize sushi1, sushi10, sushi11, sushi12, sushi13, sushi14, sushi15, sushi16, sushi17, sushi18, sushi19, sushi2, sushi20, sushi21, sushi22, sushi23, sushi24, sushi25, sushi26, sushi27, sushi28, sushi29, sushi3, sushi30, sushi31, sushi32, sushi33, sushi34, sushi35, sushi36, sushi37, sushi38,sushi39, sushi4, sushi5, sushi6, sushi7, sushi8, sushi9, sopa1, entrada1, entrada2, entrada3, entrada4, entrada5, entrada6, entrada7, entrada8, entrada9, entrada10, ensalada1, postre1, postre2, postre3, teppanyaki1, teppanyaki2, especial1, bebida1, bebida2, bebida3, bebida4, licor1, licor2, licor3, licor4;
 @synthesize platos_sushi, platos_sopa, platos_entradas, platos_teppanyaki, platos_bebidas, platos_ensaladas, platos_especiales, platos_licores, platos_postres, platos_wok;
 
 
@@ -64,6 +64,10 @@ CCScene *scene;
     [self iniciarPlatosEspeciales];
     [self crearPlatosTeppanyaki];
     [self iniciarPlatosTeppanyaki];
+    [self crearPlatosBebidas];
+    [self iniciarBebidas];
+    [self crearPlatosLicores];
+    [self iniciarLicores];
     EAGLView *glView = [EAGLView viewWithFrame:self.view.bounds
                                    pixelFormat:kEAGLColorFormatRGB565	// kEAGLColorFormatRGBA8
                                    depthFormat:0                        // GL_DEPTH_COMPONENT16_OES
@@ -115,11 +119,11 @@ CCScene *scene;
 }
 
 -(void) iniciarBebidas{
-    CCLOG(@"OJO iniciarPlatosEnsaladas SIN IMPLEMENTAR");
+    platos_bebidas = [[NSDictionary alloc] initWithObjectsAndKeys:bebida1, @(901), bebida2, @(902), bebida3, @(903), bebida4, @(904), nil];
 }
 
 -(void) iniciarLicores{
-   CCLOG(@"OJO iniciarPlatosEnsaladas SIN IMPLEMENTAR");
+   platos_licores = [[NSDictionary alloc] initWithObjectsAndKeys:licor1, @(1001), licor2, @(1002), licor3, @(1003), licor4, @(1004), nil];
 }
 
 - (void) viewWillAppear:(BOOL)animated
@@ -860,6 +864,15 @@ CCScene *scene;
 
 -(void)crearPlatosBebidas{
 
+    if(bebida1==nil) bebida1 = [[Plato alloc]init];
+    bebida1.id_plato =901;
+    bebida1.nombre = @"Nutella fruit roll";
+    bebida1.descripcion = @"Descripcion Descripcion \nDescripcion Descripcion";
+    bebida1.fuente_img = @"Nutella-fruit-roll.png";
+    bebida1.fuente_img_grande = @"Nutella-fruit-roll_g.png";
+    bebida1.fuente_img_peq = @"Nutella-fruit-roll_p.png";
+    bebida1.precio = 21000;
+    bebida1.tipo = tipoBebidas;
 }
 
 -(void)crearPlatosLicores{
