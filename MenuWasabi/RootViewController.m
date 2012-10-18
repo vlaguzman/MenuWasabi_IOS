@@ -36,7 +36,7 @@
     @property (nonatomic, strong) Plato *entrada1, *entrada2, *entrada3, *entrada4, *entrada5, *entrada6, *entrada7, *entrada8, *entrada9, *entrada10;
     @property (nonatomic, strong) Plato *postre1, *postre2, *postre3;
     @property (nonatomic, strong) TipoBebida *bebida1, *bebida2, *bebida3, *licor1, *licor2, *licor3, *licor4, *licor5, *licor6;
-    @property (nonatomic, strong) NSDictionary *platos_sushi, *platos_teppanyaki, *platos_sopa, *platos_especiales, *platos_entradas, *platos_ensaladas, *platos_wok, *platos_postres, *platos_bebidas, *platos_licores;
+    @property (nonatomic, strong) NSDictionary *platos, *platos_sushi, *platos_teppanyaki, *platos_sopa, *platos_especiales, *platos_entradas, *platos_ensaladas, *platos_wok, *platos_postres, *platos_bebidas, *platos_licores;
 
 @end
 
@@ -144,7 +144,15 @@ CCScene *scene;
     [super viewDidLoad];
     [self setupCocos2D];
 }
-
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+	//return YES;
+    if((interfaceOrientation==UIInterfaceOrientationPortrait)||(interfaceOrientation==UIInterfaceOrientationPortraitUpsideDown))
+        return NO;
+    else
+        return YES;
+}
+/*
 // Override to allow orientations other than the default portrait orientation.
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
 	
@@ -199,7 +207,7 @@ CCScene *scene;
 	// Shold not happen
 	return NO;
 }
-
+*/
 //
 // This callback only will be called when GAME_AUTOROTATION == kGameAutorotationUIViewController
 //
@@ -715,7 +723,7 @@ CCScene *scene;
     
     if(entrada1==nil) entrada1 = [[Plato alloc]init];
     entrada1.id_plato =501;
-    entrada1.nombre = @"Eby Crispy     ";
+    entrada1.nombre = @"Eby Crispy";
     entrada1.descripcion = @"Descripcion Descripcion \nDescripcion Descripcion";
     entrada1.fuente_img = @"entrada_eby-crispy.png";
     entrada1.fuente_img_grande = @"entrada_tacos-thai_g.png";
@@ -735,7 +743,7 @@ CCScene *scene;
     
     if(entrada3==nil) entrada3 = [[Plato alloc]init];
     entrada3.id_plato =503;
-    entrada3.nombre = @"Niguiri Salmon ";
+    entrada3.nombre = @"Niguiri Salmon";
     entrada3.descripcion = @"Descripcion Descripcion \nDescripcion Descripcion";
     entrada3.fuente_img = @"entrada_niguiri-salmon.png";
     entrada3.fuente_img_grande = @"entrada_niguiri-salmon_g.png";
@@ -755,7 +763,7 @@ CCScene *scene;
     
     if(entrada5==nil) entrada5 = [[Plato alloc]init];
     entrada5.id_plato =505;
-    entrada5.nombre = @"Sashimi        ";
+    entrada5.nombre = @"Sashimi";
     entrada5.descripcion = @"Descripcion Descripcion \nDescripcion Descripcion";
     entrada5.fuente_img = @"entrada_sashimi.png";
     entrada5.fuente_img_grande = @"entrada_sashimi_g.png";
@@ -765,7 +773,7 @@ CCScene *scene;
     
     if(entrada6==nil) entrada6 = [[Plato alloc]init];
     entrada6.id_plato =506;
-    entrada6.nombre = @"Sea Mix Open   ";
+    entrada6.nombre = @"Sea Mix Open";
     entrada6.descripcion =  @"Descripcion Descripcion \nDescripcion Descripcion";
     entrada6.fuente_img = @"entrada_sea-mix-open.png";
     entrada6.fuente_img_grande = @"entrada_sea-mix-open_g.png";
@@ -775,7 +783,7 @@ CCScene *scene;
     
     if(entrada7==nil) entrada7 = [[Plato alloc]init];
     entrada7.id_plato =507;
-    entrada7.nombre = @"Summer Rolls   ";
+    entrada7.nombre = @"Summer Rolls";
     entrada7.descripcion = @"Descripcion Descripcion \nDescripcion Descripcion";
     entrada7.fuente_img = @"entrada_summer-rolls.png";
     entrada7.fuente_img_grande = @"entrada_summer-rolls_g.png";
@@ -785,7 +793,7 @@ CCScene *scene;
     
     if(entrada8==nil) entrada8 = [[Plato alloc]init];
     entrada8.id_plato =508;
-    entrada8.nombre = @"Tacos Thai     ";
+    entrada8.nombre = @"Tacos Thai";
     entrada8.descripcion = @"Descripcion Descripcion \nDescripcion Descripcion";;
     entrada8.fuente_img = @"entrada_tacos-thai.png";
     entrada8.fuente_img_grande = @"entrada_tacos-thai_g.png";
@@ -868,39 +876,87 @@ CCScene *scene;
 
     if(bebida1==nil) bebida1 = [[TipoBebida alloc]init];
     bebida1.id_bebida =901;
-    bebida1.nombre = @"Nutella fruit roll";
-    bebida1.fuente_img = @"Nutella-fruit-roll.png";
-    bebida1.fuente_img_grande = @"Nutella-fruit-roll_g.png";
-    bebida1.fuente_img_peq = @"Nutella-fruit-roll_p.png";
+    bebida1.nombre = @"Bebidas Calientes";
+    bebida1.fuente_img = @"beb_calientes.png";
+    bebida1.fuente_img_grande = @"lista_bebidas.jpg";
+    bebida1.fuente_img_peq = @"beb_calientes.png_p.png";
     bebida1.tipo = tipoBebidas;
     
     if(bebida2==nil) bebida2 = [[TipoBebida alloc]init];
     bebida2.id_bebida =902;
-    bebida2.nombre = @"Nutella fruit roll";
-    bebida2.fuente_img = @"Nutella-fruit-roll.png";
-    bebida2.fuente_img_grande = @"Nutella-fruit-roll_g.png";
-    bebida2.fuente_img_peq = @"Nutella-fruit-roll_p.png";
+    bebida2.nombre = @"Gaseosas";
+    bebida2.fuente_img = @"gaseosa.png";
+    bebida2.fuente_img_grande = @"lista_bebidas.jpg";
+    bebida2.fuente_img_peq = @"gaseosa_p.png";
     bebida2.tipo = tipoBebidas;
     
-    if(bebida1==nil) bebida1 = [[TipoBebida alloc]init];
-    bebida1.id_bebida =903;
-    bebida1.nombre = @"Nutella fruit roll";
-    bebida1.fuente_img = @"Nutella-fruit-roll.png";
-    bebida1.fuente_img_grande = @"Nutella-fruit-roll_g.png";
-    bebida1.fuente_img_peq = @"Nutella-fruit-roll_p.png";
-    bebida1.tipo = tipoBebidas;
+    if(bebida3==nil) bebida3 = [[TipoBebida alloc]init];
+    bebida3.id_bebida =903;
+    bebida3.nombre = @"Jugos";
+    bebida3.fuente_img = @"jugos.png";
+    bebida3.fuente_img_grande = @"lista_bebidas.jpg";
+    bebida3.fuente_img_peq = @"jugos_p.png";
+    bebida3.tipo = tipoBebidas;
 }
 
 -(void)crearPlatosLicores{
 
+    if(licor1==nil) licor1 = [[TipoBebida alloc]init];
+    licor1.id_bebida =1001;
+    licor1.nombre = @"Aperitivos";
+    licor1.fuente_img = @"aperitivos.png";
+    licor1.fuente_img_grande = @"lista_bebidas.jpg";
+    licor1.fuente_img_peq = @"aperitivos_p.png";
+    licor1.tipo = tipoLicores;
+    
+    if(licor2==nil) licor2 = [[TipoBebida alloc]init];
+    licor2.id_bebida =1002;
+    licor2.nombre = @"Cervezas";
+    licor2.fuente_img = @"cerveza.png";
+    licor2.fuente_img_grande = @"lista_bebidas.jpg";
+    licor2.fuente_img_peq = @"cerveza_p.png";
+    licor2.tipo = tipoLicores;
+    
+    if(licor3==nil) licor3 = [[TipoBebida alloc]init];
+    licor3.id_bebida =1003;
+    licor3.nombre = @"Cocteles";
+    licor3.fuente_img = @"cocteles.png";
+    licor3.fuente_img_grande = @"lista_bebidas.jpg";
+    licor3.fuente_img_peq = @"cocteles_p.png";
+    licor3.tipo = tipoLicores;
+    
+    if(licor4==nil) licor4 = [[TipoBebida alloc]init];
+    licor4.id_bebida =1004;
+    licor4.nombre = @"Licores";
+    licor4.fuente_img = @"licores.png";
+    licor4.fuente_img_grande = @"lista_bebidas.jpg";
+    licor4.fuente_img_peq = @"licores_p.png";
+    licor4.tipo = tipoLicores;
+    
+    if(licor5==nil) licor5 = [[TipoBebida alloc]init];
+    licor5.id_bebida =1005;
+    licor5.nombre = @"Pouse";
+    licor5.fuente_img = @"pouse.png";
+    licor5.fuente_img_grande = @"lista_bebidas.jpg";
+    licor5.fuente_img_peq = @"pouse_p.png";
+    licor5.tipo = tipoLicores;
+    
+    if(licor6==nil) licor6 = [[TipoBebida alloc]init];
+    licor6.id_bebida =1006;
+    licor6.nombre = @"Vinos";
+    licor6.fuente_img = @"vinos.png";
+    licor6.fuente_img_grande = @"lista_bebidas.jpg";
+    licor6.fuente_img_peq = @"vinos_p.png";
+    licor6.tipo = tipoLicores;
+}
+-(int)demeTipoActual{
+    return [[BrainMenu sharedInstance] tipoPlatoActual];
 }
 
 -(BOOL)estaPlato:(id)_id{
     BOOL estaPlato=NO;
-    if (!estaPlato) {
-        CCLOG(@"un NOOOOOOOOO");
-    }
-    
+
+        CCLOG(@"key %@", _id);
     
     int tipoActual = [[BrainMenu sharedInstance] tipoPlatoActual];
     if(tipoActual==tipoSushi)
@@ -982,32 +1038,50 @@ CCScene *scene;
     return plato_return.tipo;
 }
 
+
 -(NSString *)demeDescripcionPlatoPorId:(id)_id{
-    
     Plato *plato_return;
+    NSString *description=@"";
     int tipoActual = [[BrainMenu sharedInstance] tipoPlatoActual];
-    if(tipoActual==tipoSushi)
-        plato_return = [platos_sushi objectForKey:_id];
-    else if (tipoActual==tipoTeppanyaki)
-        plato_return = [platos_teppanyaki objectForKey:_id];
-    else if (tipoActual==tipoSopa)
-        plato_return = [platos_sopa objectForKey:_id];
-    else if (tipoActual==tipoEspeciales)
-        plato_return = [platos_especiales objectForKey:_id];
-    else if (tipoActual==tipoEntradas)
-        plato_return = [platos_entradas objectForKey:_id];
-    else if (tipoActual==tipoEnsaladas)
-        plato_return = [platos_ensaladas objectForKey:_id];
-    else if (tipoActual==tipoWok)
-        plato_return = [platos_wok objectForKey:_id];
-    else if (tipoActual==tipoPostres)
-        plato_return = [platos_postres objectForKey:_id];
-    else if (tipoActual==tipoBebidas)
-        plato_return = [platos_bebidas objectForKey:_id];
-    else if (tipoActual==tipoLicores)
-        plato_return = [platos_licores objectForKey:_id];
     
-    return plato_return.descripcion;
+    if(tipoActual==tipoSushi)
+    {
+        plato_return = [platos_sushi objectForKey:_id];
+        description = plato_return.descripcion;
+    }
+    else if (tipoActual==tipoTeppanyaki)
+    {
+        plato_return = [platos_teppanyaki objectForKey:_id];
+        description = plato_return.descripcion;
+    }
+    else if (tipoActual==tipoSopa)
+    {
+        plato_return = [platos_sopa objectForKey:_id];
+        description = plato_return.descripcion;
+    }
+    else if (tipoActual==tipoEspeciales)
+    {
+        plato_return = [platos_especiales objectForKey:_id];
+        description = plato_return.descripcion;
+    }
+    else if (tipoActual==tipoEntradas)
+    {
+        plato_return = [platos_entradas objectForKey:_id];
+        description = plato_return.descripcion;
+    }else if (tipoActual==tipoEnsaladas)
+    {
+        plato_return = [platos_ensaladas objectForKey:_id];
+        description = plato_return.descripcion;
+    }else if (tipoActual==tipoWok)
+    {
+        plato_return = [platos_wok objectForKey:_id];
+        description = plato_return.descripcion;
+    }else if (tipoActual==tipoPostres)
+    {
+        plato_return = [platos_postres objectForKey:_id];
+        description = plato_return.descripcion;
+    }
+    return description;
     
 }
 
@@ -1090,30 +1164,39 @@ CCScene *scene;
     return plato_return.fuente_img_peq;
 }
 
-- (int)demePrecioPlatoPorId:(id)_id{
+- (int)demePrecioPlatoPorId:(id)_id
+{
     Plato *plato_return;
     int tipoActual = [[BrainMenu sharedInstance] tipoPlatoActual];
+    int precio=0;
+    
     if(tipoActual==tipoSushi)
-        plato_return = [platos_sushi objectForKey:_id];
-    else if (tipoActual==tipoTeppanyaki)
-        plato_return = [platos_teppanyaki objectForKey:_id];
-    else if (tipoActual==tipoSopa)
-        plato_return = [platos_sopa objectForKey:_id];
-    else if (tipoActual==tipoEspeciales)
-        plato_return = [platos_especiales objectForKey:_id];
-    else if (tipoActual==tipoEntradas)
-        plato_return = [platos_entradas objectForKey:_id];
-    else if (tipoActual==tipoEnsaladas)
-        plato_return = [platos_ensaladas objectForKey:_id];
-    else if (tipoActual==tipoWok)
-        plato_return = [platos_wok objectForKey:_id];
-    else if (tipoActual==tipoPostres)
-        plato_return = [platos_postres objectForKey:_id];
-    else if (tipoActual==tipoBebidas)
-        plato_return = [platos_bebidas objectForKey:_id];
-    else if (tipoActual==tipoLicores)
-        plato_return = [platos_licores objectForKey:_id];
-    return plato_return.precio;
+    {   plato_return = [platos_sushi objectForKey:_id];
+        precio = plato_return.precio;
+    }else if (tipoActual==tipoTeppanyaki)
+    {    plato_return = [platos_teppanyaki objectForKey:_id];
+        precio = plato_return.precio;
+    }else if (tipoActual==tipoSopa)
+    {    plato_return = [platos_sopa objectForKey:_id];
+        precio = plato_return.precio;
+    }else if (tipoActual==tipoEspeciales)
+    {    plato_return = [platos_especiales objectForKey:_id];
+        precio = plato_return.precio;
+    }else if (tipoActual==tipoEntradas)
+    {    plato_return = [platos_entradas objectForKey:_id];
+        precio = plato_return.precio;
+    }else if (tipoActual==tipoEnsaladas)
+    {    plato_return = [platos_ensaladas objectForKey:_id];
+        precio = plato_return.precio;
+    }else if (tipoActual==tipoWok)
+    {    plato_return = [platos_wok objectForKey:_id];
+        precio = plato_return.precio;
+    }else if (tipoActual==tipoPostres)
+    {    plato_return = [platos_postres objectForKey:_id];
+        precio = plato_return.precio;
+    }
+    
+    return precio;
 }
 
 - (int)demeNumeroPlatosEnOrden
@@ -1179,6 +1262,8 @@ CCScene *scene;
     else if (tipoActual==tipoLicores)
         [[BrainMenu sharedInstance] eliminarPlato:[platos_licores objectForKey:_id]];
 }
+
+
 
 -(int)demeTotalCuenta{
     return [[BrainMenu sharedInstance] totalCuenta];

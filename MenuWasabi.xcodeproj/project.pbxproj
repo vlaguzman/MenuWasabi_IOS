@@ -283,6 +283,25 @@
 		C1A9966016273F4500592399 /* entrada_tacos-thai.png in Resources */ = {isa = PBXBuildFile; fileRef = C1A9965816273F4500592399 /* entrada_tacos-thai.png */; };
 		C1B89EF4163078EE0047518D /* fondo_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = C1B89EF3163078EB0047518D /* fondo_btn.png */; };
 		C1B89EF6163079E30047518D /* btn_principal.png in Resources */ = {isa = PBXBuildFile; fileRef = C1B89EF5163079DE0047518D /* btn_principal.png */; };
+		C1B89EFC1630A2080047518D /* flecha_total_upb.png in Resources */ = {isa = PBXBuildFile; fileRef = C1B89EFB1630A2050047518D /* flecha_total_upb.png */; };
+		C1B89EFE1630A2260047518D /* flecha_total.png in Resources */ = {isa = PBXBuildFile; fileRef = C1B89EFD1630A2230047518D /* flecha_total.png */; };
+		C1B89F021630A9D60047518D /* beb_calientes_p.png in Resources */ = {isa = PBXBuildFile; fileRef = C1B89EFF1630A9D60047518D /* beb_calientes_p.png */; };
+		C1B89F031630A9D60047518D /* gaseosas_p.png in Resources */ = {isa = PBXBuildFile; fileRef = C1B89F001630A9D60047518D /* gaseosas_p.png */; };
+		C1B89F041630A9D60047518D /* jugos_p.png in Resources */ = {isa = PBXBuildFile; fileRef = C1B89F011630A9D60047518D /* jugos_p.png */; };
+		C1B89F071630AA1F0047518D /* btn_agregar_bebidas.png in Resources */ = {isa = PBXBuildFile; fileRef = C1B89F051630AA160047518D /* btn_agregar_bebidas.png */; };
+		C1B89F081630AA1F0047518D /* lista_bebidas.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C1B89F061630AA1A0047518D /* lista_bebidas.jpg */; };
+		C1B89F0F1630BADC0047518D /* aperitivos_p.png in Resources */ = {isa = PBXBuildFile; fileRef = C1B89F091630BADC0047518D /* aperitivos_p.png */; };
+		C1B89F101630BADC0047518D /* cervezas_p.png in Resources */ = {isa = PBXBuildFile; fileRef = C1B89F0A1630BADC0047518D /* cervezas_p.png */; };
+		C1B89F111630BADC0047518D /* cocteles_p.png in Resources */ = {isa = PBXBuildFile; fileRef = C1B89F0B1630BADC0047518D /* cocteles_p.png */; };
+		C1B89F121630BADC0047518D /* licores_p.png in Resources */ = {isa = PBXBuildFile; fileRef = C1B89F0C1630BADC0047518D /* licores_p.png */; };
+		C1B89F131630BADC0047518D /* pousse_p.png in Resources */ = {isa = PBXBuildFile; fileRef = C1B89F0D1630BADC0047518D /* pousse_p.png */; };
+		C1B89F141630BADC0047518D /* vinos_p.png in Resources */ = {isa = PBXBuildFile; fileRef = C1B89F0E1630BADC0047518D /* vinos_p.png */; };
+		C1B89F1B1630BB160047518D /* aperitivos.png in Resources */ = {isa = PBXBuildFile; fileRef = C1B89F151630BB160047518D /* aperitivos.png */; };
+		C1B89F1C1630BB160047518D /* cerveza.png in Resources */ = {isa = PBXBuildFile; fileRef = C1B89F161630BB160047518D /* cerveza.png */; };
+		C1B89F1D1630BB160047518D /* cocteles.png in Resources */ = {isa = PBXBuildFile; fileRef = C1B89F171630BB160047518D /* cocteles.png */; };
+		C1B89F1E1630BB160047518D /* licores.png in Resources */ = {isa = PBXBuildFile; fileRef = C1B89F181630BB160047518D /* licores.png */; };
+		C1B89F1F1630BB160047518D /* pouse.png in Resources */ = {isa = PBXBuildFile; fileRef = C1B89F191630BB160047518D /* pouse.png */; };
+		C1B89F201630BB160047518D /* vinos.png in Resources */ = {isa = PBXBuildFile; fileRef = C1B89F1A1630BB160047518D /* vinos.png */; };
 		C1C23C6E162DAB4400843CBA /* ceviche-mixto_g.png in Resources */ = {isa = PBXBuildFile; fileRef = C1C23C6C162DAB4400843CBA /* ceviche-mixto_g.png */; };
 		C1C23C6F162DAB4400843CBA /* tiradito-de-mero_g.png in Resources */ = {isa = PBXBuildFile; fileRef = C1C23C6D162DAB4400843CBA /* tiradito-de-mero_g.png */; };
 		C1C23C73162DAB5500843CBA /* ceviche-mixto.png in Resources */ = {isa = PBXBuildFile; fileRef = C1C23C71162DAB5500843CBA /* ceviche-mixto.png */; };
@@ -310,7 +329,6 @@
 		C1C23CAF162DC52500843CBA /* titanic_g.png in Resources */ = {isa = PBXBuildFile; fileRef = C1C23CAE162DC52500843CBA /* titanic_g.png */; };
 		C1C23CB1162DC53000843CBA /* titanic.png in Resources */ = {isa = PBXBuildFile; fileRef = C1C23CB0162DC53000843CBA /* titanic.png */; };
 		C1C23CB3162DC53C00843CBA /* titanic_p.png in Resources */ = {isa = PBXBuildFile; fileRef = C1C23CB2162DC53C00843CBA /* titanic_p.png */; };
-		C1C4C36C162F1478006AA580 /* flecha_total_up.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C1C4C36B162F1478006AA580 /* flecha_total_up.jpg */; };
 		C1C4C36F162F20B5006AA580 /* flecha_total_up.png in Resources */ = {isa = PBXBuildFile; fileRef = C1C4C36E162F20B5006AA580 /* flecha_total_up.png */; };
 		C1C4C37A162F511F006AA580 /* TipoBebida.m in Sources */ = {isa = PBXBuildFile; fileRef = C1C4C379162F511F006AA580 /* TipoBebida.m */; };
 		C1C4C37D162F513D006AA580 /* Bebida.m in Sources */ = {isa = PBXBuildFile; fileRef = C1C4C37C162F513D006AA580 /* Bebida.m */; };
@@ -357,7 +375,7 @@
 		C1EFBFAE160D14230005ECF1 /* btn_sushi.png in Resources */ = {isa = PBXBuildFile; fileRef = C1EFBFA3160D14230005ECF1 /* btn_sushi.png */; };
 		C1EFBFAF160D14230005ECF1 /* btn_teppanyaki.png in Resources */ = {isa = PBXBuildFile; fileRef = C1EFBFA4160D14230005ECF1 /* btn_teppanyaki.png */; };
 		C1EFBFB0160D14230005ECF1 /* btn_wok.png in Resources */ = {isa = PBXBuildFile; fileRef = C1EFBFA5160D14230005ECF1 /* btn_wok.png */; };
-		C1F0F768162EF5F200043C04 /* flecha_total.png in Resources */ = {isa = PBXBuildFile; fileRef = C1F0F767162EF5F200043C04 /* flecha_total.png */; };
+		C1F0F768162EF5F200043C04 /* flecha_total_.png in Resources */ = {isa = PBXBuildFile; fileRef = C1F0F767162EF5F200043C04 /* flecha_total_.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -774,6 +792,25 @@
 		C1A9965816273F4500592399 /* entrada_tacos-thai.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "entrada_tacos-thai.png"; sourceTree = "<group>"; };
 		C1B89EF3163078EB0047518D /* fondo_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fondo_btn.png; sourceTree = "<group>"; };
 		C1B89EF5163079DE0047518D /* btn_principal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_principal.png; sourceTree = "<group>"; };
+		C1B89EFB1630A2050047518D /* flecha_total_upb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flecha_total_upb.png; sourceTree = "<group>"; };
+		C1B89EFD1630A2230047518D /* flecha_total.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flecha_total.png; sourceTree = "<group>"; };
+		C1B89EFF1630A9D60047518D /* beb_calientes_p.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = beb_calientes_p.png; sourceTree = "<group>"; };
+		C1B89F001630A9D60047518D /* gaseosas_p.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gaseosas_p.png; sourceTree = "<group>"; };
+		C1B89F011630A9D60047518D /* jugos_p.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = jugos_p.png; sourceTree = "<group>"; };
+		C1B89F051630AA160047518D /* btn_agregar_bebidas.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_agregar_bebidas.png; sourceTree = "<group>"; };
+		C1B89F061630AA1A0047518D /* lista_bebidas.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = lista_bebidas.jpg; sourceTree = "<group>"; };
+		C1B89F091630BADC0047518D /* aperitivos_p.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = aperitivos_p.png; sourceTree = "<group>"; };
+		C1B89F0A1630BADC0047518D /* cervezas_p.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cervezas_p.png; sourceTree = "<group>"; };
+		C1B89F0B1630BADC0047518D /* cocteles_p.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cocteles_p.png; sourceTree = "<group>"; };
+		C1B89F0C1630BADC0047518D /* licores_p.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = licores_p.png; sourceTree = "<group>"; };
+		C1B89F0D1630BADC0047518D /* pousse_p.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pousse_p.png; sourceTree = "<group>"; };
+		C1B89F0E1630BADC0047518D /* vinos_p.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vinos_p.png; sourceTree = "<group>"; };
+		C1B89F151630BB160047518D /* aperitivos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = aperitivos.png; sourceTree = "<group>"; };
+		C1B89F161630BB160047518D /* cerveza.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cerveza.png; sourceTree = "<group>"; };
+		C1B89F171630BB160047518D /* cocteles.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cocteles.png; sourceTree = "<group>"; };
+		C1B89F181630BB160047518D /* licores.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = licores.png; sourceTree = "<group>"; };
+		C1B89F191630BB160047518D /* pouse.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pouse.png; sourceTree = "<group>"; };
+		C1B89F1A1630BB160047518D /* vinos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vinos.png; sourceTree = "<group>"; };
 		C1C23C6C162DAB4400843CBA /* ceviche-mixto_g.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ceviche-mixto_g.png"; sourceTree = "<group>"; };
 		C1C23C6D162DAB4400843CBA /* tiradito-de-mero_g.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tiradito-de-mero_g.png"; sourceTree = "<group>"; };
 		C1C23C71162DAB5500843CBA /* ceviche-mixto.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ceviche-mixto.png"; sourceTree = "<group>"; };
@@ -801,7 +838,6 @@
 		C1C23CAE162DC52500843CBA /* titanic_g.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = titanic_g.png; sourceTree = "<group>"; };
 		C1C23CB0162DC53000843CBA /* titanic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = titanic.png; sourceTree = "<group>"; };
 		C1C23CB2162DC53C00843CBA /* titanic_p.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = titanic_p.png; sourceTree = "<group>"; };
-		C1C4C36B162F1478006AA580 /* flecha_total_up.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = flecha_total_up.jpg; sourceTree = "<group>"; };
 		C1C4C36E162F20B5006AA580 /* flecha_total_up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flecha_total_up.png; sourceTree = "<group>"; };
 		C1C4C378162F511F006AA580 /* TipoBebida.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TipoBebida.h; sourceTree = "<group>"; };
 		C1C4C379162F511F006AA580 /* TipoBebida.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TipoBebida.m; sourceTree = "<group>"; };
@@ -857,7 +893,7 @@
 		C1EFBFA3160D14230005ECF1 /* btn_sushi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_sushi.png; sourceTree = "<group>"; };
 		C1EFBFA4160D14230005ECF1 /* btn_teppanyaki.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_teppanyaki.png; sourceTree = "<group>"; };
 		C1EFBFA5160D14230005ECF1 /* btn_wok.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_wok.png; sourceTree = "<group>"; };
-		C1F0F767162EF5F200043C04 /* flecha_total.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flecha_total.png; sourceTree = "<group>"; };
+		C1F0F767162EF5F200043C04 /* flecha_total_.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flecha_total_.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1550,12 +1586,15 @@
 			isa = PBXGroup;
 			children = (
 				C1B89EF3163078EB0047518D /* fondo_btn.png */,
+				C1B89F051630AA160047518D /* btn_agregar_bebidas.png */,
+				C1B89F061630AA1A0047518D /* lista_bebidas.jpg */,
 				C1C4C388162F6C23006AA580 /* pata_02.png */,
-				C1C4C36B162F1478006AA580 /* flecha_total_up.jpg */,
-				C1F0F767162EF5F200043C04 /* flecha_total.png */,
+				C1F0F767162EF5F200043C04 /* flecha_total_.png */,
 				C155EE0116265A1B00421599 /* barra_agregar.png */,
 				C1E87517161CEAFB0020486A /* barra_agregar_.png */,
 				C1C4C36E162F20B5006AA580 /* flecha_total_up.png */,
+				C1B89EFB1630A2050047518D /* flecha_total_upb.png */,
+				C1B89EFD1630A2230047518D /* flecha_total.png */,
 				C1E87518161CEAFB0020486A /* btn_agregar.png */,
 				C1EF08A016150A0A00BA0421 /* inicio.png */,
 				C1E9690E1614F2E5006E58F3 /* descripcion.png */,
@@ -1752,6 +1791,9 @@
 		C1C4C371162F493E006AA580 /* pequenas */ = {
 			isa = PBXGroup;
 			children = (
+				C1B89EFF1630A9D60047518D /* beb_calientes_p.png */,
+				C1B89F001630A9D60047518D /* gaseosas_p.png */,
+				C1B89F011630A9D60047518D /* jugos_p.png */,
 			);
 			name = pequenas;
 			sourceTree = "<group>";
@@ -1786,6 +1828,12 @@
 		C1C4C375162F4959006AA580 /* pequenas */ = {
 			isa = PBXGroup;
 			children = (
+				C1B89F091630BADC0047518D /* aperitivos_p.png */,
+				C1B89F0A1630BADC0047518D /* cervezas_p.png */,
+				C1B89F0B1630BADC0047518D /* cocteles_p.png */,
+				C1B89F0C1630BADC0047518D /* licores_p.png */,
+				C1B89F0D1630BADC0047518D /* pousse_p.png */,
+				C1B89F0E1630BADC0047518D /* vinos_p.png */,
 			);
 			name = pequenas;
 			sourceTree = "<group>";
@@ -1793,6 +1841,12 @@
 		C1C4C376162F495F006AA580 /* normales */ = {
 			isa = PBXGroup;
 			children = (
+				C1B89F151630BB160047518D /* aperitivos.png */,
+				C1B89F161630BB160047518D /* cerveza.png */,
+				C1B89F171630BB160047518D /* cocteles.png */,
+				C1B89F181630BB160047518D /* licores.png */,
+				C1B89F191630BB160047518D /* pouse.png */,
+				C1B89F1A1630BB160047518D /* vinos.png */,
 			);
 			name = normales;
 			sourceTree = "<group>";
@@ -2110,8 +2164,7 @@
 				C1C23CAF162DC52500843CBA /* titanic_g.png in Resources */,
 				C1C23CB1162DC53000843CBA /* titanic.png in Resources */,
 				C1C23CB3162DC53C00843CBA /* titanic_p.png in Resources */,
-				C1F0F768162EF5F200043C04 /* flecha_total.png in Resources */,
-				C1C4C36C162F1478006AA580 /* flecha_total_up.jpg in Resources */,
+				C1F0F768162EF5F200043C04 /* flecha_total_.png in Resources */,
 				C1C4C36F162F20B5006AA580 /* flecha_total_up.png in Resources */,
 				C1C4C381162F5AC5006AA580 /* beb_calientes.png in Resources */,
 				C1C4C382162F5AC5006AA580 /* gaseosa.png in Resources */,
@@ -2119,6 +2172,25 @@
 				C1C4C389162F6C23006AA580 /* pata_02.png in Resources */,
 				C1B89EF4163078EE0047518D /* fondo_btn.png in Resources */,
 				C1B89EF6163079E30047518D /* btn_principal.png in Resources */,
+				C1B89EFC1630A2080047518D /* flecha_total_upb.png in Resources */,
+				C1B89EFE1630A2260047518D /* flecha_total.png in Resources */,
+				C1B89F021630A9D60047518D /* beb_calientes_p.png in Resources */,
+				C1B89F031630A9D60047518D /* gaseosas_p.png in Resources */,
+				C1B89F041630A9D60047518D /* jugos_p.png in Resources */,
+				C1B89F071630AA1F0047518D /* btn_agregar_bebidas.png in Resources */,
+				C1B89F081630AA1F0047518D /* lista_bebidas.jpg in Resources */,
+				C1B89F0F1630BADC0047518D /* aperitivos_p.png in Resources */,
+				C1B89F101630BADC0047518D /* cervezas_p.png in Resources */,
+				C1B89F111630BADC0047518D /* cocteles_p.png in Resources */,
+				C1B89F121630BADC0047518D /* licores_p.png in Resources */,
+				C1B89F131630BADC0047518D /* pousse_p.png in Resources */,
+				C1B89F141630BADC0047518D /* vinos_p.png in Resources */,
+				C1B89F1B1630BB160047518D /* aperitivos.png in Resources */,
+				C1B89F1C1630BB160047518D /* cerveza.png in Resources */,
+				C1B89F1D1630BB160047518D /* cocteles.png in Resources */,
+				C1B89F1E1630BB160047518D /* licores.png in Resources */,
+				C1B89F1F1630BB160047518D /* pouse.png in Resources */,
+				C1B89F201630BB160047518D /* vinos.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

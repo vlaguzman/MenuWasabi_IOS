@@ -27,8 +27,8 @@
 - (void)eliminarPlato:(id)_id withKindPlate:(int)_kind;
 - (void)cambiarEstadoPedido:(id)_id;
 - (int)demeNumeroPlatosEnOrden;
-
 - (Plato *)demeDatosPlatoEnUbicacion:(int)_ubicacion;
 -(BOOL)estaPlato:(id)_idplato;
+-(int)demeTipoActual;
 
 @end

@@ -103,14 +103,7 @@
     // e.g. self.myOutlet = nil;
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-	//return YES;
-    if((interfaceOrientation==UIInterfaceOrientationPortrait)||(interfaceOrientation==UIInterfaceOrientationPortraitUpsideDown))
-        return NO;
-    else
-        return YES;
-}
+
 
 //251-126
 
@@ -145,9 +138,13 @@
 }
 
 - (IBAction)viewLicores:(id)sender {
+    [self salirMenu:sender];
+    [NSTimer scheduledTimerWithTimeInterval:3.3 target:self selector:@selector(layerLicores:) userInfo:nil repeats:NO];
 }
 
 - (IBAction)viewBebidas:(id)sender {
+    [self salirMenu:sender];
+    [NSTimer scheduledTimerWithTimeInterval:3.3 target:self selector:@selector(layerBebidas:) userInfo:nil repeats:NO];
 }
 
 - (IBAction)viewPostres:(id)sender {
@@ -171,6 +168,26 @@
 }
 
 - (IBAction)viewWok:(id)sender {
+}
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+	//return YES;
+    if((interfaceOrientation==UIInterfaceOrientationPortrait)||(interfaceOrientation==UIInterfaceOrientationPortraitUpsideDown))
+        return NO;
+    else
+        return YES;
+}
+
+- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
+{
+    UIInterfaceOrientation orientation = toInterfaceOrientation;
+    if((orientation==UIInterfaceOrientationPortrait)||(orientation==UIInterfaceOrientationPortraitUpsideDown)){
+        NSLog(@"CAMBIO");
+       // [self layerEnsaladas:nil];
+    }
+    else
+        NSLog(@"HAY VERA");
 }
 
 
@@ -215,6 +232,12 @@
 }
 - (void)layerTeppanyaki:(id)arg {
     [self beginLayer:tipoTeppanyaki];
+}
+- (void)layerBebidas:(id)arg {
+    [self beginLayer:tipoBebidas];
+}
+- (void)layerLicores:(id)arg {
+    [self beginLayer:tipoLicores];
 }
 
 - (void)beginLayer:(int)_tipo{

@@ -38,6 +38,9 @@
 #define limitMoveLeftSopas -100
 #define limitMoveRightSopas 1170
 
+#define limitMoveLeftLicores -140
+#define limitMoveRightLicores -620//limite
+
 #define posInicial 100
 #define paddingDescriptionPlatesMenu 500
 
@@ -58,6 +61,7 @@
 #define posXprincipalMenuEnsaladas 270
 #define posXprincipalMenuWok 0
 #define posXprincipalMenuPostres 20
+#define posXprincipalMenuLicores -140
 
 
 #define posXBigPlatesMenu 1300
@@ -70,14 +74,6 @@
 
 #define posXmenuPedidos -50
 #define posYmenuPedidos -100
-
-#define posXItemImg1 80
-#define posXItemImg2 205
-#define posXItemImg3 330
-#define posXItemImg4 455
-#define posXItemImg5 580
-#define posXItemImg6 705
-#define posYItemImg -80
 
 
 //Cada tipo de plato tiene un identificador para efecto de carag de imagenes
@@ -229,16 +225,28 @@ BOOL bool_swipe = YES;
         numPlates = 1;
       
         posXprincipalMenu = posXprincipalMenuEnsaladas;
-
     }
-
     //PERSONALIZAR
     else if (tipoPlato == tipoPostres){
         KindFactor = kindFactorPostres;
         numPlates = 3;
+        posXprincipalMenu = posXprincipalMenuPostres;
+    }
+    else if (tipoPlato == tipoBebidas){
+        KindFactor = kindFactorBebidas;
+        numPlates = 3;
         
         posXprincipalMenu = posXprincipalMenuPostres;
-
+        
+    }
+    else if (tipoPlato == tipoLicores){
+        KindFactor = kindFactorLicores;
+        numPlates = 6;
+        
+        posXprincipalMenu = posXprincipalMenuLicores;
+        
+        limitMoveLeft = limitMoveLeftLicores;
+        limitMoveRight = limitMoveRightLicores;
     }
     
 }
@@ -316,15 +324,22 @@ BOOL bool_swipe = YES;
         menu = [[CCMenu alloc]init];
         for (int i = 1; i <= numPlates; i++) {
             
-            nombre_plato = [[CCLabelTTF alloc]initWithString:@"nombre" fontName:font fontSize:_fontSizeTitleName];
-            precio_plato = [[CCLabelTTF alloc]initWithString:@"precio" fontName:font fontSize:_fontSizeTitlePrice];
+            nombre_plato = [[CCLabelTTF alloc]initWithString:@"" fontName:font fontSize:_fontSizeTitleName];
+            precio_plato = [[CCLabelTTF alloc]initWithString:@"" fontName:font fontSize:_fontSizeTitlePrice];
             
             strnombrePlato = [_rootViewController demeNombrePlatoPorId:@(i+KindFactor)];
             [nombre_plato setString:strnombrePlato];
-                
-            strprecioPlato = [[NSString alloc] initWithFormat:@"$ %i", [_rootViewController demePrecioPlatoPorId:@(i+KindFactor)]];
-            [precio_plato setString:strprecioPlato];
             
+            int _tipo = [_rootViewController demeTipoActual];
+            BOOL _tipoBool = YES;
+            if(_tipo == tipoBebidas) _tipoBool = NO;
+            if(_tipo == tipoLicores) _tipoBool = NO;
+            
+            if(_tipoBool){
+                CCLOG(@"carambolas INICIO");
+                strprecioPlato = [[NSString alloc] initWithFormat:@"$ %i", [_rootViewController demePrecioPlatoPorId:@(i+KindFactor)]];
+                [precio_plato setString:strprecioPlato];
+            }
             itemNombrePlato = [CCMenuItemLabel itemWithLabel:nombre_plato target:self selector:@selector(onPushSceneTranLabel:)];
             itemPrecio = [CCMenuItemLabel itemWithLabel:precio_plato target:self selector:@selector(onPushSceneTranLabel:)];
             itemAux = [CCMenuItemImage itemWithNormalImage:[_rootViewController demeFuenteImagenPlatoPorId:@(i+KindFactor)] selectedImage:[_rootViewController demeFuenteImagenPlatoPorId:@(i+KindFactor)] target:self selector:@selector(onPushSceneTranImage:)];
@@ -339,7 +354,8 @@ BOOL bool_swipe = YES;
             [menu addChild:itemPrecio];
             
         }
-        
+        CCLOG(@"NO ME HE TOTIADO");
+
         menu.position = CGPointMake(posXprincipalMenu, winSize.height/2);
  		[self addChild: menu];
         
@@ -616,6 +632,7 @@ BOOL bool_swipe = YES;
     UITouch *touch = [touches anyObject];
     timem = touch.timestamp;
     resul_dif = timem - timei;
+    CCLOG(@"timem > %f  resul_dif>%f ", timem, resul_dif);
     [self removeChild:label cleanup:TRUE];
 
 }
@@ -711,25 +728,34 @@ BOOL bool_swipe = YES;
     winSize = [[CCDirector sharedDirector] winSize];
 
     [self moveMenu_withMenu:menu_platosgrandes withXpox:winSize.width/2 withYpos:menu_platosgrandes.position.y withTimeTransition:1.0];
-    [self moveMenu_withMenu:menu_detalles withXpox:posXShowBigPlatesDescription withYpos:posYBigPlatesDescription withTimeTransition:1.0];
     [self moveMenu_withMenu:menu_atras withXpox:940 withYpos:740 withTimeTransition:1.0];
-    [self moveLabel:label_descripcion with_pox:posXShowBigPlatesDescription with_posy:posYBigPlatesDescription withTimeTransition:1.0];
     
-    if (![_rootViewController estaPlato:@(iactualPlate)]) {
-        [self moveMenu_withMenu:menu_agregar withXpox:posXaparecerAgregar withYpos:posYaparecerAgregar withTimeTransition:1.0];
+    int _tipo = [_rootViewController demeTipoActual];
+    BOOL _tipoBool = YES;
+    if(_tipo == tipoBebidas) _tipoBool = NO;
+    if(_tipo == tipoLicores) _tipoBool = NO;
+    
+    if(_tipoBool){
+        CCLOG(@"carambolas aparecerElementos");
+        [self moveMenu_withMenu:menu_detalles withXpox:posXShowBigPlatesDescription withYpos:posYBigPlatesDescription withTimeTransition:1.0];
+        [self moveLabel:label_descripcion with_pox:posXShowBigPlatesDescription with_posy:posYBigPlatesDescription withTimeTransition:1.0];
+        if (![_rootViewController estaPlato:@(iactualPlate)]) {
+            [self moveMenu_withMenu:menu_agregar withXpox:posXaparecerAgregar withYpos:posYaparecerAgregar withTimeTransition:1.0];
+        }
     }
+
 }
 
 -(void)desaparecerElementos{
     winSize = [[CCDirector sharedDirector] winSize];
     
-    [self moveMenu_withMenu:menu_platosgrandes withXpox:1200 withYpos:menu_platosgrandes.position.y withTimeTransition:1.0];
+    [self moveMenu_withMenu:menu_platosgrandes withXpox:posXBigPlatesMenu withYpos:menu_platosgrandes.position.y withTimeTransition:1.0];
     [self moveMenu_withMenu:menu_detalles withXpox:posXdesaparecerDetalles withYpos:posYBigPlatesDescription withTimeTransition:1.0];
     [self moveMenu_withMenu:menu_atras withXpox:940 withYpos:winSize.height+100 withTimeTransition:1.0];
     [self moveMenu_withMenu:menu_agregar withXpox:posXdesaparecerAgregar withYpos:winSize.height+100 withTimeTransition:1.0];
-    
     [self moveLabel:label_descripcion with_pox:posXdesaparecerDetalles with_posy:posYBigPlatesDescription withTimeTransition:1.0];
-
+    
+    iactualPlate = -1;
 }
 
 -(void)moveMenu_withMenu:(CCMenu *)_menu withXpox:(float) _posx withYpos:(float)_posyA withTimeTransition:(float)_time{
@@ -858,6 +884,10 @@ BOOL bool_swipe = YES;
     NSString *str_total = [[NSString alloc]initWithFormat:@"$ %i", [_rootViewController demeTotalCuenta]];
     [label_total setString:str_total];
     
+    if(iactualPlate == _tag){
+        [self moveMenu_withMenu:menu_agregar withXpox:posXaparecerAgregar withYpos:posYaparecerAgregar withTimeTransition:1.0];
+    }
+    
 }
 
 -(void) onUpDown:(id) sender
@@ -880,6 +910,8 @@ BOOL bool_swipe = YES;
     
 
 }
+
+
 
 - (void) dealloc
 {
