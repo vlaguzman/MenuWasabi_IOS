@@ -29,5 +29,6 @@
 - (int)demeNumeroPlatosEnOrden;
 
 - (Plato *)demeDatosPlatoEnUbicacion:(int)_ubicacion;
+-(BOOL)estaPlato:(id)_idplato;
 
 @end

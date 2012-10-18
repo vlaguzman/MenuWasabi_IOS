@@ -43,7 +43,6 @@ static BrainMenu *sharedBrainMenu = nil;
     _totalCuenta += _plato.precio;
     [self.platosAgregados addObject:_plato];
     
-
 }
 
 -(void)eliminarPlato:(Plato *)_plato
@@ -61,6 +60,9 @@ static BrainMenu *sharedBrainMenu = nil;
     return aux;
 }
 
+-(BOOL)estaPlato:(Plato *)_plato{
+    return [self.platosAgregados containsObject:_plato.self];
+}
 
 + (id)allocWithZone:(NSZone *)zone
 {

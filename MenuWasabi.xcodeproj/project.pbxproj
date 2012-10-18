@@ -281,6 +281,8 @@
 		C1A9965E16273F4500592399 /* entrada_sea-mix-open.png in Resources */ = {isa = PBXBuildFile; fileRef = C1A9965616273F4500592399 /* entrada_sea-mix-open.png */; };
 		C1A9965F16273F4500592399 /* entrada_summer-rolls.png in Resources */ = {isa = PBXBuildFile; fileRef = C1A9965716273F4500592399 /* entrada_summer-rolls.png */; };
 		C1A9966016273F4500592399 /* entrada_tacos-thai.png in Resources */ = {isa = PBXBuildFile; fileRef = C1A9965816273F4500592399 /* entrada_tacos-thai.png */; };
+		C1B89EF4163078EE0047518D /* fondo_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = C1B89EF3163078EB0047518D /* fondo_btn.png */; };
+		C1B89EF6163079E30047518D /* btn_principal.png in Resources */ = {isa = PBXBuildFile; fileRef = C1B89EF5163079DE0047518D /* btn_principal.png */; };
 		C1C23C6E162DAB4400843CBA /* ceviche-mixto_g.png in Resources */ = {isa = PBXBuildFile; fileRef = C1C23C6C162DAB4400843CBA /* ceviche-mixto_g.png */; };
 		C1C23C6F162DAB4400843CBA /* tiradito-de-mero_g.png in Resources */ = {isa = PBXBuildFile; fileRef = C1C23C6D162DAB4400843CBA /* tiradito-de-mero_g.png */; };
 		C1C23C73162DAB5500843CBA /* ceviche-mixto.png in Resources */ = {isa = PBXBuildFile; fileRef = C1C23C71162DAB5500843CBA /* ceviche-mixto.png */; };
@@ -329,8 +331,8 @@
 		C1E968AD16149C1F006E58F3 /* plato_pequeno.png in Resources */ = {isa = PBXBuildFile; fileRef = C1E968A516149C1F006E58F3 /* plato_pequeno.png */; };
 		C1E968AE16149C1F006E58F3 /* plato_pequeno2.png in Resources */ = {isa = PBXBuildFile; fileRef = C1E968A616149C1F006E58F3 /* plato_pequeno2.png */; };
 		C1E969091614E97B006E58F3 /* btn_principal2.png in Resources */ = {isa = PBXBuildFile; fileRef = C1E969081614E97A006E58F3 /* btn_principal2.png */; };
-		C1E9690B1614EB88006E58F3 /* fondo_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = C1E9690A1614EB87006E58F3 /* fondo_btn.png */; };
-		C1E9690D1614EEE4006E58F3 /* btn_principal.png in Resources */ = {isa = PBXBuildFile; fileRef = C1E9690C1614EEE3006E58F3 /* btn_principal.png */; };
+		C1E9690B1614EB88006E58F3 /* fondo_btn_.png in Resources */ = {isa = PBXBuildFile; fileRef = C1E9690A1614EB87006E58F3 /* fondo_btn_.png */; };
+		C1E9690D1614EEE4006E58F3 /* btn_principal_.png in Resources */ = {isa = PBXBuildFile; fileRef = C1E9690C1614EEE3006E58F3 /* btn_principal_.png */; };
 		C1E969101614F2E7006E58F3 /* descripcion.png in Resources */ = {isa = PBXBuildFile; fileRef = C1E9690E1614F2E5006E58F3 /* descripcion.png */; };
 		C1E969111614F2E7006E58F3 /* plato_descripcion.png in Resources */ = {isa = PBXBuildFile; fileRef = C1E9690F1614F2E6006E58F3 /* plato_descripcion.png */; };
 		C1EF089E1615038000BA0421 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C1EF089D1615038000BA0421 /* libsqlite3.0.dylib */; };
@@ -770,6 +772,8 @@
 		C1A9965616273F4500592399 /* entrada_sea-mix-open.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "entrada_sea-mix-open.png"; sourceTree = "<group>"; };
 		C1A9965716273F4500592399 /* entrada_summer-rolls.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "entrada_summer-rolls.png"; sourceTree = "<group>"; };
 		C1A9965816273F4500592399 /* entrada_tacos-thai.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "entrada_tacos-thai.png"; sourceTree = "<group>"; };
+		C1B89EF3163078EB0047518D /* fondo_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fondo_btn.png; sourceTree = "<group>"; };
+		C1B89EF5163079DE0047518D /* btn_principal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_principal.png; sourceTree = "<group>"; };
 		C1C23C6C162DAB4400843CBA /* ceviche-mixto_g.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ceviche-mixto_g.png"; sourceTree = "<group>"; };
 		C1C23C6D162DAB4400843CBA /* tiradito-de-mero_g.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tiradito-de-mero_g.png"; sourceTree = "<group>"; };
 		C1C23C71162DAB5500843CBA /* ceviche-mixto.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ceviche-mixto.png"; sourceTree = "<group>"; };
@@ -822,8 +826,8 @@
 		C1E968A516149C1F006E58F3 /* plato_pequeno.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plato_pequeno.png; sourceTree = "<group>"; };
 		C1E968A616149C1F006E58F3 /* plato_pequeno2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plato_pequeno2.png; sourceTree = "<group>"; };
 		C1E969081614E97A006E58F3 /* btn_principal2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_principal2.png; sourceTree = "<group>"; };
-		C1E9690A1614EB87006E58F3 /* fondo_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fondo_btn.png; sourceTree = "<group>"; };
-		C1E9690C1614EEE3006E58F3 /* btn_principal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_principal.png; sourceTree = "<group>"; };
+		C1E9690A1614EB87006E58F3 /* fondo_btn_.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fondo_btn_.png; sourceTree = "<group>"; };
+		C1E9690C1614EEE3006E58F3 /* btn_principal_.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_principal_.png; sourceTree = "<group>"; };
 		C1E9690E1614F2E5006E58F3 /* descripcion.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = descripcion.png; sourceTree = "<group>"; };
 		C1E9690F1614F2E6006E58F3 /* plato_descripcion.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plato_descripcion.png; sourceTree = "<group>"; };
 		C1EC4327161E423E0061DD45 /* A Damn Mess.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "A Damn Mess.ttf"; sourceTree = "<group>"; };
@@ -1545,6 +1549,7 @@
 		C1C23C79162DAE8700843CBA /* Adicionales */ = {
 			isa = PBXGroup;
 			children = (
+				C1B89EF3163078EB0047518D /* fondo_btn.png */,
 				C1C4C388162F6C23006AA580 /* pata_02.png */,
 				C1C4C36B162F1478006AA580 /* flecha_total_up.jpg */,
 				C1F0F767162EF5F200043C04 /* flecha_total.png */,
@@ -1555,7 +1560,7 @@
 				C1EF08A016150A0A00BA0421 /* inicio.png */,
 				C1E9690E1614F2E5006E58F3 /* descripcion.png */,
 				C1E9690F1614F2E6006E58F3 /* plato_descripcion.png */,
-				C1E9690A1614EB87006E58F3 /* fondo_btn.png */,
+				C1E9690A1614EB87006E58F3 /* fondo_btn_.png */,
 				C1E9689F16149C1F006E58F3 /* btn_cerrar.png */,
 				C1E968A016149C1F006E58F3 /* btn_regresar.png */,
 				C1E968A116149C1F006E58F3 /* nombres.png */,
@@ -1573,7 +1578,8 @@
 				C1EFBF9C160D14230005ECF1 /* btn_ensaladas.png */,
 				C1EFBF9D160D14230005ECF1 /* btn_entradas.png */,
 				C1EFBF9E160D14230005ECF1 /* btn_especiales.png */,
-				C1E9690C1614EEE3006E58F3 /* btn_principal.png */,
+				C1E9690C1614EEE3006E58F3 /* btn_principal_.png */,
+				C1B89EF5163079DE0047518D /* btn_principal.png */,
 				C1EFBF9F160D14230005ECF1 /* btn_licores.png */,
 				C1EFBFA0160D14230005ECF1 /* btn_postres.png */,
 				C1EFBFA1160D14230005ECF1 /* btn_principala.png */,
@@ -1927,8 +1933,8 @@
 				C1E968AD16149C1F006E58F3 /* plato_pequeno.png in Resources */,
 				C1E968AE16149C1F006E58F3 /* plato_pequeno2.png in Resources */,
 				C1E969091614E97B006E58F3 /* btn_principal2.png in Resources */,
-				C1E9690B1614EB88006E58F3 /* fondo_btn.png in Resources */,
-				C1E9690D1614EEE4006E58F3 /* btn_principal.png in Resources */,
+				C1E9690B1614EB88006E58F3 /* fondo_btn_.png in Resources */,
+				C1E9690D1614EEE4006E58F3 /* btn_principal_.png in Resources */,
 				C1E969101614F2E7006E58F3 /* descripcion.png in Resources */,
 				C1E969111614F2E7006E58F3 /* plato_descripcion.png in Resources */,
 				C1EF08A116150A0A00BA0421 /* inicio.png in Resources */,
@@ -2111,6 +2117,8 @@
 				C1C4C382162F5AC5006AA580 /* gaseosa.png in Resources */,
 				C1C4C383162F5AC5006AA580 /* jugos.png in Resources */,
 				C1C4C389162F6C23006AA580 /* pata_02.png in Resources */,
+				C1B89EF4163078EE0047518D /* fondo_btn.png in Resources */,
+				C1B89EF6163079E30047518D /* btn_principal.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

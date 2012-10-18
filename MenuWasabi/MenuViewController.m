@@ -64,7 +64,7 @@
     [self moverBoton:btn_bebidas posx:251 posy:236 alpha:1.0 duracion:0.5 delay:2.6];
     [self moverBoton:btn_licores posx:327 posy:126 alpha:1.0 duracion:0.5 delay:2.8];
     
-    [self moverBoton:fondo_btn posx:251 posy:126 alpha:0.5 duracion:3 delay:1.4];
+    [self moverBoton:fondo_btn posx:251 posy:126 alpha:1.0 duracion:1.0 delay:0.0];
 }
 
 

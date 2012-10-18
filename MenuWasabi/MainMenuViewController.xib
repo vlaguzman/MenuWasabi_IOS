@@ -55,7 +55,6 @@
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{137, 145}, {808, 533}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
-						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
@@ -127,7 +126,6 @@
 				<int key="NSvFlags">292</int>
 				<string key="NSFrameSize">{1004, 768}</string>
 				<reference key="NSSuperview"/>
-				<reference key="NSNextKeyView"/>
 				<string key="NSReuseIdentifierKey">_NS:9</string>
 				<object class="NSColor" key="IBUIBackgroundColor">
 					<int key="NSColorSpace">3</int>
@@ -145,7 +143,6 @@
 				<int key="NSvFlags">274</int>
 				<string key="NSFrameSize">{1004, 768}</string>
 				<reference key="NSSuperview"/>
-				<reference key="NSNextKeyView"/>
 				<string key="NSReuseIdentifierKey">_NS:9</string>
 				<bool key="IBUIUserInteractionEnabled">NO</bool>
 				<string key="targetRuntimeIdentifier">IBIPadFramework</string>
@@ -253,7 +250,7 @@
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<dictionary class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
-			<string key="btn_principal.png">{244, 258}</string>
+			<string key="btn_principal.png">{235, 274}</string>
 			<string key="fondo3.png">{1024, 768}</string>
 			<string key="inicio.png">{808, 533}</string>
 		</dictionary>

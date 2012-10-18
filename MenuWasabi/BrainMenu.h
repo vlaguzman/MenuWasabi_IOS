@@ -24,6 +24,7 @@
 -(void)agregarPlato:(Plato *)_plato;
 -(void)eliminarPlato:(Plato *)_plato;
 -(Plato *)demePlatoEnUbicacion:(int)_index;
+-(BOOL)estaPlato:(Plato *)_plato;
 
 
 @end
