@@ -347,7 +347,7 @@ BOOL bool_swipe = YES;
         CCLOG(@"posx %f posy %f", menu.position.x, menu.position.y);
         
         menu_platosgrandes = [[CCMenu alloc]init];
-        itemAux2 = [CCMenuItemImage itemWithNormalImage:@"anagomaki_big.png" selectedImage:@"anagomaki_big.png"];
+        itemAux2 = [[CCMenuItemImage alloc]init];
         menu_platosgrandes.position = CGPointMake(posXBigPlatesMenu, winSize.height/2);
         [menu_platosgrandes addChild:itemAux2];
         
@@ -711,13 +711,13 @@ BOOL bool_swipe = YES;
     winSize = [[CCDirector sharedDirector] winSize];
 
     [self moveMenu_withMenu:menu_platosgrandes withXpox:winSize.width/2 withYpos:menu_platosgrandes.position.y withTimeTransition:1.0];
-    
     [self moveMenu_withMenu:menu_detalles withXpox:posXShowBigPlatesDescription withYpos:posYBigPlatesDescription withTimeTransition:1.0];
     [self moveMenu_withMenu:menu_atras withXpox:940 withYpos:740 withTimeTransition:1.0];
-    [self moveMenu_withMenu:menu_agregar withXpox:posXaparecerAgregar withYpos:posYaparecerAgregar withTimeTransition:1.0];
-    
     [self moveLabel:label_descripcion with_pox:posXShowBigPlatesDescription with_posy:posYBigPlatesDescription withTimeTransition:1.0];
     
+    if (![_rootViewController estaPlato:@(iactualPlate)]) {
+        [self moveMenu_withMenu:menu_agregar withXpox:posXaparecerAgregar withYpos:posYaparecerAgregar withTimeTransition:1.0];
+    }
 }
 
 -(void)desaparecerElementos{
@@ -772,13 +772,15 @@ BOOL bool_swipe = YES;
 
 -(void) onAddPlate:(id) sender
 {
-    [_rootViewController agregarPlato:@(iactualPlate)];
-    CCLOG(@"onAddPlate %i <>>>>>>>>>", iactualPlate);
-    
-    int numPlates = [_rootViewController demeNumeroPlatosEnOrden];
-    
-    [self loadPlateWithIdPlate:iactualPlate withSourceImg:[_rootViewController demeFuenteImagenPequenoPlatoPorId:@(iactualPlate)] withSourceClose:btnClose withPrice:[_rootViewController demePrecioPlatoPorId:@(iactualPlate)] withKindPlate:[_rootViewController demeTipoPlatoPorId:@(iactualPlate)] withName:[_rootViewController demeNombrePlatoPorId:@(iactualPlate)] withNum:numPlates];
-    [self updateTotalBill];
+    if (![_rootViewController estaPlato:@(iactualPlate)]) {
+
+        [_rootViewController agregarPlato:@(iactualPlate)];
+        int numPlates = [_rootViewController demeNumeroPlatosEnOrden];
+        [self loadPlateWithIdPlate:iactualPlate withSourceImg:[_rootViewController demeFuenteImagenPequenoPlatoPorId:@(iactualPlate)] withSourceClose:btnClose withPrice:[_rootViewController demePrecioPlatoPorId:@(iactualPlate)] withKindPlate:[_rootViewController demeTipoPlatoPorId:@(iactualPlate)] withName:[_rootViewController demeNombrePlatoPorId:@(iactualPlate)] withNum:numPlates];
+        [self updateTotalBill];
+        //RETIRO EL BOTON DE AGREGAR
+        [self moveMenu_withMenu:menu_agregar withXpox:posXdesaparecerAgregar withYpos:winSize.height+100 withTimeTransition:1.0];
+    }
     
 }
 
@@ -851,10 +853,8 @@ BOOL bool_swipe = YES;
     
     
     [_rootViewController eliminarPlato:@([sender tag]) withKindPlate:_kind];
-   
     [menu_pedidos removeAllChildrenWithCleanup:YES];
     [self loadMenuResume];
-    
     NSString *str_total = [[NSString alloc]initWithFormat:@"$ %i", [_rootViewController demeTotalCuenta]];
     [label_total setString:str_total];
     

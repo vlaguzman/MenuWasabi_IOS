@@ -895,6 +895,38 @@ CCScene *scene;
 
 }
 
+-(BOOL)estaPlato:(id)_id{
+    BOOL estaPlato=NO;
+    if (!estaPlato) {
+        CCLOG(@"un NOOOOOOOOO");
+    }
+    
+    
+    int tipoActual = [[BrainMenu sharedInstance] tipoPlatoActual];
+    if(tipoActual==tipoSushi)
+        estaPlato = [[BrainMenu sharedInstance] estaPlato:[platos_sushi objectForKey:_id]];
+    else if (tipoActual==tipoTeppanyaki)
+        estaPlato = [[BrainMenu sharedInstance] estaPlato:[platos_teppanyaki objectForKey:_id]];
+    else if (tipoActual==tipoSopa)
+        estaPlato = [[BrainMenu sharedInstance] estaPlato:[platos_sopa objectForKey:_id]];
+    else if (tipoActual==tipoEspeciales)
+        estaPlato = [[BrainMenu sharedInstance] estaPlato:[platos_especiales objectForKey:_id]];
+    else if (tipoActual==tipoEntradas)
+        estaPlato = [[BrainMenu sharedInstance] estaPlato:[platos_entradas objectForKey:_id]];
+    else if (tipoActual==tipoEnsaladas)
+        estaPlato = [[BrainMenu sharedInstance] estaPlato:[platos_ensaladas objectForKey:_id]];
+    else if (tipoActual==tipoWok)
+        estaPlato = [[BrainMenu sharedInstance] estaPlato:[platos_wok objectForKey:_id]];
+    else if (tipoActual==tipoPostres)
+        estaPlato = [[BrainMenu sharedInstance] estaPlato:[platos_postres objectForKey:_id]];
+    else if (tipoActual==tipoBebidas)
+        estaPlato = [[BrainMenu sharedInstance] estaPlato:[platos_bebidas objectForKey:_id]];
+    else if (tipoActual==tipoLicores)
+        estaPlato = [[BrainMenu sharedInstance] estaPlato:[platos_licores objectForKey:_id]];
+    
+    return estaPlato;
+}
+
 -(NSString *)demeNombrePlatoPorId:(id)_id{
     
     Plato *plato_return;
