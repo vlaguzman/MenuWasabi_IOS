@@ -124,8 +124,8 @@ int posXdesaparecerAgregar = 740;
 
 int _fontSizeTotal = 34;
 int _fontSizeFotter = 11;
-int _fontSizeTitleName = 16;
-int _fontSizeTitlePrice = 12;
+int _fontSizeTitleName = 17;
+int _fontSizeTitlePrice = 14;
 int _fontSizeOrderPrice = 14;
 int _fontSizeOrderName = 13;
 
@@ -282,9 +282,11 @@ BOOL bool_swipe = YES;
 -(id) initWithVC: (RootViewController *) rootViewController
 {
     
+   
     if( (self=[super init] )) {
         
         _rootViewController = rootViewController;
+        bool_swipe=YES;
         
         [self changeValueNumPlates];
         
@@ -336,7 +338,6 @@ BOOL bool_swipe = YES;
             if(_tipo == tipoLicores) _tipoBool = NO;
             
             if(_tipoBool){
-                CCLOG(@"carambolas INICIO");
                 strprecioPlato = [[NSString alloc] initWithFormat:@"$ %i", [_rootViewController demePrecioPlatoPorId:@(i+KindFactor)]];
                 [precio_plato setString:strprecioPlato];
             }
@@ -354,7 +355,7 @@ BOOL bool_swipe = YES;
             [menu addChild:itemPrecio];
             
         }
-        CCLOG(@"NO ME HE TOTIADO");
+        
 
         menu.position = CGPointMake(posXprincipalMenu, winSize.height/2);
  		[self addChild: menu];
@@ -685,7 +686,6 @@ BOOL bool_swipe = YES;
     iactualPlate = [sender tag];
     [self desaparecerMenus];
     
-    
     [label_descripcion setString:[_rootViewController demeDescripcionPlatoPorId:@(iactualPlate)]];
     
     [itemAux2 setNormalImage:[CCMenuItemImage itemWithNormalImage:[_rootViewController demeFuenteImagenGrandePlatoPorId:@(iactualPlate)] selectedImage:[_rootViewController demeFuenteImagenGrandePlatoPorId:@(iactualPlate)]]];
@@ -695,12 +695,10 @@ BOOL bool_swipe = YES;
 }
 -(void) onPushSceneTranImage: (CCMenuItemImage *) sender
 {
-    
-    CCLOG(@" onPushSceneTranImage Tag sender: %i", [sender tag]);
+ CCLOG(@" onPushSceneTranImage Tag sender: %i", [sender tag]);
     iactualPlate = [sender tag];
     [self desaparecerMenus];
-    
-    
+
     [label_descripcion setString:[_rootViewController demeDescripcionPlatoPorId:@(iactualPlate)]];
     
     [itemAux2 setNormalImage:[CCMenuItemImage itemWithNormalImage:[_rootViewController demeFuenteImagenGrandePlatoPorId:@(iactualPlate)] selectedImage:[_rootViewController demeFuenteImagenGrandePlatoPorId:@(iactualPlate)]]];
