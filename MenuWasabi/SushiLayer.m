@@ -420,7 +420,7 @@ BOOL bool_swipe = YES;
         menu_up_down = [[CCMenu alloc]init];
         item_up_down =  [CCMenuItemImage itemWithNormalImage:upImage selectedImage:upImage target:self selector:@selector(onUpDown:)];
         [menu_up_down addChild:item_up_down];
-        menu_up_down.position = CGPointMake(winSize.width/2+10, 40);
+        menu_up_down.position = CGPointMake(winSize.width/2+10, 35);
         
         [self addChild:menu_up_down];
         
@@ -900,11 +900,11 @@ BOOL bool_swipe = YES;
         [item_up_down setNormalImage:[CCMenuItemImage itemWithNormalImage:upImage selectedImage:upImage]];
     }
     
-    [self moveMenu_withMenu:menu_up_down withXpox:menu_up_down.position.x withYpos:posy+90 withTimeTransition:0.5];
+    [self moveMenu_withMenu:menu_up_down withXpox:menu_up_down.position.x withYpos:posy+85 withTimeTransition:0.5];
     [self moveMenu_withMenu:menu_barra withXpox:menu_barra.position.x withYpos:posy withTimeTransition:0.5];
     [self moveMenu_withMenu:menu_pedidos withXpox:menu_pedidos.position.x withYpos:posy withTimeTransition:0.5];
     [self moveSprite: cuadro_total with_pox:cuadro_total.position.x with_posy:posy withTimeTransition:0.5];
-    [self moveLabel:label_total with_pox:label_total.position.x with_posy:posy-10 withTimeTransition:0.5];
+    [self moveLabel:label_total with_pox:label_total.position.x with_posy:posy-15 withTimeTransition:0.5];
     
 
 }
