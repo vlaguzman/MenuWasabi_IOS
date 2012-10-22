@@ -460,23 +460,27 @@ BOOL bool_swipe = YES;
 
 // FUNCION DE MOVIMIENTO USANDO EL PANUIGESTURE
 -(void)move:(id)sender {
-    [[[CCDirector sharedDirector] openGLView]bringSubviewToFront:[(UIPanGestureRecognizer*)sender view]];
-    if([(UIPanGestureRecognizer*)sender state] == UIGestureRecognizerStateEnded) {
-        CGFloat velocityX = [(UIPanGestureRecognizer*)sender velocityInView:[[CCDirector sharedDirector] openGLView]].x;
-        CCLOG(@"--------------------------------------------");
-        time_efect = velocityX*0.0002;
-        CCLOG(@"velocityX, %f - TIME EFECT %f", velocityX, time_efect);
-        CCLOG(@"--------------------------------------------");
-        pos = menu.position.x;
-        pos+=velocityX;
-        if(pos < limitMoveRight ){
-            pos = limitMoveRight;
+    if(numPlates>4){
+        if(bool_swipe){
+            [[[CCDirector sharedDirector] openGLView]bringSubviewToFront:[(UIPanGestureRecognizer*)sender view]];
+            if([(UIPanGestureRecognizer*)sender state] == UIGestureRecognizerStateEnded) {
+                CGFloat velocityX = [(UIPanGestureRecognizer*)sender velocityInView:[[CCDirector sharedDirector] openGLView]].x;
+                CCLOG(@"--------------------------------------------");
+                time_efect = velocityX*0.0002;
+                CCLOG(@"velocityX, %f - TIME EFECT %f", velocityX, time_efect);
+                CCLOG(@"--------------------------------------------");
+                pos = menu.position.x;
+                pos+=velocityX;
+                if(pos < limitMoveRight ){
+                    pos = limitMoveRight;
+                }
+                else if(pos > limitMoveLeft){
+                    pos =limitMoveLeft;
+                }
+                winSize = [[CCDirector sharedDirector] winSize];
+                [self moveMenu_withMenu: menu withXpox:pos withYpos:winSize.height/2 withTimeTransition:1];
+            }
         }
-        else if(pos > limitMoveLeft){
-            pos =limitMoveLeft;
-        }
-        winSize = [[CCDirector sharedDirector] winSize];
-        [self moveMenu_withMenu: menu withXpox:pos withYpos:winSize.height/2 withTimeTransition:1];
     }
 }
 
@@ -606,37 +610,10 @@ BOOL bool_swipe = YES;
 {
 }
 
--(void) onPushSceneTran: (CCMenuItem *) sender
-{
-    
-    CCLOG(@" onPushSceneTran Tag sender: %i", [sender tag]);
-    iactualPlate = [sender tag];
-    [self desaparecerMenus];
-    
-   
-    [label_descripcion setString:[_rootViewController demeDescripcionPlatoPorId:@(iactualPlate)]];
-    
-    [itemAux2 setNormalImage:[CCMenuItemImage itemWithNormalImage:[_rootViewController demeFuenteImagenGrandePlatoPorId:@(iactualPlate)] selectedImage:[_rootViewController demeFuenteImagenGrandePlatoPorId:@(iactualPlate)]]];
-    
-    [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(aparecerElementos:) userInfo:nil repeats:NO];
-    
-}
--(void) onPushSceneTranLabel: (CCMenuItemLabel *) sender
-{
-    
-    CCLOG(@" onPushSceneTranLabel Tag sender: %i", [sender tag]);
-    iactualPlate = [sender tag];
-    [self desaparecerMenus];
-    
-    [label_descripcion setString:[_rootViewController demeDescripcionPlatoPorId:@(iactualPlate)]];
-    
-    [itemAux2 setNormalImage:[CCMenuItemImage itemWithNormalImage:[_rootViewController demeFuenteImagenGrandePlatoPorId:@(iactualPlate)] selectedImage:[_rootViewController demeFuenteImagenGrandePlatoPorId:@(iactualPlate)]]];
-    
-    [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(aparecerElementos:) userInfo:nil repeats:NO];
-    
-}
+
 -(void) onPushSceneTranImage: (CCMenuItemImage *) sender
 {
+   //bool_swipe=NO;
     CCLOG(@" onPushSceneTranImage Tag sender: %i", [sender tag]);
     iactualPlate = [sender tag];
     [self desaparecerMenus];
@@ -743,8 +720,9 @@ BOOL bool_swipe = YES;
         
         [self moveMenu_withMenu:menu_detalles withXpox:posXShowBigPlatesDescription withYpos:posYBigPlatesDescription withTimeTransition:1.0];
         [self moveLabel:label_descripcion with_pox:posXShowBigPlatesDescription with_posy:posYBigPlatesDescription withTimeTransition:1.0];
-        if (![_rootViewController estaPlato:@(iactualPlate)]) {
-            [self moveMenu_withMenu:menu_agregar withXpox:posXaparecerAgregar withYpos:posYaparecerAgregar withTimeTransition:1.0];
+        if ((![_rootViewController estaPlato:@(iactualPlate)])&&(_rootViewController.demeNumeroPlatosEnOrden < 6)) {
+            
+                [self moveMenu_withMenu:menu_agregar withXpox:posXaparecerAgregar withYpos:posYaparecerAgregar withTimeTransition:1.0];
         }
     }
 
@@ -794,6 +772,7 @@ BOOL bool_swipe = YES;
 
 -(void) onAddPlate:(id) sender
 {
+    
     if (![_rootViewController estaPlato:@(iactualPlate)]) {
 
         [_rootViewController agregarPlato:@(iactualPlate)];
@@ -802,6 +781,9 @@ BOOL bool_swipe = YES;
         [self updateTotalBill];
         //RETIRO EL BOTON DE AGREGAR
         [self moveMenu_withMenu:menu_agregar withXpox:posXdesaparecerAgregar withYpos:winSize.height+100 withTimeTransition:1.0];
+        if(menu_barra.position.y!=120){
+            [self onUpDown:self];
+        }
     }
     
 }
@@ -880,7 +862,8 @@ BOOL bool_swipe = YES;
     NSString *str_total = [[NSString alloc]initWithFormat:@"$ %i", [_rootViewController demeTotalCuenta]];
     [label_total setString:str_total];
     
-    if(iactualPlate == _tag){
+    
+    if((iactualPlate == _tag)||(!([_rootViewController estaPlato:@(iactualPlate)])&&(iactualPlate!=-1)&&(_rootViewController.demeNumeroPlatosEnOrden < 6))){
         [self moveMenu_withMenu:menu_agregar withXpox:posXaparecerAgregar withYpos:posYaparecerAgregar withTimeTransition:1.0];
     }
     
