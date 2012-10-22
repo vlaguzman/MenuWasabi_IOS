@@ -26,29 +26,15 @@
 #define fontSizeDescription 16
 
 //Limites de la grilla de imagenes por el touch
-#define limitMoveRightSushi -140//9300//5150
-#define limitMoveLeftSushi -8870
+#define limitMoveLeftMenuFactor -240
+#define limitMoveLeftMenuFactorSushi -249
+#define limitMoveLeft -140
 
-#define limitMoveLeftEntradas -140
-#define limitMoveRightEntradas -1100//limite
-
-#define limitMoveLeftEnsaladas -100
-#define limitMoveRightEnsaladas 1170
-
-#define limitMoveLeftSopas -100
-#define limitMoveRightSopas 1170
-
-#define limitMoveLeftLicores -140
-#define limitMoveRightLicores -620//limite
-
-#define posInicial 100
 #define paddingDescriptionPlatesMenu 500
 
 //Padding asignado a los labels que contienen los precios
-#define paddingPrices 50
 #define paddingPrincipalPlates 250//
 
-//define paddingTinyPlates 100
 #define paddingTinyPlates 128
 
 
@@ -88,6 +74,8 @@
 #define tipoBebidas 9
 #define tipoLicores 10
 
+
+
 #define kindFactorSushi 0
 #define kindFactorTeppanyaki 200
 #define kindFactorSopa 300
@@ -106,9 +94,10 @@ int KindFactor = 0;
 int posXnombres=0;
 int posYnombres=0;
 int posXprincipalMenu = 0;
-int limitMoveRight = 0, limitMoveLeft = 0;
+int limitMoveRight = 0;
+//limitMoveLeft = 0;
 int numPlates = 1;
-
+int numDrinks = 1;
 int posYPlatesMenu = 0;
 
 
@@ -128,6 +117,9 @@ int _fontSizeTitleName = 17;
 int _fontSizeTitlePrice = 14;
 int _fontSizeOrderPrice = 14;
 int _fontSizeOrderName = 13;
+int _fontSizePricesDrink = 10;
+int _fontSizeNameDrink = 10;
+
 
 //Nombres de archivos de imagenes
 NSString *bigPlateDescription = @"descripcion.png";
@@ -160,7 +152,7 @@ CGFloat finalX;
 CGFloat finalY;
 CGFloat animationDuration;
 
-CCMenu *menu, *menu_atras, *menu_agregar, *menu_barra, *menu_pedidos, *menu_platosgrandes, *menu_detalles, *menu_up_down;
+CCMenu *menu, *menu_bebidas, *menu_atras, *menu_agregar, *menu_barra, *menu_pedidos, *menu_platosgrandes, *menu_detalles, *menu_up_down;
 CGSize winSize;
 
 CCMenu *menuprueba;
@@ -175,22 +167,17 @@ BOOL bool_swipe = YES;
 
 -(void)changeValueNumPlates{
     CGSize winSize = [[CCDirector sharedDirector] winSize];
-    int tipoPlato = [[BrainMenu sharedInstance] tipoPlatoActual];
+    int tipoPlato = [_rootViewController demeTipoActual];
     if(tipoPlato == tipoSushi){
         KindFactor = kindFactorSushi;
         numPlates = 39;
-        
         posXprincipalMenu = posXprincipalMenuSushi;
-        
-        limitMoveLeft = limitMoveLeftSushi;
-        limitMoveRight = limitMoveRightSushi;
-        
+        limitMoveRight = ((numPlates-4) * limitMoveLeftMenuFactorSushi)+limitMoveLeft;
     }
     //PERSONALIZAR
     else if (tipoPlato == tipoTeppanyaki){
         KindFactor = kindFactorTeppanyaki;
         numPlates = 2;
-        
         posXprincipalMenu = posXprincipalMenuTeppanyaki;
 
     }
@@ -215,9 +202,8 @@ BOOL bool_swipe = YES;
         numPlates = 8;
 
         posXprincipalMenu = posXprincipalMenuEntradas;
-        
-        limitMoveLeft = limitMoveLeftEntradas;
-        limitMoveRight = limitMoveRightEntradas;
+
+         limitMoveRight = ((numPlates-4) * limitMoveLeftMenuFactor)+limitMoveLeft;
     }
     //PERSONALIZAR
     else if (tipoPlato == tipoEnsaladas){
@@ -244,9 +230,8 @@ BOOL bool_swipe = YES;
         numPlates = 6;
         
         posXprincipalMenu = posXprincipalMenuLicores;
-        
-        limitMoveLeft = limitMoveLeftLicores;
-        limitMoveRight = limitMoveRightLicores;
+
+         limitMoveRight = ((numPlates-4) * limitMoveLeftMenuFactor)+limitMoveLeft;
     }
     
 }
@@ -287,7 +272,6 @@ BOOL bool_swipe = YES;
         
         _rootViewController = rootViewController;
         bool_swipe=YES;
-        
         [self changeValueNumPlates];
         
         CGSize winSize = [[CCDirector sharedDirector] winSize];
@@ -356,12 +340,8 @@ BOOL bool_swipe = YES;
             
         }
         
-
         menu.position = CGPointMake(posXprincipalMenu, winSize.height/2);
  		[self addChild: menu];
-        
-        
-        CCLOG(@"posx %f posy %f", menu.position.x, menu.position.y);
         
         menu_platosgrandes = [[CCMenu alloc]init];
         itemAux2 = [[CCMenuItemImage alloc]init];
@@ -370,10 +350,8 @@ BOOL bool_swipe = YES;
         
         [self addChild:menu_platosgrandes];
         
-        
         menu_detalles = [[CCMenu alloc]init];
 
-        
         itemAux =  [CCMenuItemImage itemWithNormalImage:bigPlateDescription selectedImage:bigPlateDescription target:self selector:@selector(onPushSceneTran:)];
         [menu_detalles addChild:itemAux];
 
@@ -386,6 +364,9 @@ BOOL bool_swipe = YES;
 		[self addChild: label_descripcion];
         
         CCMenuItemImage *item_atras = [CCMenuItemImage itemWithNormalImage:btnGoBack selectedImage:btnGoBack target:self selector:@selector(onGoBack:)];
+        
+        
+               
         
         //menu regresar oculto
         menu_atras = [CCMenu menuWithItems:item_atras, nil];
@@ -446,26 +427,28 @@ BOOL bool_swipe = YES;
 		label_fotter.position =  ccp(winSize.width/2+10 , 8);
 		[self addChild: label_fotter];
     
-        /*
+         
          UIPanGestureRecognizer *panRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(move:)];
          [panRecognizer setMinimumNumberOfTouches:1];
          [panRecognizer setMaximumNumberOfTouches:1];
          //[panRecognizer setDelegate:self];
          [[[CCDirector sharedDirector] openGLView] addGestureRecognizer:panRecognizer];
          [panRecognizer release];
-         */
-        self.swipeLeftRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(moveRight)];
+         
+       /*
+    
+        self.swipeLeftRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(moveLeft)];//moveRight)];
         _swipeLeftRecognizer.numberOfTouchesRequired=1;
         _swipeLeftRecognizer.direction=UISwipeGestureRecognizerDirectionRight;
         [[[CCDirector sharedDirector] openGLView]  addGestureRecognizer:_swipeLeftRecognizer];
         [self.swipeLeftRecognizer release];
         
-        self.swipeRightRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(moveLeft)];
+        self.swipeRightRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(moveRight)];//moveLeft)];
         _swipeRightRecognizer.numberOfTouchesRequired=1;
         _swipeRightRecognizer.direction=UISwipeGestureRecognizerDirectionLeft;
         [[[CCDirector sharedDirector] openGLView] addGestureRecognizer:_swipeRightRecognizer];
         [self.swipeRightRecognizer release];
-        
+        */
         [self updateTotalBill];
         [self loadMenuResume];
     }
@@ -475,149 +458,108 @@ BOOL bool_swipe = YES;
 
 
 
-/* FUNCION DE MOVIMIENTO USANDO EL PANUIGESTURE
+// FUNCION DE MOVIMIENTO USANDO EL PANUIGESTURE
 -(void)move:(id)sender {
-    
     [[[CCDirector sharedDirector] openGLView]bringSubviewToFront:[(UIPanGestureRecognizer*)sender view]];
-    CGPoint translatedPoint = [(UIPanGestureRecognizer*)sender translationInView:[[CCDirector sharedDirector] openGLView]];
-    
-    if([(UIPanGestureRecognizer*)sender state] == UIGestureRecognizerStateBegan) {
-        
-        firstX = [[sender view] center].x;
-        firstY = [[sender view] center].y;
-    }
-    
-    translatedPoint = CGPointMake(firstX+translatedPoint.x, firstY);
-    // Establece el centro de la imagen del fondo, para se movilizado
-   // [[sender view] setCenter:translatedPoint];
-    
     if([(UIPanGestureRecognizer*)sender state] == UIGestureRecognizerStateEnded) {
-        
         CGFloat velocityX = [(UIPanGestureRecognizer*)sender velocityInView:[[CCDirector sharedDirector] openGLView]].x;
-    
         CCLOG(@"--------------------------------------------");
-        CCLOG(@"firstX x %f", firstX);
-        CCLOG(@"translatedPoint, %f", translatedPoint.x);
-        CCLOG(@"velocityX, %f", velocityX);
-        float f = velocityX * 0.35;
-        CCLOG(@"velocityX * 0.35, %f", f);
-        float f2 = translatedPoint.x + f;
-        CCLOG(@"final x %f", f2);
-        finalX += translatedPoint.x + (velocityX * 0.35);
-        finalY = firstY;
-        
-      //  CCLOG(@"VELOCODAD FinalX antes, %f", finalX);
-        
-        if(UIDeviceOrientationIsPortrait([[UIDevice currentDevice] orientation])) {
-            if(finalX < 0) {
-                //finalX = 0;
-            }
-            else if(finalX > 768) {
-                //finalX = 768;
-            }
-            if(finalY < 0) {
-                finalY = 0;
-            }
-            else if(finalY > 1024) {
-                finalY = 1024;
-            }
+        time_efect = velocityX*0.0002;
+        CCLOG(@"velocityX, %f - TIME EFECT %f", velocityX, time_efect);
+        CCLOG(@"--------------------------------------------");
+        pos = menu.position.x;
+        pos+=velocityX;
+        if(pos < limitMoveRight ){
+            pos = limitMoveRight;
         }
-        else {
-            if(finalX < 0) {
-                //finalX = 0;
-            }
-            else if(finalX > 1024) {
-                //finalX = 768;
-            }
-            if(finalY < 0) {
-                finalY = 0;
-            }
-            else if(finalY > 768) {
-                finalY = 1024;
-            }
+        else if(pos > limitMoveLeft){
+            pos =limitMoveLeft;
         }
-        
-        animationDuration = (ABS(velocityX)*.0002)+.2;
-        
-        NSLog(@"the duration is: %f", animationDuration);
-     //   CCLOG(@"VELOCODAD FinalX, %f", finalX);
-         
-         
-        CCSprite *playertemp = [[CCSprite alloc]init];
-        for(int i = 0; i < players.count; i++)
-        {
-            // CCLOG(@"Avanzar! %f", xVelocityB);
-            id avanzar = [CCMoveTo actionWithDuration:animationDuration position:ccp(finalX+(200*i), finalY)];
-            playertemp = [players objectAtIndex:i];
-            [playertemp runAction:avanzar];
-        }
-      
-         
-        // Código para movilizar el fondo
-         
-        [UIView beginAnimations:nil context:NULL];
-        [UIView setAnimationDuration:animationDuration];
-        [UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
-        [UIView setAnimationDelegate:self];
-        [UIView setAnimationDidStopSelector:@selector(animationDidFinish)];
-        [[sender view] setCenter:CGPointMake(finalX, finalY)];
-        [UIView commitAnimations];
-       
+        winSize = [[CCDirector sharedDirector] winSize];
+        [self moveMenu_withMenu: menu withXpox:pos withYpos:winSize.height/2 withTimeTransition:1];
     }
 }
-*/
+
 
 -(void)moveRight{
     if(numPlates > 4){
-    if(bool_swipe){
-        winSize = [[CCDirector sharedDirector] winSize];
-        if(resul_dif<kMoveFast){
-            pos+=resul_dif*kFast;
-            time_efect=tFast;
-        }
-        else if (resul_dif<kMoveMedium){
-            pos+=resul_dif*kMedium;
-            time_efect = tMedium;
-        }
-        else{
-            pos+=resul_dif*kSlow;
-            time_efect=tSlow;
-        }
-        if(pos > limitMoveRight ){
-            pos = limitMoveRight;
-        }
+        if(bool_swipe){
+                        
+            pos = menu.position.x;
+         
+            winSize = [[CCDirector sharedDirector] winSize];
+            if(resul_dif<kMoveFast){
+                
+                pos-=resul_dif*kFast;
+                time_efect=tFast;
+                CCLOG(@"--------------------------------------------------------");
+                CCLOG(@"resul_dif<kMoveFast :=  kFast %f  || resul_dif %f || POS %f ", kMoveFast, resul_dif, pos);
+                CCLOG(@"--------------------------------------------------------");
+              
+                
+            }
+            else if (resul_dif<kMoveMedium){
+                pos-=resul_dif*kMedium;
+                time_efect = tMedium;
+                CCLOG(@"--------------------------------------------------------");
+                CCLOG(@"resul_dif<kMoveMedium :=  kMedium %f  || resul_dif %f || POS %f ", kMoveMedium, resul_dif, pos);
+                CCLOG(@"--------------------------------------------------------");
+            }
+            else{
+                pos-=resul_dif*kSlow;
+                time_efect=tSlow;
+                CCLOG(@"--------------------------------------------------------");
+                CCLOG(@"resul_dif<KmoveSlow :=  kSlow %f  || resul_dif %f || POS %f ", kSlow, resul_dif, pos);
+                CCLOG(@"--------------------------------------------------------");
+            }
+            if(pos < limitMoveRight ){
+                pos = limitMoveRight;
+            }
+            CCLOG(@"moveRight   este es el POS %f y este el resul_dif %f TIME EFECT %f", pos, resul_dif, time_efect);
             [self moveMenu_withMenu: menu withXpox:pos withYpos:winSize.height/2 withTimeTransition:time_efect];
-        
+        }
     }
-    }
-   
 }
 
 
 -(void)moveLeft{
     if(numPlates>4){
-    if(bool_swipe){
-        winSize = [[CCDirector sharedDirector] winSize];
-        if(resul_dif<kMoveFast){
-            pos-=resul_dif*kFast;
-            time_efect=tFast;
-        }
-        else if (resul_dif<kMoveMedium){
-            pos-=resul_dif*kMedium;
-            time_efect = tMedium;
-        }
-        else{
-            pos-=resul_dif*kSlow;
-            time_efect=tFast;
-        }
-        if(pos < limitMoveLeft){
-            pos =limitMoveLeft;
-        }
-        [self moveMenu_withMenu: menu withXpox:pos withYpos:winSize.height/2 withTimeTransition:time_efect];
-        
-    }
-    }
+        if(bool_swipe){
     
+            pos = menu.position.x;
+           
+            winSize = [[CCDirector sharedDirector] winSize];
+            if(resul_dif<kMoveFast){
+                pos+=resul_dif*kFast;
+                time_efect=tFast;
+                CCLOG(@"--------------------------------------------------------");
+                 CCLOG(@"resul_dif<kMoveFast :=  kFast %f  || resul_dif %f || POS %f ", kMoveFast, resul_dif, pos);
+                 CCLOG(@"--------------------------------------------------------");
+            }
+            else if (resul_dif<kMoveMedium){
+                pos+=resul_dif*kMedium;
+                time_efect = tMedium;
+                CCLOG(@"--------------------------------------------------------");
+                CCLOG(@"resul_dif<kMoveMedium :=  kMedium %f  || resul_dif %f || POS %f ", kMoveMedium, resul_dif, pos);
+                CCLOG(@"--------------------------------------------------------");
+               
+            }
+            else{
+                pos+=resul_dif*kSlow;
+                time_efect=tFast;
+                CCLOG(@"--------------------------------------------------------");
+                CCLOG(@"resul_dif<KmoveSlow :=  kSlow %f  || resul_dif %f || POS %f ", kSlow, resul_dif, pos);
+                CCLOG(@"--------------------------------------------------------");
+                
+
+            }
+            if(pos > limitMoveLeft){
+                pos =limitMoveLeft;
+            }
+            CCLOG(@"moveLeft   este es el POS %f y este el resul_dif %f TIME EFECT %f", pos, resul_dif, time_efect);
+            [self moveMenu_withMenu: menu withXpox:pos withYpos:winSize.height/2 withTimeTransition:time_efect];
+        }
+    }
 }
 
 
@@ -633,7 +575,7 @@ BOOL bool_swipe = YES;
     UITouch *touch = [touches anyObject];
     timem = touch.timestamp;
     resul_dif = timem - timei;
-    CCLOG(@"timem > %f  resul_dif>%f ", timem, resul_dif);
+   // CCLOG(@"timem > %f  resul_dif>%f ", timem, resul_dif);
     [self removeChild:label cleanup:TRUE];
 
 }
@@ -695,17 +637,81 @@ BOOL bool_swipe = YES;
 }
 -(void) onPushSceneTranImage: (CCMenuItemImage *) sender
 {
- CCLOG(@" onPushSceneTranImage Tag sender: %i", [sender tag]);
+    CCLOG(@" onPushSceneTranImage Tag sender: %i", [sender tag]);
     iactualPlate = [sender tag];
     [self desaparecerMenus];
-
     [label_descripcion setString:[_rootViewController demeDescripcionPlatoPorId:@(iactualPlate)]];
     
     [itemAux2 setNormalImage:[CCMenuItemImage itemWithNormalImage:[_rootViewController demeFuenteImagenGrandePlatoPorId:@(iactualPlate)] selectedImage:[_rootViewController demeFuenteImagenGrandePlatoPorId:@(iactualPlate)]]];
     
+    int _tipo = [_rootViewController demeTipoActual];
+    BOOL _tipoBool = YES;
+    if(_tipo == tipoBebidas) _tipoBool = NO;
+    if(_tipo == tipoLicores) _tipoBool = NO;
+    
+    if(_tipoBool){
+        // PENDIENTE: Configurar tipo de bebidas
+        [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(loadDrinks:) userInfo:nil repeats:NO];
+    }
+    
     [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(aparecerElementos:) userInfo:nil repeats:NO];
     
+    
 }
+
+- (void) loadDrinks:(id)arg{
+
+    CCLOG(@"sin implementar");
+    //
+    // Menú de bebidas
+    //
+    
+    CCMenuItemLabel *itemLabelNameDrink, *itemLabelPrincipalPriceDrink, *itemLabelSecondPriceDrink;
+    CCMenuItemImage *itemImageButtonAddDrink;
+    CCLabelTTF *nameDrink, *principalPriceDrink, *secondPriceDrink;
+    NSString *strNameDrink, *strPrincipalPriceDrink, *strSecondPriceDrink;
+    
+    menu_bebidas = [[CCMenu alloc]init];
+    for (int i = 1; i <= numDrinks; i++) {
+        
+        nameDrink = [[CCLabelTTF alloc]initWithString:@"" fontName:font fontSize:_fontSizeNameDrink];
+        principalPriceDrink = [[CCLabelTTF alloc]initWithString:@"" fontName:font fontSize:_fontSizePricesDrink];
+        secondPriceDrink = [[CCLabelTTF alloc]initWithString:@"" fontName:font fontSize:_fontSizePricesDrink];
+   /*
+        strNameDrink = [_rootViewController demeNombrePlatoPorId:@(i+KindFactor)];
+        [nombre_plato setString:strnombrePlato];
+        
+        int _tipo = [_rootViewController demeTipoActual];
+        BOOL _tipoBool = YES;
+        if(_tipo == tipoBebidas) _tipoBool = NO;
+        if(_tipo == tipoLicores) _tipoBool = NO;
+        
+        if(_tipoBool){
+            strprecioPlato = [[NSString alloc] initWithFormat:@"$ %i", [_rootViewController demePrecioPlatoPorId:@(i+KindFactor)]];
+            [precio_plato setString:strprecioPlato];
+        }
+        itemNombrePlato = [CCMenuItemLabel itemWithLabel:nombre_plato target:self selector:@selector(onPushSceneTranLabel:)];
+        itemPrecio = [CCMenuItemLabel itemWithLabel:precio_plato target:self selector:@selector(onPushSceneTranLabel:)];
+        itemAux = [CCMenuItemImage itemWithNormalImage:[_rootViewController demeFuenteImagenPlatoPorId:@(i+KindFactor)] selectedImage:[_rootViewController demeFuenteImagenPlatoPorId:@(i+KindFactor)] target:self selector:@selector(onPushSceneTranImage:)];
+        itemAux.tag=i+KindFactor;
+        
+        itemAux.position = CGPointMake(itemAux.position.x +(i*paddingPrincipalPlates), itemAux.position.y);
+        itemNombrePlato.position = CGPointMake(itemNombrePlato.position.x +(i*paddingPrincipalPlates)+5, 165);
+        itemPrecio.position = CGPointMake(itemPrecio.position.x +(i*paddingPrincipalPlates)+5, 148);
+        
+        [menu addChild:itemAux];
+        [menu addChild:itemNombrePlato];
+        [menu addChild:itemPrecio];
+        */
+    }
+    
+    //
+    // Fin menú bebidas
+    //
+
+    
+}
+
 
 -(void)aparecerMenus:(id)arg{
     bool_swipe=YES;
@@ -734,7 +740,7 @@ BOOL bool_swipe = YES;
     if(_tipo == tipoLicores) _tipoBool = NO;
     
     if(_tipoBool){
-        CCLOG(@"carambolas aparecerElementos");
+        
         [self moveMenu_withMenu:menu_detalles withXpox:posXShowBigPlatesDescription withYpos:posYBigPlatesDescription withTimeTransition:1.0];
         [self moveLabel:label_descripcion with_pox:posXShowBigPlatesDescription with_posy:posYBigPlatesDescription withTimeTransition:1.0];
         if (![_rootViewController estaPlato:@(iactualPlate)]) {
@@ -757,20 +763,12 @@ BOOL bool_swipe = YES;
 }
 
 -(void)moveMenu_withMenu:(CCMenu *)_menu withXpox:(float) _posx withYpos:(float)_posyA withTimeTransition:(float)_time{
-    CCLOG(@"Right %f", pos);
+    CCLOG(@" moveMenu_withMenu %f", pos);
     id mover = [CCMoveTo actionWithDuration:_time position:ccp(_posx,_posyA)];
     
     [_menu runAction:mover];
 }
 
--(void)moveMenu_withMenu:(CCMenu *)_menu withXpox:(float) _posx withYpos:(float)_posyA withTimeTransition:(float)_time withRotation:(float)_rotate{
-    CCLOG(@"Right %f", pos);
-    id rotate = [CCRotateTo actionWithDuration:_time angle:_rotate];
-    [_menu runAction:rotate];
-    
-    id mover = [CCMoveTo actionWithDuration:_time position:ccp(_posx,_posyA)];
-    [_menu runAction:mover];
-}
 
 -(void) moveSprite:(CCSprite *)_sprite with_pox:(float)_posx with_posy:(float)_posy withTimeTransition:(float)_time{
     id mover3 = [CCMoveTo actionWithDuration:_time position:ccp(_posx,_posy)];
@@ -908,8 +906,6 @@ BOOL bool_swipe = YES;
     
 
 }
-
-
 
 - (void) dealloc
 {

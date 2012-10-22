@@ -13,6 +13,7 @@
 #import "SushiLayer.h"
 #import "Plato.h"
 #import "TipoBebida.h"
+#import "Bebida.h"
 #import "BrainMenu.h"
 
 #define tipoSushi 1
@@ -33,6 +34,8 @@
     *sushi21, *sushi22, *sushi23, *sushi24, *sushi25, *sushi26, *sushi27, *sushi28, *sushi29, *sushi30,
     *sushi31, *sushi32, *sushi33, *sushi34, *sushi35, *sushi36, *sushi37, *sushi38, *sushi39, *sopa1, *ensalada1, *especial1, *teppanyaki1, *teppanyaki2, *entrada1, *entrada2, *entrada3, *entrada4, *entrada5, *entrada6, *entrada7, *entrada8, *entrada9, *entrada10, *postre1, *postre2, *postre3;
     @property (nonatomic, strong) TipoBebida *bebida1, *bebida2, *bebida3, *licor1, *licor2, *licor3, *licor4, *licor5, *licor6;
+    @property (nonatomic, strong) Bebida *gaseosa1, *gaseosa2, *gaseosa3, *gaseosa4, *gaseosa5, *gaseosa6, *gaseosa7, *gaseosa8, *gaseosa9, *gaseosa10, *gaseosa11, *gaseosa12, *jugo1, *jugo2, *jugo3, *jugo4, *jugo5, *jugo6, *jugo7, *jugo8, *jugo9, *jugo10, *jugo11, *jugo12, *jugo13, *jugo14, *jugo15, *b_caliente1, *b_caliente2, *b_caliente3, *b_caliente4, *b_caliente5, *b_caliente6, *b_caliente7, *b_caliente8, *b_caliente9, *b_caliente10;
+
     @property (nonatomic, strong) NSDictionary *platos;
 
 @end
@@ -41,7 +44,7 @@
 CCScene *scene;
 @implementation RootViewController
 @synthesize sushi1, sushi10, sushi11, sushi12, sushi13, sushi14, sushi15, sushi16, sushi17, sushi18, sushi19, sushi2, sushi20, sushi21, sushi22, sushi23, sushi24, sushi25, sushi26, sushi27, sushi28, sushi29, sushi3, sushi30, sushi31, sushi32, sushi33, sushi34, sushi35, sushi36, sushi37, sushi38,sushi39, sushi4, sushi5, sushi6, sushi7, sushi8, sushi9, sopa1, entrada1, entrada2, entrada3, entrada4, entrada5, entrada6, entrada7, entrada8, entrada9, entrada10, ensalada1, postre1, postre2, postre3, teppanyaki1, teppanyaki2, especial1, bebida1, bebida2, bebida3, licor1, licor2, licor3, licor4, licor5, licor6;
-@synthesize platos;
+@synthesize platos, gaseosa1, gaseosa2, gaseosa3, gaseosa4, gaseosa5, gaseosa6, gaseosa7, gaseosa8, gaseosa9, gaseosa10, gaseosa11, gaseosa12, jugo1, jugo2, jugo3, jugo4, jugo5, jugo6, jugo7, jugo8, jugo9, jugo10, jugo11, jugo12, jugo13, jugo14, jugo15, b_caliente1, b_caliente10, b_caliente2, b_caliente3, b_caliente4, b_caliente5, b_caliente6, b_caliente7, b_caliente8, b_caliente9;
 
 
 

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C10863281631B597007D361E /* barra_agregar.png in Resources */ = {isa = PBXBuildFile; fileRef = C10863271631B597007D361E /* barra_agregar.png */; };
+		C108632B16320367007D361E /* lista_bebidas.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C108632A16320367007D361E /* lista_bebidas.jpg */; };
 		C10A662D160CBBF200489A45 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C10A662C160CBBF200489A45 /* QuartzCore.framework */; };
 		C10A662F160CBBF200489A45 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C10A662E160CBBF200489A45 /* OpenGLES.framework */; };
 		C10A6631160CBBF200489A45 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C10A6630160CBBF200489A45 /* OpenAL.framework */; };
@@ -289,7 +290,7 @@
 		C1B89F031630A9D60047518D /* gaseosas_p.png in Resources */ = {isa = PBXBuildFile; fileRef = C1B89F001630A9D60047518D /* gaseosas_p.png */; };
 		C1B89F041630A9D60047518D /* jugos_p.png in Resources */ = {isa = PBXBuildFile; fileRef = C1B89F011630A9D60047518D /* jugos_p.png */; };
 		C1B89F071630AA1F0047518D /* btn_agregar_bebidas.png in Resources */ = {isa = PBXBuildFile; fileRef = C1B89F051630AA160047518D /* btn_agregar_bebidas.png */; };
-		C1B89F081630AA1F0047518D /* lista_bebidas.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C1B89F061630AA1A0047518D /* lista_bebidas.jpg */; };
+		C1B89F081630AA1F0047518D /* lista_bebidas_.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C1B89F061630AA1A0047518D /* lista_bebidas_.jpg */; };
 		C1B89F0F1630BADC0047518D /* aperitivos_p.png in Resources */ = {isa = PBXBuildFile; fileRef = C1B89F091630BADC0047518D /* aperitivos_p.png */; };
 		C1B89F101630BADC0047518D /* cervezas_p.png in Resources */ = {isa = PBXBuildFile; fileRef = C1B89F0A1630BADC0047518D /* cervezas_p.png */; };
 		C1B89F111630BADC0047518D /* cocteles_p.png in Resources */ = {isa = PBXBuildFile; fileRef = C1B89F0B1630BADC0047518D /* cocteles_p.png */; };
@@ -380,6 +381,7 @@
 
 /* Begin PBXFileReference section */
 		C10863271631B597007D361E /* barra_agregar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = barra_agregar.png; sourceTree = "<group>"; };
+		C108632A16320367007D361E /* lista_bebidas.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = lista_bebidas.jpg; sourceTree = "<group>"; };
 		C10A6628160CBBF200489A45 /* MenuWasabi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MenuWasabi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C10A662C160CBBF200489A45 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		C10A662E160CBBF200489A45 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -798,7 +800,7 @@
 		C1B89F001630A9D60047518D /* gaseosas_p.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gaseosas_p.png; sourceTree = "<group>"; };
 		C1B89F011630A9D60047518D /* jugos_p.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = jugos_p.png; sourceTree = "<group>"; };
 		C1B89F051630AA160047518D /* btn_agregar_bebidas.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_agregar_bebidas.png; sourceTree = "<group>"; };
-		C1B89F061630AA1A0047518D /* lista_bebidas.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = lista_bebidas.jpg; sourceTree = "<group>"; };
+		C1B89F061630AA1A0047518D /* lista_bebidas_.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = lista_bebidas_.jpg; sourceTree = "<group>"; };
 		C1B89F091630BADC0047518D /* aperitivos_p.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = aperitivos_p.png; sourceTree = "<group>"; };
 		C1B89F0A1630BADC0047518D /* cervezas_p.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cervezas_p.png; sourceTree = "<group>"; };
 		C1B89F0B1630BADC0047518D /* cocteles_p.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cocteles_p.png; sourceTree = "<group>"; };
@@ -1585,10 +1587,11 @@
 		C1C23C79162DAE8700843CBA /* Adicionales */ = {
 			isa = PBXGroup;
 			children = (
+				C108632A16320367007D361E /* lista_bebidas.jpg */,
 				C10863271631B597007D361E /* barra_agregar.png */,
 				C1B89EF3163078EB0047518D /* fondo_btn.png */,
 				C1B89F051630AA160047518D /* btn_agregar_bebidas.png */,
-				C1B89F061630AA1A0047518D /* lista_bebidas.jpg */,
+				C1B89F061630AA1A0047518D /* lista_bebidas_.jpg */,
 				C1C4C388162F6C23006AA580 /* pata_02.png */,
 				C1F0F767162EF5F200043C04 /* flecha_total_.png */,
 				C1E87517161CEAFB0020486A /* barra_agregar_.png */,
@@ -2177,7 +2180,7 @@
 				C1B89F031630A9D60047518D /* gaseosas_p.png in Resources */,
 				C1B89F041630A9D60047518D /* jugos_p.png in Resources */,
 				C1B89F071630AA1F0047518D /* btn_agregar_bebidas.png in Resources */,
-				C1B89F081630AA1F0047518D /* lista_bebidas.jpg in Resources */,
+				C1B89F081630AA1F0047518D /* lista_bebidas_.jpg in Resources */,
 				C1B89F0F1630BADC0047518D /* aperitivos_p.png in Resources */,
 				C1B89F101630BADC0047518D /* cervezas_p.png in Resources */,
 				C1B89F111630BADC0047518D /* cocteles_p.png in Resources */,
@@ -2191,6 +2194,7 @@
 				C1B89F1F1630BB160047518D /* pouse.png in Resources */,
 				C1B89F201630BB160047518D /* vinos.png in Resources */,
 				C10863281631B597007D361E /* barra_agregar.png in Resources */,
+				C108632B16320367007D361E /* lista_bebidas.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
