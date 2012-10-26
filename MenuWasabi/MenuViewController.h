@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "RootViewController.h"
 
+
 @interface MenuViewController : UIViewController
 {
     
@@ -25,8 +26,9 @@
     IBOutlet UIButton *btn_licores;
     IBOutlet UIButton *fondo_btn;
    
+    IBOutlet UIImageView *background;
     RootViewController *_rootViewController;
-   
+  
 }
 
 

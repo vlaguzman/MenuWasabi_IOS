@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1810" systemVersion="11G56" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Plato" syncable="YES">
+        <attribute name="descripcion" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="nombre" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="TipoPlato" syncable="YES">
+        <attribute name="nombre" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Plato" positionX="88" positionY="45" width="128" height="75"/>
+        <element name="TipoPlato" positionX="369" positionY="63" width="128" height="60"/>
+    </elements>
+</model>

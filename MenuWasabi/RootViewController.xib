@@ -38,7 +38,7 @@
 					<object class="IBUIButton" id="976992766">
 						<reference key="NSNextResponder" ref="520125373"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{380, -127}, {244, 247}}</string>
+						<string key="NSFrame">{{385, -141}, {235, 274}}</string>
 						<reference key="NSSuperview" ref="520125373"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
@@ -100,6 +100,14 @@
 					<int key="connectionID">3</int>
 				</object>
 				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">btnPrincipal</string>
+						<reference key="source" ref="841351856"/>
+						<reference key="destination" ref="976992766"/>
+					</object>
+					<int key="connectionID">11</int>
+				</object>
+				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
 						<string key="label">menuTapped:</string>
 						<reference key="source" ref="976992766"/>
@@ -155,7 +163,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">10</int>
+			<int key="maxID">11</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes"/>
 		<int key="IBDocument.localizationMode">0</int>

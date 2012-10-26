@@ -8,12 +8,18 @@
 
 #import <UIKit/UIKit.h>
 #import "Plato.h"
+#import "CoreData/CoreData.h"
+//#import "CoreDataManager.h"
 //#import "MenuViewController.h"
 
 @interface RootViewController : UIViewController
 {
    
+    IBOutlet UIButton *btnPrincipal;
 }
+
+@property (nonatomic, strong) NSString *path;
+
 - (IBAction)menuTapped:(id)sender;
 - (NSString *)demeNombrePlatoPorId:(id)_id;
 - (int)demeTipoPlatoPorId:(id)_id;

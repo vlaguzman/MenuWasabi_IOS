@@ -40,7 +40,7 @@
 
 //Posiciones Nombres Menu
 #define posXprincipalMenuSushi -140
-#define posXprincipalMenuTeppanyaki 170
+#define posXprincipalMenuTeppanyaki 140
 #define posXprincipalMenuSopa 270
 #define posXprincipalMenuEspeciales 270
 #define posXprincipalMenuEntradas -140
@@ -48,7 +48,10 @@
 #define posXprincipalMenuWok 0
 #define posXprincipalMenuPostres 20
 #define posXprincipalMenuLicores -140
-
+#define posXimagenBotonTotalPagar 385
+#define posYimagenBotonTotalPagar -140
+#define posXlabelTotal 320
+#define posYlabelTotal -120
 
 #define posXBigPlatesMenu 1300
 
@@ -73,7 +76,7 @@
 #define tipoPostres 8
 #define tipoBebidas 9
 #define tipoLicores 10
-
+#define tipoCombos 11
 
 
 #define kindFactorSushi 0
@@ -86,6 +89,10 @@
 #define kindFactorPostres 800
 #define kindFactorBebidas 900
 #define kindFactorLicores 1000
+
+#define AHalfWinSizeX 512
+#define AHalfWinSizeY 384
+
 
 static const ccColor3B ccDARKRED={139,0,0};
 //
@@ -113,7 +120,7 @@ int posXdesaparecerAgregar = 740;
 
 int _fontSizeTotal = 34;
 int _fontSizeFotter = 11;
-int _fontSizeTitleName = 17;
+int _fontSizeTitleName = 16;
 int _fontSizeTitlePrice = 14;
 int _fontSizeOrderPrice = 14;
 int _fontSizeOrderName = 13;
@@ -123,11 +130,13 @@ int _fontSizeNameDrink = 10;
 
 //Nombres de archivos de imagenes
 NSString *bigPlateDescription = @"descripcion.png";
+NSString *btnHacerPedido = @"btn_hacerpedido.png";
 NSString *btnClose = @"btn_cerrar.png";
 NSString *font = @"Helvetica";
 //NSString *fontTotal = @"Marker Felt";
 //NSString *fontNames = @"Marker Felt";
 
+NSString *backgroundImage = @"bg_detalle.jpg";
 NSString *btnAddPlate = @"btn_agregar.png";
 NSString *btnGoBack = @"btn_regresar.png";
 NSString *sectionTinyPlates = @"barra_agregar.png";
@@ -138,15 +147,16 @@ NSString *textFotter = @" Domicilios: (+57)(1) 522 6412                         
 
 CCSprite *plato_grande1, *descripcion, *cuadro_total;
 
+
 CCLabelTTF *label, *label2;
-CCLabelTTF *label_total, *label_descripcion, *label_fotter;
+CCLabelTTF *label_descripcion, *label_fotter;
+CCLabelTTF *label_total;
 CGPoint  initialPoint;
 //CGFloat xVelocityA, xVelocityB;
 float timei, timem, pos, resul_dif, time_efect;
 int changedLevel, difPlatesNames;
 
 int firstX, firstY, iactualPlate;
-
 
 CGFloat finalX;
 CGFloat finalY;
@@ -174,7 +184,6 @@ BOOL bool_swipe = YES;
         posXprincipalMenu = posXprincipalMenuSushi;
         limitMoveRight = ((numPlates-4) * limitMoveLeftMenuFactorSushi)+limitMoveLeft;
     }
-    //PERSONALIZAR
     else if (tipoPlato == tipoTeppanyaki){
         KindFactor = kindFactorTeppanyaki;
         numPlates = 2;
@@ -184,35 +193,24 @@ BOOL bool_swipe = YES;
     else if (tipoPlato == tipoSopa){
         KindFactor = kindFactorSopa;
         numPlates = 1;
-     
         posXprincipalMenu = posXprincipalMenuSopa;
-
     }
-    //PERSONALIZAR
     else if (tipoPlato == tipoEspeciales){
         KindFactor = kindFactorEspeciales;
         numPlates = 1;
-        
         posXprincipalMenu = posXprincipalMenuEspeciales;
-
     }
     else if (tipoPlato == tipoEntradas){
-       
         KindFactor = kindFactorEntradas;
         numPlates = 8;
-
         posXprincipalMenu = posXprincipalMenuEntradas;
-
-         limitMoveRight = ((numPlates-4) * limitMoveLeftMenuFactor)+limitMoveLeft;
+        limitMoveRight = ((numPlates-4) * limitMoveLeftMenuFactor)+limitMoveLeft;
     }
-    //PERSONALIZAR
     else if (tipoPlato == tipoEnsaladas){
         KindFactor = kindFactorEnsaladas;
         numPlates = 1;
-      
         posXprincipalMenu = posXprincipalMenuEnsaladas;
     }
-    //PERSONALIZAR
     else if (tipoPlato == tipoPostres){
         KindFactor = kindFactorPostres;
         numPlates = 3;
@@ -221,44 +219,25 @@ BOOL bool_swipe = YES;
     else if (tipoPlato == tipoBebidas){
         KindFactor = kindFactorBebidas;
         numPlates = 3;
-        
         posXprincipalMenu = posXprincipalMenuPostres;
-        
     }
     else if (tipoPlato == tipoLicores){
         KindFactor = kindFactorLicores;
         numPlates = 6;
-        
         posXprincipalMenu = posXprincipalMenuLicores;
-
-         limitMoveRight = ((numPlates-4) * limitMoveLeftMenuFactor)+limitMoveLeft;
+        limitMoveRight = ((numPlates-4) * limitMoveLeftMenuFactor)+limitMoveLeft;
     }
-    
 }
 
-+(CCScene *) scene
-{
-	// 'scene' is an autorelease object.
-	CCScene *scene = [CCScene node];
-	// 'layer' is an autorelease object.
-	SushiLayer *layer = [SushiLayer node];
-	// add layer as a child to scene
-	[scene addChild: layer];
-	// return the scene
-	return scene;
-}
 
 +(CCScene *) sceneWithVC:(RootViewController *)rootViewController
 {
 	// 'scene' is an autorelease object.
 	CCScene *scene = [CCScene node];
 	// 'layer' is an autorelease object.
-    
-    SushiLayer *layer = [[[SushiLayer alloc]
-                               initWithVC:rootViewController] autorelease];
+    SushiLayer *layer = [[[SushiLayer alloc] initWithVC:rootViewController] autorelease];
 	// add layer as a child to scene
 	[scene addChild: layer];
-	// return the scene
 	return scene;
 }
 
@@ -266,46 +245,25 @@ BOOL bool_swipe = YES;
 
 -(id) initWithVC: (RootViewController *) rootViewController
 {
-    
-   
     if( (self=[super init] )) {
-        
         _rootViewController = rootViewController;
         bool_swipe=YES;
         [self changeValueNumPlates];
-        
+
         CGSize winSize = [[CCDirector sharedDirector] winSize];
         self.isTouchEnabled = YES;
         
-        CCSprite *background0;
-        background0 = [CCSprite spriteWithFile:@"fondo3.png" rect:CGRectMake(0, 0, 1024, 768)];
-        background0.position = ccp(winSize.width/2, winSize.height/2);
-        [self addChild:background0];
-        
-        CCSprite *muro;
-        muro = [CCSprite spriteWithFile:@"muro.jpg" rect:CGRectMake(0, 0, 1024, 270)];
-        muro.position = ccp(winSize.width/2, 135);
-        [self addChild:muro];
-        
-        CCSprite *piso;
-        piso = [CCSprite spriteWithFile:@"piso.jpg" rect:CGRectMake(0, 0, 1024, 125)];
-        piso.position = ccp(winSize.width/2, 249);
-        [self addChild:piso];
-        
-        CCSprite *individual;
-        individual = [CCSprite spriteWithFile:@"individual.png" rect:CGRectMake(0, 0, 448, 74)];
-        individual.position = ccp(winSize.width/2, 249);
-        [self addChild:individual];
-        
-        //Se agregan las imagenes de todos los platos al menu
-        
+        CCSprite *background;
+        background = [CCSprite spriteWithFile:backgroundImage rect:CGRectMake(0, 0, 1024, 768)];
+        background.position = ccp(AHalfWinSizeX, AHalfWinSizeY);
+        [self addChild:background];
+
         CCMenuItemLabel *itemNombrePlato, *itemPrecio;
         CCMenuItemImage *itemAux;
         CCLabelTTF *nombre_plato;
         CCLabelTTF *precio_plato;
         NSString *strnombrePlato;
         NSString *strprecioPlato;
-        
         
         menu = [[CCMenu alloc]init];
         for (int i = 1; i <= numPlates; i++) {
@@ -331,7 +289,7 @@ BOOL bool_swipe = YES;
             itemAux.tag=i+KindFactor;
 
             itemAux.position = CGPointMake(itemAux.position.x +(i*paddingPrincipalPlates), itemAux.position.y);
-            itemNombrePlato.position = CGPointMake(itemNombrePlato.position.x +(i*paddingPrincipalPlates)+5, 165);
+            itemNombrePlato.position = CGPointMake(itemNombrePlato.position.x +(i*paddingPrincipalPlates), 165);
             itemPrecio.position = CGPointMake(itemPrecio.position.x +(i*paddingPrincipalPlates)+5, 148);
             
             [menu addChild:itemAux];
@@ -340,12 +298,12 @@ BOOL bool_swipe = YES;
             
         }
         
-        menu.position = CGPointMake(posXprincipalMenu, winSize.height/2);
+        menu.position = CGPointMake(posXprincipalMenu, AHalfWinSizeY);
  		[self addChild: menu];
         
         menu_platosgrandes = [[CCMenu alloc]init];
         itemAux2 = [[CCMenuItemImage alloc]init];
-        menu_platosgrandes.position = CGPointMake(posXBigPlatesMenu, winSize.height/2);
+        menu_platosgrandes.position = CGPointMake(posXBigPlatesMenu, AHalfWinSizeY);
         [menu_platosgrandes addChild:itemAux2];
         
         [self addChild:menu_platosgrandes];
@@ -365,10 +323,6 @@ BOOL bool_swipe = YES;
         
         CCMenuItemImage *item_atras = [CCMenuItemImage itemWithNormalImage:btnGoBack selectedImage:btnGoBack target:self selector:@selector(onGoBack:)];
         
-        
-               
-        
-        //menu regresar oculto
         menu_atras = [CCMenu menuWithItems:item_atras, nil];
         menu_atras.position = CGPointMake(940, winSize.height+100);
         [menu_atras alignItemsVertically];
@@ -381,50 +335,62 @@ BOOL bool_swipe = YES;
         menu_agregar.position = CGPointMake(640, winSize.height+100);
         [menu_agregar alignItemsVertically];
         [self addChild:menu_agregar];
-        
-       // [item_agregar setDisabledImage:@"p.png"];
-       // item_agregar.opacity = [GLubyte alloc];
-        
-        
 
+        
         CCMenuItemImage *item_barra = [CCMenuItemImage itemWithNormalImage:sectionTinyPlates selectedImage:sectionTinyPlates target:self selector:@selector(nothingHere:)];
         menu_barra = [[CCMenu alloc]init];
         [menu_barra addChild:item_barra];
         
         //menu agregar oculto
         //menu_barra = [CCMenu menuWithItems:item_barra, item_up_down, nil];
-        menu_barra.position = CGPointMake(winSize.width/2+10, -50);
+        menu_barra.position = CGPointMake(522, -50);
         [menu_barra alignItemsVertically];
         [self addChild:menu_barra];
         
+        //
+        // Menú inferior - Total cuenta
+        //
         
+        CCMenuItemImage *imgBtnTotal;
+        CCMenuItemLabel *lblTotal;
+        
+        label_total = [CCLabelTTF labelWithString:@"" fontName:font fontSize:_fontSizeTotal];
+        [label_total setColor:ccDARKRED];
+        lblTotal = [CCMenuItemLabel itemWithLabel:label_total target:self selector:@selector(nothingHere:)];
+        
+        imgBtnTotal = [CCMenuItemImage itemWithNormalImage:btnHacerPedido selectedImage:btnHacerPedido target:self selector:@selector(nothingHere:)];
+
         menu_up_down = [[CCMenu alloc]init];
         item_up_down =  [CCMenuItemImage itemWithNormalImage:upImage selectedImage:upImage target:self selector:@selector(onUpDown:)];
-        [menu_up_down addChild:item_up_down];
-        menu_up_down.position = CGPointMake(winSize.width/2+10, 35);
         
+        imgBtnTotal.position = CGPointMake(posXimagenBotonTotalPagar, posYimagenBotonTotalPagar);
+        lblTotal.position = CGPointMake(posXlabelTotal, posYlabelTotal);
+        
+        [menu_up_down addChild:imgBtnTotal];
+        [menu_up_down addChild:lblTotal];
+        [menu_up_down addChild:item_up_down];
+        
+        menu_up_down.position = CGPointMake(522, 35);
         [self addChild:menu_up_down];
+        
+        //
+        //
+        //
         
         
         menu_pedidos = [[CCMenu alloc]init];
         menu_pedidos.position = CGPointMake(posXmenuPedidos, posYmenuPedidos);
         [self addChild:menu_pedidos];
-               
-        
-        label_total = [CCLabelTTF labelWithString:@"" fontName:font fontSize:_fontSizeTotal];
-        [label_total setColor:ccDARKRED];
-		label_total.position =  ccp(900 , -100 );
-		[self addChild: label_total];
-        
+
         
         CCSprite *img_fotter;
         img_fotter = [CCSprite spriteWithFile:fotter rect:CGRectMake(0, 0, 1024, 26)];
-        img_fotter.position = ccp(winSize.width/2+10, 5);
+        img_fotter.position = ccp(522, 5);
         [self addChild:img_fotter];
         
         label_fotter = [CCLabelTTF labelWithString:textFotter fontName:font fontSize:_fontSizeFotter];
         //[label_total setColor:ccDARKRED];
-		label_fotter.position =  ccp(winSize.width/2+10 , 8);
+		label_fotter.position =  ccp(522 , 8);
 		[self addChild: label_fotter];
     
          
@@ -478,7 +444,7 @@ BOOL bool_swipe = YES;
                     pos =limitMoveLeft;
                 }
                 winSize = [[CCDirector sharedDirector] winSize];
-                [self moveMenu_withMenu: menu withXpox:pos withYpos:winSize.height/2 withTimeTransition:1];
+                [self moveMenu_withMenu: menu withXpox:pos withYpos:AHalfWinSizeY withTimeTransition:1];
             }
         }
     }
@@ -520,7 +486,7 @@ BOOL bool_swipe = YES;
                 pos = limitMoveRight;
             }
             CCLOG(@"moveRight   este es el POS %f y este el resul_dif %f TIME EFECT %f", pos, resul_dif, time_efect);
-            [self moveMenu_withMenu: menu withXpox:pos withYpos:winSize.height/2 withTimeTransition:time_efect];
+            [self moveMenu_withMenu: menu withXpox:pos withYpos:AHalfWinSizeY withTimeTransition:time_efect];
         }
     }
 }
@@ -561,7 +527,7 @@ BOOL bool_swipe = YES;
                 pos =limitMoveLeft;
             }
             CCLOG(@"moveLeft   este es el POS %f y este el resul_dif %f TIME EFECT %f", pos, resul_dif, time_efect);
-            [self moveMenu_withMenu: menu withXpox:pos withYpos:winSize.height/2 withTimeTransition:time_efect];
+            [self moveMenu_withMenu: menu withXpox:pos withYpos:AHalfWinSizeY withTimeTransition:time_efect];
         }
     }
 }
@@ -608,6 +574,7 @@ BOOL bool_swipe = YES;
 }
 -(void) nothingHere: (id *) sender
 {
+    CCLOG(@"------------------- nothingHere ----------------------");
 }
 
 
@@ -622,9 +589,9 @@ BOOL bool_swipe = YES;
     [itemAux2 setNormalImage:[CCMenuItemImage itemWithNormalImage:[_rootViewController demeFuenteImagenGrandePlatoPorId:@(iactualPlate)] selectedImage:[_rootViewController demeFuenteImagenGrandePlatoPorId:@(iactualPlate)]]];
     
     int _tipo = [_rootViewController demeTipoActual];
-    BOOL _tipoBool = YES;
-    if(_tipo == tipoBebidas) _tipoBool = NO;
-    if(_tipo == tipoLicores) _tipoBool = NO;
+    BOOL _tipoBool = NO;
+    if(_tipo == tipoBebidas) _tipoBool = YES;
+    if(_tipo == tipoLicores) _tipoBool = YES;
     
     if(_tipoBool){
         // PENDIENTE: Configurar tipo de bebidas
@@ -638,7 +605,7 @@ BOOL bool_swipe = YES;
 
 - (void) loadDrinks:(id)arg{
 
-    CCLOG(@"sin implementar");
+    CCLOG(@" loadDrinks en SushiLayer sin implementar");
     //
     // Menú de bebidas
     //
@@ -693,7 +660,7 @@ BOOL bool_swipe = YES;
 -(void)aparecerMenus:(id)arg{
     bool_swipe=YES;
     winSize = [[CCDirector sharedDirector] winSize];
-    [self moveMenu_withMenu: menu withXpox:menu.position.x withYpos:winSize.height/2 withTimeTransition:1.0];
+    [self moveMenu_withMenu: menu withXpox:menu.position.x withYpos:AHalfWinSizeY withTimeTransition:1.0];
     
 }
 
@@ -708,7 +675,7 @@ BOOL bool_swipe = YES;
 -(void)aparecerElementos:(id)arg{
     winSize = [[CCDirector sharedDirector] winSize];
 
-    [self moveMenu_withMenu:menu_platosgrandes withXpox:winSize.width/2 withYpos:menu_platosgrandes.position.y withTimeTransition:1.0];
+    [self moveMenu_withMenu:menu_platosgrandes withXpox:AHalfWinSizeX withYpos:menu_platosgrandes.position.y withTimeTransition:1.0];
     [self moveMenu_withMenu:menu_atras withXpox:940 withYpos:740 withTimeTransition:1.0];
     
     int _tipo = [_rootViewController demeTipoActual];
@@ -832,7 +799,7 @@ BOOL bool_swipe = YES;
     itemImg.position = CGPointMake(itemImg.position.x +(_num*paddingTinyPlates), itemImg.position.y);
     itemName.position = CGPointMake(itemPrecio.position.x +(_num*paddingTinyPlates), -45);
     itemPrecio.position = CGPointMake(itemPrecio.position.x +(_num*paddingTinyPlates), -60);
-    itemCerrar.position = CGPointMake(itemCerrar.position.x +(_num*paddingTinyPlates)+50, 40);
+    itemCerrar.position = CGPointMake(itemCerrar.position.x +(_num*paddingTinyPlates)+50, 35);
     
     
     [menu_pedidos addChild:itemImg];
@@ -885,8 +852,7 @@ BOOL bool_swipe = YES;
     [self moveMenu_withMenu:menu_barra withXpox:menu_barra.position.x withYpos:posy withTimeTransition:0.5];
     [self moveMenu_withMenu:menu_pedidos withXpox:menu_pedidos.position.x withYpos:posy withTimeTransition:0.5];
     [self moveSprite: cuadro_total with_pox:cuadro_total.position.x with_posy:posy withTimeTransition:0.5];
-    [self moveLabel:label_total with_pox:label_total.position.x with_posy:posy-15 withTimeTransition:0.5];
-    
+
 
 }
 

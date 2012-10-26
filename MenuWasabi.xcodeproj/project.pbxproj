@@ -138,8 +138,14 @@
 		C11DC6E11611ED2F00D8DCA3 /* individual.png in Resources */ = {isa = PBXBuildFile; fileRef = C11DC6DE1611ED2F00D8DCA3 /* individual.png */; };
 		C11DC6E21611ED2F00D8DCA3 /* muro.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C11DC6DF1611ED2F00D8DCA3 /* muro.jpg */; };
 		C11DC6E31611ED2F00D8DCA3 /* piso.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C11DC6E01611ED2F00D8DCA3 /* piso.jpg */; };
+		C123C95E1638815200474B44 /* wdb.sqlite3 in Resources */ = {isa = PBXBuildFile; fileRef = C123C95D1638815200474B44 /* wdb.sqlite3 */; };
+		C123C9681638907100474B44 /* CombosLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C123C9671638907100474B44 /* CombosLayer.m */; };
+		C123C96F163897FB00474B44 /* menu_combos.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = C123C96E163897FB00474B44 /* menu_combos.jpeg */; };
+		C123C97116389C4A00474B44 /* btn_hacerpedido.png in Resources */ = {isa = PBXBuildFile; fileRef = C123C97016389C4600474B44 /* btn_hacerpedido.png */; };
 		C12E6CFA1610CE17009BB015 /* fondo4.png in Resources */ = {isa = PBXBuildFile; fileRef = C12E6CF91610CE17009BB015 /* fondo4.png */; };
 		C12E6D011610D2FE009BB015 /* fondo5.png in Resources */ = {isa = PBXBuildFile; fileRef = C12E6D001610D2FE009BB015 /* fondo5.png */; };
+		C144B26F1639B0340091A8E0 /* ComboViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C144B26D1639B0340091A8E0 /* ComboViewController.m */; };
+		C144B2701639B0340091A8E0 /* ComboViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C144B26E1639B0340091A8E0 /* ComboViewController.xib */; };
 		C1559D0B1611F311007512AA /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1559D0A1611F311007512AA /* RootViewController.xib */; };
 		C155EDEB1626231000421599 /* sopa_chiraschi-sushi_p.png in Resources */ = {isa = PBXBuildFile; fileRef = C155EDEA1626231000421599 /* sopa_chiraschi-sushi_p.png */; };
 		C155EDF51626239000421599 /* entrada_eby-crispy_g.png in Resources */ = {isa = PBXBuildFile; fileRef = C155EDED1626239000421599 /* entrada_eby-crispy_g.png */; };
@@ -377,6 +383,12 @@
 		C1EFBFAF160D14230005ECF1 /* btn_teppanyaki.png in Resources */ = {isa = PBXBuildFile; fileRef = C1EFBFA4160D14230005ECF1 /* btn_teppanyaki.png */; };
 		C1EFBFB0160D14230005ECF1 /* btn_wok.png in Resources */ = {isa = PBXBuildFile; fileRef = C1EFBFA5160D14230005ECF1 /* btn_wok.png */; };
 		C1F0F768162EF5F200043C04 /* flecha_total_.png in Resources */ = {isa = PBXBuildFile; fileRef = C1F0F767162EF5F200043C04 /* flecha_total_.png */; };
+		C1F247FF163B2DB800402C3C /* bg_detalle.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C1F247FE163B2DB800402C3C /* bg_detalle.jpg */; };
+		C1F24806163B339300402C3C /* Combo_Light_n.png in Resources */ = {isa = PBXBuildFile; fileRef = C1F24805163B339300402C3C /* Combo_Light_n.png */; };
+		C1F24808163B34D800402C3C /* combo_infantil_g.png in Resources */ = {isa = PBXBuildFile; fileRef = C1F24807163B34D800402C3C /* combo_infantil_g.png */; };
+		C1F2480A163B34E700402C3C /* Combo_Special_mix_p.png in Resources */ = {isa = PBXBuildFile; fileRef = C1F24809163B34E700402C3C /* Combo_Special_mix_p.png */; };
+		C1FA7A49163733CD007E7293 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1FA7A48163733CD007E7293 /* CoreData.framework */; };
+		C1FA7A4B163733D8007E7293 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1FA7A4A163733D8007E7293 /* CoreData.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -648,8 +660,16 @@
 		C11DC6DE1611ED2F00D8DCA3 /* individual.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = individual.png; sourceTree = "<group>"; };
 		C11DC6DF1611ED2F00D8DCA3 /* muro.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = muro.jpg; sourceTree = "<group>"; };
 		C11DC6E01611ED2F00D8DCA3 /* piso.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = piso.jpg; sourceTree = "<group>"; };
+		C123C95D1638815200474B44 /* wdb.sqlite3 */ = {isa = PBXFileReference; lastKnownFileType = file; path = wdb.sqlite3; sourceTree = "<group>"; };
+		C123C9661638907100474B44 /* CombosLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CombosLayer.h; sourceTree = "<group>"; };
+		C123C9671638907100474B44 /* CombosLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CombosLayer.m; sourceTree = "<group>"; };
+		C123C96E163897FB00474B44 /* menu_combos.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = menu_combos.jpeg; sourceTree = "<group>"; };
+		C123C97016389C4600474B44 /* btn_hacerpedido.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_hacerpedido.png; sourceTree = "<group>"; };
 		C12E6CF91610CE17009BB015 /* fondo4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fondo4.png; sourceTree = "<group>"; };
 		C12E6D001610D2FE009BB015 /* fondo5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fondo5.png; sourceTree = "<group>"; };
+		C144B26C1639B0340091A8E0 /* ComboViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComboViewController.h; sourceTree = "<group>"; };
+		C144B26D1639B0340091A8E0 /* ComboViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComboViewController.m; sourceTree = "<group>"; };
+		C144B26E1639B0340091A8E0 /* ComboViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ComboViewController.xib; sourceTree = "<group>"; };
 		C1559D0A1611F311007512AA /* RootViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RootViewController.xib; sourceTree = "<group>"; };
 		C155EDEA1626231000421599 /* sopa_chiraschi-sushi_p.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sopa_chiraschi-sushi_p.png"; sourceTree = "<group>"; };
 		C155EDED1626239000421599 /* entrada_eby-crispy_g.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "entrada_eby-crispy_g.png"; sourceTree = "<group>"; };
@@ -896,6 +916,12 @@
 		C1EFBFA4160D14230005ECF1 /* btn_teppanyaki.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_teppanyaki.png; sourceTree = "<group>"; };
 		C1EFBFA5160D14230005ECF1 /* btn_wok.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_wok.png; sourceTree = "<group>"; };
 		C1F0F767162EF5F200043C04 /* flecha_total_.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flecha_total_.png; sourceTree = "<group>"; };
+		C1F247FE163B2DB800402C3C /* bg_detalle.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bg_detalle.jpg; sourceTree = "<group>"; };
+		C1F24805163B339300402C3C /* Combo_Light_n.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Combo_Light_n.png; sourceTree = "<group>"; };
+		C1F24807163B34D800402C3C /* combo_infantil_g.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = combo_infantil_g.png; sourceTree = "<group>"; };
+		C1F24809163B34E700402C3C /* Combo_Special_mix_p.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Combo_Special_mix_p.png; sourceTree = "<group>"; };
+		C1FA7A48163733CD007E7293 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		C1FA7A4A163733D8007E7293 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CoreData.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -904,6 +930,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C1EF089E1615038000BA0421 /* libsqlite3.0.dylib in Frameworks */,
+				C1FA7A49163733CD007E7293 /* CoreData.framework in Frameworks */,
 				C10A662D160CBBF200489A45 /* QuartzCore.framework in Frameworks */,
 				C10A662F160CBBF200489A45 /* OpenGLES.framework in Frameworks */,
 				C10A6631160CBBF200489A45 /* OpenAL.framework in Frameworks */,
@@ -913,6 +940,7 @@
 				C10A6639160CBBF200489A45 /* Foundation.framework in Frameworks */,
 				C10A663B160CBBF200489A45 /* CoreGraphics.framework in Frameworks */,
 				C10A663D160CBBF200489A45 /* GameKit.framework in Frameworks */,
+				C1FA7A4B163733D8007E7293 /* CoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -940,6 +968,8 @@
 			isa = PBXGroup;
 			children = (
 				C1EF089D1615038000BA0421 /* libsqlite3.0.dylib */,
+				C1FA7A48163733CD007E7293 /* CoreData.framework */,
+				C1FA7A4A163733D8007E7293 /* CoreData.framework */,
 				C10A662C160CBBF200489A45 /* QuartzCore.framework */,
 				C10A662E160CBBF200489A45 /* OpenGLES.framework */,
 				C10A6630160CBBF200489A45 /* OpenAL.framework */,
@@ -956,6 +986,7 @@
 		C10A663E160CBBF200489A45 /* MenuWasabi */ = {
 			isa = PBXGroup;
 			children = (
+				C123C95D1638815200474B44 /* wdb.sqlite3 */,
 				C10A67B6160CBBF400489A45 /* AppDelegate.h */,
 				C10A67B7160CBBF400489A45 /* AppDelegate.m */,
 				C1EFBF6C160CCF7C0005ECF1 /* MainWindow.xib */,
@@ -968,6 +999,11 @@
 				C1EFBF88160D08010005ECF1 /* RootViewController.h */,
 				C1EFBF89160D08010005ECF1 /* RootViewController.m */,
 				C1559D0A1611F311007512AA /* RootViewController.xib */,
+				C144B26C1639B0340091A8E0 /* ComboViewController.h */,
+				C144B26D1639B0340091A8E0 /* ComboViewController.m */,
+				C144B26E1639B0340091A8E0 /* ComboViewController.xib */,
+				C123C9661638907100474B44 /* CombosLayer.h */,
+				C123C9671638907100474B44 /* CombosLayer.m */,
 				C1EFBF66160CC4700005ECF1 /* SushiLayer.h */,
 				C1EFBF67160CC4700005ECF1 /* SushiLayer.m */,
 				C1D3B699161A3D7E00542A4C /* Plato.h */,
@@ -1588,7 +1624,9 @@
 			isa = PBXGroup;
 			children = (
 				C108632A16320367007D361E /* lista_bebidas.jpg */,
+				C123C97016389C4600474B44 /* btn_hacerpedido.png */,
 				C10863271631B597007D361E /* barra_agregar.png */,
+				C1F247FE163B2DB800402C3C /* bg_detalle.jpg */,
 				C1B89EF3163078EB0047518D /* fondo_btn.png */,
 				C1B89F051630AA160047518D /* btn_agregar_bebidas.png */,
 				C1B89F061630AA1A0047518D /* lista_bebidas_.jpg */,
@@ -1629,6 +1667,7 @@
 				C1EFBFA2160D14230005ECF1 /* btn_sopas.png */,
 				C1EFBFA3160D14230005ECF1 /* btn_sushi.png */,
 				C1EFBFA4160D14230005ECF1 /* btn_teppanyaki.png */,
+				C123C96E163897FB00474B44 /* menu_combos.jpeg */,
 				C1EFBFA5160D14230005ECF1 /* btn_wok.png */,
 				C1EFBF93160D0FB20005ECF1 /* fondo3.png */,
 				C1EFBF73160CD8710005ECF1 /* fondo1.png */,
@@ -1883,6 +1922,7 @@
 		C1EFBF9A160D139E0005ECF1 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				C1F24801163B2F0900402C3C /* Combos */,
 				C1C4C374162F494F006AA580 /* Licores */,
 				C1C4C370162F4923006AA580 /* Bebidas */,
 				C1C23C9E162DC48E00843CBA /* Especiales */,
@@ -1895,6 +1935,40 @@
 				C1EF08A2161510C700BA0421 /* Sushi */,
 			);
 			name = Images;
+			sourceTree = "<group>";
+		};
+		C1F24801163B2F0900402C3C /* Combos */ = {
+			isa = PBXGroup;
+			children = (
+				C1F24804163B2FDA00402C3C /* normales */,
+				C1F24803163B2FD500402C3C /* pequenas */,
+				C1F24802163B2FC600402C3C /* grandes */,
+			);
+			name = Combos;
+			sourceTree = "<group>";
+		};
+		C1F24802163B2FC600402C3C /* grandes */ = {
+			isa = PBXGroup;
+			children = (
+				C1F24807163B34D800402C3C /* combo_infantil_g.png */,
+			);
+			name = grandes;
+			sourceTree = "<group>";
+		};
+		C1F24803163B2FD500402C3C /* pequenas */ = {
+			isa = PBXGroup;
+			children = (
+				C1F24809163B34E700402C3C /* Combo_Special_mix_p.png */,
+			);
+			name = pequenas;
+			sourceTree = "<group>";
+		};
+		C1F24804163B2FDA00402C3C /* normales */ = {
+			isa = PBXGroup;
+			children = (
+				C1F24805163B339300402C3C /* Combo_Light_n.png */,
+			);
+			name = normales;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -2195,6 +2269,14 @@
 				C1B89F201630BB160047518D /* vinos.png in Resources */,
 				C10863281631B597007D361E /* barra_agregar.png in Resources */,
 				C108632B16320367007D361E /* lista_bebidas.jpg in Resources */,
+				C123C95E1638815200474B44 /* wdb.sqlite3 in Resources */,
+				C123C96F163897FB00474B44 /* menu_combos.jpeg in Resources */,
+				C123C97116389C4A00474B44 /* btn_hacerpedido.png in Resources */,
+				C144B2701639B0340091A8E0 /* ComboViewController.xib in Resources */,
+				C1F247FF163B2DB800402C3C /* bg_detalle.jpg in Resources */,
+				C1F24806163B339300402C3C /* Combo_Light_n.png in Resources */,
+				C1F24808163B34D800402C3C /* combo_infantil_g.png in Resources */,
+				C1F2480A163B34E700402C3C /* Combo_Special_mix_p.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2317,6 +2399,8 @@
 				C11339BC161B4DFC003F2D4E /* BrainMenu.m in Sources */,
 				C1C4C37A162F511F006AA580 /* TipoBebida.m in Sources */,
 				C1C4C37D162F513D006AA580 /* Bebida.m in Sources */,
+				C123C9681638907100474B44 /* CombosLayer.m in Sources */,
+				C144B26F1639B0340091A8E0 /* ComboViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2368,6 +2452,10 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = MenuWasabi/Prefix.pch;
@@ -2387,6 +2475,10 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = MenuWasabi/Prefix.pch;
 				HEADER_SEARCH_PATHS = "\"MenuWasabi/libs/kazmath/include\"";

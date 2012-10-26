@@ -20,6 +20,6 @@
 @property (nonatomic, strong) UISwipeGestureRecognizer * swipeLeftRecognizer;
 @property (nonatomic, strong) UISwipeGestureRecognizer * swipeRightRecognizer;
 
-+(CCScene *) scene;
+
 +(CCScene *) sceneWithVC:(RootViewController *)rootViewController;
 @end

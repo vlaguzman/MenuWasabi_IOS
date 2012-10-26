@@ -370,6 +370,7 @@
 						<reference key="NSSuperview" ref="766721923"/>
 						<reference key="NSNextKeyView" ref="671783484"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
+						<float key="IBUIAlpha">0.0</float>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 						<object class="NSCustomResource" key="IBUIImage">
@@ -385,6 +386,7 @@
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
+						<float key="IBUIAlpha">0.0</float>
 						<int key="IBUIContentMode">7</int>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
@@ -538,6 +540,14 @@
 					<int key="connectionID">74</int>
 				</object>
 				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">background</string>
+						<reference key="source" ref="841351856"/>
+						<reference key="destination" ref="287039490"/>
+					</object>
+					<int key="connectionID">85</int>
+				</object>
+				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
 						<string key="label">viewTapped:</string>
 						<reference key="source" ref="70537820"/>
@@ -651,7 +661,6 @@
 						<int key="objectID">2</int>
 						<reference key="object" ref="766721923"/>
 						<array class="NSMutableArray" key="children">
-							<reference ref="287039490"/>
 							<reference ref="80564429"/>
 							<reference ref="46704834"/>
 							<reference ref="860684177"/>
@@ -666,6 +675,7 @@
 							<reference ref="671783484"/>
 							<reference ref="850084281"/>
 							<reference ref="375622500"/>
+							<reference ref="287039490"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -772,7 +782,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">84</int>
+			<int key="maxID">85</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes"/>
 		<int key="IBDocument.localizationMode">0</int>

@@ -11,10 +11,15 @@
 
 #import "RootViewController.h"
 #import "SushiLayer.h"
+#import "CombosLayer.h"
 #import "Plato.h"
 #import "TipoBebida.h"
 #import "Bebida.h"
 #import "BrainMenu.h"
+#import <sqlite3.h>
+
+//#import "CoreDataManager.h"
+//#import "CoreData/CoreData.h"
 
 #define tipoSushi 1
 #define tipoTeppanyaki 2
@@ -26,6 +31,9 @@
 #define tipoPostres 8
 #define tipoBebidas 9
 #define tipoLicores 10
+#define tipoCombos 11
+
+#define pathDataBase @"/Users/GOREMAC/Documents/Vladimir/ProyectosIOS/MenuWasabi/MenuWasabi/wdb.sqlite3"
 
 @interface RootViewController()
     
@@ -45,7 +53,7 @@ CCScene *scene;
 @implementation RootViewController
 @synthesize sushi1, sushi10, sushi11, sushi12, sushi13, sushi14, sushi15, sushi16, sushi17, sushi18, sushi19, sushi2, sushi20, sushi21, sushi22, sushi23, sushi24, sushi25, sushi26, sushi27, sushi28, sushi29, sushi3, sushi30, sushi31, sushi32, sushi33, sushi34, sushi35, sushi36, sushi37, sushi38,sushi39, sushi4, sushi5, sushi6, sushi7, sushi8, sushi9, sopa1, entrada1, entrada2, entrada3, entrada4, entrada5, entrada6, entrada7, entrada8, entrada9, entrada10, ensalada1, postre1, postre2, postre3, teppanyaki1, teppanyaki2, especial1, bebida1, bebida2, bebida3, licor1, licor2, licor3, licor4, licor5, licor6;
 @synthesize platos, gaseosa1, gaseosa2, gaseosa3, gaseosa4, gaseosa5, gaseosa6, gaseosa7, gaseosa8, gaseosa9, gaseosa10, gaseosa11, gaseosa12, jugo1, jugo2, jugo3, jugo4, jugo5, jugo6, jugo7, jugo8, jugo9, jugo10, jugo11, jugo12, jugo13, jugo14, jugo15, b_caliente1, b_caliente10, b_caliente2, b_caliente3, b_caliente4, b_caliente5, b_caliente6, b_caliente7, b_caliente8, b_caliente9;
-
+@synthesize path;
 
 
 // Add these new methods
@@ -69,69 +77,32 @@ CCScene *scene;
     glView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     [self.view insertSubview:glView atIndex:0];
     [[CCDirector sharedDirector] setOpenGLView:glView];
-    
+   
     [self LoadScene];
     [[CCDirector sharedDirector] runWithScene:scene];
    
 }
 
 -(void) LoadScene{
-    scene =  [SushiLayer sceneWithVC:self];
-
+    if ([self demeTipoActual] != tipoCombos){
+        scene =  [SushiLayer sceneWithVC:self];
+    }
+    else{
+        scene = [CombosLayer sceneWithVC:self];
+    }
 }
 
 -(void)beginPlates{
     platos = [[NSDictionary alloc] initWithObjectsAndKeys:sushi1, @(1), sushi2, @(2), sushi3, @(3), sushi4, @(4), sushi5, @(5), sushi6, @(6), sushi7, @(7), sushi8, @(8), sushi9, @(9), sushi10, @(10), sushi11, @(11), sushi12, @(12), sushi13, @(13), sushi14, @(14), sushi15, @(15), sushi16, @(16), sushi17, @(17), sushi18, @(18), sushi19, @(19), sushi20, @(20), sushi21, @(21), sushi22, @(22), sushi23, @(23), sushi24, @(24), sushi25, @(25), sushi26, @(26), sushi27, @(27), sushi28, @(28), sushi29, @(29), sushi30, @(30), sushi31, @(31), sushi32, @(32), sushi33, @(33), sushi34, @(34), sushi35, @(35), sushi36, @(36),sushi37, @(37), sushi18, @(38), sushi39, @(39),teppanyaki1, @(201), teppanyaki2, @(202), sopa1, @(301),especial1, @(401),entrada1, @(501), entrada2, @(502), entrada3, @(503), entrada4, @(504), entrada5, @(505), entrada6, @(506), entrada7, @(507), entrada8, @(508), entrada9, @(509), entrada10, @(510),ensalada1, @(601), postre1, @(801), postre2, @(802), postre3, @(803),bebida1, @(901), bebida2, @(902), bebida3, @(903),licor1, @(1001), licor2, @(1002), licor3, @(1003), licor4, @(1004), licor5, @(1005), licor6, @(1006), nil];
 }
 
-/*
--(void) iniciarPlatosSushi{
-
-    platos_sushi = [[NSDictionary alloc] initWithObjectsAndKeys:sushi1, @(1), sushi2, @(2), sushi3, @(3), sushi4, @(4), sushi5, @(5), sushi6, @(6), sushi7, @(7), sushi8, @(8), sushi9, @(9), sushi10, @(10), sushi11, @(11), sushi12, @(12), sushi13, @(13), sushi14, @(14), sushi15, @(15), sushi16, @(16), sushi17, @(17), sushi18, @(18), sushi19, @(19), sushi20, @(20), sushi21, @(21), sushi22, @(22), sushi23, @(23), sushi24, @(24), sushi25, @(25), sushi26, @(26), sushi27, @(27), sushi28, @(28), sushi29, @(29), sushi30, @(30), sushi31, @(31), sushi32, @(32), sushi33, @(33), sushi34, @(34), sushi35, @(35), sushi36, @(36),sushi37, @(37), sushi18, @(38), sushi39, @(39), nil];
-}
-
--(void) iniciarPlatosTeppanyaki{
-     platos_teppanyaki = [[NSDictionary alloc] initWithObjectsAndKeys:teppanyaki1, @(201), teppanyaki2, @(202), nil];
-}
-
--(void) iniciarPlatosSopa{
-    platos_sopa = [[NSDictionary alloc] initWithObjectsAndKeys:sopa1, @(301),  nil];
-}
-
--(void) iniciarPlatosEspeciales{
-    platos_especiales = [[NSDictionary alloc] initWithObjectsAndKeys:especial1, @(401),  nil];
-}
-
--(void) iniciarPlatosEntradas{
-    platos_entradas = [[NSDictionary alloc] initWithObjectsAndKeys:entrada1, @(501), entrada2, @(502), entrada3, @(503), entrada4, @(504), entrada5, @(505), entrada6, @(506), entrada7, @(507), entrada8, @(508), entrada9, @(509), entrada10, @(510), nil];
-}
-
--(void) iniciarPlatosEnsaladas{
-    platos_ensaladas = [[NSDictionary alloc] initWithObjectsAndKeys:ensalada1, @(601),  nil];
-}
-
--(void) iniciarPlatosWok{
-   CCLOG(@"OJO iniciarPlatosEnsaladas SIN IMPLEMENTAR");
-}
-
--(void) iniciarPostres{
-     platos_postres = [[NSDictionary alloc] initWithObjectsAndKeys:postre1, @(801), postre2, @(802), postre3, @(803), nil];
-}
-
--(void) iniciarBebidas{
-    platos_bebidas = [[NSDictionary alloc] initWithObjectsAndKeys:bebida1, @(901), bebida2, @(902), bebida3, @(903), nil];
-}
-
--(void) iniciarLicores{
-   platos_licores = [[NSDictionary alloc] initWithObjectsAndKeys:licor1, @(1001), licor2, @(1002), licor3, @(1003), licor4, @(1004), licor5, @(1005), licor6, @(1006), nil];
-}
- */
 
 - (void) viewWillAppear:(BOOL)animated
 {
     [self LoadScene];
     [[CCDirector sharedDirector] replaceScene:scene];
-
+    if([self demeTipoActual]==tipoCombos)[btnPrincipal setAlpha:0];
+    else [btnPrincipal setAlpha:1];
     [self.navigationController setNavigationBarHidden:YES animated:NO];
     [super viewWillAppear:animated];
     [[CCDirector sharedDirector]startAnimation];
@@ -141,103 +112,115 @@ CCScene *scene;
 - (void)viewDidLoad {
    
     [super viewDidLoad];
+
     [self setupCocos2D];
+   // [self loadDataBase];
+   // [self grabarTabla];
+   // [self leerTabla];
 }
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
 	//return YES;
-    if((interfaceOrientation==UIInterfaceOrientationPortrait)||(interfaceOrientation==UIInterfaceOrientationPortraitUpsideDown))
-        return NO;
-    else
+    //if((interfaceOrientation==UIInterfaceOrientationPortrait)||(interfaceOrientation==UIInterfaceOrientationPortraitUpsideDown))
+    if ([self demeTipoActual] == tipoCombos)
         return YES;
+    else
+        return NO;
 }
-/*
-// Override to allow orientations other than the default portrait orientation.
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-	
-	//
-	// There are 2 ways to support auto-rotation:
-	//  - The OpenGL / cocos2d way
-	//     - Faster, but doesn't rotate the UIKit objects
-	//  - The ViewController way
-	//    - A bit slower, but the UiKit objects are placed in the right place
-	//
-	
-#if GAME_AUTOROTATION==kGameAutorotationNone
-	//
-	// EAGLView won't be autorotated.
-	// Since this method should return YES in at least 1 orientation,
-	// we return YES only in the Portrait orientation
-	//
-	return ( interfaceOrientation == UIInterfaceOrientationPortrait );
-	
-#elif GAME_AUTOROTATION==kGameAutorotationCCDirector
-	//
-	// EAGLView will be rotated by cocos2d
-	//
-	// Sample: Autorotate only in landscape mode
-	//
-	if( interfaceOrientation == UIInterfaceOrientationLandscapeLeft ) {
-		[[CCDirector sharedDirector] setDeviceOrientation: kCCDeviceOrientationLandscapeRight];
-	} else if( interfaceOrientation == UIInterfaceOrientationLandscapeRight) {
-		[[CCDirector sharedDirector] setDeviceOrientation: kCCDeviceOrientationLandscapeLeft];
-	}
-	
-	// Since this method should return YES in at least 1 orientation,
-	// we return YES only in the Portrait orientation
-	return ( interfaceOrientation == UIInterfaceOrientationPortrait );
-	
-#elif GAME_AUTOROTATION == kGameAutorotationUIViewController
-	//
-	// EAGLView will be rotated by the UIViewController
-	//
-	// Sample: Autorotate only in landscpe mode
-	//
-	// return YES for the supported orientations
-	
-	return ( UIInterfaceOrientationIsLandscape( interfaceOrientation ) );
-	
-#else
-#error Unknown value in GAME_AUTOROTATION
-	
-#endif // GAME_AUTOROTATION
-	
-	
-	// Shold not happen
-	return NO;
-}
-*/
+
 //
 // This callback only will be called when GAME_AUTOROTATION == kGameAutorotationUIViewController
 //
 #if GAME_AUTOROTATION == kGameAutorotationUIViewController
 -(void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
 {
+//
+    
+    [[CCDirector sharedDirector] stopAnimation];
+    [self.navigationController popViewControllerAnimated:YES];
 	//
 	// Assuming that the main window has the size of the screen
 	// BUG: This won't work if the EAGLView is not fullscreen
 	///
-	CGRect screenRect = [[UIScreen mainScreen] bounds];
-	CGRect rect = CGRectZero;
-    
-	
-	if(toInterfaceOrientation == UIInterfaceOrientationPortrait || toInterfaceOrientation == UIInterfaceOrientationPortraitUpsideDown)
-		rect = screenRect;
-	
-	else if(toInterfaceOrientation == UIInterfaceOrientationLandscapeLeft || toInterfaceOrientation == UIInterfaceOrientationLandscapeRight)
-		rect.size = CGSizeMake( screenRect.size.height, screenRect.size.width );
-	
-	CCDirector *director = [CCDirector sharedDirector];
-	CCGLView *glView = [director openGLView];
-	float contentScaleFactor = [director contentScaleFactor];
-	
-	if( contentScaleFactor != 1 ) {
-		rect.size.width *= contentScaleFactor;
-		rect.size.height *= contentScaleFactor;
-	}
-	glView.frame = rect;
+	/*CGRect screenRect = [[UIScreen mainScreen] bounds];
+     CGRect rect = CGRectZero;
+     
+     
+     if(toInterfaceOrientation == UIInterfaceOrientationPortrait || toInterfaceOrientation == UIInterfaceOrientationPortraitUpsideDown)
+     rect = screenRect;
+     
+     else if(toInterfaceOrientation == UIInterfaceOrientationLandscapeLeft || toInterfaceOrientation == UIInterfaceOrientationLandscapeRight)
+     rect.size = CGSizeMake( screenRect.size.height, screenRect.size.width );
+     
+     CCDirector *director = [CCDirector sharedDirector];
+     CCGLView *glView = [director openGLView];
+     float contentScaleFactor = [director contentScaleFactor];
+     
+     if( contentScaleFactor != 1 ) {
+     rect.size.width *= contentScaleFactor;
+     rect.size.height *= contentScaleFactor;
+     }
+     glView.frame = rect;*/
 }
 #endif // GAME_AUTOROTATION == kGameAutorotationUIViewController
+
+-(void)loadDataBase{
+    NSArray *rutas = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    //path = [[rutas objectAtIndex:0]stringByAppendingPathComponent:@"prueba.sqlite3"];
+    path = pathDataBase;
+    NSLog(@" PATH %@",path);
+    if(![[NSFileManager defaultManager] fileExistsAtPath:path])
+    {
+         NSLog(@"NO EXISTIA PARCERO");
+        sqlite3 *wasabi_db;
+        if(sqlite3_open([path UTF8String], &wasabi_db)!=SQLITE_OK)
+        {
+            sqlite3_close(wasabi_db);
+            NSLog(@"Error al abrir la Base de datos");
+        }
+        /*else
+        {
+            NSLog(@"PASAMOS POR EL ELSE PARA CREAR LA TABLA -loadDataBase-");
+            char *errorLog;
+            char *consulta="CREATE TABLE IF NOT EXISTS PRUEBA (FILA INTEGER PRIMARY KEY, TEXTO TEXT)";
+            if(sqlite3_exec(wasabi_db, consulta, NULL, NULL, &errorLog)!=SQLITE_OK)
+                NSLog(@"Error creando tabla %s", errorLog);
+            sqlite3_close(wasabi_db);
+        }*/
+    }
+}
+
+
+
+-(void)leerTabla{
+     NSLog(@"leerTabla YA ENTRAMOS -------------------------");
+    if([[NSFileManager defaultManager]fileExistsAtPath:path])
+    {
+         NSLog(@"PASAMOS EL IF");
+        sqlite3 *wasabi_db;
+        if(sqlite3_open([path UTF8String], &wasabi_db)!=SQLITE_OK)
+        {
+            sqlite3_close(wasabi_db);
+            NSLog(@"error al abrir la base de datos");
+        }
+        else
+        {
+            char *consulta = "SELECT * FROM wsb_tipoPlato ORDER BY id_tipoPlato";
+            sqlite3_stmt *resultado;
+            if(sqlite3_prepare(wasabi_db, consulta, -1, &resultado, nil)==SQLITE_OK){
+                while (sqlite3_step(resultado)==SQLITE_ROW) {
+                    int id_tipoPlato=sqlite3_column_int(resultado, 0);
+                    char *nombre = (char *) sqlite3_column_text(resultado, 1);
+                    NSLog(@"%i %s",id_tipoPlato, nombre);
+                }
+            }
+            sqlite3_close(wasabi_db);
+        }
+    }
+    
+}
+
+
 
 
 - (void)didReceiveMemoryWarning {
@@ -249,6 +232,8 @@ CCScene *scene;
 
 - (void)viewDidUnload {
     
+    [btnPrincipal release];
+    btnPrincipal = nil;
     [super viewDidUnload];
     [[CCDirector sharedDirector] end];
     // Release any retained subviews of the main view.
@@ -257,19 +242,54 @@ CCScene *scene;
 
 
 - (void)dealloc {
-    
+    [scene release];
+    [btnPrincipal release];
     [super dealloc];
 }
 
 - (IBAction)menuTapped:(id)sender {
-    
-    [self.navigationController popViewControllerAnimated:YES];
+    // scene = [[CCScene alloc]init];
+    //[scene delete:sender];
+    if([self demeTipoActual]!=tipoCombos){
+        [[CCDirector sharedDirector] stopAnimation];
+        [self.navigationController popViewControllerAnimated:YES];
+
+    }
 }
-
-
+/*
+-(void)grabarTabla
+{
+    sqlite3 *db;
+    if(sqlite3_open([path UTF8String], &db)!=SQLITE_OK){
+        NSLog(@"no se pudo abrir la base de datos para guardar");
+        sqlite3_close(db);
+    }
+    else{
+        char *consulta = "INSERT INTO wsb_plato (TEXTO) VALUES (?);";
+        
+        int id_ = 0;
+        char *nombre = "Anagomaki";
+        char *prueba_insertar = "carambolas";
+        char *fuente_img = "anagomaki_big.png";
+        char *fuente_img_grande = "anagomaki_big_g.png";
+        char *fuente_img_peq = "anagomaki_big_p.png";
+        char *descripcion = "esto es una descripcion";
+        int tipo = tipoSushi;
+        int precio = 12000;
+        sqlite3_stmt *resultado;
+        if(sqlite3_prepare_v2(db, consulta, -1, &resultado, nil)==SQLITE_OK)
+        {
+            sqlite3_bind_int(resultado, 1, 0);
+            sqlite3_bind_text(resultado, 1, [sushi1.nombre UTF8String], -1, NULL);
+        }
+        if(sqlite3_step(resultado)!=SQLITE_DONE)
+            NSLog(@"ERROR ACTUALIZANDO VALOR");
+    }
+}*/
 
 -(void)crearPlatosSushi{
-   
+
+    
     if(sushi1==nil) sushi1 = [[Plato alloc]init];
     sushi1.id_plato =1;
     sushi1.nombre = @"Anagomaki";

@@ -21,6 +21,7 @@
 #define tipoPostres 8
 #define tipoBebidas 9
 #define tipoLicores 10
+#define tipoCombos 11
 
 @interface MenuViewController ()
 
@@ -98,6 +99,8 @@
     fondo_btn = nil;
     [fondo_btn release];
     fondo_btn = nil;
+    [background release];
+    background = nil;
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -172,22 +175,63 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-	//return YES;
-    if((interfaceOrientation==UIInterfaceOrientationPortrait)||(interfaceOrientation==UIInterfaceOrientationPortraitUpsideDown))
+	return YES;
+    /*if((interfaceOrientation==UIInterfaceOrientationPortrait)||(interfaceOrientation==UIInterfaceOrientationPortraitUpsideDown))
         return NO;
     else
-        return YES;
+        return YES;*/
 }
 
 - (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
 {
     UIInterfaceOrientation orientation = toInterfaceOrientation;
-    if((orientation==UIInterfaceOrientationPortrait)||(orientation==UIInterfaceOrientationPortraitUpsideDown)){
+    if((orientation==UIInterfaceOrientationPortrait)||(orientation==UIInterfaceOrientationPortraitUpsideDown))//{
+        [self layerCombos];
+        /*
         NSLog(@"CAMBIO");
-       // [self layerEnsaladas:nil];
+   
+        NSString *thePath = [[NSBundle mainBundle] pathForResource:@"menu_combos" ofType:@"jpeg"];
+        UIImage *prodImg = [[UIImage alloc] initWithContentsOfFile:thePath];
+       // UIImage *img = [[UIImage alloc]initWithContentsOfFile:@"fondo4.png"];
+        [background setImage:prodImg];
+        
+        [self moverBoton:btn_centro posx:390 posy:245 alpha:0 duracion:0 delay:0];
+        [self moverBoton:btn_entradas posx:453 posy:86 alpha:0 duracion:0 delay:0];
+        [self moverBoton:btn_ensaladas posx:579 posy:126 alpha:0 duracion:0 delay:0];
+        [self moverBoton:btn_sopas posx:656 posy:236 alpha:0 duracion:0 delay:0];
+        [self moverBoton:btn_wok posx:656 posy:360 alpha:0 duracion:0 delay:0];
+        [self moverBoton:btn_tepp posx:579 posy:470 alpha:0 duracion:0 delay:0];
+        [self moverBoton:btn_sushi posx:453 posy:511 alpha:0 duracion:0 delay:0];
+        [self moverBoton:btn_especiales posx:327 posy:470 alpha:0 duracion:0 delay:0];
+        [self moverBoton:btn_postres posx:251 posy:360 alpha:0 duracion:0 delay:0];
+        [self moverBoton:btn_bebidas posx:251 posy:236 alpha:0 duracion:0 delay:0];
+        [self moverBoton:btn_licores posx:327 posy:126 alpha:0 duracion:0 delay:0];
+        [self moverBoton:fondo_btn posx:251 posy:126 alpha:0 duracion:0 delay:0];
+    
     }
+       
+    
     else
-        NSLog(@"HAY VERA");
+    {
+        NSString *thePath = [[NSBundle mainBundle] pathForResource:@"fondo3" ofType:@"png"];
+        UIImage *prodImg = [[UIImage alloc] initWithContentsOfFile:thePath];
+        // UIImage *img = [[UIImage alloc]initWithContentsOfFile:@"fondo4.png"];
+        [background setImage:prodImg];
+        
+        [self moverBoton:btn_centro posx:390 posy:245 alpha:1 duracion:0 delay:0];
+        [self moverBoton:btn_entradas posx:453 posy:86 alpha:1 duracion:0 delay:0];
+        [self moverBoton:btn_ensaladas posx:579 posy:126 alpha:1 duracion:0 delay:0];
+        [self moverBoton:btn_sopas posx:656 posy:236 alpha:1 duracion:0 delay:0];
+        [self moverBoton:btn_wok posx:656 posy:360 alpha:1 duracion:0 delay:0];
+        [self moverBoton:btn_tepp posx:579 posy:470 alpha:1 duracion:0 delay:0];
+        [self moverBoton:btn_sushi posx:453 posy:511 alpha:1 duracion:0 delay:0];
+        [self moverBoton:btn_especiales posx:327 posy:470 alpha:1 duracion:0 delay:0];
+        [self moverBoton:btn_postres posx:251 posy:360 alpha:1 duracion:0 delay:0];
+        [self moverBoton:btn_bebidas posx:251 posy:236 alpha:1 duracion:0 delay:0];
+        [self moverBoton:btn_licores posx:327 posy:126 alpha:1 duracion:0 delay:0];
+        [self moverBoton:fondo_btn posx:251 posy:126 alpha:1 duracion:0 delay:0];
+    }*/
+      
 }
 
 
@@ -239,6 +283,15 @@
 - (void)layerLicores:(id)arg {
     [self beginLayer:tipoLicores];
 }
+- (void)layerCombos{
+  //  [self beginLayer:tipoCombos];
+    [self moverBotones];
+    if (_rootViewController == nil) {
+        self.rootViewController = [[[RootViewController alloc] initWithNibName:nil bundle:nil] autorelease];
+    }
+    [[BrainMenu sharedInstance] setTipoPlatoActual:tipoCombos];
+    [self.navigationController pushViewController:_rootViewController animated:YES];
+}
 
 - (void)beginLayer:(int)_tipo{
     [self moverBotones];
@@ -248,6 +301,8 @@
     [[BrainMenu sharedInstance] setTipoPlatoActual:_tipo];
     [self.navigationController pushViewController:_rootViewController animated:YES];
 }
+
+
 
 - (void)dealloc {
     [_rootViewController release];
@@ -265,6 +320,7 @@
     [btn_licores release];
     [fondo_btn release];
     [fondo_btn release];
+    [background release];
     [super dealloc];
 }
 
