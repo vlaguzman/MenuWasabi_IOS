@@ -7,13 +7,18 @@
 //
 
 #import "cocos2d.h"
-
 #import "AppDelegate.h"
-//#import "IntroLayer.h"
+
+#define nameDataBase @"wdb.sqlite3"
+#define pathExample @"/Users/GOREMAC/Documents/Vladimir/ProyectosIOS/MenuWasabi/MenuWasabi/wdb.sqlite3"
+
 
 @implementation AppController
 
 @synthesize window=window_, navController=navController_, director=director_;
+@synthesize databaseName, databasePath;
+
+
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -78,6 +83,23 @@
 	// and add the scene to the stack. The director will run it when it automatically when the view is displayed.
 	//[director_ pushScene: [IntroLayer scene]];
 
+    //
+    //
+    //
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    // Añadimos el nombre del fichero de base de datos.
+    self.databasePath = [documentsDirectory stringByAppendingPathComponent:nameDataBase];
+    //self.databasePath = pathExample;
+    
+    NSLog(@"DATA BASE PATH  %@", self.databasePath);
+    
+    
+    // Cargo la base de datos
+    [self loadDataBase];
+    //
+    //
+    //
 	
 	// Create a Navigation Controller with the Director
 	//navController_ = [[UINavigationController alloc] initWithRootViewController:director_];
@@ -142,6 +164,58 @@
 -(void) applicationSignificantTimeChange:(UIApplication *)application
 {
 	[[CCDirector sharedDirector] setNextDeltaTimeZero:YES];
+}
+/*
+-(void)loadDataBaseA{
+    NSArray *rutas = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [rutas objectAtIndex:0];
+    //path = [[rutas objectAtIndex:0]stringByAppendingPathComponent:@"prueba.sqlite3"];
+    //  path = [documentsDirectory stringByAppendingPathComponent:pathDataBase];
+    NSLog(@" PATH %@",pathExample);
+    if(![[NSFileManager defaultManager] fileExistsAtPath:pathExample])
+    {
+        NSLog(@"NO EXISTIA PARCERO");
+        sqlite3 *wasabi_db;
+        if(sqlite3_open([pathExample UTF8String], &wasabi_db)!=SQLITE_OK)
+        {
+            sqlite3_close(wasabi_db);
+            NSLog(@"Error al abrir la Base de datos");
+        }
+        /*else
+         {
+         NSLog(@"PASAMOS POR EL ELSE PARA CREAR LA TABLA -loadDataBase-");
+         char *errorLog;
+         char *consulta="CREATE TABLE IF NOT EXISTS PRUEBA (FILA INTEGER PRIMARY KEY, TEXTO TEXT)";
+         if(sqlite3_exec(wasabi_db, consulta, NULL, NULL, &errorLog)!=SQLITE_OK)
+         NSLog(@"Error creando tabla %s", errorLog);
+         sqlite3_close(wasabi_db);
+         }
+ ///
+    }
+}
+*/
+- (void) loadDataBase{
+    NSLog(@"iniciamos loadDataBase ");
+    BOOL exito;
+    
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSError *error;
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES);
+    NSString *libraryDirectory = [paths objectAtIndex:0];
+    NSString *writableDBPath = [libraryDirectory stringByAppendingPathComponent:nameDataBase];
+    NSLog(@"path!!!!!!!! <<<>>>>>>>> %@", writableDBPath);
+    //NSString *writableDBPath = pathExample;
+   // writableDBPath = self.databaseName;
+    exito = [fileManager fileExistsAtPath:self.databasePath];//writableDBPath];
+  
+    if (exito) return;
+    // Si no existe en Library, la copio desde el original.
+    NSString *defaultDBPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:nameDataBase];
+    //NSString *defaultDBPath = pathExample;
+    exito = [fileManager copyItemAtPath:defaultDBPath toPath:writableDBPath error:&error];
+    if (!exito) {
+        NSAssert1(0, @"Error al cargar la base de datos, error = '%@'.", [error localizedDescription]);
+    }
 }
 
 - (void) dealloc

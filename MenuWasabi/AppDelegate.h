@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "cocos2d.h"
+#import <sqlite3.h>
 
 @interface AppController : NSObject <UIApplicationDelegate, CCDirectorDelegate>
 {
@@ -15,10 +16,17 @@
 	UINavigationController *navController_;
 
 	CCDirectorIOS	*director_;							// weak ref
+    
+    NSString *databaseName;
+    NSString *databasePath;
 }
 
-@property (nonatomic, retain) IBOutlet UIWindow *window;
+@property (nonatomic, strong) IBOutlet UIWindow *window;
 @property (readonly) UINavigationController *navController;
 @property (readonly) CCDirectorIOS *director;
+@property (nonatomic, strong) NSString *databaseName;
+@property (nonatomic, strong) NSString *databasePath;
 
+
+-(void)loadDataBase;
 @end

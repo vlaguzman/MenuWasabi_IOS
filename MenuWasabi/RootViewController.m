@@ -18,8 +18,6 @@
 #import "BrainMenu.h"
 #import <sqlite3.h>
 
-//#import "CoreDataManager.h"
-//#import "CoreData/CoreData.h"
 
 #define tipoSushi 1
 #define tipoTeppanyaki 2
@@ -33,7 +31,7 @@
 #define tipoLicores 10
 #define tipoCombos 11
 
-#define pathDataBase @"/Users/GOREMAC/Documents/Vladimir/ProyectosIOS/MenuWasabi/MenuWasabi/wdb.sqlite3"
+
 
 @interface RootViewController()
     
@@ -53,7 +51,8 @@ CCScene *scene;
 @implementation RootViewController
 @synthesize sushi1, sushi10, sushi11, sushi12, sushi13, sushi14, sushi15, sushi16, sushi17, sushi18, sushi19, sushi2, sushi20, sushi21, sushi22, sushi23, sushi24, sushi25, sushi26, sushi27, sushi28, sushi29, sushi3, sushi30, sushi31, sushi32, sushi33, sushi34, sushi35, sushi36, sushi37, sushi38,sushi39, sushi4, sushi5, sushi6, sushi7, sushi8, sushi9, sopa1, entrada1, entrada2, entrada3, entrada4, entrada5, entrada6, entrada7, entrada8, entrada9, entrada10, ensalada1, postre1, postre2, postre3, teppanyaki1, teppanyaki2, especial1, bebida1, bebida2, bebida3, licor1, licor2, licor3, licor4, licor5, licor6;
 @synthesize platos, gaseosa1, gaseosa2, gaseosa3, gaseosa4, gaseosa5, gaseosa6, gaseosa7, gaseosa8, gaseosa9, gaseosa10, gaseosa11, gaseosa12, jugo1, jugo2, jugo3, jugo4, jugo5, jugo6, jugo7, jugo8, jugo9, jugo10, jugo11, jugo12, jugo13, jugo14, jugo15, b_caliente1, b_caliente10, b_caliente2, b_caliente3, b_caliente4, b_caliente5, b_caliente6, b_caliente7, b_caliente8, b_caliente9;
-@synthesize path;
+@synthesize path, auxTipoPlato, tipoPlatosArray;
+//@synthesize appControler, auxTipoPlato;
 
 
 // Add these new methods
@@ -112,11 +111,57 @@ CCScene *scene;
 - (void)viewDidLoad {
    
     [super viewDidLoad];
-
     [self setupCocos2D];
+    
+    appControler = (AppController*)[[UIApplication sharedApplication]delegate];
+    tipoPlatosArray = [[NSMutableArray alloc]init];
+    
+   
+    //[self addTipoPlato];
+    [self loadTipoDatosFromDB];
    // [self loadDataBase];
    // [self grabarTabla];
-   // [self leerTabla];
+    //[self leerTabla];
+}
+
+- (void)loadTipoDatosFromDB{
+    sqlite3 *database;
+    sqlite3_stmt *compiledStatement;
+    // Abrimos la base de datos de la ruta indicada en el delegate
+    if(sqlite3_open([appControler.databasePath UTF8String], &database) == SQLITE_OK) {
+        // Podríamos seleccionar solo algunos, o todos en el orden deseado así:
+        // NSString *sqlStatement = [NSString stringWithFormat:@"seletc id_tutorial, sistema, nombre, terminado from Tutoriales"];
+        NSString *sqlStatement = [NSString stringWithFormat:@"select * from wsb_tipoPlato"];
+        
+        
+        // Lanzamos la consulta y recorremos los resultados si todo ha ido OK
+        if(sqlite3_prepare_v2(database, [sqlStatement UTF8String], -1, &compiledStatement, NULL) == SQLITE_OK) {
+            // Recorremos los resultados. En este caso no habrá.
+            
+            while(sqlite3_step(compiledStatement) == SQLITE_ROW) {
+                
+                // Leemos las columnas necesarias. Aunque algunos valores son numéricos, prefiero recuperarlos en string y convertirlos luego, porque da menos problemas.
+                NSString *id_tipoPlato = [NSString stringWithUTF8String:(char *)sqlite3_column_text(compiledStatement, 0)];
+                NSString *nombre = [NSString stringWithUTF8String:(char *)sqlite3_column_text(compiledStatement, 1)];
+                TipoPlato *auxTipoPlato = [[TipoPlato alloc]init];
+                auxTipoPlato.id_tipoPlato = [id_tipoPlato intValue];
+                auxTipoPlato.nombre = nombre;
+                NSLog(@"id:= %i Nombre:= %@", auxTipoPlato.id_tipoPlato, auxTipoPlato.nombre);
+                [tipoPlatosArray addObject:auxTipoPlato];
+                NSLog(@"Tutorial count = %d",[tipoPlatosArray count]);
+            }
+        }
+
+        else {
+          NSLog(@"HP! QUÉ ES LO QUE ESTA PASANDO???????????????????");
+        }
+        
+        // Libero la consulta
+        sqlite3_finalize(compiledStatement);
+        
+    }
+    // Cierro la base de datos
+    sqlite3_close(database);
 }
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
@@ -164,31 +209,58 @@ CCScene *scene;
 }
 #endif // GAME_AUTOROTATION == kGameAutorotationUIViewController
 
--(void)loadDataBase{
-    NSArray *rutas = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    //path = [[rutas objectAtIndex:0]stringByAppendingPathComponent:@"prueba.sqlite3"];
-    path = pathDataBase;
-    NSLog(@" PATH %@",path);
-    if(![[NSFileManager defaultManager] fileExistsAtPath:path])
-    {
-         NSLog(@"NO EXISTIA PARCERO");
-        sqlite3 *wasabi_db;
-        if(sqlite3_open([path UTF8String], &wasabi_db)!=SQLITE_OK)
+-(void)addTipoPlato{
+   
+        // En caso de que si que tenga nombre, comprobamos si auxTutorial existe. De no ser así (que debería ser lo normal), lo iniciamos.
+        if(auxTipoPlato == nil)
         {
-            sqlite3_close(wasabi_db);
-            NSLog(@"Error al abrir la Base de datos");
+            auxTipoPlato = [[TipoPlato alloc]init];
         }
-        /*else
-        {
-            NSLog(@"PASAMOS POR EL ELSE PARA CREAR LA TABLA -loadDataBase-");
-            char *errorLog;
-            char *consulta="CREATE TABLE IF NOT EXISTS PRUEBA (FILA INTEGER PRIMARY KEY, TEXTO TEXT)";
-            if(sqlite3_exec(wasabi_db, consulta, NULL, NULL, &errorLog)!=SQLITE_OK)
-                NSLog(@"Error creando tabla %s", errorLog);
-            sqlite3_close(wasabi_db);
-        }*/
-    }
+        // Establecemos el nombre al objeto.
+        auxTipoPlato.nombre = @"Prueba2";
+        // Ahora instanciamos la variable database de tipo sqlite3
+        sqlite3 *database;
+        // Creamos el sqlite3_stmt que contendrá después la sentencia a ejecutar compilada.
+        sqlite3_stmt *compiledStatement;
+        // Abrimos la base de datos de la ruta indicada en el delegate
+        if(sqlite3_open([appControler.databasePath UTF8String], &database) == SQLITE_OK) {
+            
+            // Si no ha habido errores al abrir, creamos la sentencia de inserción.
+            // Como id_noticia es autoincremental, no lo indicaremos nosotros.
+            NSString *sqlStatement = [NSString stringWithFormat:@"Insert into \"wsb_tipoPlato\" (\"nombre\") VALUES (\"%@\")",
+                                      auxTipoPlato.nombre
+                                      ];
+            
+            CCLOG(sqlStatement);
+            // (\"sistema\",\"nombre\", \"terminado\") VALUES (\"%@\",\"%@\",\"%d\")"
+            // Lanzamos la consulta y recorremos los resultados si todo ha ido OK
+            if(sqlite3_prepare_v2(database, [sqlStatement UTF8String], -1, &compiledStatement, nil) == SQLITE_OK) {
+                // En otros casos recorremos los resultados. En este caso no habrá.
+                while(sqlite3_step(compiledStatement) == SQLITE_ROW) {
+                    int id_tipoPlato=sqlite3_column_int(compiledStatement, 0);
+                    char *nombre = (char *) sqlite3_column_text(compiledStatement, 1);
+                    NSLog(@"%i %s",id_tipoPlato, nombre);
+                }
+                
+            }
+            else {
+                 NSLog(@"ERROR AGREGANDO PRUEBA");
+            }
+            
+            // Libero la consulta
+            sqlite3_finalize(compiledStatement);
+        }
+        // Cierro la base de datos
+        sqlite3_close(database);
+        
+        // Si todo ha ido bien podemos abandonar la ventana e ir a la superior.
+        //Aquí también podéis utilizar un UIAlertView para notificar al usuario de que la inserción ha sido correcta.
+        //[self.navigationController popViewControllerAnimated:YES];
+        
+
 }
+
+
 
 
 

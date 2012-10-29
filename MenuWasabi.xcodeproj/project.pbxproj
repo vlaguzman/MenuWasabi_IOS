@@ -135,10 +135,11 @@
 		C10A67BB160CBBF400489A45 /* HelloWorldLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C10A67BA160CBBF400489A45 /* HelloWorldLayer.m */; };
 		C10A67BE160CBBF400489A45 /* IntroLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C10A67BD160CBBF400489A45 /* IntroLayer.m */; };
 		C11339BC161B4DFC003F2D4E /* BrainMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = C11339BB161B4DFC003F2D4E /* BrainMenu.m */; };
+		C11C73F8163EE9DC00E6A507 /* TipoPlato.m in Sources */ = {isa = PBXBuildFile; fileRef = C11C73F7163EE9DC00E6A507 /* TipoPlato.m */; };
+		C11C7403163F3D5100E6A507 /* wdb.sqlite3 in Resources */ = {isa = PBXBuildFile; fileRef = C11C7402163F3D5100E6A507 /* wdb.sqlite3 */; };
 		C11DC6E11611ED2F00D8DCA3 /* individual.png in Resources */ = {isa = PBXBuildFile; fileRef = C11DC6DE1611ED2F00D8DCA3 /* individual.png */; };
 		C11DC6E21611ED2F00D8DCA3 /* muro.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C11DC6DF1611ED2F00D8DCA3 /* muro.jpg */; };
 		C11DC6E31611ED2F00D8DCA3 /* piso.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C11DC6E01611ED2F00D8DCA3 /* piso.jpg */; };
-		C123C95E1638815200474B44 /* wdb.sqlite3 in Resources */ = {isa = PBXBuildFile; fileRef = C123C95D1638815200474B44 /* wdb.sqlite3 */; };
 		C123C9681638907100474B44 /* CombosLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C123C9671638907100474B44 /* CombosLayer.m */; };
 		C123C96F163897FB00474B44 /* menu_combos.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = C123C96E163897FB00474B44 /* menu_combos.jpeg */; };
 		C123C97116389C4A00474B44 /* btn_hacerpedido.png in Resources */ = {isa = PBXBuildFile; fileRef = C123C97016389C4600474B44 /* btn_hacerpedido.png */; };
@@ -657,10 +658,12 @@
 		C10A67BD160CBBF400489A45 /* IntroLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IntroLayer.m; sourceTree = "<group>"; };
 		C11339BA161B4DFC003F2D4E /* BrainMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrainMenu.h; sourceTree = "<group>"; };
 		C11339BB161B4DFC003F2D4E /* BrainMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrainMenu.m; sourceTree = "<group>"; };
+		C11C73F6163EE9DC00E6A507 /* TipoPlato.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TipoPlato.h; sourceTree = "<group>"; };
+		C11C73F7163EE9DC00E6A507 /* TipoPlato.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TipoPlato.m; sourceTree = "<group>"; };
+		C11C7402163F3D5100E6A507 /* wdb.sqlite3 */ = {isa = PBXFileReference; lastKnownFileType = file; path = wdb.sqlite3; sourceTree = "<group>"; };
 		C11DC6DE1611ED2F00D8DCA3 /* individual.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = individual.png; sourceTree = "<group>"; };
 		C11DC6DF1611ED2F00D8DCA3 /* muro.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = muro.jpg; sourceTree = "<group>"; };
 		C11DC6E01611ED2F00D8DCA3 /* piso.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = piso.jpg; sourceTree = "<group>"; };
-		C123C95D1638815200474B44 /* wdb.sqlite3 */ = {isa = PBXFileReference; lastKnownFileType = file; path = wdb.sqlite3; sourceTree = "<group>"; };
 		C123C9661638907100474B44 /* CombosLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CombosLayer.h; sourceTree = "<group>"; };
 		C123C9671638907100474B44 /* CombosLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CombosLayer.m; sourceTree = "<group>"; };
 		C123C96E163897FB00474B44 /* menu_combos.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = menu_combos.jpeg; sourceTree = "<group>"; };
@@ -986,7 +989,6 @@
 		C10A663E160CBBF200489A45 /* MenuWasabi */ = {
 			isa = PBXGroup;
 			children = (
-				C123C95D1638815200474B44 /* wdb.sqlite3 */,
 				C10A67B6160CBBF400489A45 /* AppDelegate.h */,
 				C10A67B7160CBBF400489A45 /* AppDelegate.m */,
 				C1EFBF6C160CCF7C0005ECF1 /* MainWindow.xib */,
@@ -1006,6 +1008,8 @@
 				C123C9671638907100474B44 /* CombosLayer.m */,
 				C1EFBF66160CC4700005ECF1 /* SushiLayer.h */,
 				C1EFBF67160CC4700005ECF1 /* SushiLayer.m */,
+				C11C73F6163EE9DC00E6A507 /* TipoPlato.h */,
+				C11C73F7163EE9DC00E6A507 /* TipoPlato.m */,
 				C1D3B699161A3D7E00542A4C /* Plato.h */,
 				C1D3B69A161A3D7F00542A4C /* Plato.m */,
 				C1C4C378162F511F006AA580 /* TipoBebida.h */,
@@ -1384,6 +1388,7 @@
 		C10A67B2160CBBF400489A45 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C11C7402163F3D5100E6A507 /* wdb.sqlite3 */,
 				C10A67B3160CBBF400489A45 /* Prefix.pch */,
 				C10A67B4160CBBF400489A45 /* main.m */,
 			);
@@ -2269,7 +2274,6 @@
 				C1B89F201630BB160047518D /* vinos.png in Resources */,
 				C10863281631B597007D361E /* barra_agregar.png in Resources */,
 				C108632B16320367007D361E /* lista_bebidas.jpg in Resources */,
-				C123C95E1638815200474B44 /* wdb.sqlite3 in Resources */,
 				C123C96F163897FB00474B44 /* menu_combos.jpeg in Resources */,
 				C123C97116389C4A00474B44 /* btn_hacerpedido.png in Resources */,
 				C144B2701639B0340091A8E0 /* ComboViewController.xib in Resources */,
@@ -2277,6 +2281,7 @@
 				C1F24806163B339300402C3C /* Combo_Light_n.png in Resources */,
 				C1F24808163B34D800402C3C /* combo_infantil_g.png in Resources */,
 				C1F2480A163B34E700402C3C /* Combo_Special_mix_p.png in Resources */,
+				C11C7403163F3D5100E6A507 /* wdb.sqlite3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2401,6 +2406,7 @@
 				C1C4C37D162F513D006AA580 /* Bebida.m in Sources */,
 				C123C9681638907100474B44 /* CombosLayer.m in Sources */,
 				C144B26F1639B0340091A8E0 /* ComboViewController.m in Sources */,
+				C11C73F8163EE9DC00E6A507 /* TipoPlato.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,18 +7,23 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AppDelegate.h"
 #import "Plato.h"
-#import "CoreData/CoreData.h"
-//#import "CoreDataManager.h"
-//#import "MenuViewController.h"
+#import "TipoPlato.h"
 
 @interface RootViewController : UIViewController
 {
-   
+    NSString *path;
     IBOutlet UIButton *btnPrincipal;
+    AppController *appControler;
+    TipoPlato *auxTipoPlato;
+    NSMutableArray *tipoPlatosArray;
 }
 
+@property (nonatomic, retain) NSMutableArray *tipoPlatosArray;
 @property (nonatomic, strong) NSString *path;
+//@property (nonatomic, strong) AppController *appControler;
+@property (nonatomic, strong) TipoPlato *auxTipoPlato;
 
 - (IBAction)menuTapped:(id)sender;
 - (NSString *)demeNombrePlatoPorId:(id)_id;
@@ -36,5 +41,8 @@
 - (Plato *)demeDatosPlatoEnUbicacion:(int)_ubicacion;
 -(BOOL)estaPlato:(id)_idplato;
 -(int)demeTipoActual;
+
+-(void)addTipoPlato;
+- (void)loadTipoDatosFromDB;
 
 @end
