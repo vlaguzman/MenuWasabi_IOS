@@ -12,7 +12,7 @@
 #import "CCTouchDispatcher.h"
 #import "CCActionInterval.h"
 #import "BrainMenu.h"
-
+#import "DAOPlatos.h"
 
 #define kMoveMedium 0.2
 #define kMoveFast 0.05
@@ -66,17 +66,17 @@
 
 
 //Cada tipo de plato tiene un identificador para efecto de carag de imagenes
-#define tipoSushi 1
-#define tipoTeppanyaki 2
-#define tipoSopa 3
-#define tipoEspeciales 4
-#define tipoEntradas 5
-#define tipoEnsaladas 6
-#define tipoWok 7
-#define tipoPostres 8
-#define tipoBebidas 9
-#define tipoLicores 10
-#define tipoCombos 11
+#define tipoEntradas @"1"
+#define tipoEnsaladas @"2"
+#define tipoSopa @"3"
+#define tipoWok @"4"
+#define tipoTeppanyaki @"5"
+#define tipoSushi @"6"
+#define tipoEspeciales @"7"
+#define tipoPostres @"8"
+#define tipoBebidas @"9"
+#define tipoLicores @"10"
+#define tipoCombos @"11"
 
 
 #define kindFactorSushi 0
@@ -176,8 +176,12 @@ BOOL bool_swipe = YES;
 
 
 -(void)changeValueNumPlates{
-    CGSize winSize = [[CCDirector sharedDirector] winSize];
-    int tipoPlato = [_rootViewController demeTipoActual];
+    NSString *tipoPlato = [_rootViewController demeTipoActual];
+    
+    NSLog(@"TIPO: %@", tipoPlato);
+    NSLog(@"%d", [tipoPlato intValue] == [tipoTeppanyaki intValue]);
+    NSLog(@"%d", (tipoPlato == tipoTeppanyaki));
+    
     if(tipoPlato == tipoSushi){
         KindFactor = kindFactorSushi;
         numPlates = 39;
@@ -185,6 +189,7 @@ BOOL bool_swipe = YES;
         limitMoveRight = ((numPlates-4) * limitMoveLeftMenuFactorSushi)+limitMoveLeft;
     }
     else if (tipoPlato == tipoTeppanyaki){
+        NSLog(@"MENOS MAL");
         KindFactor = kindFactorTeppanyaki;
         numPlates = 2;
         posXprincipalMenu = posXprincipalMenuTeppanyaki;
@@ -266,28 +271,39 @@ BOOL bool_swipe = YES;
         NSString *strprecioPlato;
         
         menu = [[CCMenu alloc]init];
-        for (int i = 1; i <= numPlates; i++) {
+       
+        NSMutableArray *platos = [[NSMutableArray alloc]init];
+        platos = [[DAOPlatos sharedInstance] getPlatesByKind:[_rootViewController demeTipoActual]];
+        Plato *auxPlate = [[Plato alloc]init];
+        
+        for (int i = 0; i < [platos count]; i++) {
+            auxPlate = [platos objectAtIndex:i];
             
             nombre_plato = [[CCLabelTTF alloc]initWithString:@"" fontName:font fontSize:_fontSizeTitleName];
             precio_plato = [[CCLabelTTF alloc]initWithString:@"" fontName:font fontSize:_fontSizeTitlePrice];
             
-            strnombrePlato = [_rootViewController demeNombrePlatoPorId:@(i+KindFactor)];
+            
+            //strnombrePlato = [_rootViewController demeNombrePlatoPorId:@(i+KindFactor)];
+            strnombrePlato = auxPlate.nombre;
             [nombre_plato setString:strnombrePlato];
             
-            int _tipo = [_rootViewController demeTipoActual];
+            NSString *_tipo = [_rootViewController demeTipoActual];
             BOOL _tipoBool = YES;
             if(_tipo == tipoBebidas) _tipoBool = NO;
             if(_tipo == tipoLicores) _tipoBool = NO;
             
             if(_tipoBool){
-                strprecioPlato = [[NSString alloc] initWithFormat:@"$ %i", [_rootViewController demePrecioPlatoPorId:@(i+KindFactor)]];
+                //strprecioPlato = [[NSString alloc] initWithFormat:@"$ %i", [_rootViewController demePrecioPlatoPorId:@(i+KindFactor)]];
+                strprecioPlato = [[NSString alloc]initWithFormat:@"$ %i", auxPlate.precio];
                 [precio_plato setString:strprecioPlato];
             }
             itemNombrePlato = [CCMenuItemLabel itemWithLabel:nombre_plato target:self selector:@selector(onPushSceneTranLabel:)];
             itemPrecio = [CCMenuItemLabel itemWithLabel:precio_plato target:self selector:@selector(onPushSceneTranLabel:)];
-            itemAux = [CCMenuItemImage itemWithNormalImage:[_rootViewController demeFuenteImagenPlatoPorId:@(i+KindFactor)] selectedImage:[_rootViewController demeFuenteImagenPlatoPorId:@(i+KindFactor)] target:self selector:@selector(onPushSceneTranImage:)];
-            itemAux.tag=i+KindFactor;
-
+            //itemAux = [CCMenuItemImage itemWithNormalImage:[_rootViewController demeFuenteImagenPlatoPorId:@(i+KindFactor)] selectedImage:[_rootViewController demeFuenteImagenPlatoPorId:@(i+KindFactor)] target:self selector:@selector(onPushSceneTranImage:)];
+            itemAux = [CCMenuItemImage itemWithNormalImage:auxPlate.fuente_img selectedImage:auxPlate.fuente_img target:self selector:@selector(onPushSceneTranImage:)];
+           // itemAux.tag=i+KindFactor;
+           itemAux.tag=[auxPlate.id_plato intValue];
+            
             itemAux.position = CGPointMake(itemAux.position.x +(i*paddingPrincipalPlates), itemAux.position.y);
             itemNombrePlato.position = CGPointMake(itemNombrePlato.position.x +(i*paddingPrincipalPlates), 165);
             itemPrecio.position = CGPointMake(itemPrecio.position.x +(i*paddingPrincipalPlates)+5, 148);
@@ -449,7 +465,7 @@ BOOL bool_swipe = YES;
         }
     }
 }
-
+/*
 
 -(void)moveRight{
     if(numPlates > 4){
@@ -472,14 +488,14 @@ BOOL bool_swipe = YES;
                 pos-=resul_dif*kMedium;
                 time_efect = tMedium;
                 CCLOG(@"--------------------------------------------------------");
-                CCLOG(@"resul_dif<kMoveMedium :=  kMedium %f  || resul_dif %f || POS %f ", kMoveMedium, resul_dif, pos);
+                CCLOG(@"resul_dif<kMoveMedium :=  kMedium %d  || resul_dif %f || POS %f ", kMoveMedium, resul_dif, pos);
                 CCLOG(@"--------------------------------------------------------");
             }
             else{
                 pos-=resul_dif*kSlow;
                 time_efect=tSlow;
                 CCLOG(@"--------------------------------------------------------");
-                CCLOG(@"resul_dif<KmoveSlow :=  kSlow %f  || resul_dif %f || POS %f ", kSlow, resul_dif, pos);
+                CCLOG(@"resul_dif<KmoveSlow :=  kSlow %d  || resul_dif %d || POS %d ", kSlow, resul_dif, pos);
                 CCLOG(@"--------------------------------------------------------");
             }
             if(pos < limitMoveRight ){
@@ -532,11 +548,11 @@ BOOL bool_swipe = YES;
     }
 }
 
-
+*/
 - (void)onExit {
   	//[self removeAllChildrenWithCleanup:YES];
-    [[[CCDirector sharedDirector] openGLView] removeGestureRecognizer:_swipeLeftRecognizer];
-    [[[CCDirector sharedDirector] openGLView] removeGestureRecognizer:_swipeRightRecognizer];
+  //  [[[CCDirector sharedDirector] openGLView] removeGestureRecognizer:_swipeLeftRecognizer];
+   // [[[CCDirector sharedDirector] openGLView] removeGestureRecognizer:_swipeRightRecognizer];
     
 }
 
@@ -561,6 +577,7 @@ BOOL bool_swipe = YES;
 -(void) ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event{
 }
 
+/*
 - (void)handleLeftSwipe:(UISwipeGestureRecognizer *)swipeRecognizer {
     CCLOG(@"Swipe Left!");
     [self moveLeft];
@@ -572,6 +589,7 @@ BOOL bool_swipe = YES;
     [self moveRight];
     
 }
+ */
 -(void) nothingHere: (id *) sender
 {
     CCLOG(@"------------------- nothingHere ----------------------");
@@ -584,11 +602,16 @@ BOOL bool_swipe = YES;
     CCLOG(@" onPushSceneTranImage Tag sender: %i", [sender tag]);
     iactualPlate = [sender tag];
     [self desaparecerMenus];
-    [label_descripcion setString:[_rootViewController demeDescripcionPlatoPorId:@(iactualPlate)]];
+    Plato *pl = [[Plato alloc]init];
+    pl = [[DAOPlatos sharedInstance] getPlateById:[[NSString alloc]initWithFormat:@"%i", iactualPlate]];
+   CCLOG(@" onPushSceneTranImage Vamos a ver si se hace algo  %@", pl.nombre);
+    // [label_descripcion setString:[_rootViewController demeDescripcionPlatoPorId:@(iactualPlate)]];
+    [label_descripcion setString:pl.description];
+
+    //[itemAux2 setNormalImage:[CCMenuItemImage itemWithNormalImage:[_rootViewController demeFuenteImagenGrandePlatoPorId:@(iactualPlate)] selectedImage:[_rootViewController demeFuenteImagenGrandePlatoPorId:@(iactualPlate)]]];
+    [itemAux2 setNormalImage:[CCMenuItemImage itemWithNormalImage:pl.fuente_img_grande selectedImage:pl.fuente_img_grande]];
     
-    [itemAux2 setNormalImage:[CCMenuItemImage itemWithNormalImage:[_rootViewController demeFuenteImagenGrandePlatoPorId:@(iactualPlate)] selectedImage:[_rootViewController demeFuenteImagenGrandePlatoPorId:@(iactualPlate)]]];
-    
-    int _tipo = [_rootViewController demeTipoActual];
+    NSString *_tipo = [_rootViewController demeTipoActual];
     BOOL _tipoBool = NO;
     if(_tipo == tipoBebidas) _tipoBool = YES;
     if(_tipo == tipoLicores) _tipoBool = YES;
@@ -678,7 +701,7 @@ BOOL bool_swipe = YES;
     [self moveMenu_withMenu:menu_platosgrandes withXpox:AHalfWinSizeX withYpos:menu_platosgrandes.position.y withTimeTransition:1.0];
     [self moveMenu_withMenu:menu_atras withXpox:940 withYpos:740 withTimeTransition:1.0];
     
-    int _tipo = [_rootViewController demeTipoActual];
+    NSString *_tipo = [_rootViewController demeTipoActual];
     BOOL _tipoBool = YES;
     if(_tipo == tipoBebidas) _tipoBool = NO;
     if(_tipo == tipoLicores) _tipoBool = NO;
@@ -687,7 +710,7 @@ BOOL bool_swipe = YES;
         
         [self moveMenu_withMenu:menu_detalles withXpox:posXShowBigPlatesDescription withYpos:posYBigPlatesDescription withTimeTransition:1.0];
         [self moveLabel:label_descripcion with_pox:posXShowBigPlatesDescription with_posy:posYBigPlatesDescription withTimeTransition:1.0];
-        if ((![_rootViewController estaPlato:@(iactualPlate)])&&(_rootViewController.demeNumeroPlatosEnOrden < 6)) {
+        if ((![_rootViewController estaPlato:[[NSString alloc]initWithFormat:@"%i", iactualPlate]])&&(_rootViewController.demeNumeroPlatosEnOrden < 6)) {
             
                 [self moveMenu_withMenu:menu_agregar withXpox:posXaparecerAgregar withYpos:posYaparecerAgregar withTimeTransition:1.0];
         }
@@ -740,17 +763,18 @@ BOOL bool_swipe = YES;
 -(void) onAddPlate:(id) sender
 {
     
-    if (![_rootViewController estaPlato:@(iactualPlate)]) {
-
-        [_rootViewController agregarPlato:@(iactualPlate)];
+    if (![_rootViewController estaPlato:[[NSString alloc]initWithFormat:@"%i", iactualPlate]]) {
+        Plato *pl = [[DAOPlatos sharedInstance] getPlateById:[[NSString alloc]initWithFormat:@"%i", iactualPlate]];
+        [_rootViewController agregarPlato:pl.id_plato];
         int numPlates = [_rootViewController demeNumeroPlatosEnOrden];
-        [self loadPlateWithIdPlate:iactualPlate withSourceImg:[_rootViewController demeFuenteImagenPequenoPlatoPorId:@(iactualPlate)] withSourceClose:btnClose withPrice:[_rootViewController demePrecioPlatoPorId:@(iactualPlate)] withKindPlate:[_rootViewController demeTipoPlatoPorId:@(iactualPlate)] withName:[_rootViewController demeNombrePlatoPorId:@(iactualPlate)] withNum:numPlates];
+        [self loadPlateWithIdPlate:pl.id_plato withSourceImg:pl.fuente_img_peq withSourceClose:btnClose withPrice:pl.precio withKindPlate:pl.tipo withName:pl.nombre withNum:numPlates];
         [self updateTotalBill];
         //RETIRO EL BOTON DE AGREGAR
         [self moveMenu_withMenu:menu_agregar withXpox:posXdesaparecerAgregar withYpos:winSize.height+100 withTimeTransition:1.0];
         if(menu_barra.position.y!=120){
             [self onUpDown:self];
         }
+        
     }
     
 }
@@ -762,25 +786,25 @@ BOOL bool_swipe = YES;
     int cantidadPlatos = [_rootViewController demeNumeroPlatosEnOrden];
     for (int n=0; n<cantidadPlatos; n++) {
         platoTemp = [_rootViewController demeDatosPlatoEnUbicacion:n];
-        CCLOG(@"tipo plato caragdo ID %d TIPO %d", platoTemp.id_plato, platoTemp.tipo);
+        CCLOG(@"tipo plato caragdo ID %@ TIPO %@", platoTemp.id_plato, platoTemp.tipo);
         [self loadPlateWithIdPlate:platoTemp.id_plato withSourceImg:platoTemp.fuente_img_peq withSourceClose:btnClose withPrice:platoTemp.precio withKindPlate: platoTemp.tipo withName:platoTemp.nombre withNum: (n+1)];
     }
 }
 
--(void)loadPlateWithIdPlate:(int) _idPlate withSourceImg:(NSString *) _sourceImg withSourceClose:(NSString *) _sourceImgClose withPrice:(int) _price withKindPlate:(int) _tipo withName:(NSString *)_name withNum:(int)_num{
+-(void)loadPlateWithIdPlate:(NSString *) _idPlate withSourceImg:(NSString *) _sourceImg withSourceClose:(NSString *) _sourceImgClose withPrice:(int) _price withKindPlate:(NSString *) _tipo withName:(NSString *)_name withNum:(int)_num{
     CCMenuItemImage *itemImg, *itemCerrar;
     CCMenuItemLabel *itemPrecio, *itemName;
     
     //Creo una imagen para agregar al menu
     itemImg = [CCMenuItemImage itemWithNormalImage:_sourceImg selectedImage:_sourceImg target:nil selector:nil];
     //asigno el id del plato actual en caso de necesitar eliminarlo
-    itemImg.tag = _idPlate;
+    itemImg.tag = [_idPlate intValue];
     
     //Creo una imagen para el btn cerrar
     itemCerrar = [CCMenuItemImage itemWithNormalImage:_sourceImgClose selectedImage:_sourceImgClose target:self selector:@selector(onDeletePlate:)];
     //asigno el mismo id que el de la imagen para cuando sea necesario eliminar la imagen
-    itemCerrar.tag = _idPlate;
-    itemCerrar.accessibilityValue = [[NSString alloc]initWithFormat:@"%i", _tipo];
+    itemCerrar.tag = [_idPlate intValue];
+    itemCerrar.accessibilityValue = _tipo;
     
     //Creo un label para mostrar el valor del plato
     CCLabelTTF *precio_plato = [[CCLabelTTF alloc]initWithString:@"precio" fontName:font fontSize:_fontSizeOrderPrice];
@@ -789,12 +813,12 @@ BOOL bool_swipe = YES;
     [precio_plato setString:str_precio];
     //agrego el label al menu y le asigno el mismo id que las imagenes anteriores
     itemPrecio = [CCMenuItemLabel itemWithLabel:precio_plato];
-    itemPrecio.tag = _idPlate;
+    itemPrecio.tag = [_idPlate intValue];
     
     CCLabelTTF *name_plate = [[CCLabelTTF alloc]initWithString:@"precio" fontName:font fontSize:_fontSizeOrderName];
     [name_plate setString:_name];
     itemName = [CCMenuItemLabel itemWithLabel:name_plate];
-    itemName.tag = _idPlate;
+    itemName.tag = [_idPlate intValue];
     
     itemImg.position = CGPointMake(itemImg.position.x +(_num*paddingTinyPlates), itemImg.position.y);
     itemName.position = CGPointMake(itemPrecio.position.x +(_num*paddingTinyPlates), -45);

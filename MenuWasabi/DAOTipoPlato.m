@@ -23,6 +23,10 @@ static DAOTipoPlato *sharedDAOTipoPlato = nil;
     }
     return sharedDAOTipoPlato;
 }
+-(int)getNumberOfKindPlates
+{
+    return [tipoPlatoDictionary count];
+}
 
 - (void)loadTipoDatosFromDB{
     sqlite3 *database;

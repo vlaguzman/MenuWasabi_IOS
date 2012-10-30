@@ -14,9 +14,7 @@
 
 @interface DAOTipoPlato : NSObject{
     AppController *appControler;
-   
     NSMutableDictionary *tipoPlatoDictionary;
-
 }
 
 @property (nonatomic, strong) NSMutableDictionary *tipoPlatoDictionary;
@@ -24,7 +22,9 @@
 + (DAOTipoPlato*) sharedInstance;
 
 - (void)loadTipoDatosFromDB;
--(void)addTipoPlato;
+- (int) getNumberOfKindPlates;
 - (TipoPlato*) getTipoPlatoById:(NSString*) _idTipoPlato;
+
+-(void)addTipoPlato;
 
 @end

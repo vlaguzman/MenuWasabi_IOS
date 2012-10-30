@@ -24,17 +24,17 @@
 #import "DAOTipoBebida.h"
 #import "DAOTipoPlato.h"
 
-#define tipoSushi 1
-#define tipoTeppanyaki 2
-#define tipoSopa 3
-#define tipoEspeciales 4
-#define tipoEntradas 5
-#define tipoEnsaladas 6
-#define tipoWok 7
-#define tipoPostres 8
-#define tipoBebidas 9
-#define tipoLicores 10
-#define tipoCombos 11
+#define tipoEntradas @"1"
+#define tipoEnsaladas @"2"
+#define tipoSopa @"3"
+#define tipoWok @"4"
+#define tipoTeppanyaki @"5"
+#define tipoSushi @"6"
+#define tipoEspeciales @"7"
+#define tipoPostres @"8"
+#define tipoBebidas @"9"
+#define tipoLicores @"10"
+#define tipoCombos @"11"
 
 
 
@@ -64,13 +64,13 @@ CCScene *scene;
 
 
 - (void)setupCocos2D {
-    [self crearPlatosSushi];
-    [self crearPlatosSopa];
-    [self crearPlatosEntradas];
-    [self crearPlatosEnsaladas];
-    [self crearPlatosPostres];
-    [self crearPlatosEspeciales];
-    [self crearPlatosTeppanyaki];
+   // [self crearPlatosSushi];
+   // [self crearPlatosSopa];
+    //[self crearPlatosEntradas];
+    //[self crearPlatosEnsaladas];
+    //[self crearPlatosPostres];
+    //[self crearPlatosEspeciales];
+    //[self crearPlatosTeppanyaki];
     //[self crearPlatosBebidas];
    // [self crearPlatosLicores];
     [self beginPlates];
@@ -134,7 +134,7 @@ CCScene *scene;
     [[DAOTipoPlato sharedInstance] loadTipoDatosFromDB];
     TipoPlato *t;
     t = [[DAOTipoPlato sharedInstance] getTipoPlatoById:@"2"];
-    NSLog(@"ESTE ES EL NOMBRE DEL PLATO CON ID %i --- %@", 2, t.nombre);
+    NSLog(@"ESTE ES EL NOMBRE DEL TIPO PLATO CON ID %i --- %@", 2, t.nombre);
 }
 
 
@@ -280,7 +280,7 @@ CCScene *scene;
             NSLog(@"ERROR ACTUALIZANDO VALOR");
     }
 }*/
-
+/*
 -(void)crearPlatosSushi{
 
     
@@ -843,6 +843,7 @@ CCScene *scene;
     postre3.tipo = tipoPostres;
 }
 
+
 -(void)crearPlatosBebidas{
 
     if(bebida1==nil) bebida1 = [[TipoBebida alloc]init];
@@ -920,69 +921,77 @@ CCScene *scene;
     licor6.fuente_img_peq = @"vinos_p.png";
     licor6.tipo = tipoLicores;
 }
--(int)demeTipoActual{
+ 
+ */
+-(int)getNumberOfPlates{
+    return  [[DAOPlatos sharedInstance] getNumberOfPlates];
+}
+
+
+
+-(NSString *)demeTipoActual{
     return [[BrainMenu sharedInstance] tipoPlatoActual];
 }
 
--(BOOL)estaPlato:(id)_id{
-    return [[BrainMenu sharedInstance] estaPlato:[platos objectForKey:_id]];
+-(BOOL)estaPlato:(NSString*)_id{
+    return [[BrainMenu sharedInstance] estaPlato:[[DAOPlatos sharedInstance] getPlateById:_id]];// [platos objectForKey:_id]];
 }
 
--(NSString *)demeNombrePlatoPorId:(id)_id{
-    Plato *plato_return = [platos objectForKey:_id];
+-(NSString *)demeNombrePlatoPorId:(NSString*)_id{
+    Plato *plato_return = [[DAOPlatos sharedInstance] getPlateById:_id];//[platos objectForKey:_id];
     return plato_return.nombre;
 }
 
--(int)demeTipoPlatoPorId:(id)_id{
-    Plato *plato_return = [platos objectForKey:_id];
+-(NSString *)demeTipoPlatoPorId:(NSString*)_id{
+    Plato *plato_return = [[DAOPlatos sharedInstance] getPlateById:_id];//[platos objectForKey:_id];
     return plato_return.tipo;
 }
 
 
--(NSString *)demeDescripcionPlatoPorId:(id)_id{
+-(NSString *)demeDescripcionPlatoPorId:(NSString*)_id{
     Plato *plato_return;
     NSString *description=@"";
-    int _tipo = [self demeTipoActual];
+    NSString *_tipo = [self demeTipoActual];
     BOOL _tipoBool = YES;
     
     if(_tipo == tipoBebidas) _tipoBool = NO;
     if(_tipo == tipoLicores) _tipoBool = NO;
     
     if(_tipoBool){
-        plato_return = [platos objectForKey:_id];
+        plato_return = [[DAOPlatos sharedInstance] getPlateById:_id];//[platos objectForKey:_id];
         description = plato_return.descripcion;
     }
 
     return description;
 }
 
-- (NSString *)demeFuenteImagenPlatoPorId:(id)_id{
-    Plato *plato_return = [platos objectForKey:_id];
+- (NSString *)demeFuenteImagenPlatoPorId:(NSString*)_id{
+    Plato *plato_return = [[DAOPlatos sharedInstance] getPlateById:_id];//[platos objectForKey:_id];
     return plato_return.fuente_img;
 }
 
-- (NSString *)demeFuenteImagenGrandePlatoPorId:(id)_id{
-    Plato *plato_return = [platos objectForKey:_id];
+- (NSString *)demeFuenteImagenGrandePlatoPorId:(NSString*)_id{
+    Plato *plato_return = [[DAOPlatos sharedInstance] getPlateById:_id];//[platos objectForKey:_id];
     return plato_return.fuente_img_grande;
 }
 
-- (NSString *)demeFuenteImagenPequenoPlatoPorId:(id)_id{
-    Plato *plato_return = [platos objectForKey:_id];
+- (NSString *)demeFuenteImagenPequenoPlatoPorId:(NSString*)_id{
+    Plato *plato_return = [[DAOPlatos sharedInstance] getPlateById:_id];//[platos objectForKey:_id];
     return plato_return.fuente_img_peq;
 }
 
-- (int)demePrecioPlatoPorId:(id)_id
+- (int)demePrecioPlatoPorId:(NSString*)_id
 {
     Plato *plato_return;
     int precio=0;
-    int _tipo = [self demeTipoActual];
+    NSString *_tipo = [self demeTipoActual];
     BOOL _tipoBool = YES;
     
     if(_tipo == tipoBebidas) _tipoBool = NO;
     if(_tipo == tipoLicores) _tipoBool = NO;
     
     if(_tipoBool){
-        plato_return = [platos objectForKey:_id];
+        plato_return = [[DAOPlatos sharedInstance] getPlateById:_id];//[platos objectForKey:_id];
         precio = plato_return.precio;
     }
 
@@ -999,14 +1008,14 @@ CCScene *scene;
 }
 
 
-- (void)agregarPlato:(id)_id
+- (void)agregarPlato:(NSString*)_id
 {
-    [[BrainMenu sharedInstance] agregarPlato:[platos objectForKey:_id]];
+    [[BrainMenu sharedInstance] agregarPlato:[[DAOPlatos sharedInstance] getPlateById:_id]];//[platos objectForKey:_id]];
 }
 
-- (void)eliminarPlato:(id)_id withKindPlate:(int)_kind
+- (void)eliminarPlato:(NSString*)_id withKindPlate:(NSString*)_kind
 {
-    [[BrainMenu sharedInstance] eliminarPlato:[platos objectForKey:_id]];
+    [[BrainMenu sharedInstance] eliminarPlato:[[DAOPlatos sharedInstance] getPlateById:_id]];//[platos objectForKey:_id]];
 }
 
 -(int)demeTotalCuenta{

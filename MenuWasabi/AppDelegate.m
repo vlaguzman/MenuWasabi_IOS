@@ -10,7 +10,7 @@
 #import "AppDelegate.h"
 
 #define nameDataBase @"wdb.sqlite3"
-#define pathExample @"/Users/GOREMAC/Documents/Vladimir/ProyectosIOS/MenuWasabi/MenuWasabi/wdb.sqlite3"
+//#define pathExample @"/Users/GOREMAC/Documents/Vladimir/ProyectosIOS/MenuWasabi/MenuWasabi/wdb.sqlite3"
 
 
 @implementation AppController
@@ -181,7 +181,7 @@
             sqlite3_close(wasabi_db);
             NSLog(@"Error al abrir la Base de datos");
         }
-        /*else
+        else
          {
          NSLog(@"PASAMOS POR EL ELSE PARA CREAR LA TABLA -loadDataBase-");
          char *errorLog;

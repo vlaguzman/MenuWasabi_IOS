@@ -11,17 +11,23 @@
 #import "CCActionInterval.h"
 #import "BrainMenu.h"
 
-#define tipoSushi 1
-#define tipoTeppanyaki 2
-#define tipoSopa 3
-#define tipoEspeciales 4
-#define tipoEntradas 5
-#define tipoEnsaladas 6
-#define tipoWok 7
-#define tipoPostres 8
-#define tipoBebidas 9
-#define tipoLicores 10
-#define tipoCombos 11
+#define tipoEntradas @"1"
+#define tipoEnsaladas @"2"
+#define tipoSopa @"3"
+#define tipoWok @"4"
+#define tipoTeppanyaki @"5"
+#define tipoSushi @"6"
+#define tipoEspeciales @"7"
+#define tipoPostres @"8"
+#define tipoBebidas @"9"
+#define tipoLicores @"10"
+#define tipoCombos @"11"
+
+
+#import "DAOPlatos.h"
+#import "Plato.h"
+#import "DAOTipoPlato.h"
+#import "TipoPlato.h"
 
 @interface MenuViewController ()
 
@@ -51,7 +57,31 @@
 
 - (void)moverBotones
 {
+    //
+    // espacio de pruebas
+    //
+    [[DAOPlatos sharedInstance] loadPlatesFromDB];
+    Plato *pl = [[DAOPlatos sharedInstance]getPlateById:@"1"];
+    NSLog(@" los platos estan cargdos >>> %@", pl.nombre);
     
+    [[DAOTipoPlato sharedInstance] loadTipoDatosFromDB];
+    TipoPlato *t;
+    t = [[DAOTipoPlato sharedInstance] getTipoPlatoById:@"2"];
+    NSLog(@"ESTE ES EL NOMBRE DEL TIPO PLATO CON ID %i --- %@", 2, t.nombre);
+    
+    NSMutableArray *arrayPrueba = [[DAOPlatos sharedInstance] getPlatesByKind:@"5"];
+    int num = [arrayPrueba count];
+    NSLog(@"ESTE ES LA CANTIDAD DE PLATOS %i", num);
+    for (int n=0; n<num; n++) {
+        pl = [arrayPrueba objectAtIndex:n];
+         NSLog(@" for (int n=0; n<[arrayPrueba count]; n++) Plato>>> %@", pl.nombre);
+    }
+    
+    
+    
+    //
+    //
+    //
     [self moverBoton:btn_centro posx:390 posy:245 alpha:1.0 duracion:1.0 delay:0.0];
     
     [self moverBoton:btn_entradas posx:453 posy:86 alpha:1.0 duracion:0.5 delay:1.0];
@@ -293,7 +323,7 @@
     [self.navigationController pushViewController:_rootViewController animated:YES];
 }
 
-- (void)beginLayer:(int)_tipo{
+- (void)beginLayer:(NSString*)_tipo{
     [self moverBotones];
     if (_rootViewController == nil) {
         self.rootViewController = [[[RootViewController alloc] initWithNibName:nil bundle:nil] autorelease];

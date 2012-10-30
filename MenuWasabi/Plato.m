@@ -19,7 +19,7 @@
     fuente_img_grande = @"vacio";
     fuente_img_peq = @"vacio";
     precio = 0;
-    tipo = -1;
+    tipo = @"Sin asignar";
     pedido = NO;
     return self;
 }

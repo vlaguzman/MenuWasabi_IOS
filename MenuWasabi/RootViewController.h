@@ -27,23 +27,26 @@
 
 
 - (IBAction)menuTapped:(id)sender;
-- (NSString *)demeNombrePlatoPorId:(id)_id;
-- (int)demeTipoPlatoPorId:(id)_id;
-- (NSString *)demeFuenteImagenPlatoPorId:(id)_id;
-- (NSString *)demeFuenteImagenGrandePlatoPorId:(id)_id;
-- (NSString *)demeFuenteImagenPequenoPlatoPorId:(id)_id;
-- (NSString *)demeDescripcionPlatoPorId:(id)_id;
-- (int)demePrecioPlatoPorId:(id)_id;
+- (NSString *)demeNombrePlatoPorId:(NSString*)_id;
+- (NSString *)demeTipoPlatoPorId:(NSString*)_id;
+- (NSString *)demeFuenteImagenPlatoPorId:(NSString*)_id;
+- (NSString *)demeFuenteImagenGrandePlatoPorId:(NSString*)_id;
+- (NSString *)demeFuenteImagenPequenoPlatoPorId:(NSString*)_id;
+- (NSString *)demeDescripcionPlatoPorId:(NSString*)_id;
+- (int)demePrecioPlatoPorId:(NSString*)_id;
 - (int)demeTotalCuenta;
-- (void)agregarPlato:(id)_id;
-- (void)eliminarPlato:(id)_id withKindPlate:(int)_kind;
-- (void)cambiarEstadoPedido:(id)_id;
+- (void)agregarPlato:(NSString*)_id;
+- (void)eliminarPlato:(NSString*)_id withKindPlate:(NSString*)_kind;
+- (void)cambiarEstadoPedido:(NSString*)_id;
 - (int)demeNumeroPlatosEnOrden;
 - (Plato *)demeDatosPlatoEnUbicacion:(int)_ubicacion;
--(BOOL)estaPlato:(id)_idplato;
--(int)demeTipoActual;
+-(BOOL)estaPlato:(NSString*)_idplato;
+-(NSString *)demeTipoActual;
 
 -(void)addTipoPlato;
 - (void)loadTipoDatosFromDB;
+
+-(int)getNumberOfPlates;
+-(int)getNumberOfPlatesWithKind:(NSString*)_kind;
 
 @end
