@@ -132,8 +132,6 @@
 		C10A67B0160CBBF400489A45 /* vec4.c in Sources */ = {isa = PBXBuildFile; fileRef = C10A67AF160CBBF400489A45 /* vec4.c */; };
 		C10A67B5160CBBF400489A45 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C10A67B4160CBBF400489A45 /* main.m */; };
 		C10A67B8160CBBF400489A45 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C10A67B7160CBBF400489A45 /* AppDelegate.m */; };
-		C10A67BB160CBBF400489A45 /* HelloWorldLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C10A67BA160CBBF400489A45 /* HelloWorldLayer.m */; };
-		C10A67BE160CBBF400489A45 /* IntroLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C10A67BD160CBBF400489A45 /* IntroLayer.m */; };
 		C11339BC161B4DFC003F2D4E /* BrainMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = C11339BB161B4DFC003F2D4E /* BrainMenu.m */; };
 		C11C73F8163EE9DC00E6A507 /* TipoPlato.m in Sources */ = {isa = PBXBuildFile; fileRef = C11C73F7163EE9DC00E6A507 /* TipoPlato.m */; };
 		C11C7403163F3D5100E6A507 /* wdb.sqlite3 in Resources */ = {isa = PBXBuildFile; fileRef = C11C7402163F3D5100E6A507 /* wdb.sqlite3 */; };
@@ -345,6 +343,15 @@
 		C1C4C383162F5AC5006AA580 /* jugos.png in Resources */ = {isa = PBXBuildFile; fileRef = C1C4C380162F5AC5006AA580 /* jugos.png */; };
 		C1C4C389162F6C23006AA580 /* pata_02.png in Resources */ = {isa = PBXBuildFile; fileRef = C1C4C388162F6C23006AA580 /* pata_02.png */; };
 		C1D3B69B161A3D8000542A4C /* Plato.m in Sources */ = {isa = PBXBuildFile; fileRef = C1D3B69A161A3D7F00542A4C /* Plato.m */; };
+		C1DBD7C3164022CC00C9A070 /* DAOTipoPlato.m in Sources */ = {isa = PBXBuildFile; fileRef = C1DBD7C2164022CC00C9A070 /* DAOTipoPlato.m */; };
+		C1DBD7C6164022F500C9A070 /* DAOPlatos.m in Sources */ = {isa = PBXBuildFile; fileRef = C1DBD7C5164022F500C9A070 /* DAOPlatos.m */; };
+		C1DBD7C91640234B00C9A070 /* DAOBebida.m in Sources */ = {isa = PBXBuildFile; fileRef = C1DBD7C81640234B00C9A070 /* DAOBebida.m */; };
+		C1DBD7CC1640235D00C9A070 /* DAOTipoBebida.m in Sources */ = {isa = PBXBuildFile; fileRef = C1DBD7CB1640235D00C9A070 /* DAOTipoBebida.m */; };
+		C1DBD7CF1640237E00C9A070 /* DAOCategoria.m in Sources */ = {isa = PBXBuildFile; fileRef = C1DBD7CE1640237E00C9A070 /* DAOCategoria.m */; };
+		C1DBD7D21640306A00C9A070 /* Pedido.m in Sources */ = {isa = PBXBuildFile; fileRef = C1DBD7D11640306A00C9A070 /* Pedido.m */; };
+		C1DBD7D51640307B00C9A070 /* Mesa.m in Sources */ = {isa = PBXBuildFile; fileRef = C1DBD7D41640307A00C9A070 /* Mesa.m */; };
+		C1DBD7D8164030A200C9A070 /* DAOPedido.m in Sources */ = {isa = PBXBuildFile; fileRef = C1DBD7D7164030A200C9A070 /* DAOPedido.m */; };
+		C1DBD7DB164030B100C9A070 /* DAOMesa.m in Sources */ = {isa = PBXBuildFile; fileRef = C1DBD7DA164030B100C9A070 /* DAOMesa.m */; };
 		C1E87519161CEAFB0020486A /* barra_agregar_.png in Resources */ = {isa = PBXBuildFile; fileRef = C1E87517161CEAFB0020486A /* barra_agregar_.png */; };
 		C1E8751A161CEAFB0020486A /* btn_agregar.png in Resources */ = {isa = PBXBuildFile; fileRef = C1E87518161CEAFB0020486A /* btn_agregar.png */; };
 		C1E876C4161CF5200020486A /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = C1E876C3161CF5200020486A /* Default-Landscape~ipad.png */; };
@@ -652,10 +659,6 @@
 		C10A67B4160CBBF400489A45 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C10A67B6160CBBF400489A45 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C10A67B7160CBBF400489A45 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		C10A67B9160CBBF400489A45 /* HelloWorldLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HelloWorldLayer.h; sourceTree = "<group>"; };
-		C10A67BA160CBBF400489A45 /* HelloWorldLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HelloWorldLayer.m; sourceTree = "<group>"; };
-		C10A67BC160CBBF400489A45 /* IntroLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IntroLayer.h; sourceTree = "<group>"; };
-		C10A67BD160CBBF400489A45 /* IntroLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IntroLayer.m; sourceTree = "<group>"; };
 		C11339BA161B4DFC003F2D4E /* BrainMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrainMenu.h; sourceTree = "<group>"; };
 		C11339BB161B4DFC003F2D4E /* BrainMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrainMenu.m; sourceTree = "<group>"; };
 		C11C73F6163EE9DC00E6A507 /* TipoPlato.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TipoPlato.h; sourceTree = "<group>"; };
@@ -874,6 +877,24 @@
 		C1C4C388162F6C23006AA580 /* pata_02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pata_02.png; sourceTree = "<group>"; };
 		C1D3B699161A3D7E00542A4C /* Plato.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Plato.h; sourceTree = "<group>"; };
 		C1D3B69A161A3D7F00542A4C /* Plato.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Plato.m; sourceTree = "<group>"; };
+		C1DBD7C1164022CC00C9A070 /* DAOTipoPlato.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAOTipoPlato.h; sourceTree = "<group>"; };
+		C1DBD7C2164022CC00C9A070 /* DAOTipoPlato.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAOTipoPlato.m; sourceTree = "<group>"; };
+		C1DBD7C4164022F500C9A070 /* DAOPlatos.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAOPlatos.h; sourceTree = "<group>"; };
+		C1DBD7C5164022F500C9A070 /* DAOPlatos.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAOPlatos.m; sourceTree = "<group>"; };
+		C1DBD7C71640234B00C9A070 /* DAOBebida.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAOBebida.h; sourceTree = "<group>"; };
+		C1DBD7C81640234B00C9A070 /* DAOBebida.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAOBebida.m; sourceTree = "<group>"; };
+		C1DBD7CA1640235D00C9A070 /* DAOTipoBebida.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAOTipoBebida.h; sourceTree = "<group>"; };
+		C1DBD7CB1640235D00C9A070 /* DAOTipoBebida.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAOTipoBebida.m; sourceTree = "<group>"; };
+		C1DBD7CD1640237E00C9A070 /* DAOCategoria.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAOCategoria.h; sourceTree = "<group>"; };
+		C1DBD7CE1640237E00C9A070 /* DAOCategoria.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAOCategoria.m; sourceTree = "<group>"; };
+		C1DBD7D01640306A00C9A070 /* Pedido.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pedido.h; sourceTree = "<group>"; };
+		C1DBD7D11640306A00C9A070 /* Pedido.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pedido.m; sourceTree = "<group>"; };
+		C1DBD7D31640307A00C9A070 /* Mesa.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mesa.h; sourceTree = "<group>"; };
+		C1DBD7D41640307A00C9A070 /* Mesa.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Mesa.m; sourceTree = "<group>"; };
+		C1DBD7D6164030A200C9A070 /* DAOPedido.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAOPedido.h; sourceTree = "<group>"; };
+		C1DBD7D7164030A200C9A070 /* DAOPedido.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAOPedido.m; sourceTree = "<group>"; };
+		C1DBD7D9164030B100C9A070 /* DAOMesa.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAOMesa.h; sourceTree = "<group>"; };
+		C1DBD7DA164030B100C9A070 /* DAOMesa.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAOMesa.m; sourceTree = "<group>"; };
 		C1E87517161CEAFB0020486A /* barra_agregar_.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = barra_agregar_.png; sourceTree = "<group>"; };
 		C1E87518161CEAFB0020486A /* btn_agregar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_agregar.png; sourceTree = "<group>"; };
 		C1E876C3161CF5200020486A /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape~ipad.png"; sourceTree = "<group>"; };
@@ -989,39 +1010,9 @@
 		C10A663E160CBBF200489A45 /* MenuWasabi */ = {
 			isa = PBXGroup;
 			children = (
-				C10A67B6160CBBF400489A45 /* AppDelegate.h */,
-				C10A67B7160CBBF400489A45 /* AppDelegate.m */,
-				C1EFBF6C160CCF7C0005ECF1 /* MainWindow.xib */,
-				C1EFBF6E160CD7470005ECF1 /* MainMenuViewController.h */,
-				C1EFBF6F160CD7470005ECF1 /* MainMenuViewController.m */,
-				C1EFBF70160CD7470005ECF1 /* MainMenuViewController.xib */,
-				C1EFBF95160D11780005ECF1 /* MenuViewController.h */,
-				C1EFBF96160D11780005ECF1 /* MenuViewController.m */,
-				C1EFBF97160D11780005ECF1 /* MenuViewController.xib */,
-				C1EFBF88160D08010005ECF1 /* RootViewController.h */,
-				C1EFBF89160D08010005ECF1 /* RootViewController.m */,
-				C1559D0A1611F311007512AA /* RootViewController.xib */,
-				C144B26C1639B0340091A8E0 /* ComboViewController.h */,
-				C144B26D1639B0340091A8E0 /* ComboViewController.m */,
-				C144B26E1639B0340091A8E0 /* ComboViewController.xib */,
-				C123C9661638907100474B44 /* CombosLayer.h */,
-				C123C9671638907100474B44 /* CombosLayer.m */,
-				C1EFBF66160CC4700005ECF1 /* SushiLayer.h */,
-				C1EFBF67160CC4700005ECF1 /* SushiLayer.m */,
-				C11C73F6163EE9DC00E6A507 /* TipoPlato.h */,
-				C11C73F7163EE9DC00E6A507 /* TipoPlato.m */,
-				C1D3B699161A3D7E00542A4C /* Plato.h */,
-				C1D3B69A161A3D7F00542A4C /* Plato.m */,
-				C1C4C378162F511F006AA580 /* TipoBebida.h */,
-				C1C4C379162F511F006AA580 /* TipoBebida.m */,
-				C1C4C37B162F513C006AA580 /* Bebida.h */,
-				C1C4C37C162F513D006AA580 /* Bebida.m */,
-				C11339BA161B4DFC003F2D4E /* BrainMenu.h */,
-				C11339BB161B4DFC003F2D4E /* BrainMenu.m */,
-				C10A67B9160CBBF400489A45 /* HelloWorldLayer.h */,
-				C10A67BA160CBBF400489A45 /* HelloWorldLayer.m */,
-				C10A67BC160CBBF400489A45 /* IntroLayer.h */,
-				C10A67BD160CBBF400489A45 /* IntroLayer.m */,
+				C1DBD7BD16401E9100C9A070 /* Interface */,
+				C1DBD7BB16401E0900C9A070 /* Model */,
+				C1DBD7C01640224000C9A070 /* DataModel */,
 				C10A663F160CBBF200489A45 /* Resources */,
 				C10A6659160CBBF200489A45 /* libs */,
 				C10A67B2160CBBF400489A45 /* Supporting Files */,
@@ -1905,6 +1896,90 @@
 			name = grandes;
 			sourceTree = "<group>";
 		};
+		C1DBD7BB16401E0900C9A070 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C10A67B6160CBBF400489A45 /* AppDelegate.h */,
+				C10A67B7160CBBF400489A45 /* AppDelegate.m */,
+				C11339BA161B4DFC003F2D4E /* BrainMenu.h */,
+				C11339BB161B4DFC003F2D4E /* BrainMenu.m */,
+				C1DBD7BF1640208400C9A070 /* BO */,
+				C1DBD7BE16401FAF00C9A070 /* Controllers */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		C1DBD7BD16401E9100C9A070 /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+				C1EFBF6C160CCF7C0005ECF1 /* MainWindow.xib */,
+				C1EFBF70160CD7470005ECF1 /* MainMenuViewController.xib */,
+				C1EFBF97160D11780005ECF1 /* MenuViewController.xib */,
+				C1559D0A1611F311007512AA /* RootViewController.xib */,
+				C144B26E1639B0340091A8E0 /* ComboViewController.xib */,
+				C123C9661638907100474B44 /* CombosLayer.h */,
+				C123C9671638907100474B44 /* CombosLayer.m */,
+				C1EFBF66160CC4700005ECF1 /* SushiLayer.h */,
+				C1EFBF67160CC4700005ECF1 /* SushiLayer.m */,
+			);
+			name = Interface;
+			sourceTree = "<group>";
+		};
+		C1DBD7BE16401FAF00C9A070 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				C1EFBF6E160CD7470005ECF1 /* MainMenuViewController.h */,
+				C1EFBF6F160CD7470005ECF1 /* MainMenuViewController.m */,
+				C1EFBF95160D11780005ECF1 /* MenuViewController.h */,
+				C1EFBF96160D11780005ECF1 /* MenuViewController.m */,
+				C1EFBF88160D08010005ECF1 /* RootViewController.h */,
+				C1EFBF89160D08010005ECF1 /* RootViewController.m */,
+				C144B26C1639B0340091A8E0 /* ComboViewController.h */,
+				C144B26D1639B0340091A8E0 /* ComboViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		C1DBD7BF1640208400C9A070 /* BO */ = {
+			isa = PBXGroup;
+			children = (
+				C1C4C37B162F513C006AA580 /* Bebida.h */,
+				C1C4C37C162F513D006AA580 /* Bebida.m */,
+				C11C73F6163EE9DC00E6A507 /* TipoPlato.h */,
+				C11C73F7163EE9DC00E6A507 /* TipoPlato.m */,
+				C1C4C378162F511F006AA580 /* TipoBebida.h */,
+				C1C4C379162F511F006AA580 /* TipoBebida.m */,
+				C1D3B69A161A3D7F00542A4C /* Plato.m */,
+				C1D3B699161A3D7E00542A4C /* Plato.h */,
+				C1DBD7D01640306A00C9A070 /* Pedido.h */,
+				C1DBD7D11640306A00C9A070 /* Pedido.m */,
+				C1DBD7D31640307A00C9A070 /* Mesa.h */,
+				C1DBD7D41640307A00C9A070 /* Mesa.m */,
+			);
+			name = BO;
+			sourceTree = "<group>";
+		};
+		C1DBD7C01640224000C9A070 /* DataModel */ = {
+			isa = PBXGroup;
+			children = (
+				C1DBD7C1164022CC00C9A070 /* DAOTipoPlato.h */,
+				C1DBD7C2164022CC00C9A070 /* DAOTipoPlato.m */,
+				C1DBD7C4164022F500C9A070 /* DAOPlatos.h */,
+				C1DBD7C5164022F500C9A070 /* DAOPlatos.m */,
+				C1DBD7C71640234B00C9A070 /* DAOBebida.h */,
+				C1DBD7C81640234B00C9A070 /* DAOBebida.m */,
+				C1DBD7CA1640235D00C9A070 /* DAOTipoBebida.h */,
+				C1DBD7CB1640235D00C9A070 /* DAOTipoBebida.m */,
+				C1DBD7CD1640237E00C9A070 /* DAOCategoria.h */,
+				C1DBD7CE1640237E00C9A070 /* DAOCategoria.m */,
+				C1DBD7D6164030A200C9A070 /* DAOPedido.h */,
+				C1DBD7D7164030A200C9A070 /* DAOPedido.m */,
+				C1DBD7D9164030B100C9A070 /* DAOMesa.h */,
+				C1DBD7DA164030B100C9A070 /* DAOMesa.m */,
+			);
+			name = DataModel;
+			sourceTree = "<group>";
+		};
 		C1EC4325161E420D0061DD45 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -2394,8 +2469,6 @@
 				C10A67B0160CBBF400489A45 /* vec4.c in Sources */,
 				C10A67B5160CBBF400489A45 /* main.m in Sources */,
 				C10A67B8160CBBF400489A45 /* AppDelegate.m in Sources */,
-				C10A67BB160CBBF400489A45 /* HelloWorldLayer.m in Sources */,
-				C10A67BE160CBBF400489A45 /* IntroLayer.m in Sources */,
 				C1EFBF68160CC4700005ECF1 /* SushiLayer.m in Sources */,
 				C1EFBF71160CD7470005ECF1 /* MainMenuViewController.m in Sources */,
 				C1EFBF8A160D08010005ECF1 /* RootViewController.m in Sources */,
@@ -2407,6 +2480,15 @@
 				C123C9681638907100474B44 /* CombosLayer.m in Sources */,
 				C144B26F1639B0340091A8E0 /* ComboViewController.m in Sources */,
 				C11C73F8163EE9DC00E6A507 /* TipoPlato.m in Sources */,
+				C1DBD7C3164022CC00C9A070 /* DAOTipoPlato.m in Sources */,
+				C1DBD7C6164022F500C9A070 /* DAOPlatos.m in Sources */,
+				C1DBD7C91640234B00C9A070 /* DAOBebida.m in Sources */,
+				C1DBD7CC1640235D00C9A070 /* DAOTipoBebida.m in Sources */,
+				C1DBD7CF1640237E00C9A070 /* DAOCategoria.m in Sources */,
+				C1DBD7D21640306A00C9A070 /* Pedido.m in Sources */,
+				C1DBD7D51640307B00C9A070 /* Mesa.m in Sources */,
+				C1DBD7D8164030A200C9A070 /* DAOPedido.m in Sources */,
+				C1DBD7DB164030B100C9A070 /* DAOMesa.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

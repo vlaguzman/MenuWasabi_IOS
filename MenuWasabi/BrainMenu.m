@@ -24,7 +24,7 @@ static BrainMenu *sharedBrainMenu = nil;
 + (BrainMenu*) sharedInstance
 {
     if(!sharedBrainMenu){
-        sharedBrainMenu = [[super allocWithZone:NULL] init];;
+        sharedBrainMenu = [[super allocWithZone:NULL] init];
     }
     return sharedBrainMenu;
     

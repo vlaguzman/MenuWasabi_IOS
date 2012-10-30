@@ -16,7 +16,6 @@
     fuente_img = @"vacio";
     fuente_img_grande = @"vacio";
     fuente_img_peq = @"vacio";
-    tipo = -1;
     return self;
 }
 @end

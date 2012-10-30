@@ -18,12 +18,13 @@
     AppController *appControler;
     TipoPlato *auxTipoPlato;
     NSMutableArray *tipoPlatosArray;
+    
 }
-
+@property (nonatomic, strong) TipoPlato *auxTipoPlato;
 @property (nonatomic, retain) NSMutableArray *tipoPlatosArray;
 @property (nonatomic, strong) NSString *path;
 //@property (nonatomic, strong) AppController *appControler;
-@property (nonatomic, strong) TipoPlato *auxTipoPlato;
+
 
 - (IBAction)menuTapped:(id)sender;
 - (NSString *)demeNombrePlatoPorId:(id)_id;

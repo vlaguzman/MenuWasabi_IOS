@@ -10,12 +10,11 @@
 
 @interface TipoPlato : NSObject
 {
-    int id_tipoPlato;
-    NSString *nombre;
+    NSString *id_tipoPlato, *nombre;
 
 }
 
-@property int id_tipoPlato;
-@property (nonatomic, strong) NSString *nombre;
+
+@property (nonatomic, strong) NSString *id_tipoPlato, *nombre;
 
 @end

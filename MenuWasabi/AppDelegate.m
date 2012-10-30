@@ -2,8 +2,8 @@
 //  AppDelegate.m
 //  MenuWasabi
 //
-//  Created by GIOVANNI LOPEZ on 21/09/12.
-//  Copyright __MyCompanyName__ 2012. All rights reserved.
+//  Created by Vladimir Guzman on 21/09/12.
+//  Copyright 3dementes 2012. All rights reserved.
 //
 
 #import "cocos2d.h"
