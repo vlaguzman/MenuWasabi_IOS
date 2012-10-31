@@ -606,7 +606,7 @@ BOOL bool_swipe = YES;
     pl = [[DAOPlatos sharedInstance] getPlateById:[[NSString alloc]initWithFormat:@"%i", iactualPlate]];
    CCLOG(@" onPushSceneTranImage Vamos a ver si se hace algo  %@", pl.nombre);
     // [label_descripcion setString:[_rootViewController demeDescripcionPlatoPorId:@(iactualPlate)]];
-    [label_descripcion setString:pl.description];
+    [label_descripcion setString:pl.descripcion];
 
     //[itemAux2 setNormalImage:[CCMenuItemImage itemWithNormalImage:[_rootViewController demeFuenteImagenGrandePlatoPorId:@(iactualPlate)] selectedImage:[_rootViewController demeFuenteImagenGrandePlatoPorId:@(iactualPlate)]]];
     [itemAux2 setNormalImage:[CCMenuItemImage itemWithNormalImage:pl.fuente_img_grande selectedImage:pl.fuente_img_grande]];

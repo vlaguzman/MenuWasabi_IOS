@@ -51,37 +51,46 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self loadDataBase];
     [self moverBotones];
     // Do any additional setup after loading the view from its nib.
 }
 
-- (void)moverBotones
-{
+- (void)loadDataBase{
+    
+    [[DAOPlatos sharedInstance] loadPlatesFromDB];
     //
     // espacio de pruebas
     //
-    [[DAOPlatos sharedInstance] loadPlatesFromDB];
-    Plato *pl = [[DAOPlatos sharedInstance]getPlateById:@"1"];
-    NSLog(@" los platos estan cargdos >>> %@", pl.nombre);
     
-    [[DAOTipoPlato sharedInstance] loadTipoDatosFromDB];
-    TipoPlato *t;
-    t = [[DAOTipoPlato sharedInstance] getTipoPlatoById:@"2"];
-    NSLog(@"ESTE ES EL NOMBRE DEL TIPO PLATO CON ID %i --- %@", 2, t.nombre);
     
-    NSMutableArray *arrayPrueba = [[DAOPlatos sharedInstance] getPlatesByKind:@"5"];
-    int num = [arrayPrueba count];
-    NSLog(@"ESTE ES LA CANTIDAD DE PLATOS %i", num);
-    for (int n=0; n<num; n++) {
-        pl = [arrayPrueba objectAtIndex:n];
-         NSLog(@" for (int n=0; n<[arrayPrueba count]; n++) Plato>>> %@", pl.nombre);
-    }
-    
+    /*Plato *pl = [[DAOPlatos sharedInstance]getPlateById:@"1"];
+     NSLog(@" los platos estan cargdos >>> %@", pl.nombre);
+     
+     [[DAOTipoPlato sharedInstance] loadTipoDatosFromDB];
+     TipoPlato *t;
+     t = [[DAOTipoPlato sharedInstance] getTipoPlatoById:@"2"];
+     NSLog(@"ESTE ES EL NOMBRE DEL TIPO PLATO CON ID %i --- %@", 2, t.nombre);
+     
+     NSMutableArray *arrayPrueba = [[DAOPlatos sharedInstance] getPlatesByKind:@"5"];
+     int num = [arrayPrueba count];
+     NSLog(@"ESTE ES LA CANTIDAD DE PLATOS %i", num);
+     for (int n=0; n<num; n++) {
+     pl = [arrayPrueba objectAtIndex:n];
+     NSLog(@" for (int n=0; n<[arrayPrueba count]; n++) Plato>>> %@", pl.nombre);
+     }
+     */
     
     
     //
     //
     //
+
+}
+
+- (void)moverBotones
+{
+
     [self moverBoton:btn_centro posx:390 posy:245 alpha:1.0 duracion:1.0 delay:0.0];
     
     [self moverBoton:btn_entradas posx:453 posy:86 alpha:1.0 duracion:0.5 delay:1.0];

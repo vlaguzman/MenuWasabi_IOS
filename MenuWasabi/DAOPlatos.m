@@ -96,7 +96,7 @@ static DAOPlatos *sharedDAOPlato = nil;
                 auxPlato.fuente_img_peq = img_pequena;
                 auxPlato.fuente_img = img_principal;
                 
-                NSLog(@"id:= %@ Nombre:= %@", auxPlato.id_plato, auxPlato.nombre);
+                NSLog(@"id:= %@ Nombre:= %@ Descripción %@ %i", auxPlato.id_plato, auxPlato.nombre, auxPlato.descripcion, auxPlato.precio);
                // [platesDictionary setObject:auxPlato forKey:auxPlato.id_plato];
                 [platesArray addObject:auxPlato];
                 NSLog(@"tipoPlatoDictionary count = %d TIPO %@",[platesArray count], auxPlato.tipo);
