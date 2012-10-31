@@ -32,10 +32,7 @@ static DAOPlatos *sharedDAOPlato = nil;
     Plato *auxPlate = [[Plato alloc]init];
     for (int i=0; i<[platesArray count]; i++) {
         auxPlate = [platesArray objectAtIndex:i];
-        NSLog(@"Nombre AuxPlateName:%@  auxPlate.tipo: %@ _kind: %@", auxPlate.nombre, auxPlate.tipo, _kind);
-        NSLog(@"%d", ([auxPlate.tipo intValue] == [_kind intValue]));
         if ([auxPlate.tipo intValue] == [_kind intValue]) {
-            NSLog(@"Estamso adentro de petición de platos por tipo %@", auxPlate.nombre);
             [platesTemp addObject:auxPlate];
         }
     }
@@ -47,10 +44,7 @@ static DAOPlatos *sharedDAOPlato = nil;
     Plato *auxPlate = [[Plato alloc]init];
     for (int i=0; i<[platesArray count]; i++) {
         auxPlate = [platesArray objectAtIndex:i];
-        NSLog(@"Nombre AuxPlateName:%@  auxPlate.tipo: %@ _kind: %@", auxPlate.nombre, auxPlate.tipo, _kind);
-        NSLog(@"%d", ([auxPlate.tipo intValue] == [_kind intValue]));
         if ([auxPlate.tipo intValue] == [_kind intValue]) {
-            NSLog(@"Estamso adentro -(NSMutableArray*)getPlatesByKind:(NSString *)_kind{ %@", auxPlate.nombre);
             [platesTemp addObject:auxPlate];
         }
     }
@@ -121,11 +115,8 @@ static DAOPlatos *sharedDAOPlato = nil;
     Plato *auxPlate = [[Plato alloc]init];
     for (int i=0; i<[platesArray count]; i++) {
         auxPlate = [platesArray objectAtIndex:i];
-        NSLog(@"Nombre AuxPlateName:%@  auxPlate.tipo: %@ ", auxPlate.nombre, auxPlate.tipo);
-         NSLog(@"INT  %d", ([auxPlate.id_plato intValue] == [_idPlate intValue]));
-        NSLog(@"SEGUNDA  %d", (auxPlate.id_plato  == _idPlate ));
         if ([auxPlate.id_plato intValue] == [_idPlate intValue]) {
-            NSLog(@"Estamso adentro =) %@", auxPlate.nombre);
+          
             auxPlatoReturn = auxPlate;
         }
     }
