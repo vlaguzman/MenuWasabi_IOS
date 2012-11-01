@@ -80,8 +80,6 @@ CCScene *scene;
     }
 }
 
-
-
 - (void) viewWillAppear:(BOOL)animated
 {
     [self LoadScene];
@@ -102,7 +100,6 @@ CCScene *scene;
     appControler = (AppController*)[[UIApplication sharedApplication]delegate];
     tipoPlatosArray = [[NSMutableArray alloc]init];
     
-   
     //[self addTipoPlato];
     [self loadTipoDatosFromDB];
 

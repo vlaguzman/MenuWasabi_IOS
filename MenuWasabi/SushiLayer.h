@@ -14,12 +14,8 @@
 @interface SushiLayer : CCLayer 
 {
     RootViewController * _rootViewController;
-    UISwipeGestureRecognizer * _swipeLeftRecognizer;
-    UISwipeGestureRecognizer * _swipeRightRecognizer;
+
 }
-@property (nonatomic, strong) UISwipeGestureRecognizer * swipeLeftRecognizer;
-@property (nonatomic, strong) UISwipeGestureRecognizer * swipeRightRecognizer;
-
-
 +(CCScene *) sceneWithVC:(RootViewController *)rootViewController;
+
 @end

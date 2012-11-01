@@ -94,7 +94,6 @@
     
     NSLog(@"DATA BASE PATH  %@", self.databasePath);
     
-    
     // Cargo la base de datos
     [self loadDataBase];
     //

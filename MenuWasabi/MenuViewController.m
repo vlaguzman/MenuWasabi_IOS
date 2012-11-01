@@ -327,7 +327,6 @@
     [self beginLayer:tipoLicores];
 }
 - (void)layerCombos{
-  //  [self beginLayer:tipoCombos];
     [self moverBotones];
     if (_rootViewController == nil) {
         self.rootViewController = [[[RootViewController alloc] initWithNibName:nil bundle:nil] autorelease];

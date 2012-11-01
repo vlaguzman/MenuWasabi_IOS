@@ -37,7 +37,6 @@
 
 #define paddingTinyPlates 128
 
-
 //Posiciones Nombres Menu
 #define posXprincipalMenuOnePlate 510
 #define posXprincipalMenuTwoPlates 380
@@ -62,7 +61,6 @@
 #define posXmenuPedidos -50
 #define posYmenuPedidos -100
 
-
 //Cada tipo de plato tiene un identificador para efecto de carag de imagenes
 #define tipoEntradas @"1"
 #define tipoEnsaladas @"2"
@@ -76,10 +74,8 @@
 #define tipoLicores @"10"
 #define tipoCombos @"11"
 
-
 #define AHalfWinSizeX 512
 #define AHalfWinSizeY 384
-
 
 static const ccColor3B ccDARKRED={139,0,0};
 //
@@ -158,8 +154,6 @@ BOOL bool_swipe = YES;
 
 
 @implementation SushiLayer
-@synthesize swipeLeftRecognizer = _swipeLeftRecognizer;
-@synthesize swipeRightRecognizer = _swipeRightRecognizer;
 
 
 -(void)changeValueNumPlates{
@@ -832,11 +826,6 @@ BOOL bool_swipe = YES;
 
 - (void) dealloc
 {
-    
-    [_swipeLeftRecognizer release];
-    _swipeLeftRecognizer = nil;
-    [_swipeRightRecognizer release];
-    _swipeRightRecognizer = nil;
 	[super dealloc];
 }
 
