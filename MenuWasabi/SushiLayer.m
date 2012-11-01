@@ -39,15 +39,13 @@
 
 
 //Posiciones Nombres Menu
-#define posXprincipalMenuSushi 140
-#define posXprincipalMenuTeppanyaki 400
-#define posXprincipalMenuSopa 270
-#define posXprincipalMenuEspeciales 270
-#define posXprincipalMenuEntradas -140
-#define posXprincipalMenuEnsaladas 270
-#define posXprincipalMenuWok 0
-#define posXprincipalMenuPostres 20
+#define posXprincipalMenuOnePlate 510
+#define posXprincipalMenuTwoPlates 380
+#define posXprincipalMenuThreePlates 260
+#define posXprincipalMenuMorePlates 140
+
 #define posXprincipalMenuLicores -140
+
 #define posXimagenBotonTotalPagar 385
 #define posYimagenBotonTotalPagar -140
 #define posXlabelTotal 320
@@ -79,24 +77,13 @@
 #define tipoCombos @"11"
 
 
-#define kindFactorSushi 0
-#define kindFactorTeppanyaki 200
-#define kindFactorSopa 300
-#define kindFactorEspeciales 400
-#define kindFactorEntradas 500
-#define kindFactorEnsaladas 600
-#define kindFactorWok 700
-#define kindFactorPostres 800
-#define kindFactorBebidas 900
-#define kindFactorLicores 1000
-
 #define AHalfWinSizeX 512
 #define AHalfWinSizeY 384
 
 
 static const ccColor3B ccDARKRED={139,0,0};
 //
-int KindFactor = 0;
+
 //Posiciones
 int posXnombres=0;
 int posYnombres=0;
@@ -120,7 +107,7 @@ int posXdesaparecerAgregar = 740;
 
 int _fontSizeTotal = 34;
 int _fontSizeFotter = 11;
-int _fontSizeTitleName = 16;
+int _fontSizeTitleName = 15;
 int _fontSizeTitlePrice = 14;
 int _fontSizeOrderPrice = 14;
 int _fontSizeOrderName = 13;
@@ -183,55 +170,21 @@ BOOL bool_swipe = YES;
 
     numPlates = [platos count];
     
-    if(tipoPlato == tipoSushi){
-        KindFactor = kindFactorSushi;
-       // numPlates = 37;
-        posXprincipalMenu = posXprincipalMenuSushi;
+    if (tipoPlato == tipoLicores){
+        limitMoveRight = ((numPlates-4) * limitMoveLeftMenuFactor)+limitMoveLeft;
+    }
+    if (numPlates == 1) {
+        posXprincipalMenu = posXprincipalMenuOnePlate;
+    }
+    else if (numPlates == 2){
+        posXprincipalMenu = posXprincipalMenuTwoPlates;
+    }
+    else if (numPlates == 3){
+        posXprincipalMenu = posXprincipalMenuThreePlates;
+    }
+    else if (numPlates > 4){
+        posXprincipalMenu = posXprincipalMenuMorePlates;
         limitMoveRight = ((numPlates-4) * limitMoveLeftMenuFactorSushi)+limitMoveLeft;
-    }
-    else if (tipoPlato == tipoTeppanyaki){
-        NSLog(@"MENOS MAL");
-        KindFactor = kindFactorTeppanyaki;
-        //numPlates = 2;
-        posXprincipalMenu = posXprincipalMenuTeppanyaki;
-
-    }
-    else if (tipoPlato == tipoSopa){
-        KindFactor = kindFactorSopa;
-        //numPlates = 1;
-        posXprincipalMenu = posXprincipalMenuSopa;
-    }
-    else if (tipoPlato == tipoEspeciales){
-        KindFactor = kindFactorEspeciales;
-        //numPlates = 1;
-        posXprincipalMenu = posXprincipalMenuEspeciales;
-    }
-    else if (tipoPlato == tipoEntradas){
-        KindFactor = kindFactorEntradas;
-       // numPlates = 8;
-        posXprincipalMenu = posXprincipalMenuEntradas;
-        limitMoveRight = ((numPlates-4) * limitMoveLeftMenuFactor)+limitMoveLeft;
-    }
-    else if (tipoPlato == tipoEnsaladas){
-        KindFactor = kindFactorEnsaladas;
-       // numPlates = 1;
-        posXprincipalMenu = posXprincipalMenuEnsaladas;
-    }
-    else if (tipoPlato == tipoPostres){
-        KindFactor = kindFactorPostres;
-       // numPlates = 3;
-        posXprincipalMenu = posXprincipalMenuPostres;
-    }
-    else if (tipoPlato == tipoBebidas){
-        KindFactor = kindFactorBebidas;
-       // numPlates = 3;
-        posXprincipalMenu = posXprincipalMenuPostres;
-    }
-    else if (tipoPlato == tipoLicores){
-        KindFactor = kindFactorLicores;
-        //numPlates = 6;
-        posXprincipalMenu = posXprincipalMenuLicores;
-        limitMoveRight = ((numPlates-4) * limitMoveLeftMenuFactor)+limitMoveLeft;
     }
 }
 
@@ -255,7 +208,6 @@ BOOL bool_swipe = YES;
         _rootViewController = rootViewController;
         bool_swipe=YES;
         [self changeValueNumPlates];
-
         CGSize winSize = [[CCDirector sharedDirector] winSize];
         self.isTouchEnabled = YES;
         
@@ -281,9 +233,10 @@ BOOL bool_swipe = YES;
             
             auxPlate = [platos objectAtIndex:i];
             CCLOG(@" %i ------------- platos count  ---------------- %@", i, auxPlate.id_plato);
-            nombre_plato = [[CCLabelTTF alloc]initWithString:@"" fontName:font fontSize:_fontSizeTitleName];
-            precio_plato = [[CCLabelTTF alloc]initWithString:@"" fontName:font fontSize:_fontSizeTitlePrice];
             
+                        
+            nombre_plato = [CCLabelTTF labelWithString:@"" dimensions:CGSizeMake(165, 60) hAlignment:UITextAlignmentCenter vAlignment:UITextAlignmentCenter fontName:font fontSize:_fontSizeTitleName];
+            precio_plato = [CCLabelTTF labelWithString:@"" dimensions:CGSizeMake(165, 60) hAlignment:UITextAlignmentCenter vAlignment:UITextAlignmentCenter fontName:font fontSize:_fontSizeTitlePrice];
             
             strnombrePlato = auxPlate.nombre;
             [nombre_plato setString:strnombrePlato];
@@ -294,7 +247,6 @@ BOOL bool_swipe = YES;
             if(_tipo == tipoLicores) _tipoBool = NO;
             
             if(_tipoBool){
-                
                 strprecioPlato = [[NSString alloc]initWithFormat:@"$ %i", auxPlate.precio];
                 [precio_plato setString:strprecioPlato];
             }
@@ -306,8 +258,8 @@ BOOL bool_swipe = YES;
            itemAux.tag=[auxPlate.id_plato intValue];
             
             itemAux.position = CGPointMake(itemAux.position.x +(i*paddingPrincipalPlates), itemAux.position.y);
-            itemNombrePlato.position = CGPointMake(itemNombrePlato.position.x +(i*paddingPrincipalPlates), 165);
-            itemPrecio.position = CGPointMake(itemPrecio.position.x +(i*paddingPrincipalPlates)+5, 148);
+            itemNombrePlato.position = CGPointMake(itemNombrePlato.position.x +(i*paddingPrincipalPlates), 168);
+            itemPrecio.position = CGPointMake(itemPrecio.position.x +(i*paddingPrincipalPlates), 145);
             
             [menu addChild:itemAux];
             [menu addChild:itemNombrePlato];
@@ -335,7 +287,6 @@ BOOL bool_swipe = YES;
         [self addChild:menu_detalles];
         
         label_descripcion = [CCLabelTTF labelWithString:@"Total" dimensions:CGSizeMake(180, 100) hAlignment:UITextAlignmentCenter vAlignment:UITextAlignmentCenter  fontName:font fontSize:fontSizeDescription];
-       // label_descripcion = [CCLabelTTF labelWithString:@"Total" fontName:font fontSize:fontSizeDescription];
         label_descripcion.position =  ccp(posXBigPlatesDescription , posYBigPlatesDescription);
         
 		[self addChild: label_descripcion];
@@ -395,7 +346,6 @@ BOOL bool_swipe = YES;
         //
         //
         //
-        
         
         menu_pedidos = [[CCMenu alloc]init];
         menu_pedidos.position = CGPointMake(posXmenuPedidos, posYmenuPedidos);
@@ -462,7 +412,7 @@ BOOL bool_swipe = YES;
                 else if(pos > limitMoveLeft){
                     pos =limitMoveLeft;
                 }
-                winSize = [[CCDirector sharedDirector] winSize];
+                
                 [self moveMenu_withMenu: menu withXpox:pos withYpos:AHalfWinSizeY withTimeTransition:1];
             }
         }
@@ -685,7 +635,7 @@ BOOL bool_swipe = YES;
 
 -(void)aparecerMenus:(id)arg{
     bool_swipe=YES;
-    winSize = [[CCDirector sharedDirector] winSize];
+   
     [self moveMenu_withMenu: menu withXpox:menu.position.x withYpos:AHalfWinSizeY withTimeTransition:1.0];
     
 }
@@ -782,8 +732,6 @@ BOOL bool_swipe = YES;
     
 }
 
-
-
 -(void) loadMenuResume{
     Plato *platoTemp = [[Plato alloc]init];
     int cantidadPlatos = [_rootViewController demeNumeroPlatosEnOrden];
@@ -811,6 +759,7 @@ BOOL bool_swipe = YES;
     
     //Creo un label para mostrar el valor del plato
     CCLabelTTF *precio_plato = [[CCLabelTTF alloc]initWithString:@"precio" fontName:font fontSize:_fontSizeOrderPrice];
+    
     //traigo el precio del plato actual
     NSString *str_precio = [[NSString alloc]initWithFormat:@"$ %i", _price];
     [precio_plato setString:str_precio];
@@ -818,16 +767,16 @@ BOOL bool_swipe = YES;
     itemPrecio = [CCMenuItemLabel itemWithLabel:precio_plato];
     itemPrecio.tag = [_idPlate intValue];
     
-    CCLabelTTF *name_plate = [[CCLabelTTF alloc]initWithString:@"precio" fontName:font fontSize:_fontSizeOrderName];
+    CCLabelTTF *name_plate = [CCLabelTTF labelWithString:@"name" dimensions:CGSizeMake(120, 60) hAlignment:UITextAlignmentCenter vAlignment:UITextAlignmentCenter fontName:font fontSize:_fontSizeOrderName];
+    
     [name_plate setString:_name];
     itemName = [CCMenuItemLabel itemWithLabel:name_plate];
     itemName.tag = [_idPlate intValue];
     
     itemImg.position = CGPointMake(itemImg.position.x +(_num*paddingTinyPlates), itemImg.position.y);
-    itemName.position = CGPointMake(itemPrecio.position.x +(_num*paddingTinyPlates), -45);
-    itemPrecio.position = CGPointMake(itemPrecio.position.x +(_num*paddingTinyPlates), -60);
+    itemName.position = CGPointMake(itemPrecio.position.x +(_num*paddingTinyPlates)+5, -45);
+    itemPrecio.position = CGPointMake(itemPrecio.position.x +(_num*paddingTinyPlates), -70);
     itemCerrar.position = CGPointMake(itemCerrar.position.x +(_num*paddingTinyPlates)+50, 35);
-    
     
     [menu_pedidos addChild:itemImg];
     [menu_pedidos addChild:itemName];
@@ -847,17 +796,15 @@ BOOL bool_swipe = YES;
     CCLOG(@"onDeletePlate %i", [_rootViewController demeNumeroPlatosEnOrden]);
     NSInteger _tag = [sender tag];
     NSString *_kind_str = [sender accessibilityValue];
-    NSInteger _kind = [_kind_str integerValue];
-    
-    
-    [_rootViewController eliminarPlato:@([sender tag]) withKindPlate:_kind];
+        
+    [_rootViewController eliminarPlato:[[NSString alloc]initWithFormat:@"%i", _tag] withKindPlate:_kind_str];
     [menu_pedidos removeAllChildrenWithCleanup:YES];
     [self loadMenuResume];
     NSString *str_total = [[NSString alloc]initWithFormat:@"$ %i", [_rootViewController demeTotalCuenta]];
     [label_total setString:str_total];
     
     
-    if((iactualPlate == _tag)||(!([_rootViewController estaPlato:@(iactualPlate)])&&(iactualPlate!=-1)&&(_rootViewController.demeNumeroPlatosEnOrden < 6))){
+    if((iactualPlate == _tag)||(!([_rootViewController estaPlato:[[NSString alloc]initWithFormat:@"%i", iactualPlate]])&&(iactualPlate!=-1)&&(_rootViewController.demeNumeroPlatosEnOrden < 6))){
         [self moveMenu_withMenu:menu_agregar withXpox:posXaparecerAgregar withYpos:posYaparecerAgregar withTimeTransition:1.0];
     }
     

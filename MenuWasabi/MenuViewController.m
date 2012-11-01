@@ -210,6 +210,8 @@
 }
 
 - (IBAction)viewWok:(id)sender {
+    [self salirMenu:sender];
+    [NSTimer scheduledTimerWithTimeInterval:3.3 target:self selector:@selector(layerWok:) userInfo:nil repeats:NO];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -294,7 +296,6 @@
 }
 
 
-
 - (void)layerSushi:(id)arg {
     [self beginLayer:tipoSushi];
 }
@@ -315,6 +316,9 @@
 }
 - (void)layerTeppanyaki:(id)arg {
     [self beginLayer:tipoTeppanyaki];
+}
+- (void)layerWok:(id)arg {
+    [self beginLayer:tipoWok];
 }
 - (void)layerBebidas:(id)arg {
     [self beginLayer:tipoBebidas];

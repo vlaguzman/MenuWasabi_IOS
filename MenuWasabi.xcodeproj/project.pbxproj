@@ -237,34 +237,6 @@
 		C144B26F1639B0340091A8E0 /* ComboViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C144B26D1639B0340091A8E0 /* ComboViewController.m */; };
 		C144B2701639B0340091A8E0 /* ComboViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C144B26E1639B0340091A8E0 /* ComboViewController.xib */; };
 		C1559D0B1611F311007512AA /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1559D0A1611F311007512AA /* RootViewController.xib */; };
-		C155EDEB1626231000421599 /* sopa_chiraschi-sushi_p.png in Resources */ = {isa = PBXBuildFile; fileRef = C155EDEA1626231000421599 /* sopa_chiraschi-sushi_p.png */; };
-		C155EDF51626239000421599 /* entrada_eby-crispy_g.png in Resources */ = {isa = PBXBuildFile; fileRef = C155EDED1626239000421599 /* entrada_eby-crispy_g.png */; };
-		C155EDF61626239000421599 /* entrada_kany-kamma-ball_g.png in Resources */ = {isa = PBXBuildFile; fileRef = C155EDEE1626239000421599 /* entrada_kany-kamma-ball_g.png */; };
-		C155EDF71626239000421599 /* entrada_niguiri-salmon_g.png in Resources */ = {isa = PBXBuildFile; fileRef = C155EDEF1626239000421599 /* entrada_niguiri-salmon_g.png */; };
-		C155EDF81626239000421599 /* entrada_oriental_taste_g.png in Resources */ = {isa = PBXBuildFile; fileRef = C155EDF01626239000421599 /* entrada_oriental_taste_g.png */; };
-		C155EDF91626239000421599 /* entrada_sashimi_g.png in Resources */ = {isa = PBXBuildFile; fileRef = C155EDF11626239000421599 /* entrada_sashimi_g.png */; };
-		C155EDFA1626239000421599 /* entrada_sea-mix-open_g.png in Resources */ = {isa = PBXBuildFile; fileRef = C155EDF21626239000421599 /* entrada_sea-mix-open_g.png */; };
-		C155EDFB1626239000421599 /* entrada_summer-rolls_g.png in Resources */ = {isa = PBXBuildFile; fileRef = C155EDF31626239000421599 /* entrada_summer-rolls_g.png */; };
-		C155EDFC1626239000421599 /* entrada_tacos-thai_g.png in Resources */ = {isa = PBXBuildFile; fileRef = C155EDF41626239000421599 /* entrada_tacos-thai_g.png */; };
-		C155EE051626648300421599 /* sopa_chiraschi-sushi.png in Resources */ = {isa = PBXBuildFile; fileRef = C155EE041626648300421599 /* sopa_chiraschi-sushi.png */; };
-		C155EE0C1626691C00421599 /* sopa_chiraschi-sushi_g.png in Resources */ = {isa = PBXBuildFile; fileRef = C155EE0B1626691C00421599 /* sopa_chiraschi-sushi_g.png */; };
-		C155EE0E16266A2700421599 /* sopa_chiraschi-sushi_grande.png in Resources */ = {isa = PBXBuildFile; fileRef = C155EE0D16266A2700421599 /* sopa_chiraschi-sushi_grande.png */; };
-		C1A9962B162721E400592399 /* entrada_eby-crispy_p.png in Resources */ = {isa = PBXBuildFile; fileRef = C1A995FE162721E400592399 /* entrada_eby-crispy_p.png */; };
-		C1A9962C162721E400592399 /* entrada_kany-kamma-ball_p.png in Resources */ = {isa = PBXBuildFile; fileRef = C1A995FF162721E400592399 /* entrada_kany-kamma-ball_p.png */; };
-		C1A9962D162721E400592399 /* entrada_niguiri-salmon_p.png in Resources */ = {isa = PBXBuildFile; fileRef = C1A99600162721E400592399 /* entrada_niguiri-salmon_p.png */; };
-		C1A9962E162721E400592399 /* entrada_oriental_taste_p.png in Resources */ = {isa = PBXBuildFile; fileRef = C1A99601162721E400592399 /* entrada_oriental_taste_p.png */; };
-		C1A9962F162721E400592399 /* entrada_sashimi_p.png in Resources */ = {isa = PBXBuildFile; fileRef = C1A99602162721E400592399 /* entrada_sashimi_p.png */; };
-		C1A99630162721E400592399 /* entrada_sea-mix-open_p.png in Resources */ = {isa = PBXBuildFile; fileRef = C1A99603162721E400592399 /* entrada_sea-mix-open_p.png */; };
-		C1A99631162721E400592399 /* entrada_summer-rolls_p.png in Resources */ = {isa = PBXBuildFile; fileRef = C1A99604162721E400592399 /* entrada_summer-rolls_p.png */; };
-		C1A99632162721E400592399 /* entrada_tacos-thai_p.png in Resources */ = {isa = PBXBuildFile; fileRef = C1A99605162721E400592399 /* entrada_tacos-thai_p.png */; };
-		C1A9965916273F4500592399 /* entrada_eby-crispy.png in Resources */ = {isa = PBXBuildFile; fileRef = C1A9965116273F4500592399 /* entrada_eby-crispy.png */; };
-		C1A9965A16273F4500592399 /* entrada_kany-kamma-ball.png in Resources */ = {isa = PBXBuildFile; fileRef = C1A9965216273F4500592399 /* entrada_kany-kamma-ball.png */; };
-		C1A9965B16273F4500592399 /* entrada_niguiri-salmon.png in Resources */ = {isa = PBXBuildFile; fileRef = C1A9965316273F4500592399 /* entrada_niguiri-salmon.png */; };
-		C1A9965C16273F4500592399 /* entrada_oriental_taste.png in Resources */ = {isa = PBXBuildFile; fileRef = C1A9965416273F4500592399 /* entrada_oriental_taste.png */; };
-		C1A9965D16273F4500592399 /* entrada_sashimi.png in Resources */ = {isa = PBXBuildFile; fileRef = C1A9965516273F4500592399 /* entrada_sashimi.png */; };
-		C1A9965E16273F4500592399 /* entrada_sea-mix-open.png in Resources */ = {isa = PBXBuildFile; fileRef = C1A9965616273F4500592399 /* entrada_sea-mix-open.png */; };
-		C1A9965F16273F4500592399 /* entrada_summer-rolls.png in Resources */ = {isa = PBXBuildFile; fileRef = C1A9965716273F4500592399 /* entrada_summer-rolls.png */; };
-		C1A9966016273F4500592399 /* entrada_tacos-thai.png in Resources */ = {isa = PBXBuildFile; fileRef = C1A9965816273F4500592399 /* entrada_tacos-thai.png */; };
 		C1B89EF4163078EE0047518D /* fondo_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = C1B89EF3163078EB0047518D /* fondo_btn.png */; };
 		C1B89EF6163079E30047518D /* btn_principal.png in Resources */ = {isa = PBXBuildFile; fileRef = C1B89EF5163079DE0047518D /* btn_principal.png */; };
 		C1B89EFC1630A2080047518D /* flecha_total_upb.png in Resources */ = {isa = PBXBuildFile; fileRef = C1B89EFB1630A2050047518D /* flecha_total_upb.png */; };
@@ -286,33 +258,51 @@
 		C1B89F1E1630BB160047518D /* licores.png in Resources */ = {isa = PBXBuildFile; fileRef = C1B89F181630BB160047518D /* licores.png */; };
 		C1B89F1F1630BB160047518D /* pouse.png in Resources */ = {isa = PBXBuildFile; fileRef = C1B89F191630BB160047518D /* pouse.png */; };
 		C1B89F201630BB160047518D /* vinos.png in Resources */ = {isa = PBXBuildFile; fileRef = C1B89F1A1630BB160047518D /* vinos.png */; };
-		C1C23C6E162DAB4400843CBA /* ceviche-mixto_g.png in Resources */ = {isa = PBXBuildFile; fileRef = C1C23C6C162DAB4400843CBA /* ceviche-mixto_g.png */; };
-		C1C23C6F162DAB4400843CBA /* tiradito-de-mero_g.png in Resources */ = {isa = PBXBuildFile; fileRef = C1C23C6D162DAB4400843CBA /* tiradito-de-mero_g.png */; };
-		C1C23C73162DAB5500843CBA /* ceviche-mixto.png in Resources */ = {isa = PBXBuildFile; fileRef = C1C23C71162DAB5500843CBA /* ceviche-mixto.png */; };
-		C1C23C74162DAB5500843CBA /* tiradito-de-mero.png in Resources */ = {isa = PBXBuildFile; fileRef = C1C23C72162DAB5500843CBA /* tiradito-de-mero.png */; };
-		C1C23C77162DAB7600843CBA /* ceviche-mixto_p.png in Resources */ = {isa = PBXBuildFile; fileRef = C1C23C75162DAB7600843CBA /* ceviche-mixto_p.png */; };
-		C1C23C78162DAB7600843CBA /* tiradito-de-mero_p.png in Resources */ = {isa = PBXBuildFile; fileRef = C1C23C76162DAB7600843CBA /* tiradito-de-mero_p.png */; };
-		C1C23C7F162DAEF600843CBA /* ensalada-de-pollo_g.png in Resources */ = {isa = PBXBuildFile; fileRef = C1C23C7E162DAEF600843CBA /* ensalada-de-pollo_g.png */; };
-		C1C23C81162DAF0600843CBA /* ensalada-de-pollo.png in Resources */ = {isa = PBXBuildFile; fileRef = C1C23C80162DAF0600843CBA /* ensalada-de-pollo.png */; };
-		C1C23C83162DAF1300843CBA /* ensalada-de-pollo_p.png in Resources */ = {isa = PBXBuildFile; fileRef = C1C23C82162DAF1300843CBA /* ensalada-de-pollo_p.png */; };
-		C1C23C8B162DBE1800843CBA /* Nutella-fruit-roll.png in Resources */ = {isa = PBXBuildFile; fileRef = C1C23C88162DBE1800843CBA /* Nutella-fruit-roll.png */; };
-		C1C23C8C162DBE1800843CBA /* Passion-fruit-sensation-cereza.png in Resources */ = {isa = PBXBuildFile; fileRef = C1C23C89162DBE1800843CBA /* Passion-fruit-sensation-cereza.png */; };
-		C1C23C8D162DBE1800843CBA /* Passion-fruit-sensation.png in Resources */ = {isa = PBXBuildFile; fileRef = C1C23C8A162DBE1800843CBA /* Passion-fruit-sensation.png */; };
-		C1C23C91162DBE2400843CBA /* Nutella-fruit-roll_g.png in Resources */ = {isa = PBXBuildFile; fileRef = C1C23C8E162DBE2400843CBA /* Nutella-fruit-roll_g.png */; };
-		C1C23C92162DBE2400843CBA /* Passion-fruit-sensation_g.png in Resources */ = {isa = PBXBuildFile; fileRef = C1C23C8F162DBE2400843CBA /* Passion-fruit-sensation_g.png */; };
-		C1C23C93162DBE2400843CBA /* Passion-fruit-sensation-cereza_g.png in Resources */ = {isa = PBXBuildFile; fileRef = C1C23C90162DBE2400843CBA /* Passion-fruit-sensation-cereza_g.png */; };
-		C1C23C97162DBE3300843CBA /* Nutella-fruit-roll_p.png in Resources */ = {isa = PBXBuildFile; fileRef = C1C23C94162DBE3300843CBA /* Nutella-fruit-roll_p.png */; };
-		C1C23C98162DBE3300843CBA /* Passion-fruit-sensation_p.png in Resources */ = {isa = PBXBuildFile; fileRef = C1C23C95162DBE3300843CBA /* Passion-fruit-sensation_p.png */; };
-		C1C23C99162DBE3300843CBA /* Passion-fruit-sensation-cereza_p.png in Resources */ = {isa = PBXBuildFile; fileRef = C1C23C96162DBE3300843CBA /* Passion-fruit-sensation-cereza_p.png */; };
-		C1C23CA4162DC4BF00843CBA /* eby-yaky_g.png in Resources */ = {isa = PBXBuildFile; fileRef = C1C23CA2162DC4BF00843CBA /* eby-yaky_g.png */; };
-		C1C23CA5162DC4BF00843CBA /* teppanyaki_carnes_g.png in Resources */ = {isa = PBXBuildFile; fileRef = C1C23CA3162DC4BF00843CBA /* teppanyaki_carnes_g.png */; };
-		C1C23CA8162DC4CE00843CBA /* eby-yaky.png in Resources */ = {isa = PBXBuildFile; fileRef = C1C23CA6162DC4CE00843CBA /* eby-yaky.png */; };
-		C1C23CA9162DC4CE00843CBA /* teppanyaki_carnes.png in Resources */ = {isa = PBXBuildFile; fileRef = C1C23CA7162DC4CE00843CBA /* teppanyaki_carnes.png */; };
-		C1C23CAC162DC4E000843CBA /* eby-yaky_p.png in Resources */ = {isa = PBXBuildFile; fileRef = C1C23CAA162DC4E000843CBA /* eby-yaky_p.png */; };
-		C1C23CAD162DC4E000843CBA /* teppanyaki_carnes_p.png in Resources */ = {isa = PBXBuildFile; fileRef = C1C23CAB162DC4E000843CBA /* teppanyaki_carnes_p.png */; };
-		C1C23CAF162DC52500843CBA /* titanic_g.png in Resources */ = {isa = PBXBuildFile; fileRef = C1C23CAE162DC52500843CBA /* titanic_g.png */; };
-		C1C23CB1162DC53000843CBA /* titanic.png in Resources */ = {isa = PBXBuildFile; fileRef = C1C23CB0162DC53000843CBA /* titanic.png */; };
-		C1C23CB3162DC53C00843CBA /* titanic_p.png in Resources */ = {isa = PBXBuildFile; fileRef = C1C23CB2162DC53C00843CBA /* titanic_p.png */; };
+		C1BF1FBC1642BE4000DE285F /* ensaladas_ensalada_de_pollo_g.png in Resources */ = {isa = PBXBuildFile; fileRef = C1BF1FBB1642BE4000DE285F /* ensaladas_ensalada_de_pollo_g.png */; };
+		C1BF1FBE1642BE4900DE285F /* ensaladas_ensalada_de_pollo_p.png in Resources */ = {isa = PBXBuildFile; fileRef = C1BF1FBD1642BE4900DE285F /* ensaladas_ensalada_de_pollo_p.png */; };
+		C1BF1FC01642BE5100DE285F /* ensaladas_ensalada_de_pollo.png in Resources */ = {isa = PBXBuildFile; fileRef = C1BF1FBF1642BE5100DE285F /* ensaladas_ensalada_de_pollo.png */; };
+		C1BF1FC81642BEA000DE285F /* entrada_ceviche_mixto_g.png in Resources */ = {isa = PBXBuildFile; fileRef = C1BF1FC11642BEA000DE285F /* entrada_ceviche_mixto_g.png */; };
+		C1BF1FC91642BEA000DE285F /* entrada_kani-kama_ball_g.png in Resources */ = {isa = PBXBuildFile; fileRef = C1BF1FC21642BEA000DE285F /* entrada_kani-kama_ball_g.png */; };
+		C1BF1FCA1642BEA000DE285F /* entrada_oriental_taste_g.png in Resources */ = {isa = PBXBuildFile; fileRef = C1BF1FC31642BEA000DE285F /* entrada_oriental_taste_g.png */; };
+		C1BF1FCB1642BEA000DE285F /* entrada_sea_mix_open_g.png in Resources */ = {isa = PBXBuildFile; fileRef = C1BF1FC41642BEA000DE285F /* entrada_sea_mix_open_g.png */; };
+		C1BF1FCC1642BEA000DE285F /* entrada_summer_roll_g.png in Resources */ = {isa = PBXBuildFile; fileRef = C1BF1FC51642BEA000DE285F /* entrada_summer_roll_g.png */; };
+		C1BF1FCD1642BEA000DE285F /* entrada_tacos_thai_g.png in Resources */ = {isa = PBXBuildFile; fileRef = C1BF1FC61642BEA000DE285F /* entrada_tacos_thai_g.png */; };
+		C1BF1FCE1642BEA000DE285F /* entrada_tiradito_de_mero_g.png in Resources */ = {isa = PBXBuildFile; fileRef = C1BF1FC71642BEA000DE285F /* entrada_tiradito_de_mero_g.png */; };
+		C1BF1FD61642BEB300DE285F /* entrada_ceviche_mixto_p.png in Resources */ = {isa = PBXBuildFile; fileRef = C1BF1FCF1642BEB300DE285F /* entrada_ceviche_mixto_p.png */; };
+		C1BF1FD71642BEB300DE285F /* entrada_kani-kama_ball_p.png in Resources */ = {isa = PBXBuildFile; fileRef = C1BF1FD01642BEB300DE285F /* entrada_kani-kama_ball_p.png */; };
+		C1BF1FD81642BEB300DE285F /* entrada_oriental_taste_p.png in Resources */ = {isa = PBXBuildFile; fileRef = C1BF1FD11642BEB300DE285F /* entrada_oriental_taste_p.png */; };
+		C1BF1FD91642BEB300DE285F /* entrada_sea_mix_open_p.png in Resources */ = {isa = PBXBuildFile; fileRef = C1BF1FD21642BEB300DE285F /* entrada_sea_mix_open_p.png */; };
+		C1BF1FDA1642BEB300DE285F /* entrada_summer_roll_p.png in Resources */ = {isa = PBXBuildFile; fileRef = C1BF1FD31642BEB300DE285F /* entrada_summer_roll_p.png */; };
+		C1BF1FDB1642BEB300DE285F /* entrada_tacos_thai_p.png in Resources */ = {isa = PBXBuildFile; fileRef = C1BF1FD41642BEB300DE285F /* entrada_tacos_thai_p.png */; };
+		C1BF1FDC1642BEB300DE285F /* entrada_tiradito_de_mero_p.png in Resources */ = {isa = PBXBuildFile; fileRef = C1BF1FD51642BEB300DE285F /* entrada_tiradito_de_mero_p.png */; };
+		C1BF1FE41642BEC200DE285F /* entrada_ceviche_mixto.png in Resources */ = {isa = PBXBuildFile; fileRef = C1BF1FDD1642BEC200DE285F /* entrada_ceviche_mixto.png */; };
+		C1BF1FE51642BEC200DE285F /* entrada_kani-kama_ball.png in Resources */ = {isa = PBXBuildFile; fileRef = C1BF1FDE1642BEC200DE285F /* entrada_kani-kama_ball.png */; };
+		C1BF1FE61642BEC200DE285F /* entrada_oriental_taste.png in Resources */ = {isa = PBXBuildFile; fileRef = C1BF1FDF1642BEC200DE285F /* entrada_oriental_taste.png */; };
+		C1BF1FE71642BEC200DE285F /* entrada_sea_mix_open.png in Resources */ = {isa = PBXBuildFile; fileRef = C1BF1FE01642BEC200DE285F /* entrada_sea_mix_open.png */; };
+		C1BF1FE81642BEC200DE285F /* entrada_summer_roll.png in Resources */ = {isa = PBXBuildFile; fileRef = C1BF1FE11642BEC200DE285F /* entrada_summer_roll.png */; };
+		C1BF1FE91642BEC200DE285F /* entrada_tacos_thai.png in Resources */ = {isa = PBXBuildFile; fileRef = C1BF1FE21642BEC200DE285F /* entrada_tacos_thai.png */; };
+		C1BF1FEA1642BEC200DE285F /* entrada_tiradito_de_mero.png in Resources */ = {isa = PBXBuildFile; fileRef = C1BF1FE31642BEC200DE285F /* entrada_tiradito_de_mero.png */; };
+		C1BF1FEC1642BEEB00DE285F /* especiales_titanic_wasabi_g.png in Resources */ = {isa = PBXBuildFile; fileRef = C1BF1FEB1642BEEB00DE285F /* especiales_titanic_wasabi_g.png */; };
+		C1BF1FEE1642BEF100DE285F /* especiales_titanic_wasabi_p.png in Resources */ = {isa = PBXBuildFile; fileRef = C1BF1FED1642BEF100DE285F /* especiales_titanic_wasabi_p.png */; };
+		C1BF1FF01642BEF600DE285F /* especiales_titanic_wasabi.png in Resources */ = {isa = PBXBuildFile; fileRef = C1BF1FEF1642BEF600DE285F /* especiales_titanic_wasabi.png */; };
+		C1BF1FF41642BF2800DE285F /* postre_citrus_sensation_g.png in Resources */ = {isa = PBXBuildFile; fileRef = C1BF1FF11642BF2800DE285F /* postre_citrus_sensation_g.png */; };
+		C1BF1FF51642BF2800DE285F /* postre_nutella-fruit-roll_g.png in Resources */ = {isa = PBXBuildFile; fileRef = C1BF1FF21642BF2800DE285F /* postre_nutella-fruit-roll_g.png */; };
+		C1BF1FF61642BF2800DE285F /* postres_postre_de_las_tres_leches_g.png in Resources */ = {isa = PBXBuildFile; fileRef = C1BF1FF31642BF2800DE285F /* postres_postre_de_las_tres_leches_g.png */; };
+		C1BF1FFA1642BF3000DE285F /* postre_citrus_sensation_p.png in Resources */ = {isa = PBXBuildFile; fileRef = C1BF1FF71642BF3000DE285F /* postre_citrus_sensation_p.png */; };
+		C1BF1FFB1642BF3000DE285F /* postre_nutella-fruit-roll_p.png in Resources */ = {isa = PBXBuildFile; fileRef = C1BF1FF81642BF3000DE285F /* postre_nutella-fruit-roll_p.png */; };
+		C1BF1FFC1642BF3000DE285F /* postres_postre_de_las_tres_leches_p.png in Resources */ = {isa = PBXBuildFile; fileRef = C1BF1FF91642BF3000DE285F /* postres_postre_de_las_tres_leches_p.png */; };
+		C1BF20001642BF3800DE285F /* postre_citrus_sensation.png in Resources */ = {isa = PBXBuildFile; fileRef = C1BF1FFD1642BF3800DE285F /* postre_citrus_sensation.png */; };
+		C1BF20011642BF3800DE285F /* postre_nutella-fruit-roll.png in Resources */ = {isa = PBXBuildFile; fileRef = C1BF1FFE1642BF3800DE285F /* postre_nutella-fruit-roll.png */; };
+		C1BF20021642BF3800DE285F /* postres_postre_de_las_tres_leches.png in Resources */ = {isa = PBXBuildFile; fileRef = C1BF1FFF1642BF3800DE285F /* postres_postre_de_las_tres_leches.png */; };
+		C1BF20041642BF5300DE285F /* sopa_tom-yam_g.png in Resources */ = {isa = PBXBuildFile; fileRef = C1BF20031642BF5300DE285F /* sopa_tom-yam_g.png */; };
+		C1BF20061642BF5900DE285F /* sopa_tom-yam_p.png in Resources */ = {isa = PBXBuildFile; fileRef = C1BF20051642BF5900DE285F /* sopa_tom-yam_p.png */; };
+		C1BF20081642BF6000DE285F /* sopa_tom-yam.png in Resources */ = {isa = PBXBuildFile; fileRef = C1BF20071642BF6000DE285F /* sopa_tom-yam.png */; };
+		C1BF200A1642BF8C00DE285F /* teppanyaki_eby_yaky_g.png in Resources */ = {isa = PBXBuildFile; fileRef = C1BF20091642BF8C00DE285F /* teppanyaki_eby_yaky_g.png */; };
+		C1BF200C1642BF9100DE285F /* teppanyaki_eby_yaky_p.png in Resources */ = {isa = PBXBuildFile; fileRef = C1BF200B1642BF9100DE285F /* teppanyaki_eby_yaky_p.png */; };
+		C1BF200E1642BF9700DE285F /* teppanyaki_eby_yaky.png in Resources */ = {isa = PBXBuildFile; fileRef = C1BF200D1642BF9700DE285F /* teppanyaki_eby_yaky.png */; };
+		C1BF20141642BFC000DE285F /* wok_costillitas_agridulces_wasabi_g.png in Resources */ = {isa = PBXBuildFile; fileRef = C1BF20131642BFC000DE285F /* wok_costillitas_agridulces_wasabi_g.png */; };
+		C1BF20161642BFC600DE285F /* wok_costillitas_agridulces_wasabi_p.png in Resources */ = {isa = PBXBuildFile; fileRef = C1BF20151642BFC600DE285F /* wok_costillitas_agridulces_wasabi_p.png */; };
+		C1BF20181642BFCC00DE285F /* wok_costillitas_agridulces_wasabi.png in Resources */ = {isa = PBXBuildFile; fileRef = C1BF20171642BFCC00DE285F /* wok_costillitas_agridulces_wasabi.png */; };
 		C1C4C36F162F20B5006AA580 /* flecha_total_up.png in Resources */ = {isa = PBXBuildFile; fileRef = C1C4C36E162F20B5006AA580 /* flecha_total_up.png */; };
 		C1C4C37A162F511F006AA580 /* TipoBebida.m in Sources */ = {isa = PBXBuildFile; fileRef = C1C4C379162F511F006AA580 /* TipoBebida.m */; };
 		C1C4C37D162F513D006AA580 /* Bebida.m in Sources */ = {isa = PBXBuildFile; fileRef = C1C4C37C162F513D006AA580 /* Bebida.m */; };
@@ -747,34 +737,6 @@
 		C144B26D1639B0340091A8E0 /* ComboViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComboViewController.m; sourceTree = "<group>"; };
 		C144B26E1639B0340091A8E0 /* ComboViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ComboViewController.xib; sourceTree = "<group>"; };
 		C1559D0A1611F311007512AA /* RootViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RootViewController.xib; sourceTree = "<group>"; };
-		C155EDEA1626231000421599 /* sopa_chiraschi-sushi_p.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sopa_chiraschi-sushi_p.png"; sourceTree = "<group>"; };
-		C155EDED1626239000421599 /* entrada_eby-crispy_g.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "entrada_eby-crispy_g.png"; sourceTree = "<group>"; };
-		C155EDEE1626239000421599 /* entrada_kany-kamma-ball_g.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "entrada_kany-kamma-ball_g.png"; sourceTree = "<group>"; };
-		C155EDEF1626239000421599 /* entrada_niguiri-salmon_g.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "entrada_niguiri-salmon_g.png"; sourceTree = "<group>"; };
-		C155EDF01626239000421599 /* entrada_oriental_taste_g.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = entrada_oriental_taste_g.png; sourceTree = "<group>"; };
-		C155EDF11626239000421599 /* entrada_sashimi_g.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = entrada_sashimi_g.png; sourceTree = "<group>"; };
-		C155EDF21626239000421599 /* entrada_sea-mix-open_g.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "entrada_sea-mix-open_g.png"; sourceTree = "<group>"; };
-		C155EDF31626239000421599 /* entrada_summer-rolls_g.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "entrada_summer-rolls_g.png"; sourceTree = "<group>"; };
-		C155EDF41626239000421599 /* entrada_tacos-thai_g.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "entrada_tacos-thai_g.png"; sourceTree = "<group>"; };
-		C155EE041626648300421599 /* sopa_chiraschi-sushi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sopa_chiraschi-sushi.png"; sourceTree = "<group>"; };
-		C155EE0B1626691C00421599 /* sopa_chiraschi-sushi_g.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sopa_chiraschi-sushi_g.png"; sourceTree = "<group>"; };
-		C155EE0D16266A2700421599 /* sopa_chiraschi-sushi_grande.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sopa_chiraschi-sushi_grande.png"; sourceTree = "<group>"; };
-		C1A995FE162721E400592399 /* entrada_eby-crispy_p.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "entrada_eby-crispy_p.png"; sourceTree = "<group>"; };
-		C1A995FF162721E400592399 /* entrada_kany-kamma-ball_p.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "entrada_kany-kamma-ball_p.png"; sourceTree = "<group>"; };
-		C1A99600162721E400592399 /* entrada_niguiri-salmon_p.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "entrada_niguiri-salmon_p.png"; sourceTree = "<group>"; };
-		C1A99601162721E400592399 /* entrada_oriental_taste_p.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = entrada_oriental_taste_p.png; sourceTree = "<group>"; };
-		C1A99602162721E400592399 /* entrada_sashimi_p.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = entrada_sashimi_p.png; sourceTree = "<group>"; };
-		C1A99603162721E400592399 /* entrada_sea-mix-open_p.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "entrada_sea-mix-open_p.png"; sourceTree = "<group>"; };
-		C1A99604162721E400592399 /* entrada_summer-rolls_p.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "entrada_summer-rolls_p.png"; sourceTree = "<group>"; };
-		C1A99605162721E400592399 /* entrada_tacos-thai_p.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "entrada_tacos-thai_p.png"; sourceTree = "<group>"; };
-		C1A9965116273F4500592399 /* entrada_eby-crispy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "entrada_eby-crispy.png"; sourceTree = "<group>"; };
-		C1A9965216273F4500592399 /* entrada_kany-kamma-ball.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "entrada_kany-kamma-ball.png"; sourceTree = "<group>"; };
-		C1A9965316273F4500592399 /* entrada_niguiri-salmon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "entrada_niguiri-salmon.png"; sourceTree = "<group>"; };
-		C1A9965416273F4500592399 /* entrada_oriental_taste.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = entrada_oriental_taste.png; sourceTree = "<group>"; };
-		C1A9965516273F4500592399 /* entrada_sashimi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = entrada_sashimi.png; sourceTree = "<group>"; };
-		C1A9965616273F4500592399 /* entrada_sea-mix-open.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "entrada_sea-mix-open.png"; sourceTree = "<group>"; };
-		C1A9965716273F4500592399 /* entrada_summer-rolls.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "entrada_summer-rolls.png"; sourceTree = "<group>"; };
-		C1A9965816273F4500592399 /* entrada_tacos-thai.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "entrada_tacos-thai.png"; sourceTree = "<group>"; };
 		C1B89EF3163078EB0047518D /* fondo_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fondo_btn.png; sourceTree = "<group>"; };
 		C1B89EF5163079DE0047518D /* btn_principal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_principal.png; sourceTree = "<group>"; };
 		C1B89EFB1630A2050047518D /* flecha_total_upb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flecha_total_upb.png; sourceTree = "<group>"; };
@@ -796,33 +758,51 @@
 		C1B89F181630BB160047518D /* licores.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = licores.png; sourceTree = "<group>"; };
 		C1B89F191630BB160047518D /* pouse.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pouse.png; sourceTree = "<group>"; };
 		C1B89F1A1630BB160047518D /* vinos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vinos.png; sourceTree = "<group>"; };
-		C1C23C6C162DAB4400843CBA /* ceviche-mixto_g.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ceviche-mixto_g.png"; sourceTree = "<group>"; };
-		C1C23C6D162DAB4400843CBA /* tiradito-de-mero_g.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tiradito-de-mero_g.png"; sourceTree = "<group>"; };
-		C1C23C71162DAB5500843CBA /* ceviche-mixto.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ceviche-mixto.png"; sourceTree = "<group>"; };
-		C1C23C72162DAB5500843CBA /* tiradito-de-mero.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tiradito-de-mero.png"; sourceTree = "<group>"; };
-		C1C23C75162DAB7600843CBA /* ceviche-mixto_p.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ceviche-mixto_p.png"; sourceTree = "<group>"; };
-		C1C23C76162DAB7600843CBA /* tiradito-de-mero_p.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tiradito-de-mero_p.png"; sourceTree = "<group>"; };
-		C1C23C7E162DAEF600843CBA /* ensalada-de-pollo_g.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ensalada-de-pollo_g.png"; sourceTree = "<group>"; };
-		C1C23C80162DAF0600843CBA /* ensalada-de-pollo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ensalada-de-pollo.png"; sourceTree = "<group>"; };
-		C1C23C82162DAF1300843CBA /* ensalada-de-pollo_p.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ensalada-de-pollo_p.png"; sourceTree = "<group>"; };
-		C1C23C88162DBE1800843CBA /* Nutella-fruit-roll.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Nutella-fruit-roll.png"; sourceTree = "<group>"; };
-		C1C23C89162DBE1800843CBA /* Passion-fruit-sensation-cereza.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Passion-fruit-sensation-cereza.png"; sourceTree = "<group>"; };
-		C1C23C8A162DBE1800843CBA /* Passion-fruit-sensation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Passion-fruit-sensation.png"; sourceTree = "<group>"; };
-		C1C23C8E162DBE2400843CBA /* Nutella-fruit-roll_g.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Nutella-fruit-roll_g.png"; sourceTree = "<group>"; };
-		C1C23C8F162DBE2400843CBA /* Passion-fruit-sensation_g.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Passion-fruit-sensation_g.png"; sourceTree = "<group>"; };
-		C1C23C90162DBE2400843CBA /* Passion-fruit-sensation-cereza_g.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Passion-fruit-sensation-cereza_g.png"; sourceTree = "<group>"; };
-		C1C23C94162DBE3300843CBA /* Nutella-fruit-roll_p.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Nutella-fruit-roll_p.png"; sourceTree = "<group>"; };
-		C1C23C95162DBE3300843CBA /* Passion-fruit-sensation_p.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Passion-fruit-sensation_p.png"; sourceTree = "<group>"; };
-		C1C23C96162DBE3300843CBA /* Passion-fruit-sensation-cereza_p.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Passion-fruit-sensation-cereza_p.png"; sourceTree = "<group>"; };
-		C1C23CA2162DC4BF00843CBA /* eby-yaky_g.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "eby-yaky_g.png"; sourceTree = "<group>"; };
-		C1C23CA3162DC4BF00843CBA /* teppanyaki_carnes_g.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = teppanyaki_carnes_g.png; sourceTree = "<group>"; };
-		C1C23CA6162DC4CE00843CBA /* eby-yaky.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "eby-yaky.png"; sourceTree = "<group>"; };
-		C1C23CA7162DC4CE00843CBA /* teppanyaki_carnes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = teppanyaki_carnes.png; sourceTree = "<group>"; };
-		C1C23CAA162DC4E000843CBA /* eby-yaky_p.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "eby-yaky_p.png"; sourceTree = "<group>"; };
-		C1C23CAB162DC4E000843CBA /* teppanyaki_carnes_p.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = teppanyaki_carnes_p.png; sourceTree = "<group>"; };
-		C1C23CAE162DC52500843CBA /* titanic_g.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = titanic_g.png; sourceTree = "<group>"; };
-		C1C23CB0162DC53000843CBA /* titanic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = titanic.png; sourceTree = "<group>"; };
-		C1C23CB2162DC53C00843CBA /* titanic_p.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = titanic_p.png; sourceTree = "<group>"; };
+		C1BF1FBB1642BE4000DE285F /* ensaladas_ensalada_de_pollo_g.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ensaladas_ensalada_de_pollo_g.png; sourceTree = "<group>"; };
+		C1BF1FBD1642BE4900DE285F /* ensaladas_ensalada_de_pollo_p.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ensaladas_ensalada_de_pollo_p.png; sourceTree = "<group>"; };
+		C1BF1FBF1642BE5100DE285F /* ensaladas_ensalada_de_pollo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ensaladas_ensalada_de_pollo.png; sourceTree = "<group>"; };
+		C1BF1FC11642BEA000DE285F /* entrada_ceviche_mixto_g.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = entrada_ceviche_mixto_g.png; sourceTree = "<group>"; };
+		C1BF1FC21642BEA000DE285F /* entrada_kani-kama_ball_g.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "entrada_kani-kama_ball_g.png"; sourceTree = "<group>"; };
+		C1BF1FC31642BEA000DE285F /* entrada_oriental_taste_g.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = entrada_oriental_taste_g.png; sourceTree = "<group>"; };
+		C1BF1FC41642BEA000DE285F /* entrada_sea_mix_open_g.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = entrada_sea_mix_open_g.png; sourceTree = "<group>"; };
+		C1BF1FC51642BEA000DE285F /* entrada_summer_roll_g.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = entrada_summer_roll_g.png; sourceTree = "<group>"; };
+		C1BF1FC61642BEA000DE285F /* entrada_tacos_thai_g.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = entrada_tacos_thai_g.png; sourceTree = "<group>"; };
+		C1BF1FC71642BEA000DE285F /* entrada_tiradito_de_mero_g.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = entrada_tiradito_de_mero_g.png; sourceTree = "<group>"; };
+		C1BF1FCF1642BEB300DE285F /* entrada_ceviche_mixto_p.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = entrada_ceviche_mixto_p.png; sourceTree = "<group>"; };
+		C1BF1FD01642BEB300DE285F /* entrada_kani-kama_ball_p.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "entrada_kani-kama_ball_p.png"; sourceTree = "<group>"; };
+		C1BF1FD11642BEB300DE285F /* entrada_oriental_taste_p.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = entrada_oriental_taste_p.png; sourceTree = "<group>"; };
+		C1BF1FD21642BEB300DE285F /* entrada_sea_mix_open_p.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = entrada_sea_mix_open_p.png; sourceTree = "<group>"; };
+		C1BF1FD31642BEB300DE285F /* entrada_summer_roll_p.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = entrada_summer_roll_p.png; sourceTree = "<group>"; };
+		C1BF1FD41642BEB300DE285F /* entrada_tacos_thai_p.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = entrada_tacos_thai_p.png; sourceTree = "<group>"; };
+		C1BF1FD51642BEB300DE285F /* entrada_tiradito_de_mero_p.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = entrada_tiradito_de_mero_p.png; sourceTree = "<group>"; };
+		C1BF1FDD1642BEC200DE285F /* entrada_ceviche_mixto.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = entrada_ceviche_mixto.png; sourceTree = "<group>"; };
+		C1BF1FDE1642BEC200DE285F /* entrada_kani-kama_ball.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "entrada_kani-kama_ball.png"; sourceTree = "<group>"; };
+		C1BF1FDF1642BEC200DE285F /* entrada_oriental_taste.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = entrada_oriental_taste.png; sourceTree = "<group>"; };
+		C1BF1FE01642BEC200DE285F /* entrada_sea_mix_open.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = entrada_sea_mix_open.png; sourceTree = "<group>"; };
+		C1BF1FE11642BEC200DE285F /* entrada_summer_roll.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = entrada_summer_roll.png; sourceTree = "<group>"; };
+		C1BF1FE21642BEC200DE285F /* entrada_tacos_thai.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = entrada_tacos_thai.png; sourceTree = "<group>"; };
+		C1BF1FE31642BEC200DE285F /* entrada_tiradito_de_mero.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = entrada_tiradito_de_mero.png; sourceTree = "<group>"; };
+		C1BF1FEB1642BEEB00DE285F /* especiales_titanic_wasabi_g.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = especiales_titanic_wasabi_g.png; sourceTree = "<group>"; };
+		C1BF1FED1642BEF100DE285F /* especiales_titanic_wasabi_p.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = especiales_titanic_wasabi_p.png; sourceTree = "<group>"; };
+		C1BF1FEF1642BEF600DE285F /* especiales_titanic_wasabi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = especiales_titanic_wasabi.png; sourceTree = "<group>"; };
+		C1BF1FF11642BF2800DE285F /* postre_citrus_sensation_g.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = postre_citrus_sensation_g.png; sourceTree = "<group>"; };
+		C1BF1FF21642BF2800DE285F /* postre_nutella-fruit-roll_g.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "postre_nutella-fruit-roll_g.png"; sourceTree = "<group>"; };
+		C1BF1FF31642BF2800DE285F /* postres_postre_de_las_tres_leches_g.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = postres_postre_de_las_tres_leches_g.png; sourceTree = "<group>"; };
+		C1BF1FF71642BF3000DE285F /* postre_citrus_sensation_p.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = postre_citrus_sensation_p.png; sourceTree = "<group>"; };
+		C1BF1FF81642BF3000DE285F /* postre_nutella-fruit-roll_p.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "postre_nutella-fruit-roll_p.png"; sourceTree = "<group>"; };
+		C1BF1FF91642BF3000DE285F /* postres_postre_de_las_tres_leches_p.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = postres_postre_de_las_tres_leches_p.png; sourceTree = "<group>"; };
+		C1BF1FFD1642BF3800DE285F /* postre_citrus_sensation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = postre_citrus_sensation.png; sourceTree = "<group>"; };
+		C1BF1FFE1642BF3800DE285F /* postre_nutella-fruit-roll.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "postre_nutella-fruit-roll.png"; sourceTree = "<group>"; };
+		C1BF1FFF1642BF3800DE285F /* postres_postre_de_las_tres_leches.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = postres_postre_de_las_tres_leches.png; sourceTree = "<group>"; };
+		C1BF20031642BF5300DE285F /* sopa_tom-yam_g.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sopa_tom-yam_g.png"; sourceTree = "<group>"; };
+		C1BF20051642BF5900DE285F /* sopa_tom-yam_p.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sopa_tom-yam_p.png"; sourceTree = "<group>"; };
+		C1BF20071642BF6000DE285F /* sopa_tom-yam.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sopa_tom-yam.png"; sourceTree = "<group>"; };
+		C1BF20091642BF8C00DE285F /* teppanyaki_eby_yaky_g.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = teppanyaki_eby_yaky_g.png; sourceTree = "<group>"; };
+		C1BF200B1642BF9100DE285F /* teppanyaki_eby_yaky_p.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = teppanyaki_eby_yaky_p.png; sourceTree = "<group>"; };
+		C1BF200D1642BF9700DE285F /* teppanyaki_eby_yaky.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = teppanyaki_eby_yaky.png; sourceTree = "<group>"; };
+		C1BF20131642BFC000DE285F /* wok_costillitas_agridulces_wasabi_g.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wok_costillitas_agridulces_wasabi_g.png; sourceTree = "<group>"; };
+		C1BF20151642BFC600DE285F /* wok_costillitas_agridulces_wasabi_p.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wok_costillitas_agridulces_wasabi_p.png; sourceTree = "<group>"; };
+		C1BF20171642BFCC00DE285F /* wok_costillitas_agridulces_wasabi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wok_costillitas_agridulces_wasabi.png; sourceTree = "<group>"; };
 		C1C4C36E162F20B5006AA580 /* flecha_total_up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flecha_total_up.png; sourceTree = "<group>"; };
 		C1C4C378162F511F006AA580 /* TipoBebida.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TipoBebida.h; sourceTree = "<group>"; };
 		C1C4C379162F511F006AA580 /* TipoBebida.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TipoBebida.m; sourceTree = "<group>"; };
@@ -1348,7 +1328,6 @@
 			isa = PBXGroup;
 			children = (
 				C1A9964F16273CD900592399 /* normales */,
-				C155EE0D16266A2700421599 /* sopa_chiraschi-sushi_grande.png */,
 				C155EE031626640700421599 /* grandes */,
 				C155EDE7162622E600421599 /* pequenas */,
 			);
@@ -1358,7 +1337,7 @@
 		C155EDE7162622E600421599 /* pequenas */ = {
 			isa = PBXGroup;
 			children = (
-				C155EDEA1626231000421599 /* sopa_chiraschi-sushi_p.png */,
+				C1BF20051642BF5900DE285F /* sopa_tom-yam_p.png */,
 			);
 			name = pequenas;
 			sourceTree = "<group>";
@@ -1376,7 +1355,7 @@
 		C155EE031626640700421599 /* grandes */ = {
 			isa = PBXGroup;
 			children = (
-				C155EE0B1626691C00421599 /* sopa_chiraschi-sushi_g.png */,
+				C1BF20031642BF5300DE285F /* sopa_tom-yam_g.png */,
 			);
 			name = grandes;
 			sourceTree = "<group>";
@@ -1497,16 +1476,13 @@
 		C1A9964D16273CAE00592399 /* grandes */ = {
 			isa = PBXGroup;
 			children = (
-				C1C23C6C162DAB4400843CBA /* ceviche-mixto_g.png */,
-				C1C23C6D162DAB4400843CBA /* tiradito-de-mero_g.png */,
-				C155EDED1626239000421599 /* entrada_eby-crispy_g.png */,
-				C155EDEE1626239000421599 /* entrada_kany-kamma-ball_g.png */,
-				C155EDEF1626239000421599 /* entrada_niguiri-salmon_g.png */,
-				C155EDF01626239000421599 /* entrada_oriental_taste_g.png */,
-				C155EDF11626239000421599 /* entrada_sashimi_g.png */,
-				C155EDF21626239000421599 /* entrada_sea-mix-open_g.png */,
-				C155EDF31626239000421599 /* entrada_summer-rolls_g.png */,
-				C155EDF41626239000421599 /* entrada_tacos-thai_g.png */,
+				C1BF1FC11642BEA000DE285F /* entrada_ceviche_mixto_g.png */,
+				C1BF1FC21642BEA000DE285F /* entrada_kani-kama_ball_g.png */,
+				C1BF1FC31642BEA000DE285F /* entrada_oriental_taste_g.png */,
+				C1BF1FC41642BEA000DE285F /* entrada_sea_mix_open_g.png */,
+				C1BF1FC51642BEA000DE285F /* entrada_summer_roll_g.png */,
+				C1BF1FC61642BEA000DE285F /* entrada_tacos_thai_g.png */,
+				C1BF1FC71642BEA000DE285F /* entrada_tiradito_de_mero_g.png */,
 			);
 			name = grandes;
 			sourceTree = "<group>";
@@ -1514,16 +1490,13 @@
 		C1A9964E16273CC900592399 /* pequenas */ = {
 			isa = PBXGroup;
 			children = (
-				C1C23C75162DAB7600843CBA /* ceviche-mixto_p.png */,
-				C1C23C76162DAB7600843CBA /* tiradito-de-mero_p.png */,
-				C1A995FE162721E400592399 /* entrada_eby-crispy_p.png */,
-				C1A995FF162721E400592399 /* entrada_kany-kamma-ball_p.png */,
-				C1A99600162721E400592399 /* entrada_niguiri-salmon_p.png */,
-				C1A99601162721E400592399 /* entrada_oriental_taste_p.png */,
-				C1A99602162721E400592399 /* entrada_sashimi_p.png */,
-				C1A99603162721E400592399 /* entrada_sea-mix-open_p.png */,
-				C1A99604162721E400592399 /* entrada_summer-rolls_p.png */,
-				C1A99605162721E400592399 /* entrada_tacos-thai_p.png */,
+				C1BF1FCF1642BEB300DE285F /* entrada_ceviche_mixto_p.png */,
+				C1BF1FD01642BEB300DE285F /* entrada_kani-kama_ball_p.png */,
+				C1BF1FD11642BEB300DE285F /* entrada_oriental_taste_p.png */,
+				C1BF1FD21642BEB300DE285F /* entrada_sea_mix_open_p.png */,
+				C1BF1FD31642BEB300DE285F /* entrada_summer_roll_p.png */,
+				C1BF1FD41642BEB300DE285F /* entrada_tacos_thai_p.png */,
+				C1BF1FD51642BEB300DE285F /* entrada_tiradito_de_mero_p.png */,
 			);
 			name = pequenas;
 			sourceTree = "<group>";
@@ -1531,7 +1504,7 @@
 		C1A9964F16273CD900592399 /* normales */ = {
 			isa = PBXGroup;
 			children = (
-				C155EE041626648300421599 /* sopa_chiraschi-sushi.png */,
+				C1BF20071642BF6000DE285F /* sopa_tom-yam.png */,
 			);
 			name = normales;
 			sourceTree = "<group>";
@@ -1539,18 +1512,49 @@
 		C1A9965016273CE800592399 /* normales */ = {
 			isa = PBXGroup;
 			children = (
-				C1C23C71162DAB5500843CBA /* ceviche-mixto.png */,
-				C1C23C72162DAB5500843CBA /* tiradito-de-mero.png */,
-				C1A9965116273F4500592399 /* entrada_eby-crispy.png */,
-				C1A9965216273F4500592399 /* entrada_kany-kamma-ball.png */,
-				C1A9965316273F4500592399 /* entrada_niguiri-salmon.png */,
-				C1A9965416273F4500592399 /* entrada_oriental_taste.png */,
-				C1A9965516273F4500592399 /* entrada_sashimi.png */,
-				C1A9965616273F4500592399 /* entrada_sea-mix-open.png */,
-				C1A9965716273F4500592399 /* entrada_summer-rolls.png */,
-				C1A9965816273F4500592399 /* entrada_tacos-thai.png */,
+				C1BF1FDD1642BEC200DE285F /* entrada_ceviche_mixto.png */,
+				C1BF1FDE1642BEC200DE285F /* entrada_kani-kama_ball.png */,
+				C1BF1FDF1642BEC200DE285F /* entrada_oriental_taste.png */,
+				C1BF1FE01642BEC200DE285F /* entrada_sea_mix_open.png */,
+				C1BF1FE11642BEC200DE285F /* entrada_summer_roll.png */,
+				C1BF1FE21642BEC200DE285F /* entrada_tacos_thai.png */,
+				C1BF1FE31642BEC200DE285F /* entrada_tiradito_de_mero.png */,
 			);
 			name = normales;
+			sourceTree = "<group>";
+		};
+		C1BF200F1642BFA600DE285F /* Wok */ = {
+			isa = PBXGroup;
+			children = (
+				C1BF20121642BFB600DE285F /* pequenas */,
+				C1BF20111642BFB100DE285F /* normales */,
+				C1BF20101642BFAC00DE285F /* grandes */,
+			);
+			name = Wok;
+			sourceTree = "<group>";
+		};
+		C1BF20101642BFAC00DE285F /* grandes */ = {
+			isa = PBXGroup;
+			children = (
+				C1BF20131642BFC000DE285F /* wok_costillitas_agridulces_wasabi_g.png */,
+			);
+			name = grandes;
+			sourceTree = "<group>";
+		};
+		C1BF20111642BFB100DE285F /* normales */ = {
+			isa = PBXGroup;
+			children = (
+				C1BF20171642BFCC00DE285F /* wok_costillitas_agridulces_wasabi.png */,
+			);
+			name = normales;
+			sourceTree = "<group>";
+		};
+		C1BF20121642BFB600DE285F /* pequenas */ = {
+			isa = PBXGroup;
+			children = (
+				C1BF20151642BFC600DE285F /* wok_costillitas_agridulces_wasabi_p.png */,
+			);
+			name = pequenas;
 			sourceTree = "<group>";
 		};
 		C1C23C79162DAE8700843CBA /* Adicionales */ = {
@@ -1621,7 +1625,7 @@
 		C1C23C7B162DAECC00843CBA /* grandes */ = {
 			isa = PBXGroup;
 			children = (
-				C1C23C7E162DAEF600843CBA /* ensalada-de-pollo_g.png */,
+				C1BF1FBB1642BE4000DE285F /* ensaladas_ensalada_de_pollo_g.png */,
 			);
 			name = grandes;
 			sourceTree = "<group>";
@@ -1629,7 +1633,7 @@
 		C1C23C7C162DAED200843CBA /* normales */ = {
 			isa = PBXGroup;
 			children = (
-				C1C23C80162DAF0600843CBA /* ensalada-de-pollo.png */,
+				C1BF1FBF1642BE5100DE285F /* ensaladas_ensalada_de_pollo.png */,
 			);
 			name = normales;
 			sourceTree = "<group>";
@@ -1637,7 +1641,7 @@
 		C1C23C7D162DAEDE00843CBA /* pequenas */ = {
 			isa = PBXGroup;
 			children = (
-				C1C23C82162DAF1300843CBA /* ensalada-de-pollo_p.png */,
+				C1BF1FBD1642BE4900DE285F /* ensaladas_ensalada_de_pollo_p.png */,
 			);
 			name = pequenas;
 			sourceTree = "<group>";
@@ -1655,9 +1659,9 @@
 		C1C23C85162DBDC300843CBA /* pequenas */ = {
 			isa = PBXGroup;
 			children = (
-				C1C23C94162DBE3300843CBA /* Nutella-fruit-roll_p.png */,
-				C1C23C95162DBE3300843CBA /* Passion-fruit-sensation_p.png */,
-				C1C23C96162DBE3300843CBA /* Passion-fruit-sensation-cereza_p.png */,
+				C1BF1FF71642BF3000DE285F /* postre_citrus_sensation_p.png */,
+				C1BF1FF81642BF3000DE285F /* postre_nutella-fruit-roll_p.png */,
+				C1BF1FF91642BF3000DE285F /* postres_postre_de_las_tres_leches_p.png */,
 			);
 			name = pequenas;
 			sourceTree = "<group>";
@@ -1665,9 +1669,9 @@
 		C1C23C86162DBDC900843CBA /* normales */ = {
 			isa = PBXGroup;
 			children = (
-				C1C23C88162DBE1800843CBA /* Nutella-fruit-roll.png */,
-				C1C23C89162DBE1800843CBA /* Passion-fruit-sensation-cereza.png */,
-				C1C23C8A162DBE1800843CBA /* Passion-fruit-sensation.png */,
+				C1BF1FFD1642BF3800DE285F /* postre_citrus_sensation.png */,
+				C1BF1FFE1642BF3800DE285F /* postre_nutella-fruit-roll.png */,
+				C1BF1FFF1642BF3800DE285F /* postres_postre_de_las_tres_leches.png */,
 			);
 			name = normales;
 			sourceTree = "<group>";
@@ -1675,9 +1679,9 @@
 		C1C23C87162DBDD400843CBA /* grandes */ = {
 			isa = PBXGroup;
 			children = (
-				C1C23C8E162DBE2400843CBA /* Nutella-fruit-roll_g.png */,
-				C1C23C8F162DBE2400843CBA /* Passion-fruit-sensation_g.png */,
-				C1C23C90162DBE2400843CBA /* Passion-fruit-sensation-cereza_g.png */,
+				C1BF1FF11642BF2800DE285F /* postre_citrus_sensation_g.png */,
+				C1BF1FF21642BF2800DE285F /* postre_nutella-fruit-roll_g.png */,
+				C1BF1FF31642BF2800DE285F /* postres_postre_de_las_tres_leches_g.png */,
 			);
 			name = grandes;
 			sourceTree = "<group>";
@@ -1695,8 +1699,7 @@
 		C1C23C9B162DC46A00843CBA /* normales */ = {
 			isa = PBXGroup;
 			children = (
-				C1C23CA6162DC4CE00843CBA /* eby-yaky.png */,
-				C1C23CA7162DC4CE00843CBA /* teppanyaki_carnes.png */,
+				C1BF200D1642BF9700DE285F /* teppanyaki_eby_yaky.png */,
 			);
 			name = normales;
 			sourceTree = "<group>";
@@ -1704,8 +1707,7 @@
 		C1C23C9C162DC47100843CBA /* pequenas */ = {
 			isa = PBXGroup;
 			children = (
-				C1C23CAA162DC4E000843CBA /* eby-yaky_p.png */,
-				C1C23CAB162DC4E000843CBA /* teppanyaki_carnes_p.png */,
+				C1BF200B1642BF9100DE285F /* teppanyaki_eby_yaky_p.png */,
 			);
 			name = pequenas;
 			sourceTree = "<group>";
@@ -1713,8 +1715,7 @@
 		C1C23C9D162DC48100843CBA /* grandes */ = {
 			isa = PBXGroup;
 			children = (
-				C1C23CA2162DC4BF00843CBA /* eby-yaky_g.png */,
-				C1C23CA3162DC4BF00843CBA /* teppanyaki_carnes_g.png */,
+				C1BF20091642BF8C00DE285F /* teppanyaki_eby_yaky_g.png */,
 			);
 			name = grandes;
 			sourceTree = "<group>";
@@ -1732,7 +1733,7 @@
 		C1C23C9F162DC49600843CBA /* pequenas */ = {
 			isa = PBXGroup;
 			children = (
-				C1C23CB2162DC53C00843CBA /* titanic_p.png */,
+				C1BF1FED1642BEF100DE285F /* especiales_titanic_wasabi_p.png */,
 			);
 			name = pequenas;
 			sourceTree = "<group>";
@@ -1740,7 +1741,7 @@
 		C1C23CA0162DC49D00843CBA /* normales */ = {
 			isa = PBXGroup;
 			children = (
-				C1C23CB0162DC53000843CBA /* titanic.png */,
+				C1BF1FEF1642BEF600DE285F /* especiales_titanic_wasabi.png */,
 			);
 			name = normales;
 			sourceTree = "<group>";
@@ -1748,7 +1749,7 @@
 		C1C23CA1162DC4A500843CBA /* grandes */ = {
 			isa = PBXGroup;
 			children = (
-				C1C23CAE162DC52500843CBA /* titanic_g.png */,
+				C1BF1FEB1642BEEB00DE285F /* especiales_titanic_wasabi_g.png */,
 			);
 			name = grandes;
 			sourceTree = "<group>";
@@ -1939,6 +1940,7 @@
 		C1EFBF9A160D139E0005ECF1 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				C1BF200F1642BFA600DE285F /* Wok */,
 				C1F24801163B2F0900402C3C /* Combos */,
 				C1C4C374162F494F006AA580 /* Licores */,
 				C1C4C370162F4923006AA580 /* Bebidas */,
@@ -2089,61 +2091,6 @@
 				C1E87519161CEAFB0020486A /* barra_agregar_.png in Resources */,
 				C1E8751A161CEAFB0020486A /* btn_agregar.png in Resources */,
 				C1E876C4161CF5200020486A /* Default-Landscape~ipad.png in Resources */,
-				C155EDEB1626231000421599 /* sopa_chiraschi-sushi_p.png in Resources */,
-				C155EDF51626239000421599 /* entrada_eby-crispy_g.png in Resources */,
-				C155EDF61626239000421599 /* entrada_kany-kamma-ball_g.png in Resources */,
-				C155EDF71626239000421599 /* entrada_niguiri-salmon_g.png in Resources */,
-				C155EDF81626239000421599 /* entrada_oriental_taste_g.png in Resources */,
-				C155EDF91626239000421599 /* entrada_sashimi_g.png in Resources */,
-				C155EDFA1626239000421599 /* entrada_sea-mix-open_g.png in Resources */,
-				C155EDFB1626239000421599 /* entrada_summer-rolls_g.png in Resources */,
-				C155EDFC1626239000421599 /* entrada_tacos-thai_g.png in Resources */,
-				C155EE051626648300421599 /* sopa_chiraschi-sushi.png in Resources */,
-				C155EE0C1626691C00421599 /* sopa_chiraschi-sushi_g.png in Resources */,
-				C155EE0E16266A2700421599 /* sopa_chiraschi-sushi_grande.png in Resources */,
-				C1A9962B162721E400592399 /* entrada_eby-crispy_p.png in Resources */,
-				C1A9962C162721E400592399 /* entrada_kany-kamma-ball_p.png in Resources */,
-				C1A9962D162721E400592399 /* entrada_niguiri-salmon_p.png in Resources */,
-				C1A9962E162721E400592399 /* entrada_oriental_taste_p.png in Resources */,
-				C1A9962F162721E400592399 /* entrada_sashimi_p.png in Resources */,
-				C1A99630162721E400592399 /* entrada_sea-mix-open_p.png in Resources */,
-				C1A99631162721E400592399 /* entrada_summer-rolls_p.png in Resources */,
-				C1A99632162721E400592399 /* entrada_tacos-thai_p.png in Resources */,
-				C1A9965916273F4500592399 /* entrada_eby-crispy.png in Resources */,
-				C1A9965A16273F4500592399 /* entrada_kany-kamma-ball.png in Resources */,
-				C1A9965B16273F4500592399 /* entrada_niguiri-salmon.png in Resources */,
-				C1A9965C16273F4500592399 /* entrada_oriental_taste.png in Resources */,
-				C1A9965D16273F4500592399 /* entrada_sashimi.png in Resources */,
-				C1A9965E16273F4500592399 /* entrada_sea-mix-open.png in Resources */,
-				C1A9965F16273F4500592399 /* entrada_summer-rolls.png in Resources */,
-				C1A9966016273F4500592399 /* entrada_tacos-thai.png in Resources */,
-				C1C23C6E162DAB4400843CBA /* ceviche-mixto_g.png in Resources */,
-				C1C23C6F162DAB4400843CBA /* tiradito-de-mero_g.png in Resources */,
-				C1C23C73162DAB5500843CBA /* ceviche-mixto.png in Resources */,
-				C1C23C74162DAB5500843CBA /* tiradito-de-mero.png in Resources */,
-				C1C23C77162DAB7600843CBA /* ceviche-mixto_p.png in Resources */,
-				C1C23C78162DAB7600843CBA /* tiradito-de-mero_p.png in Resources */,
-				C1C23C7F162DAEF600843CBA /* ensalada-de-pollo_g.png in Resources */,
-				C1C23C81162DAF0600843CBA /* ensalada-de-pollo.png in Resources */,
-				C1C23C83162DAF1300843CBA /* ensalada-de-pollo_p.png in Resources */,
-				C1C23C8B162DBE1800843CBA /* Nutella-fruit-roll.png in Resources */,
-				C1C23C8C162DBE1800843CBA /* Passion-fruit-sensation-cereza.png in Resources */,
-				C1C23C8D162DBE1800843CBA /* Passion-fruit-sensation.png in Resources */,
-				C1C23C91162DBE2400843CBA /* Nutella-fruit-roll_g.png in Resources */,
-				C1C23C92162DBE2400843CBA /* Passion-fruit-sensation_g.png in Resources */,
-				C1C23C93162DBE2400843CBA /* Passion-fruit-sensation-cereza_g.png in Resources */,
-				C1C23C97162DBE3300843CBA /* Nutella-fruit-roll_p.png in Resources */,
-				C1C23C98162DBE3300843CBA /* Passion-fruit-sensation_p.png in Resources */,
-				C1C23C99162DBE3300843CBA /* Passion-fruit-sensation-cereza_p.png in Resources */,
-				C1C23CA4162DC4BF00843CBA /* eby-yaky_g.png in Resources */,
-				C1C23CA5162DC4BF00843CBA /* teppanyaki_carnes_g.png in Resources */,
-				C1C23CA8162DC4CE00843CBA /* eby-yaky.png in Resources */,
-				C1C23CA9162DC4CE00843CBA /* teppanyaki_carnes.png in Resources */,
-				C1C23CAC162DC4E000843CBA /* eby-yaky_p.png in Resources */,
-				C1C23CAD162DC4E000843CBA /* teppanyaki_carnes_p.png in Resources */,
-				C1C23CAF162DC52500843CBA /* titanic_g.png in Resources */,
-				C1C23CB1162DC53000843CBA /* titanic.png in Resources */,
-				C1C23CB3162DC53C00843CBA /* titanic_p.png in Resources */,
 				C1F0F768162EF5F200043C04 /* flecha_total_.png in Resources */,
 				C1C4C36F162F20B5006AA580 /* flecha_total_up.png in Resources */,
 				C1C4C381162F5AC5006AA580 /* beb_calientes.png in Resources */,
@@ -2273,6 +2220,51 @@
 				C10D6FFC16419F3500F952BC /* sushi_vegetariano.png in Resources */,
 				C10D6FFD16419F3500F952BC /* sushi_wasabi_roll.png in Resources */,
 				C10D6FFE16419F3500F952BC /* sushi_yols_car_roll.png in Resources */,
+				C1BF1FBC1642BE4000DE285F /* ensaladas_ensalada_de_pollo_g.png in Resources */,
+				C1BF1FBE1642BE4900DE285F /* ensaladas_ensalada_de_pollo_p.png in Resources */,
+				C1BF1FC01642BE5100DE285F /* ensaladas_ensalada_de_pollo.png in Resources */,
+				C1BF1FC81642BEA000DE285F /* entrada_ceviche_mixto_g.png in Resources */,
+				C1BF1FC91642BEA000DE285F /* entrada_kani-kama_ball_g.png in Resources */,
+				C1BF1FCA1642BEA000DE285F /* entrada_oriental_taste_g.png in Resources */,
+				C1BF1FCB1642BEA000DE285F /* entrada_sea_mix_open_g.png in Resources */,
+				C1BF1FCC1642BEA000DE285F /* entrada_summer_roll_g.png in Resources */,
+				C1BF1FCD1642BEA000DE285F /* entrada_tacos_thai_g.png in Resources */,
+				C1BF1FCE1642BEA000DE285F /* entrada_tiradito_de_mero_g.png in Resources */,
+				C1BF1FD61642BEB300DE285F /* entrada_ceviche_mixto_p.png in Resources */,
+				C1BF1FD71642BEB300DE285F /* entrada_kani-kama_ball_p.png in Resources */,
+				C1BF1FD81642BEB300DE285F /* entrada_oriental_taste_p.png in Resources */,
+				C1BF1FD91642BEB300DE285F /* entrada_sea_mix_open_p.png in Resources */,
+				C1BF1FDA1642BEB300DE285F /* entrada_summer_roll_p.png in Resources */,
+				C1BF1FDB1642BEB300DE285F /* entrada_tacos_thai_p.png in Resources */,
+				C1BF1FDC1642BEB300DE285F /* entrada_tiradito_de_mero_p.png in Resources */,
+				C1BF1FE41642BEC200DE285F /* entrada_ceviche_mixto.png in Resources */,
+				C1BF1FE51642BEC200DE285F /* entrada_kani-kama_ball.png in Resources */,
+				C1BF1FE61642BEC200DE285F /* entrada_oriental_taste.png in Resources */,
+				C1BF1FE71642BEC200DE285F /* entrada_sea_mix_open.png in Resources */,
+				C1BF1FE81642BEC200DE285F /* entrada_summer_roll.png in Resources */,
+				C1BF1FE91642BEC200DE285F /* entrada_tacos_thai.png in Resources */,
+				C1BF1FEA1642BEC200DE285F /* entrada_tiradito_de_mero.png in Resources */,
+				C1BF1FEC1642BEEB00DE285F /* especiales_titanic_wasabi_g.png in Resources */,
+				C1BF1FEE1642BEF100DE285F /* especiales_titanic_wasabi_p.png in Resources */,
+				C1BF1FF01642BEF600DE285F /* especiales_titanic_wasabi.png in Resources */,
+				C1BF1FF41642BF2800DE285F /* postre_citrus_sensation_g.png in Resources */,
+				C1BF1FF51642BF2800DE285F /* postre_nutella-fruit-roll_g.png in Resources */,
+				C1BF1FF61642BF2800DE285F /* postres_postre_de_las_tres_leches_g.png in Resources */,
+				C1BF1FFA1642BF3000DE285F /* postre_citrus_sensation_p.png in Resources */,
+				C1BF1FFB1642BF3000DE285F /* postre_nutella-fruit-roll_p.png in Resources */,
+				C1BF1FFC1642BF3000DE285F /* postres_postre_de_las_tres_leches_p.png in Resources */,
+				C1BF20001642BF3800DE285F /* postre_citrus_sensation.png in Resources */,
+				C1BF20011642BF3800DE285F /* postre_nutella-fruit-roll.png in Resources */,
+				C1BF20021642BF3800DE285F /* postres_postre_de_las_tres_leches.png in Resources */,
+				C1BF20041642BF5300DE285F /* sopa_tom-yam_g.png in Resources */,
+				C1BF20061642BF5900DE285F /* sopa_tom-yam_p.png in Resources */,
+				C1BF20081642BF6000DE285F /* sopa_tom-yam.png in Resources */,
+				C1BF200A1642BF8C00DE285F /* teppanyaki_eby_yaky_g.png in Resources */,
+				C1BF200C1642BF9100DE285F /* teppanyaki_eby_yaky_p.png in Resources */,
+				C1BF200E1642BF9700DE285F /* teppanyaki_eby_yaky.png in Resources */,
+				C1BF20141642BFC000DE285F /* wok_costillitas_agridulces_wasabi_g.png in Resources */,
+				C1BF20161642BFC600DE285F /* wok_costillitas_agridulces_wasabi_p.png in Resources */,
+				C1BF20181642BFCC00DE285F /* wok_costillitas_agridulces_wasabi.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
