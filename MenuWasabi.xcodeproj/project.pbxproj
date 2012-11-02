@@ -327,6 +327,7 @@
 		C1C4C382162F5AC5006AA580 /* gaseosa.png in Resources */ = {isa = PBXBuildFile; fileRef = C1C4C37F162F5AC5006AA580 /* gaseosa.png */; };
 		C1C4C383162F5AC5006AA580 /* jugos.png in Resources */ = {isa = PBXBuildFile; fileRef = C1C4C380162F5AC5006AA580 /* jugos.png */; };
 		C1C4C389162F6C23006AA580 /* pata_02.png in Resources */ = {isa = PBXBuildFile; fileRef = C1C4C388162F6C23006AA580 /* pata_02.png */; };
+		C1D11B6F16444949003F0D4B /* menu_pago.png in Resources */ = {isa = PBXBuildFile; fileRef = C1D11B6E16444947003F0D4B /* menu_pago.png */; };
 		C1D3B69B161A3D8000542A4C /* Plato.m in Sources */ = {isa = PBXBuildFile; fileRef = C1D3B69A161A3D7F00542A4C /* Plato.m */; };
 		C1DBD7C3164022CC00C9A070 /* DAOTipoPlato.m in Sources */ = {isa = PBXBuildFile; fileRef = C1DBD7C2164022CC00C9A070 /* DAOTipoPlato.m */; };
 		C1DBD7C6164022F500C9A070 /* DAOPlatos.m in Sources */ = {isa = PBXBuildFile; fileRef = C1DBD7C5164022F500C9A070 /* DAOPlatos.m */; };
@@ -842,6 +843,7 @@
 		C1C4C37F162F5AC5006AA580 /* gaseosa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gaseosa.png; sourceTree = "<group>"; };
 		C1C4C380162F5AC5006AA580 /* jugos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = jugos.png; sourceTree = "<group>"; };
 		C1C4C388162F6C23006AA580 /* pata_02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pata_02.png; sourceTree = "<group>"; };
+		C1D11B6E16444947003F0D4B /* menu_pago.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu_pago.png; sourceTree = "<group>"; };
 		C1D3B699161A3D7E00542A4C /* Plato.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Plato.h; sourceTree = "<group>"; };
 		C1D3B69A161A3D7F00542A4C /* Plato.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Plato.m; sourceTree = "<group>"; };
 		C1DBD7C1164022CC00C9A070 /* DAOTipoPlato.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAOTipoPlato.h; sourceTree = "<group>"; };
@@ -1594,6 +1596,7 @@
 				C1B89F051630AA160047518D /* btn_agregar_bebidas.png */,
 				C1B89F061630AA1A0047518D /* lista_bebidas_.jpg */,
 				C1C4C388162F6C23006AA580 /* pata_02.png */,
+				C1D11B6E16444947003F0D4B /* menu_pago.png */,
 				C1F0F767162EF5F200043C04 /* flecha_total_.png */,
 				C1E87517161CEAFB0020486A /* barra_agregar_.png */,
 				C1C4C36E162F20B5006AA580 /* flecha_total_up.png */,
@@ -2317,6 +2320,7 @@
 				C1BF2036164309E400DE285F /* combo_special_mix.png in Resources */,
 				C1BF203816430B8400DE285F /* background_vert.jpg in Resources */,
 				C1BF203B16430FCE00DE285F /* wdb.sqlite3 in Resources */,
+				C1D11B6F16444949003F0D4B /* menu_pago.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
