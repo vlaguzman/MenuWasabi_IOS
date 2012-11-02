@@ -47,15 +47,16 @@ NSString *imageBtnAddPlate = @"btn_agregar.png";
 NSString *imageBtnClose = @"btn_cerrar.png";
 NSString *imageBtnMakeOrder = @"btn_hacerpedido.png";
 NSString *imageBigPlateDescription = @"descripcion.png";
-NSString *imageUpDown = @"flecha_total_up.png";
+NSString *imageUp = @"flecha_total_up.png";
+NSString *imageDown = @"flecha_total.png";
 NSString *imageSectionTinyPlates = @"menu_pago.png";
 NSString *imageSpaceNameDescription = @"nombres.png";
 
-CCMenu *principalMenu, *bigPlateImage, *bigPlateDescription, *goBackMenu, *addPlateMenu, *orderMenu;
+CCMenu *principalMenu, *bigPlateImage, *bigPlateDescription, *goBackMenu, *addPlateMenu, *orderMenu, *upDownMenu, *actualPlatesMenu;
 //BOOL bool_swipe_combos = YES;
 
 CCMenuItemLabel *itemComboName1, *itemComboPrice1;
-CCMenuItemImage *itemComboImage1, *itemNameSpace;
+CCMenuItemImage *itemComboImage1, *itemNameSpace, *imgUpDown;
 CCLabelTTF *comboName1,*comboPrice1, *labelTotal;
 NSString *strComboName1;
 NSString *strComboPrice1;
@@ -112,7 +113,7 @@ CCLabelTTF *comboDescription;
             [comboName1 setString:strComboName1];
             itemComboName1 = [CCMenuItemLabel itemWithLabel:comboName1 target:self selector:@selector(nothingThere:)];
             //price
-            strComboPrice1 = [[NSString alloc]initWithFormat:@"%i", auxPlate.precio];
+            strComboPrice1 = [[NSString alloc]initWithFormat:@"$ %i", auxPlate.precio];
             [comboPrice1 setString:strComboPrice1];
             itemComboPrice1 = [CCMenuItemLabel itemWithLabel:comboPrice1 target:self selector:@selector(nothingThere:)];
             //image
@@ -215,30 +216,45 @@ CCLabelTTF *comboDescription;
         //
         // Menu actual order
         //
-        
         orderMenu = [[CCMenu alloc] init];
         
-        CCMenuItemImage *imgBtnTotal, *imgUpDown;
+        CCMenuItemImage *imgBtnTotal;
         CCMenuItemLabel *lblTotal;
         CCMenuItemImage *itemMenuOrder = [CCMenuItemImage itemWithNormalImage:imageSectionTinyPlates selectedImage:imageSectionTinyPlates];
         
-        labelTotal = [CCLabelTTF labelWithString:@"" fontName:fontCombos fontSize:_fontSizeTotalCombos];
+        labelTotal = [CCLabelTTF labelWithString:@"0" fontName:fontCombos fontSize:_fontSizeTotalCombos];
         [labelTotal setColor:cc_DARKRED];
         lblTotal = [CCMenuItemLabel itemWithLabel:labelTotal];
         
         imgBtnTotal = [CCMenuItemImage itemWithNormalImage:imageBtnMakeOrder selectedImage:imageBtnMakeOrder];
-        imgUpDown =  [CCMenuItemImage itemWithNormalImage:imageUpDown selectedImage:imageUpDown target:self selector:@selector(onUpDown:)];
         
-        imgBtnTotal.position = CGPointMake(X_POS_COMBOS_RIGHT, -140);
-        lblTotal.position = CGPointMake(X_POS_COMBOS_RIGHT, -120);
+        lblTotal.position = CGPointMake(220, -20);
+        imgBtnTotal.position = CGPointMake(280, -60);
         
+        [orderMenu addChild:itemMenuOrder];
         [orderMenu addChild:imgBtnTotal];
         [orderMenu addChild:lblTotal];
-        [orderMenu addChild:imgUpDown];
-        [orderMenu addChild:itemMenuOrder];
         orderMenu.position = CGPointMake(A_HALF_X_WIN_SIZE, -70);
         
         [self addChild:orderMenu];
+        
+        //
+        // Menu actual plates
+        //
+        actualPlatesMenu = [[CCMenu alloc] init];
+        actualPlatesMenu.position = CGPointMake(50, -100);
+        [self addChild:actualPlatesMenu];
+        
+        //
+        // Button to show or hide the menu actual order
+        //
+        upDownMenu = [[CCMenu alloc]init];
+        
+        imgUpDown =  [CCMenuItemImage itemWithNormalImage:imageUp selectedImage:imageUp target:self selector:@selector(onUpDown:)];
+        [upDownMenu addChild:imgUpDown];
+        upDownMenu.position = CGPointMake(A_HALF_X_WIN_SIZE+2, 10);
+        
+        [self addChild:upDownMenu];
         
    }
 
@@ -312,22 +328,45 @@ CCLabelTTF *comboDescription;
         [_rootViewController agregarPlato:combo.id_plato];
         int numPlates = [_rootViewController demeNumeroPlatosEnOrden];
         [self loadPlateWithIdPlate:combo.id_plato withSourceImg:combo.fuente_img_peq withSourceClose:imageBtnClose withPrice:combo.precio withKindPlate:combo.tipo withName:combo.nombre withNum:numPlates];
-        //[self updateTotalBill];
+        [self updateTotalBill];
         //RETIRO EL BOTON DE AGREGAR
        // [self moveMenu_withMenu:addPlateMenu withXpox:posXdesaparecerAgregar withYpos:winSize.height+100 withTimeTransition:1.0];
-        //if(menu_barra.position.y!=120){
-          //  [self onUpDown:self];
-        //}
+        if(orderMenu.position.y!=120){
+            [self onUpDown:self];
+        }
         
     }
+    
+}
+
+-(void) updateTotalBill{
+    NSString *str_total = [[NSString alloc]initWithFormat:@"$ %i", [_rootViewController demeTotalCuenta]];
+    [labelTotal setString:str_total];
+}
+
+-(void) onUpDown:(id) sender
+{ CCLOG(@"Click onUpDown");
+    int posy = orderMenu.position.y;
+    if(posy!=120){
+        posy = 120;
+        [imgUpDown setNormalImage:[CCMenuItemImage itemWithNormalImage:imageDown selectedImage:imageDown]];
+    }
+    else {
+        posy = -70;
+        [imgUpDown setNormalImage:[CCMenuItemImage itemWithNormalImage:imageUp selectedImage:imageUp]];
+    }
+    
+    [self moveMenu_withMenu:orderMenu withXpox:orderMenu.position.x withYpos:posy withTimeTransition:0.5];
+    [self moveMenu_withMenu:upDownMenu withXpox:upDownMenu.position.x withYpos:posy+80 withTimeTransition:0.5];
+    [self moveMenu_withMenu:actualPlatesMenu withXpox:actualPlatesMenu.position.x withYpos:posy withTimeTransition:0.5];
+   /// [self moveSprite: cuadro_total with_pox:cuadro_total.position.x with_posy:posy withTimeTransition:0.5];
+    
     
 }
 
 -(void)loadPlateWithIdPlate:(NSString *) _idPlate withSourceImg:(NSString *) _sourceImg withSourceClose:(NSString *) _sourceImgClose withPrice:(int) _price withKindPlate:(NSString *) _tipo withName:(NSString *)_name withNum:(int)_num{
     CCMenuItemImage *itemImg, *itemCerrar;
     CCMenuItemLabel *itemPrecio, *itemName;
-    
-    orderMenu = [[CCMenu alloc] init];
     
     //Creo una imagen para agregar al menu
     itemImg = [CCMenuItemImage itemWithNormalImage:_sourceImg selectedImage:_sourceImg target:nil selector:nil];
@@ -356,17 +395,49 @@ CCLabelTTF *comboDescription;
     itemName = [CCMenuItemLabel itemWithLabel:name_plate];
     itemName.tag = [_idPlate intValue];
     
-    itemImg.position = CGPointMake(itemImg.position.x +(_num*PADDING_TINY_PLATES), itemImg.position.y);
-    itemName.position = CGPointMake(itemPrecio.position.x +(_num*PADDING_TINY_PLATES)+5, -45);
-    itemPrecio.position = CGPointMake(itemPrecio.position.x +(_num*PADDING_TINY_PLATES), -70);
-    itemCerrar.position = CGPointMake(itemCerrar.position.x +(_num*PADDING_TINY_PLATES)+50, 35);
     
-    [orderMenu addChild:itemImg];
-    [orderMenu addChild:itemName];
-    [orderMenu addChild:itemPrecio];
-    [orderMenu addChild:itemCerrar];
+    CCLOG(@"num %i", _num);
+    
+    itemImg.position = CGPointMake((_num*PADDING_TINY_PLATES)-100, itemImg.position.y);
+    itemName.position = CGPointMake((_num*PADDING_TINY_PLATES)-95, -45);
+    itemPrecio.position = CGPointMake((_num*PADDING_TINY_PLATES)-100, -70);
+    itemCerrar.position = CGPointMake((_num*PADDING_TINY_PLATES)-50, 35);
+    
+    [actualPlatesMenu addChild:itemImg];
+    [actualPlatesMenu addChild:itemName];
+    [actualPlatesMenu addChild:itemPrecio];
+    [actualPlatesMenu addChild:itemCerrar];
     
 }
 
+
+-(void) onDeletePlate:(id) sender
+{
+    CCLOG(@"onDeletePlate ");
+    NSInteger _tag = [sender tag];
+    NSString *_kind_str = [sender accessibilityValue];
+    
+    [_rootViewController eliminarPlato:[[NSString alloc]initWithFormat:@"%i", _tag] withKindPlate:_kind_str];
+    [actualPlatesMenu removeAllChildrenWithCleanup:YES];
+    [self loadMenuResume];
+    NSString *str_total = [[NSString alloc]initWithFormat:@"$ %i", [_rootViewController demeTotalCuenta]];
+    [labelTotal setString:str_total];
+    
+    
+    if((actualCombo == _tag)||(!([_rootViewController estaPlato:[[NSString alloc]initWithFormat:@"%i", actualCombo]])&&(actualCombo!=-1)&&(_rootViewController.demeNumeroPlatosEnOrden < 4))){
+        [self moveMenu_withMenu:addPlateMenu withXpox:addPlateMenu.position.x withYpos:Y_WIN_SIZE+100 withTimeTransition:1.0];
+    }
+  
+}
+
+-(void) loadMenuResume{
+    Plato *platoTemp = [[Plato alloc]init];
+    int cantidadPlatos = [_rootViewController demeNumeroPlatosEnOrden];
+    for (int n=0; n<cantidadPlatos; n++) {
+        platoTemp = [_rootViewController demeDatosPlatoEnUbicacion:n];
+        CCLOG(@"tipo plato caragdo ID %@ TIPO %@", platoTemp.id_plato, platoTemp.tipo);
+        [self loadPlateWithIdPlate:platoTemp.id_plato withSourceImg:platoTemp.fuente_img_peq withSourceClose:imageBtnClose withPrice:platoTemp.precio withKindPlate: platoTemp.tipo withName:platoTemp.nombre withNum: (n+1)];
+    }
+}
 
 @end

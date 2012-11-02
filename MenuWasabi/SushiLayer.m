@@ -291,10 +291,10 @@ BOOL bool_swipe = YES;
         menu_atras.position = CGPointMake(940, winSize.height+100);
         [menu_atras alignItemsVertically];
         [self addChild:menu_atras];
-        
-        //menu agregar oculto
+         //menu agregar oculto
         CCMenuItemImage *item_agregar = [CCMenuItemImage itemWithNormalImage:btnAddPlate selectedImage:btnAddPlate target:self selector:@selector(onAddPlate:)];
-                
+        
+       
         menu_agregar = [CCMenu menuWithItems:item_agregar, nil];
         menu_agregar.position = CGPointMake(640, winSize.height+100);
         [menu_agregar alignItemsVertically];
