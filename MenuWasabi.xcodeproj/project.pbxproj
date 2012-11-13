@@ -234,7 +234,7 @@
 		C123C97116389C4A00474B44 /* btn_hacerpedido.png in Resources */ = {isa = PBXBuildFile; fileRef = C123C97016389C4600474B44 /* btn_hacerpedido.png */; };
 		C12E6CFA1610CE17009BB015 /* fondo4.png in Resources */ = {isa = PBXBuildFile; fileRef = C12E6CF91610CE17009BB015 /* fondo4.png */; };
 		C12E6D011610D2FE009BB015 /* fondo5.png in Resources */ = {isa = PBXBuildFile; fileRef = C12E6D001610D2FE009BB015 /* fondo5.png */; };
-		C144B26F1639B0340091A8E0 /* ComboViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C144B26D1639B0340091A8E0 /* ComboViewController.m */; };
+		C13F82651652BAA700012F5E /* combo_special_mix_p.png in Resources */ = {isa = PBXBuildFile; fileRef = C13F82641652BAA700012F5E /* combo_special_mix_p.png */; };
 		C144B2701639B0340091A8E0 /* ComboViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C144B26E1639B0340091A8E0 /* ComboViewController.xib */; };
 		C1559D0B1611F311007512AA /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1559D0A1611F311007512AA /* RootViewController.xib */; };
 		C1B89EF4163078EE0047518D /* fondo_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = C1B89EF3163078EB0047518D /* fondo_btn.png */; };
@@ -312,7 +312,6 @@
 		C1BF2029164309C600DE285F /* combo_comida_fria_p.png in Resources */ = {isa = PBXBuildFile; fileRef = C1BF2024164309C600DE285F /* combo_comida_fria_p.png */; };
 		C1BF202A164309C600DE285F /* combo_infantil_p.png in Resources */ = {isa = PBXBuildFile; fileRef = C1BF2025164309C600DE285F /* combo_infantil_p.png */; };
 		C1BF202B164309C600DE285F /* combo_light_p.png in Resources */ = {isa = PBXBuildFile; fileRef = C1BF2026164309C600DE285F /* combo_light_p.png */; };
-		C1BF202C164309C600DE285F /* combo_special_mix_p.png in Resources */ = {isa = PBXBuildFile; fileRef = C1BF2027164309C600DE285F /* combo_special_mix_p.png */; };
 		C1BF2032164309E400DE285F /* combo_comida_caliente.png in Resources */ = {isa = PBXBuildFile; fileRef = C1BF202D164309E400DE285F /* combo_comida_caliente.png */; };
 		C1BF2033164309E400DE285F /* combo_comida_fria.png in Resources */ = {isa = PBXBuildFile; fileRef = C1BF202E164309E400DE285F /* combo_comida_fria.png */; };
 		C1BF2034164309E400DE285F /* combo_infantil.png in Resources */ = {isa = PBXBuildFile; fileRef = C1BF202F164309E400DE285F /* combo_infantil.png */; };
@@ -380,6 +379,7 @@
 		C1F247FF163B2DB800402C3C /* bg_detalle.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C1F247FE163B2DB800402C3C /* bg_detalle.jpg */; };
 		C1FA7A49163733CD007E7293 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1FA7A48163733CD007E7293 /* CoreData.framework */; };
 		C1FA7A4B163733D8007E7293 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1FA7A4A163733D8007E7293 /* CoreData.framework */; };
+		C1FB4BEB1652C3D200B6B9DB /* combo_special_mix_peq.png in Resources */ = {isa = PBXBuildFile; fileRef = C1FB4BEA1652C3D200B6B9DB /* combo_special_mix_peq.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -747,8 +747,7 @@
 		C123C97016389C4600474B44 /* btn_hacerpedido.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_hacerpedido.png; sourceTree = "<group>"; };
 		C12E6CF91610CE17009BB015 /* fondo4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fondo4.png; sourceTree = "<group>"; };
 		C12E6D001610D2FE009BB015 /* fondo5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fondo5.png; sourceTree = "<group>"; };
-		C144B26C1639B0340091A8E0 /* ComboViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComboViewController.h; sourceTree = "<group>"; };
-		C144B26D1639B0340091A8E0 /* ComboViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComboViewController.m; sourceTree = "<group>"; };
+		C13F82641652BAA700012F5E /* combo_special_mix_p.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = combo_special_mix_p.png; sourceTree = "<group>"; };
 		C144B26E1639B0340091A8E0 /* ComboViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ComboViewController.xib; sourceTree = "<group>"; };
 		C1559D0A1611F311007512AA /* RootViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RootViewController.xib; sourceTree = "<group>"; };
 		C1B89EF3163078EB0047518D /* fondo_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fondo_btn.png; sourceTree = "<group>"; };
@@ -826,7 +825,6 @@
 		C1BF2024164309C600DE285F /* combo_comida_fria_p.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = combo_comida_fria_p.png; sourceTree = "<group>"; };
 		C1BF2025164309C600DE285F /* combo_infantil_p.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = combo_infantil_p.png; sourceTree = "<group>"; };
 		C1BF2026164309C600DE285F /* combo_light_p.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = combo_light_p.png; sourceTree = "<group>"; };
-		C1BF2027164309C600DE285F /* combo_special_mix_p.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = combo_special_mix_p.png; sourceTree = "<group>"; };
 		C1BF202D164309E400DE285F /* combo_comida_caliente.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = combo_comida_caliente.png; sourceTree = "<group>"; };
 		C1BF202E164309E400DE285F /* combo_comida_fria.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = combo_comida_fria.png; sourceTree = "<group>"; };
 		C1BF202F164309E400DE285F /* combo_infantil.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = combo_infantil.png; sourceTree = "<group>"; };
@@ -912,6 +910,7 @@
 		C1F247FE163B2DB800402C3C /* bg_detalle.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bg_detalle.jpg; sourceTree = "<group>"; };
 		C1FA7A48163733CD007E7293 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		C1FA7A4A163733D8007E7293 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CoreData.framework; sourceTree = "<group>"; };
+		C1FB4BEA1652C3D200B6B9DB /* combo_special_mix_peq.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = combo_special_mix_peq.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1902,8 +1901,6 @@
 				C1EFBF96160D11780005ECF1 /* MenuViewController.m */,
 				C1EFBF88160D08010005ECF1 /* RootViewController.h */,
 				C1EFBF89160D08010005ECF1 /* RootViewController.m */,
-				C144B26C1639B0340091A8E0 /* ComboViewController.h */,
-				C144B26D1639B0340091A8E0 /* ComboViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -2011,11 +2008,12 @@
 		C1F24803163B2FD500402C3C /* pequenas */ = {
 			isa = PBXGroup;
 			children = (
+				C1FB4BEA1652C3D200B6B9DB /* combo_special_mix_peq.png */,
+				C13F82641652BAA700012F5E /* combo_special_mix_p.png */,
 				C1BF2023164309C600DE285F /* combo_comida_caliente_p.png */,
 				C1BF2024164309C600DE285F /* combo_comida_fria_p.png */,
 				C1BF2025164309C600DE285F /* combo_infantil_p.png */,
 				C1BF2026164309C600DE285F /* combo_light_p.png */,
-				C1BF2027164309C600DE285F /* combo_special_mix_p.png */,
 			);
 			name = pequenas;
 			sourceTree = "<group>";
@@ -2312,7 +2310,6 @@
 				C1BF2029164309C600DE285F /* combo_comida_fria_p.png in Resources */,
 				C1BF202A164309C600DE285F /* combo_infantil_p.png in Resources */,
 				C1BF202B164309C600DE285F /* combo_light_p.png in Resources */,
-				C1BF202C164309C600DE285F /* combo_special_mix_p.png in Resources */,
 				C1BF2032164309E400DE285F /* combo_comida_caliente.png in Resources */,
 				C1BF2033164309E400DE285F /* combo_comida_fria.png in Resources */,
 				C1BF2034164309E400DE285F /* combo_infantil.png in Resources */,
@@ -2321,6 +2318,8 @@
 				C1BF203816430B8400DE285F /* background_vert.jpg in Resources */,
 				C1BF203B16430FCE00DE285F /* wdb.sqlite3 in Resources */,
 				C1D11B74164463B4003F0D4B /* menu_pago.png in Resources */,
+				C13F82651652BAA700012F5E /* combo_special_mix_p.png in Resources */,
+				C1FB4BEB1652C3D200B6B9DB /* combo_special_mix_peq.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2442,7 +2441,6 @@
 				C1C4C37A162F511F006AA580 /* TipoBebida.m in Sources */,
 				C1C4C37D162F513D006AA580 /* Bebida.m in Sources */,
 				C123C9681638907100474B44 /* CombosLayer.m in Sources */,
-				C144B26F1639B0340091A8E0 /* ComboViewController.m in Sources */,
 				C11C73F8163EE9DC00E6A507 /* TipoPlato.m in Sources */,
 				C1DBD7C3164022CC00C9A070 /* DAOTipoPlato.m in Sources */,
 				C1DBD7C6164022F500C9A070 /* DAOPlatos.m in Sources */,
@@ -2474,7 +2472,8 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
 			};
@@ -2493,7 +2492,8 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
 			};

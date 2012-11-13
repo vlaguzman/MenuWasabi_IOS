@@ -84,7 +84,6 @@ CCLabelTTF *comboDescription;
     if( (self=[super init] )) {
         
         _rootViewController = rootViewController;
-       // bool_swipe_combos=YES;
         self.isTouchEnabled = YES;
         
         CCSprite *background;
@@ -256,6 +255,8 @@ CCLabelTTF *comboDescription;
         
         [self addChild:upDownMenu];
         
+        [self updateTotalBill];
+        [self loadMenuResume];
    }
 
     return self;
@@ -323,7 +324,7 @@ CCLabelTTF *comboDescription;
 {
     CCLOG(@"Click onAddPlate");
     if (![_rootViewController estaPlato:[[NSString alloc]initWithFormat:@"%i", actualCombo]]) {
-        CCLOG(@"pasamos el if");
+        CCLOG(@"pasamos el if %i", actualCombo);
         Plato *combo = [[DAOPlatos sharedInstance] getPlateById:[[NSString alloc]initWithFormat:@"%i", actualCombo]];
         [_rootViewController agregarPlato:combo.id_plato];
         int numPlates = [_rootViewController demeNumeroPlatosEnOrden];
@@ -369,7 +370,7 @@ CCLabelTTF *comboDescription;
     CCMenuItemLabel *itemPrecio, *itemName;
     
     //Creo una imagen para agregar al menu
-    itemImg = [CCMenuItemImage itemWithNormalImage:_sourceImg selectedImage:_sourceImg target:nil selector:nil];
+    itemImg = [CCMenuItemImage itemWithNormalImage:_sourceImg selectedImage:_sourceImg];
     //asigno el id del plato actual en caso de necesitar eliminarlo
     itemImg.tag = [_idPlate intValue];
     

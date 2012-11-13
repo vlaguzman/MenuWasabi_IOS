@@ -112,7 +112,7 @@ int _fontSizeNameDrink = 10;
 
 
 //Nombres de archivos de imagenes
-NSString *bigPlateDescription = @"descripcion.png";
+NSString *bigPlateImageDescription = @"descripcion.png";
 NSString *btnHacerPedido = @"btn_hacerpedido.png";
 NSString *btnClose = @"btn_cerrar.png";
 NSString *font = @"Helvetica";
@@ -218,7 +218,10 @@ BOOL bool_swipe = YES;
         NSString *strprecioPlato;
         
         menu = [[CCMenu alloc]init];
-       
+        itemNombrePlato = [[CCMenuItemLabel alloc]init];
+        itemPrecio = [[CCMenuItemLabel alloc]init];
+        itemAux = [[CCMenuItemImage alloc]init];
+        
         NSMutableArray *platos = [[NSMutableArray alloc]init];
         platos = [[DAOPlatos sharedInstance] getPlatesByKind:[_rootViewController demeTipoActual]];
         Plato *auxPlate = [[Plato alloc]init];
@@ -260,9 +263,10 @@ BOOL bool_swipe = YES;
             [menu addChild:itemPrecio];
             
         }
-        
+     
         menu.position = CGPointMake(posXprincipalMenu, AHalfWinSizeY);
  		[self addChild: menu];
+       
         
         menu_platosgrandes = [[CCMenu alloc]init];
         itemAux2 = [[CCMenuItemImage alloc]init];
@@ -271,19 +275,32 @@ BOOL bool_swipe = YES;
         
         [self addChild:menu_platosgrandes];
         
+        
+        
+        
+        
         menu_detalles = [[CCMenu alloc]init];
-
-        itemAux =  [CCMenuItemImage itemWithNormalImage:bigPlateDescription selectedImage:bigPlateDescription target:self selector:@selector(onPushSceneTran:)];
-        [menu_detalles addChild:itemAux];
-
+        
+        CCMenuItemImage *itemBigPlateDescription;
+        itemBigPlateDescription = [[CCMenuItemImage alloc]init];
+        CCLOG(@"  ------------- ANTES ---------------- ");
+        itemBigPlateDescription =  [CCMenuItemImage itemWithNormalImage:bigPlateImageDescription selectedImage:bigPlateImageDescription];
+        CCLOG(@"  ------------- DESPUÉS ---------------- ");
+        [menu_detalles addChild:itemBigPlateDescription];
+        
         menu_detalles.position = CGPointMake(posXBigPlatesDescription, posYBigPlatesDescription);
         [menu_detalles alignItemsVerticallyWithPadding:paddingDescriptionPlatesMenu];
         [self addChild:menu_detalles];
-        
+       
         label_descripcion = [CCLabelTTF labelWithString:@"Total" dimensions:CGSizeMake(180, 100) hAlignment:UITextAlignmentCenter vAlignment:UITextAlignmentCenter  fontName:font fontSize:fontSizeDescription];
         label_descripcion.position =  ccp(posXBigPlatesDescription , posYBigPlatesDescription);
         
 		[self addChild: label_descripcion];
+
+        
+        
+        
+        
         
         CCMenuItemImage *item_atras = [CCMenuItemImage itemWithNormalImage:btnGoBack selectedImage:btnGoBack target:self selector:@selector(onGoBack:)];
         
@@ -336,7 +353,7 @@ BOOL bool_swipe = YES;
         
         menu_up_down.position = CGPointMake(522, 35);
         [self addChild:menu_up_down];
-        
+        CCLOG(@"  ------------- Menu up/down agregado  ---------------- ");
         //
         //
         //
@@ -726,15 +743,7 @@ BOOL bool_swipe = YES;
     
 }
 
--(void) loadMenuResume{
-    Plato *platoTemp = [[Plato alloc]init];
-    int cantidadPlatos = [_rootViewController demeNumeroPlatosEnOrden];
-    for (int n=0; n<cantidadPlatos; n++) {
-        platoTemp = [_rootViewController demeDatosPlatoEnUbicacion:n];
-        CCLOG(@"tipo plato caragdo ID %@ TIPO %@", platoTemp.id_plato, platoTemp.tipo);
-        [self loadPlateWithIdPlate:platoTemp.id_plato withSourceImg:platoTemp.fuente_img_peq withSourceClose:btnClose withPrice:platoTemp.precio withKindPlate: platoTemp.tipo withName:platoTemp.nombre withNum: (n+1)];
-    }
-}
+
 
 -(void)loadPlateWithIdPlate:(NSString *) _idPlate withSourceImg:(NSString *) _sourceImg withSourceClose:(NSString *) _sourceImgClose withPrice:(int) _price withKindPlate:(NSString *) _tipo withName:(NSString *)_name withNum:(int)_num{
     CCMenuItemImage *itemImg, *itemCerrar;
@@ -779,6 +788,15 @@ BOOL bool_swipe = YES;
     
 }
 
+-(void) loadMenuResume{
+    Plato *platoTemp = [[Plato alloc]init];
+    int cantidadPlatos = [_rootViewController demeNumeroPlatosEnOrden];
+    for (int n=0; n<cantidadPlatos; n++) {
+        platoTemp = [_rootViewController demeDatosPlatoEnUbicacion:n];
+        CCLOG(@"tipo plato caragdo ID %@ TIPO %@", platoTemp.id_plato, platoTemp.tipo);
+        [self loadPlateWithIdPlate:platoTemp.id_plato withSourceImg:platoTemp.fuente_img_peq withSourceClose:btnClose withPrice:platoTemp.precio withKindPlate: platoTemp.tipo withName:platoTemp.nombre withNum: (n+1)];
+    }
+}
 
 -(void) updateTotalBill{
     NSString *str_total = [[NSString alloc]initWithFormat:@"$ %i", [_rootViewController demeTotalCuenta]];
