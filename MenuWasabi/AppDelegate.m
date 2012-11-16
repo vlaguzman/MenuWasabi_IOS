@@ -95,7 +95,8 @@
     NSLog(@"DATA BASE PATH  %@", self.databasePath);
     
     // Cargo la base de datos
-    [self loadDataFromJson];
+    //[self loadDataFromJson];
+    [self updatePlato];
     [self loadDataBase];
     //
     //
@@ -198,7 +199,7 @@
 */
 -(void)loadDataFromJson{
    //NSURL *jsonURL = [NSURL URLWithString:@"http://localhost:8888/wasabi/consultaplatos.php"];
-    NSURL *jsonURL = [NSURL URLWithString:@"http://brainztore.com/consultaplatos.php"];
+    NSURL *jsonURL = [NSURL URLWithString:@"http://www.brainztore.com/consultaplatos.php"];
     
     NSError *error = nil;
        
@@ -214,6 +215,31 @@
     NSLog(@"Precio -----> %@", precio);
 
     
+}
+
+-(void)updatePlato{
+    NSURL *url = [NSURL URLWithString:@"http://www.brainztore.com/updateplato.php?id=2&precio=1800"];
+   // NSString *datos = [NSString stringWithFormat:@"id=%@&precio=%@", @"2", @"18500"];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+   // NSString *longitud = [NSString stringWithFormat:@"%d", [datos length]];
+    [request addValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    //[request addValue:longitud forHTTPHeaderField:@"Content-length"];
+    [request setHTTPMethod:@"POST"];
+   // [request setHTTPBody:[datos dataUsingEncoding:NSUTF8StringEncoding]];
+    NSLog(@"request %@", request);
+    conx = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    if(conx){
+        webData=[NSMutableData data];
+        NSLog(@"conexión hecha");
+    }
+}
+
+-(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error{
+    NSLog(@"Error en la conexión");
+}
+
+-(void)connectionDidFinishLoading:(NSURLConnection *)connection{
+    NSLog(@"connectionDidFinishLoading");
 }
 
 - (void) loadDataBase{

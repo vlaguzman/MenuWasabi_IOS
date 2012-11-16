@@ -10,7 +10,7 @@
 #import "cocos2d.h"
 #import <sqlite3.h>
 
-@interface AppController : NSObject <UIApplicationDelegate, CCDirectorDelegate>
+@interface AppController : NSObject <UIApplicationDelegate, CCDirectorDelegate, NSURLConnectionDataDelegate>
 {
 	UIWindow *window_;
 	UINavigationController *navController_;
@@ -21,6 +21,9 @@
     NSString *databasePath;
     
     NSMutableArray *jsonArray;
+    
+    NSURLConnection *conx;
+    NSMutableData *webData;
 }
 
 @property (nonatomic, strong) IBOutlet UIWindow *window;
