@@ -8,7 +8,6 @@
 
 #import "cocos2d.h"
 #import "AppDelegate.h"
-#import "SBJson.h"
 
 #define nameDataBase @"wdb.sqlite3"
 //#define pathExample @"/Users/GOREMAC/Documents/Vladimir/ProyectosIOS/MenuWasabi/MenuWasabi/wdb.sqlite3"
