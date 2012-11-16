@@ -8,6 +8,7 @@
 
 #import "cocos2d.h"
 #import "AppDelegate.h"
+#import "SBJson.h"
 
 #define nameDataBase @"wdb.sqlite3"
 //#define pathExample @"/Users/GOREMAC/Documents/Vladimir/ProyectosIOS/MenuWasabi/MenuWasabi/wdb.sqlite3"
@@ -18,7 +19,7 @@
 @synthesize window=window_, navController=navController_, director=director_;
 @synthesize databaseName, databasePath;
 
-
+@synthesize jsonArray;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -95,6 +96,7 @@
     NSLog(@"DATA BASE PATH  %@", self.databasePath);
     
     // Cargo la base de datos
+    [self loadDataFromJson];
     [self loadDataBase];
     //
     //
@@ -113,6 +115,8 @@
 	
 	return YES;
 }
+
+
 
 // Supported orientations: Landscape. Customize it for your own needs
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -189,10 +193,30 @@
          NSLog(@"Error creando tabla %s", errorLog);
          sqlite3_close(wasabi_db);
          }
- ///
+ ///echo '{"platos":'.json_encode($registros).'}';
     }
 }
 */
+-(void)loadDataFromJson{
+   //NSURL *jsonURL = [NSURL URLWithString:@"http://localhost:8888/wasabi/consultaplatos.php"];
+    NSURL *jsonURL = [NSURL URLWithString:@"http://brainztore.com/consultaplatos.php"];
+    
+    NSError *error = nil;
+       
+    NSString *jsonString = [[NSString alloc]initWithContentsOfURL:jsonURL encoding:NSUTF8StringEncoding error:&error];
+    NSData *data = [NSData dataWithContentsOfURL:jsonURL];
+    
+    NSDictionary *jsondict = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+    NSArray *platos = [jsondict objectForKey:@"platos"];
+    NSLog(@"platos -------------------- %@", platos);
+    NSDictionary *plato= [platos objectAtIndex:0];
+    NSLog(@"plato -------------------- %@", plato);
+    NSNumber *precio = [plato objectForKey:@"precio"];
+    NSLog(@"Precio -----> %@", precio);
+
+    
+}
+
 - (void) loadDataBase{
     NSLog(@"iniciamos loadDataBase ");
     BOOL exito;

@@ -19,6 +19,8 @@
     
     NSString *databaseName;
     NSString *databasePath;
+    
+    NSMutableArray *jsonArray;
 }
 
 @property (nonatomic, strong) IBOutlet UIWindow *window;
@@ -27,6 +29,7 @@
 @property (nonatomic, strong) NSString *databaseName;
 @property (nonatomic, strong) NSString *databasePath;
 
+@property (nonatomic, strong) NSMutableArray *jsonArray;
 
 -(void)loadDataBase;
 @end
