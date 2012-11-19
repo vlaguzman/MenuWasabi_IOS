@@ -22,6 +22,9 @@
 #import "DAOPlatos.h"
 #import "DAOTipoPlato.h"
 
+#import "DAOPlatosJSON.h"
+#import "DAOTipoPlatoJSON.h"
+
 #define tipoEntradas @"1"
 #define tipoEnsaladas @"2"
 #define tipoSopa @"3"
@@ -99,8 +102,8 @@ CCScene *scene;
     tipoPlatosArray = [[NSMutableArray alloc]init];
     
     //[self addTipoPlato];
-    [self loadTipoDatosFromDB];
-
+    //[self loadTipoDatosFromDB];
+    [self loadTipoDatosFromServer];
    // [self loadDataBase];
    // [self grabarTabla];
     //[self leerTabla];
@@ -113,6 +116,12 @@ CCScene *scene;
     NSLog(@"ESTE ES EL NOMBRE DEL TIPO PLATO CON ID %i --- %@", 2, t.nombre);
 }
 
+- (void)loadTipoDatosFromServer{
+    [[DAOTipoPlatoJSON sharedInstance] loadTipoDatosFromServer];
+    TipoPlato *t;
+    t = [[DAOTipoPlato sharedInstance] getTipoPlatoById:@"2"];
+    NSLog(@"ESTE ES EL NOMBRE DEL TIPO PLATO CON ID %i --- %@", 2, t.nombre);
+}
 
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -254,7 +263,8 @@ CCScene *scene;
     }
 }*/
 -(int)getNumberOfPlates{
-    return  [[DAOPlatos sharedInstance] getNumberOfPlates];
+  //  return  [[DAOPlatos sharedInstance] getNumberOfPlates];
+    return  [[DAOPlatosJSON sharedInstance] getNumberOfPlates];
 }
 
 
@@ -263,16 +273,20 @@ CCScene *scene;
 }
 
 -(BOOL)estaPlato:(NSString*)_id{
-    return [[BrainMenu sharedInstance] estaPlato:[[DAOPlatos sharedInstance] getPlateById:_id]];// [platos objectForKey:_id]];
+   // return [[BrainMenu sharedInstance] estaPlato:[[DAOPlatos sharedInstance] getPlateById:_id]];// [platos objectForKey:_id]];
+    return [[BrainMenu sharedInstance] estaPlato:[[DAOPlatosJSON sharedInstance] getPlateById:_id]];
+
 }
 
 -(NSString *)demeNombrePlatoPorId:(NSString*)_id{
-    Plato *plato_return = [[DAOPlatos sharedInstance] getPlateById:_id];//[platos objectForKey:_id];
+   // Plato *plato_return = [[DAOPlatos sharedInstance] getPlateById:_id];//[platos objectForKey:_id];
+    Plato *plato_return = [[DAOPlatosJSON sharedInstance] getPlateById:_id];
     return plato_return.nombre;
 }
 
 -(NSString *)demeTipoPlatoPorId:(NSString*)_id{
-    Plato *plato_return = [[DAOPlatos sharedInstance] getPlateById:_id];//[platos objectForKey:_id];
+   // Plato *plato_return = [[DAOPlatos sharedInstance] getPlateById:_id];//[platos objectForKey:_id];
+     Plato *plato_return = [[DAOPlatosJSON sharedInstance] getPlateById:_id];
     return plato_return.tipo;
 }
 
@@ -287,7 +301,8 @@ CCScene *scene;
     if(_tipo == tipoLicores) _tipoBool = NO;
     
     if(_tipoBool){
-        plato_return = [[DAOPlatos sharedInstance] getPlateById:_id];//[platos objectForKey:_id];
+       // plato_return = [[DAOPlatos sharedInstance] getPlateById:_id];//[platos objectForKey:_id];
+        plato_return = [[DAOPlatosJSON sharedInstance] getPlateById:_id];
         description = plato_return.descripcion;
     }
 
@@ -295,17 +310,20 @@ CCScene *scene;
 }
 
 - (NSString *)demeFuenteImagenPlatoPorId:(NSString*)_id{
-    Plato *plato_return = [[DAOPlatos sharedInstance] getPlateById:_id];//[platos objectForKey:_id];
+    //Plato *plato_return = [[DAOPlatos sharedInstance] getPlateById:_id];//[platos objectForKey:_id];
+    Plato *plato_return = [[DAOPlatosJSON sharedInstance] getPlateById:_id];
     return plato_return.fuente_img;
 }
 
 - (NSString *)demeFuenteImagenGrandePlatoPorId:(NSString*)_id{
-    Plato *plato_return = [[DAOPlatos sharedInstance] getPlateById:_id];//[platos objectForKey:_id];
+    //Plato *plato_return = [[DAOPlatos sharedInstance] getPlateById:_id];//[platos objectForKey:_id];
+    Plato *plato_return = [[DAOPlatosJSON sharedInstance] getPlateById:_id];
     return plato_return.fuente_img_grande;
 }
 
 - (NSString *)demeFuenteImagenPequenoPlatoPorId:(NSString*)_id{
-    Plato *plato_return = [[DAOPlatos sharedInstance] getPlateById:_id];//[platos objectForKey:_id];
+   // Plato *plato_return = [[DAOPlatos sharedInstance] getPlateById:_id];//[platos objectForKey:_id];
+    Plato *plato_return = [[DAOPlatosJSON sharedInstance] getPlateById:_id];
     return plato_return.fuente_img_peq;
 }
 
@@ -320,7 +338,8 @@ CCScene *scene;
     if(_tipo == tipoLicores) _tipoBool = NO;
     
     if(_tipoBool){
-        plato_return = [[DAOPlatos sharedInstance] getPlateById:_id];//[platos objectForKey:_id];
+       // plato_return = [[DAOPlatos sharedInstance] getPlateById:_id];//[platos objectForKey:_id];
+        plato_return = [[DAOPlatosJSON sharedInstance] getPlateById:_id];
         precio = plato_return.precio;
     }
 
@@ -339,12 +358,14 @@ CCScene *scene;
 
 - (void)agregarPlato:(NSString*)_id
 {
-    [[BrainMenu sharedInstance] agregarPlato:[[DAOPlatos sharedInstance] getPlateById:_id]];//[platos objectForKey:_id]];
+   // [[BrainMenu sharedInstance] agregarPlato:[[DAOPlatos sharedInstance] getPlateById:_id]];//[platos objectForKey:_id]];
+    [[BrainMenu sharedInstance] agregarPlato:[[DAOPlatosJSON sharedInstance] getPlateById:_id]];
 }
 
 - (void)eliminarPlato:(NSString*)_id withKindPlate:(NSString*)_kind
 {
-    [[BrainMenu sharedInstance] eliminarPlato:[[DAOPlatos sharedInstance] getPlateById:_id]];//[platos objectForKey:_id]];
+   // [[BrainMenu sharedInstance] eliminarPlato:[[DAOPlatos sharedInstance] getPlateById:_id]];//[platos objectForKey:_id]];
+    [[BrainMenu sharedInstance] eliminarPlato:[[DAOPlatosJSON sharedInstance] getPlateById:_id]];
 }
 
 -(int)demeTotalCuenta{

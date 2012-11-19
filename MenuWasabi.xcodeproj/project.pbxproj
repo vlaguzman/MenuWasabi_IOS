@@ -236,6 +236,8 @@
 		C12E6D011610D2FE009BB015 /* fondo5.png in Resources */ = {isa = PBXBuildFile; fileRef = C12E6D001610D2FE009BB015 /* fondo5.png */; };
 		C13F82651652BAA700012F5E /* combo_special_mix_p.png in Resources */ = {isa = PBXBuildFile; fileRef = C13F82641652BAA700012F5E /* combo_special_mix_p.png */; };
 		C144B2701639B0340091A8E0 /* ComboViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C144B26E1639B0340091A8E0 /* ComboViewController.xib */; };
+		C1468F1E165AA8050083FC46 /* DAOPlatosJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = C1468F1D165AA8050083FC46 /* DAOPlatosJSON.m */; };
+		C1468F21165AA8280083FC46 /* DAOTipoPlatoJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = C1468F20165AA8280083FC46 /* DAOTipoPlatoJSON.m */; };
 		C1559D0B1611F311007512AA /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1559D0A1611F311007512AA /* RootViewController.xib */; };
 		C158C14F165438E700CD5144 /* lazydylib1.o in Frameworks */ = {isa = PBXBuildFile; fileRef = C158C14E165438E700CD5144 /* lazydylib1.o */; };
 		C158C151165438F200CD5144 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C158C150165438F200CD5144 /* SystemConfiguration.framework */; };
@@ -746,6 +748,10 @@
 		C12E6D001610D2FE009BB015 /* fondo5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fondo5.png; sourceTree = "<group>"; };
 		C13F82641652BAA700012F5E /* combo_special_mix_p.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = combo_special_mix_p.png; sourceTree = "<group>"; };
 		C144B26E1639B0340091A8E0 /* ComboViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ComboViewController.xib; sourceTree = "<group>"; };
+		C1468F1C165AA8050083FC46 /* DAOPlatosJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAOPlatosJSON.h; sourceTree = "<group>"; };
+		C1468F1D165AA8050083FC46 /* DAOPlatosJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAOPlatosJSON.m; sourceTree = "<group>"; };
+		C1468F1F165AA8280083FC46 /* DAOTipoPlatoJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAOTipoPlatoJSON.h; sourceTree = "<group>"; };
+		C1468F20165AA8280083FC46 /* DAOTipoPlatoJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAOTipoPlatoJSON.m; sourceTree = "<group>"; };
 		C1559D0A1611F311007512AA /* RootViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RootViewController.xib; sourceTree = "<group>"; };
 		C158C14E165438E700CD5144 /* lazydylib1.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = lazydylib1.o; path = usr/lib/lazydylib1.o; sourceTree = SDKROOT; };
 		C158C150165438F200CD5144 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -1358,6 +1364,10 @@
 		C1468F1B165A7E5D0083FC46 /* Server */ = {
 			isa = PBXGroup;
 			children = (
+				C1468F1C165AA8050083FC46 /* DAOPlatosJSON.h */,
+				C1468F1D165AA8050083FC46 /* DAOPlatosJSON.m */,
+				C1468F1F165AA8280083FC46 /* DAOTipoPlatoJSON.h */,
+				C1468F20165AA8280083FC46 /* DAOTipoPlatoJSON.m */,
 			);
 			name = Server;
 			sourceTree = "<group>";
@@ -2445,6 +2455,8 @@
 				C1DBD7C6164022F500C9A070 /* DAOPlatos.m in Sources */,
 				C1DBD7D21640306A00C9A070 /* Pedido.m in Sources */,
 				C1DBD7D51640307B00C9A070 /* Mesa.m in Sources */,
+				C1468F1E165AA8050083FC46 /* DAOPlatosJSON.m in Sources */,
+				C1468F21165AA8280083FC46 /* DAOTipoPlatoJSON.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

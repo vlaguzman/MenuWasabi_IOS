@@ -95,9 +95,9 @@
     NSLog(@"DATA BASE PATH  %@", self.databasePath);
     
     // Cargo la base de datos
-    //[self loadDataFromJson];
-    [self updatePlato];
-    [self loadDataBase];
+    [self loadTipoPlatosJson];
+  //  [self updatePlato];
+   // [self loadDataBase];
     //
     //
     //
@@ -199,7 +199,7 @@
 */
 -(void)loadDataFromJson{
    //NSURL *jsonURL = [NSURL URLWithString:@"http://localhost:8888/wasabi/consultaplatos.php"];
-    NSURL *jsonURL = [NSURL URLWithString:@"http://www.brainztore.com/consultaplatos.php"];
+    NSURL *jsonURL = [NSURL URLWithString:@"http://www.brainztore.com/wasabi/consultaplatos.php"];
     
     NSError *error = nil;
        
@@ -208,12 +208,38 @@
     
     NSDictionary *jsondict = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
     NSArray *platos = [jsondict objectForKey:@"platos"];
-    NSLog(@"platos -------------------- %@", platos);
-    NSDictionary *plato= [platos objectAtIndex:0];
+    NSLog(@"platos -------------------- %@ --- No de platos %i", platos, platos.count);
+    NSDictionary *plato= [platos objectAtIndex:3];
     NSLog(@"plato -------------------- %@", plato);
     NSNumber *precio = [plato objectForKey:@"precio"];
     NSLog(@"Precio -----> %@", precio);
+    NSNumber *tipoplato = [plato objectForKey:@"id_tipoplato"];
+    NSLog(@"Tipo -----> %@", tipoplato);
+    NSString *descripcion = [plato objectForKey:@"descripcion"];
+    NSLog(@"Descripcion -----> %@", descripcion);
+    NSString *img_peq = [plato objectForKey:@"img_pequena"];
+    NSLog(@"img_peq -----> %@", img_peq);
+    
+}
+-(void)loadTipoPlatosJson{
+    //NSURL *jsonURL = [NSURL URLWithString:@"http://localhost:8888/wasabi/consultaplatos.php"];
+    NSURL *jsonURL = [NSURL URLWithString:@"http://www.brainztore.com/wasabi/consultatipoplatos.php"];
+    
+    NSError *error = nil;
+    
+    NSString *jsonString = [[NSString alloc]initWithContentsOfURL:jsonURL encoding:NSUTF8StringEncoding error:&error];
+    NSData *data = [NSData dataWithContentsOfURL:jsonURL];
+    
+    NSDictionary *jsondict = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+    NSArray *tipoplatos = [jsondict objectForKey:@"tipo_platos"];
+    NSLog(@"platos -------------------- %@ --- No de platos %i", tipoplatos, tipoplatos.count);
+    NSDictionary *tipoplato= [tipoplatos objectAtIndex:3];
+    NSLog(@"plato -------------------- %@", tipoplato);
 
+    NSString *id_tipo = [tipoplato objectForKey:@"id_tipoPlato"];
+    NSLog(@"Tipo -----> %@", id_tipo);
+    NSString *nombre = [tipoplato objectForKey:@"nombre"];
+    NSLog(@"Nombre -----> %@", nombre);
     
 }
 

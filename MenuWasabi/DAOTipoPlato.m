@@ -80,7 +80,7 @@ static DAOTipoPlato *sharedDAOTipoPlato = nil;
 
 -(void)addTipoPlato{
     TipoPlato *auxTipoPlato;
-    // En caso de que si que tenga nombre, comprobamos si auxTutorial existe. De no ser así (que debería ser lo normal), lo iniciamos.
+
     if(auxTipoPlato == nil)
     {
         auxTipoPlato = [[TipoPlato alloc]init];
