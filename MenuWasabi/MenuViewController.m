@@ -226,52 +226,8 @@
 - (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
 {
     UIInterfaceOrientation orientation = toInterfaceOrientation;
-    if((orientation==UIInterfaceOrientationPortrait)||(orientation==UIInterfaceOrientationPortraitUpsideDown))//{
+    if((orientation==UIInterfaceOrientationPortrait)||(orientation==UIInterfaceOrientationPortraitUpsideDown))
         [self layerCombos];
-        /*
-        NSLog(@"CAMBIO");
-   
-        NSString *thePath = [[NSBundle mainBundle] pathForResource:@"menu_combos" ofType:@"jpeg"];
-        UIImage *prodImg = [[UIImage alloc] initWithContentsOfFile:thePath];
-       // UIImage *img = [[UIImage alloc]initWithContentsOfFile:@"fondo4.png"];
-        [background setImage:prodImg];
-        
-        [self moverBoton:btn_centro posx:390 posy:245 alpha:0 duracion:0 delay:0];
-        [self moverBoton:btn_entradas posx:453 posy:86 alpha:0 duracion:0 delay:0];
-        [self moverBoton:btn_ensaladas posx:579 posy:126 alpha:0 duracion:0 delay:0];
-        [self moverBoton:btn_sopas posx:656 posy:236 alpha:0 duracion:0 delay:0];
-        [self moverBoton:btn_wok posx:656 posy:360 alpha:0 duracion:0 delay:0];
-        [self moverBoton:btn_tepp posx:579 posy:470 alpha:0 duracion:0 delay:0];
-        [self moverBoton:btn_sushi posx:453 posy:511 alpha:0 duracion:0 delay:0];
-        [self moverBoton:btn_especiales posx:327 posy:470 alpha:0 duracion:0 delay:0];
-        [self moverBoton:btn_postres posx:251 posy:360 alpha:0 duracion:0 delay:0];
-        [self moverBoton:btn_bebidas posx:251 posy:236 alpha:0 duracion:0 delay:0];
-        [self moverBoton:btn_licores posx:327 posy:126 alpha:0 duracion:0 delay:0];
-        [self moverBoton:fondo_btn posx:251 posy:126 alpha:0 duracion:0 delay:0];
-    
-    }
-       
-    
-    else
-    {
-        NSString *thePath = [[NSBundle mainBundle] pathForResource:@"fondo3" ofType:@"png"];
-        UIImage *prodImg = [[UIImage alloc] initWithContentsOfFile:thePath];
-        // UIImage *img = [[UIImage alloc]initWithContentsOfFile:@"fondo4.png"];
-        [background setImage:prodImg];
-        
-        [self moverBoton:btn_centro posx:390 posy:245 alpha:1 duracion:0 delay:0];
-        [self moverBoton:btn_entradas posx:453 posy:86 alpha:1 duracion:0 delay:0];
-        [self moverBoton:btn_ensaladas posx:579 posy:126 alpha:1 duracion:0 delay:0];
-        [self moverBoton:btn_sopas posx:656 posy:236 alpha:1 duracion:0 delay:0];
-        [self moverBoton:btn_wok posx:656 posy:360 alpha:1 duracion:0 delay:0];
-        [self moverBoton:btn_tepp posx:579 posy:470 alpha:1 duracion:0 delay:0];
-        [self moverBoton:btn_sushi posx:453 posy:511 alpha:1 duracion:0 delay:0];
-        [self moverBoton:btn_especiales posx:327 posy:470 alpha:1 duracion:0 delay:0];
-        [self moverBoton:btn_postres posx:251 posy:360 alpha:1 duracion:0 delay:0];
-        [self moverBoton:btn_bebidas posx:251 posy:236 alpha:1 duracion:0 delay:0];
-        [self moverBoton:btn_licores posx:327 posy:126 alpha:1 duracion:0 delay:0];
-        [self moverBoton:fondo_btn posx:251 posy:126 alpha:1 duracion:0 delay:0];
-    }*/
       
 }
 

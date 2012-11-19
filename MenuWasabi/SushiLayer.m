@@ -11,7 +11,6 @@
 #import "AppDelegate.h"
 #import "CCTouchDispatcher.h"
 #import "CCActionInterval.h"
-#import "BrainMenu.h"
 #import "DAOPlatos.h"
 
 #define kMoveMedium 0.2

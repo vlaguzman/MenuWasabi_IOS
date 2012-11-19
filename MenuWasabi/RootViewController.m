@@ -18,10 +18,8 @@
 #import "BrainMenu.h"
 #import <sqlite3.h>
 
-#import "DAOBebida.h"
-#import "DAOCategoria.h"
+
 #import "DAOPlatos.h"
-#import "DAOTipoBebida.h"
 #import "DAOTipoPlato.h"
 
 #define tipoEntradas @"1"

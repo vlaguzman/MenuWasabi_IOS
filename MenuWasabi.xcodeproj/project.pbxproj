@@ -334,13 +334,8 @@
 		C1D3B69B161A3D8000542A4C /* Plato.m in Sources */ = {isa = PBXBuildFile; fileRef = C1D3B69A161A3D7F00542A4C /* Plato.m */; };
 		C1DBD7C3164022CC00C9A070 /* DAOTipoPlato.m in Sources */ = {isa = PBXBuildFile; fileRef = C1DBD7C2164022CC00C9A070 /* DAOTipoPlato.m */; };
 		C1DBD7C6164022F500C9A070 /* DAOPlatos.m in Sources */ = {isa = PBXBuildFile; fileRef = C1DBD7C5164022F500C9A070 /* DAOPlatos.m */; };
-		C1DBD7C91640234B00C9A070 /* DAOBebida.m in Sources */ = {isa = PBXBuildFile; fileRef = C1DBD7C81640234B00C9A070 /* DAOBebida.m */; };
-		C1DBD7CC1640235D00C9A070 /* DAOTipoBebida.m in Sources */ = {isa = PBXBuildFile; fileRef = C1DBD7CB1640235D00C9A070 /* DAOTipoBebida.m */; };
-		C1DBD7CF1640237E00C9A070 /* DAOCategoria.m in Sources */ = {isa = PBXBuildFile; fileRef = C1DBD7CE1640237E00C9A070 /* DAOCategoria.m */; };
 		C1DBD7D21640306A00C9A070 /* Pedido.m in Sources */ = {isa = PBXBuildFile; fileRef = C1DBD7D11640306A00C9A070 /* Pedido.m */; };
 		C1DBD7D51640307B00C9A070 /* Mesa.m in Sources */ = {isa = PBXBuildFile; fileRef = C1DBD7D41640307A00C9A070 /* Mesa.m */; };
-		C1DBD7D8164030A200C9A070 /* DAOPedido.m in Sources */ = {isa = PBXBuildFile; fileRef = C1DBD7D7164030A200C9A070 /* DAOPedido.m */; };
-		C1DBD7DB164030B100C9A070 /* DAOMesa.m in Sources */ = {isa = PBXBuildFile; fileRef = C1DBD7DA164030B100C9A070 /* DAOMesa.m */; };
 		C1E87519161CEAFB0020486A /* barra_agregar_.png in Resources */ = {isa = PBXBuildFile; fileRef = C1E87517161CEAFB0020486A /* barra_agregar_.png */; };
 		C1E8751A161CEAFB0020486A /* btn_agregar.png in Resources */ = {isa = PBXBuildFile; fileRef = C1E87518161CEAFB0020486A /* btn_agregar.png */; };
 		C1E876C4161CF5200020486A /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = C1E876C3161CF5200020486A /* Default-Landscape~ipad.png */; };
@@ -854,20 +849,10 @@
 		C1DBD7C2164022CC00C9A070 /* DAOTipoPlato.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAOTipoPlato.m; sourceTree = "<group>"; };
 		C1DBD7C4164022F500C9A070 /* DAOPlatos.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAOPlatos.h; sourceTree = "<group>"; };
 		C1DBD7C5164022F500C9A070 /* DAOPlatos.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAOPlatos.m; sourceTree = "<group>"; };
-		C1DBD7C71640234B00C9A070 /* DAOBebida.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAOBebida.h; sourceTree = "<group>"; };
-		C1DBD7C81640234B00C9A070 /* DAOBebida.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAOBebida.m; sourceTree = "<group>"; };
-		C1DBD7CA1640235D00C9A070 /* DAOTipoBebida.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAOTipoBebida.h; sourceTree = "<group>"; };
-		C1DBD7CB1640235D00C9A070 /* DAOTipoBebida.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAOTipoBebida.m; sourceTree = "<group>"; };
-		C1DBD7CD1640237E00C9A070 /* DAOCategoria.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAOCategoria.h; sourceTree = "<group>"; };
-		C1DBD7CE1640237E00C9A070 /* DAOCategoria.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAOCategoria.m; sourceTree = "<group>"; };
 		C1DBD7D01640306A00C9A070 /* Pedido.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pedido.h; sourceTree = "<group>"; };
 		C1DBD7D11640306A00C9A070 /* Pedido.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pedido.m; sourceTree = "<group>"; };
 		C1DBD7D31640307A00C9A070 /* Mesa.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mesa.h; sourceTree = "<group>"; };
 		C1DBD7D41640307A00C9A070 /* Mesa.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Mesa.m; sourceTree = "<group>"; };
-		C1DBD7D6164030A200C9A070 /* DAOPedido.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAOPedido.h; sourceTree = "<group>"; };
-		C1DBD7D7164030A200C9A070 /* DAOPedido.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAOPedido.m; sourceTree = "<group>"; };
-		C1DBD7D9164030B100C9A070 /* DAOMesa.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAOMesa.h; sourceTree = "<group>"; };
-		C1DBD7DA164030B100C9A070 /* DAOMesa.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAOMesa.m; sourceTree = "<group>"; };
 		C1E87517161CEAFB0020486A /* barra_agregar_.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = barra_agregar_.png; sourceTree = "<group>"; };
 		C1E87518161CEAFB0020486A /* btn_agregar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_agregar.png; sourceTree = "<group>"; };
 		C1E876C3161CF5200020486A /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape~ipad.png"; sourceTree = "<group>"; };
@@ -1357,6 +1342,24 @@
 				C10A67B4160CBBF400489A45 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C1468F1A165A7E480083FC46 /* Local */ = {
+			isa = PBXGroup;
+			children = (
+				C1DBD7C1164022CC00C9A070 /* DAOTipoPlato.h */,
+				C1DBD7C2164022CC00C9A070 /* DAOTipoPlato.m */,
+				C1DBD7C4164022F500C9A070 /* DAOPlatos.h */,
+				C1DBD7C5164022F500C9A070 /* DAOPlatos.m */,
+			);
+			name = Local;
+			sourceTree = "<group>";
+		};
+		C1468F1B165A7E5D0083FC46 /* Server */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Server;
 			sourceTree = "<group>";
 		};
 		C155EDE6162622A600421599 /* Sopas */ = {
@@ -1935,20 +1938,8 @@
 		C1DBD7C01640224000C9A070 /* DataModel */ = {
 			isa = PBXGroup;
 			children = (
-				C1DBD7C1164022CC00C9A070 /* DAOTipoPlato.h */,
-				C1DBD7C2164022CC00C9A070 /* DAOTipoPlato.m */,
-				C1DBD7C4164022F500C9A070 /* DAOPlatos.h */,
-				C1DBD7C5164022F500C9A070 /* DAOPlatos.m */,
-				C1DBD7C71640234B00C9A070 /* DAOBebida.h */,
-				C1DBD7C81640234B00C9A070 /* DAOBebida.m */,
-				C1DBD7CA1640235D00C9A070 /* DAOTipoBebida.h */,
-				C1DBD7CB1640235D00C9A070 /* DAOTipoBebida.m */,
-				C1DBD7CD1640237E00C9A070 /* DAOCategoria.h */,
-				C1DBD7CE1640237E00C9A070 /* DAOCategoria.m */,
-				C1DBD7D6164030A200C9A070 /* DAOPedido.h */,
-				C1DBD7D7164030A200C9A070 /* DAOPedido.m */,
-				C1DBD7D9164030B100C9A070 /* DAOMesa.h */,
-				C1DBD7DA164030B100C9A070 /* DAOMesa.m */,
+				C1468F1B165A7E5D0083FC46 /* Server */,
+				C1468F1A165A7E480083FC46 /* Local */,
 			);
 			name = DataModel;
 			sourceTree = "<group>";
@@ -2452,13 +2443,8 @@
 				C11C73F8163EE9DC00E6A507 /* TipoPlato.m in Sources */,
 				C1DBD7C3164022CC00C9A070 /* DAOTipoPlato.m in Sources */,
 				C1DBD7C6164022F500C9A070 /* DAOPlatos.m in Sources */,
-				C1DBD7C91640234B00C9A070 /* DAOBebida.m in Sources */,
-				C1DBD7CC1640235D00C9A070 /* DAOTipoBebida.m in Sources */,
-				C1DBD7CF1640237E00C9A070 /* DAOCategoria.m in Sources */,
 				C1DBD7D21640306A00C9A070 /* Pedido.m in Sources */,
 				C1DBD7D51640307B00C9A070 /* Mesa.m in Sources */,
-				C1DBD7D8164030A200C9A070 /* DAOPedido.m in Sources */,
-				C1DBD7DB164030B100C9A070 /* DAOMesa.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
