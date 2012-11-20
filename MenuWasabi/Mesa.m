@@ -10,4 +10,12 @@
 
 @implementation Mesa
 
+@synthesize id_mesa, estado, numero;
+
+-(id)init
+{
+    estado = @"vacio";
+    return self;
+}
+
 @end

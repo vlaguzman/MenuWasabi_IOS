@@ -57,7 +57,8 @@
 }
 
 // Add new methods
-- (void)viewApp:(id)arg {
+- (void)viewApp:(id)arg
+{
     /*
     if (_rootViewController == nil) {
         self.rootViewController = [[[RootViewController alloc] initWithNibName:nil bundle:nil] autorelease];
@@ -70,7 +71,8 @@
     [self.navigationController pushViewController:_menuViewController animated:YES];
 }
 
-- (IBAction)viewTapped:(id)sender {
+- (IBAction)viewTapped:(id)sender
+{
     [self viewApp:nil];
 }
 
@@ -83,12 +85,15 @@
     [textTableNumber release];
     [super dealloc];
 }
-- (IBAction)addTableNumber:(id)sender {
+- (IBAction)addTableNumber:(id)sender
+{
     
     NSString *num = @"";
     num = [textTableNumber text];
+    
     textTableNumber.enabled = false;
     NSLog(@"ESTE ES EL NÚMERO %@", num);
+    
     
 }
 @end

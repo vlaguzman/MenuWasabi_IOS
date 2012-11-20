@@ -9,6 +9,9 @@
 #import "cocos2d.h"
 #import "AppDelegate.h"
 
+
+#import "DAOMesaJSON.h"
+
 #define nameDataBase @"wdb.sqlite3"
 //#define pathExample @"/Users/GOREMAC/Documents/Vladimir/ProyectosIOS/MenuWasabi/MenuWasabi/wdb.sqlite3"
 
@@ -95,9 +98,10 @@
     NSLog(@"DATA BASE PATH  %@", self.databasePath);
     
     // Cargo la base de datos
-    [self loadTipoPlatosJson];
-  //  [self updatePlato];
-   // [self loadDataBase];
+    //[self loadTipoPlatosJson];
+    [self pruba];
+    //  [self updatePlato];
+    // [self loadDataBase];
     //
     //
     //
@@ -197,6 +201,9 @@
     }
 }
 */
+-(void)pruba{
+    [[DAOMesaJSON sharedInstance] getTableByNumber:2];
+}
 -(void)loadDataFromJson{
    //NSURL *jsonURL = [NSURL URLWithString:@"http://localhost:8888/wasabi/consultaplatos.php"];
     NSURL *jsonURL = [NSURL URLWithString:@"http://www.brainztore.com/wasabi/consultaplatos.php"];

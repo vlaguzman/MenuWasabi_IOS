@@ -13,12 +13,8 @@
 @interface Plato : NSObject
 {
     NSString *nombre, *descripcion, *fuente_img, *fuente_img_grande, *fuente_img_peq, *id_plato, *tipo;
-    //TipoPlato *tipo;
-   // NSDecimalNumber *
     int precio;
     BOOL pedido;
-   // BOOL isDirty;
-   // BOOL isDetailViewHydrated;
 }
 
 
@@ -26,10 +22,6 @@
 @property BOOL pedido;
 @property (nonatomic, strong) NSString *nombre, *descripcion, *fuente_img, *fuente_img_grande, *fuente_img_peq, *id_plato;
 @property (nonatomic, strong) NSString *tipo;
-//@property (nonatomic, strong) NSDecimalNumber *precio;
-
-//@property (nonatomic, readwrite) BOOL isDirty;
-//@property (nonatomic, readwrite) BOOL isDetailViewHydrated;
 
 @end
 	

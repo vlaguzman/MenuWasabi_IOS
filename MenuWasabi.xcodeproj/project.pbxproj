@@ -358,6 +358,8 @@
 		C1EDA14A165BCC2A00B1C43D /* btn_agregar2.png in Resources */ = {isa = PBXBuildFile; fileRef = C1EDA149165BCC2800B1C43D /* btn_agregar2.png */; };
 		C1EDA14C165BCC7700B1C43D /* numero_mesa.png in Resources */ = {isa = PBXBuildFile; fileRef = C1EDA14B165BCC7500B1C43D /* numero_mesa.png */; };
 		C1EDA14E165BDA5E00B1C43D /* btn_enviar.png in Resources */ = {isa = PBXBuildFile; fileRef = C1EDA14D165BDA5C00B1C43D /* btn_enviar.png */; };
+		C1EDA151165BEA6300B1C43D /* DAOMesaJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = C1EDA150165BEA6300B1C43D /* DAOMesaJSON.m */; };
+		C1EDA154165BEB0A00B1C43D /* DAOPedidoJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = C1EDA153165BEB0A00B1C43D /* DAOPedidoJSON.m */; };
 		C1EF089E1615038000BA0421 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C1EF089D1615038000BA0421 /* libsqlite3.0.dylib */; };
 		C1EF08A116150A0A00BA0421 /* inicio.png in Resources */ = {isa = PBXBuildFile; fileRef = C1EF08A016150A0A00BA0421 /* inicio.png */; };
 		C1EFBF68160CC4700005ECF1 /* SushiLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C1EFBF67160CC4700005ECF1 /* SushiLayer.m */; };
@@ -885,6 +887,10 @@
 		C1EDA149165BCC2800B1C43D /* btn_agregar2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_agregar2.png; sourceTree = "<group>"; };
 		C1EDA14B165BCC7500B1C43D /* numero_mesa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = numero_mesa.png; sourceTree = "<group>"; };
 		C1EDA14D165BDA5C00B1C43D /* btn_enviar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_enviar.png; sourceTree = "<group>"; };
+		C1EDA14F165BEA6300B1C43D /* DAOMesaJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAOMesaJSON.h; sourceTree = "<group>"; };
+		C1EDA150165BEA6300B1C43D /* DAOMesaJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAOMesaJSON.m; sourceTree = "<group>"; };
+		C1EDA152165BEB0A00B1C43D /* DAOPedidoJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAOPedidoJSON.h; sourceTree = "<group>"; };
+		C1EDA153165BEB0A00B1C43D /* DAOPedidoJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAOPedidoJSON.m; sourceTree = "<group>"; };
 		C1EF089D1615038000BA0421 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		C1EF08A016150A0A00BA0421 /* inicio.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = inicio.png; sourceTree = "<group>"; };
 		C1EFBF66160CC4700005ECF1 /* SushiLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SushiLayer.h; sourceTree = "<group>"; };
@@ -1376,6 +1382,10 @@
 				C1468F1D165AA8050083FC46 /* DAOPlatosJSON.m */,
 				C1468F1F165AA8280083FC46 /* DAOTipoPlatoJSON.h */,
 				C1468F20165AA8280083FC46 /* DAOTipoPlatoJSON.m */,
+				C1EDA14F165BEA6300B1C43D /* DAOMesaJSON.h */,
+				C1EDA150165BEA6300B1C43D /* DAOMesaJSON.m */,
+				C1EDA152165BEB0A00B1C43D /* DAOPedidoJSON.h */,
+				C1EDA153165BEB0A00B1C43D /* DAOPedidoJSON.m */,
 			);
 			name = Server;
 			sourceTree = "<group>";
@@ -2473,6 +2483,8 @@
 				C1DBD7D51640307B00C9A070 /* Mesa.m in Sources */,
 				C1468F1E165AA8050083FC46 /* DAOPlatosJSON.m in Sources */,
 				C1468F21165AA8280083FC46 /* DAOTipoPlatoJSON.m in Sources */,
+				C1EDA151165BEA6300B1C43D /* DAOMesaJSON.m in Sources */,
+				C1EDA154165BEB0A00B1C43D /* DAOPedidoJSON.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

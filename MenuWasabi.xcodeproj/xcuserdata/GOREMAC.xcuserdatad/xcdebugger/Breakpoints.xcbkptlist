@@ -47,13 +47,26 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "MenuWasabi/AppDelegate.m"
-         timestampString = "374774582.689929"
+         timestampString = "375139151.969121"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "16"
-         endingLineNumber = "16"
+         startingLineNumber = "19"
+         endingLineNumber = "19"
          landmarkName = "@implementation AppController"
          landmarkType = "3">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "MenuWasabi/DAOMesaJSON.m"
+         timestampString = "375139151.969121"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "34"
+         endingLineNumber = "34"
+         landmarkName = "-getTableByNumber:"
+         landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>
 </Bucket>
