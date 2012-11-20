@@ -8,7 +8,7 @@
 
 #import "DAOPlatosJSON.h"
 
-NSString *URL_GET_PLATES = @"http://www.brainztore.com/consultaplatos.php";
+NSString *URL_GET_PLATES = @"http://www.brainztore.com/wasabi/consultaplatos.php";
 
 @implementation DAOPlatosJSON
 
@@ -84,18 +84,20 @@ static DAOPlatosJSON *sharedDAOPlatoJSON = nil;
     
     NSDictionary *jsondict = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
     NSArray *platos = [jsondict objectForKey:@"platos"];
-    NSLog(@"loadPlatesFromServer -------------------- %@", platos);
+    NSLog(@"loadPlatesFromServer - %@ platos.count := %i -", platos, platos.count);
     
-    Plato *auxPlato = [[Plato alloc]init];
+    
     
     for (int num_plates=0; num_plates < platos.count ; num_plates++) {
+        Plato *auxPlato = [[Plato alloc]init];
         
         NSDictionary *plato= [platos objectAtIndex:num_plates];
-        NSLog(@"plato -------------------- %@", plato);
+        NSLog(@"este es el plato que se está agregando-------------------- %@", plato);
         
         NSString *id_plato =  [plato objectForKey:@"id_plato"];
         NSLog(@"ID plato -----> %@", id_plato);
         auxPlato.id_plato = id_plato;
+        NSLog(@"ID plato - auxPlato.id_plato ----> %@", auxPlato.id_plato);
         
         NSString *tipo_plato =  [plato objectForKey:@"id_tipoplato"];
         NSLog(@"tipo_plato -----> %@", tipo_plato);

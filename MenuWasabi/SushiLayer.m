@@ -11,7 +11,8 @@
 #import "AppDelegate.h"
 #import "CCTouchDispatcher.h"
 #import "CCActionInterval.h"
-#import "DAOPlatos.h"
+//#import "DAOPlatos.h"
+#import "DAOPlatosJSON.h"
 
 #define kMoveMedium 0.2
 #define kMoveFast 0.05
@@ -159,7 +160,8 @@ BOOL bool_swipe = YES;
   
     NSString *tipoPlato = [_rootViewController demeTipoActual];
     NSMutableArray *platos = [[NSMutableArray alloc]init];
-    platos = [[DAOPlatos sharedInstance] getPlatesByKind:[_rootViewController demeTipoActual]];
+    //platos = [[DAOPlatos sharedInstance] getPlatesByKind:[_rootViewController demeTipoActual]];
+    platos = [[DAOPlatosJSON sharedInstance] getPlatesByKind:[_rootViewController demeTipoActual]];
 
     numPlates = [platos count];
     
@@ -222,21 +224,18 @@ BOOL bool_swipe = YES;
         itemAux = [[CCMenuItemImage alloc]init];
         
         NSMutableArray *platos = [[NSMutableArray alloc]init];
-        platos = [[DAOPlatos sharedInstance] getPlatesByKind:[_rootViewController demeTipoActual]];
+        //platos = [[DAOPlatos sharedInstance] getPlatesByKind:[_rootViewController demeTipoActual]];
+        platos = [[DAOPlatosJSON sharedInstance] getPlatesByKind:[_rootViewController demeTipoActual]];
         Plato *auxPlate = [[Plato alloc]init];
         
         for (int i = 0; i < [platos count]; i++) {
             
             auxPlate = [platos objectAtIndex:i];
-            CCLOG(@" %i ------------- platos count  ---------------- %@", i, auxPlate.id_plato);
-            
-                        
+         
             nombre_plato = [CCLabelTTF labelWithString:@"" dimensions:CGSizeMake(165, 60) hAlignment:UITextAlignmentCenter vAlignment:UITextAlignmentCenter fontName:font fontSize:_fontSizeTitleName];
             precio_plato = [CCLabelTTF labelWithString:@"" dimensions:CGSizeMake(165, 60) hAlignment:UITextAlignmentCenter vAlignment:UITextAlignmentCenter fontName:font fontSize:_fontSizeTitlePrice];
-            
             strnombrePlato = auxPlate.nombre;
             [nombre_plato setString:strnombrePlato];
-            
             NSString *_tipo = [_rootViewController demeTipoActual];
             BOOL _tipoBool = YES;
             if(_tipo == tipoBebidas) _tipoBool = NO;
@@ -250,7 +249,6 @@ BOOL bool_swipe = YES;
             itemPrecio = [CCMenuItemLabel itemWithLabel:precio_plato target:self selector:@selector(onPushSceneTranLabel:)];
           
             itemAux = [CCMenuItemImage itemWithNormalImage:auxPlate.fuente_img selectedImage:auxPlate.fuente_img target:self selector:@selector(onPushSceneTranImage:)];
-           
            itemAux.tag=[auxPlate.id_plato intValue];
             
             itemAux.position = CGPointMake(itemAux.position.x +(i*paddingPrincipalPlates), itemAux.position.y);
@@ -282,9 +280,9 @@ BOOL bool_swipe = YES;
         
         CCMenuItemImage *itemBigPlateDescription;
         itemBigPlateDescription = [[CCMenuItemImage alloc]init];
-        CCLOG(@"  ------------- ANTES ---------------- ");
+     
         itemBigPlateDescription =  [CCMenuItemImage itemWithNormalImage:bigPlateImageDescription selectedImage:bigPlateImageDescription];
-        CCLOG(@"  ------------- DESPUÉS ---------------- ");
+  
         [menu_detalles addChild:itemBigPlateDescription];
         
         menu_detalles.position = CGPointMake(posXBigPlatesDescription, posYBigPlatesDescription);
@@ -296,10 +294,6 @@ BOOL bool_swipe = YES;
         
 		[self addChild: label_descripcion];
 
-        
-        
-        
-        
         
         CCMenuItemImage *item_atras = [CCMenuItemImage itemWithNormalImage:btnGoBack selectedImage:btnGoBack target:self selector:@selector(onGoBack:)];
         
@@ -566,8 +560,9 @@ BOOL bool_swipe = YES;
     iactualPlate = [sender tag];
     [self desaparecerMenus];
     Plato *pl = [[Plato alloc]init];
-    pl = [[DAOPlatos sharedInstance] getPlateById:[[NSString alloc]initWithFormat:@"%i", iactualPlate]];
-   CCLOG(@" onPushSceneTranImage Vamos a ver si se hace algo  %@", pl.nombre);
+    //pl = [[DAOPlatos sharedInstance] getPlateById:[[NSString alloc]initWithFormat:@"%i", iactualPlate]];
+   pl = [[DAOPlatosJSON sharedInstance] getPlateById:[[NSString alloc]initWithFormat:@"%i", iactualPlate]];
+    CCLOG(@" onPushSceneTranImage Vamos a ver si se hace algo  %@", pl.nombre);
     // [label_descripcion setString:[_rootViewController demeDescripcionPlatoPorId:@(iactualPlate)]];
     [label_descripcion setString:pl.descripcion];
 
@@ -727,7 +722,8 @@ BOOL bool_swipe = YES;
 {
     
     if (![_rootViewController estaPlato:[[NSString alloc]initWithFormat:@"%i", iactualPlate]]) {
-        Plato *pl = [[DAOPlatos sharedInstance] getPlateById:[[NSString alloc]initWithFormat:@"%i", iactualPlate]];
+        //Plato *pl = [[DAOPlatos sharedInstance] getPlateById:[[NSString alloc]initWithFormat:@"%i", iactualPlate]];
+        Plato *pl = [[DAOPlatosJSON sharedInstance] getPlateById:[[NSString alloc]initWithFormat:@"%i", iactualPlate]];
         [_rootViewController agregarPlato:pl.id_plato];
         int numPlates = [_rootViewController demeNumeroPlatosEnOrden];
         [self loadPlateWithIdPlate:pl.id_plato withSourceImg:pl.fuente_img_peq withSourceClose:btnClose withPrice:pl.precio withKindPlate:pl.tipo withName:pl.nombre withNum:numPlates];

@@ -23,6 +23,7 @@ static DAOPlatos *sharedDAOPlato = nil;
     }
     return sharedDAOPlato;
 }
+
 -(int)getNumberOfPlates{
     return [platesArray count];
 }

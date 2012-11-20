@@ -8,7 +8,8 @@
 
 #import "CombosLayer.h"
 #import "Plato.h"
-#import "DAOPlatos.h"
+//#import "DAOPlatos.h"
+#import "DAOPlatosJSON.h"
 #import "AppDelegate.h"
 
 
@@ -98,7 +99,8 @@ CCLabelTTF *comboDescription;
         principalMenu = [[CCMenu alloc]init];
     
         NSMutableArray *platos = [[NSMutableArray alloc]init];
-        platos = [[DAOPlatos sharedInstance] getPlatesByKind:[_rootViewController demeTipoActual]];
+        //platos = [[DAOPlatos sharedInstance] getPlatesByKind:[_rootViewController demeTipoActual]];
+        platos = [[DAOPlatosJSON sharedInstance] getPlatesByKind:[_rootViewController demeTipoActual]];
         Plato *auxPlate = [[Plato alloc]init];
  
         for (int i=0; i<[platos count]; i++) {
@@ -273,7 +275,8 @@ CCLabelTTF *comboDescription;
     actualCombo = [sender tag];
     [self hideMenus];
     Plato *combo = [[Plato alloc]init];
-    combo = [[DAOPlatos sharedInstance] getPlateById:[[NSString alloc]initWithFormat:@"%i", actualCombo]];
+    //combo = [[DAOPlatos sharedInstance] getPlateById:[[NSString alloc]initWithFormat:@"%i", actualCombo]];
+    combo = [[DAOPlatosJSON sharedInstance] getPlateById:[[NSString alloc]initWithFormat:@"%i", actualCombo]];
     CCLOG(@" onPushSceneTranImage - Nombre combo  %@", combo.nombre);
     [itemComboDescription setString:combo.descripcion];    
     [itemComboImage2 setNormalImage:[CCMenuItemImage itemWithNormalImage:combo.fuente_img_grande selectedImage:combo.fuente_img_grande]];
@@ -325,7 +328,8 @@ CCLabelTTF *comboDescription;
     CCLOG(@"Click onAddPlate");
     if (![_rootViewController estaPlato:[[NSString alloc]initWithFormat:@"%i", actualCombo]]) {
         CCLOG(@"pasamos el if %i", actualCombo);
-        Plato *combo = [[DAOPlatos sharedInstance] getPlateById:[[NSString alloc]initWithFormat:@"%i", actualCombo]];
+        //Plato *combo = [[DAOPlatos sharedInstance] getPlateById:[[NSString alloc]initWithFormat:@"%i", actualCombo]];
+        Plato *combo = [[DAOPlatosJSON sharedInstance] getPlateById:[[NSString alloc]initWithFormat:@"%i", actualCombo]];
         [_rootViewController agregarPlato:combo.id_plato];
         int numPlates = [_rootViewController demeNumeroPlatosEnOrden];
         [self loadPlateWithIdPlate:combo.id_plato withSourceImg:combo.fuente_img_peq withSourceClose:imageBtnClose withPrice:combo.precio withKindPlate:combo.tipo withName:combo.nombre withNum:numPlates];

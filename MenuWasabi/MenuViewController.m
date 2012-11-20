@@ -24,9 +24,11 @@
 #define tipoCombos @"11"
 
 
-#import "DAOPlatos.h"
+//#import "DAOPlatos.h"
+#import "DAOPlatosJSON.h"
 #import "Plato.h"
-#import "DAOTipoPlato.h"
+//#import "DAOTipoPlato.h"
+#import "DAOTipoPlatoJSON.h"
 #import "TipoPlato.h"
 
 @interface MenuViewController ()
@@ -51,41 +53,18 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self loadDataBase];
+    //[self loadDataBase];
+    [self loadDataFromServer];
     [self moverBotones];
     // Do any additional setup after loading the view from its nib.
 }
 
 - (void)loadDataBase{
-    
-    [[DAOPlatos sharedInstance] loadPlatesFromDB];
-    //
-    // espacio de pruebas
-    //
-    
-    
-    /*Plato *pl = [[DAOPlatos sharedInstance]getPlateById:@"1"];
-     NSLog(@" los platos estan cargdos >>> %@", pl.nombre);
-     
-     [[DAOTipoPlato sharedInstance] loadTipoDatosFromDB];
-     TipoPlato *t;
-     t = [[DAOTipoPlato sharedInstance] getTipoPlatoById:@"2"];
-     NSLog(@"ESTE ES EL NOMBRE DEL TIPO PLATO CON ID %i --- %@", 2, t.nombre);
-     
-     NSMutableArray *arrayPrueba = [[DAOPlatos sharedInstance] getPlatesByKind:@"5"];
-     int num = [arrayPrueba count];
-     NSLog(@"ESTE ES LA CANTIDAD DE PLATOS %i", num);
-     for (int n=0; n<num; n++) {
-     pl = [arrayPrueba objectAtIndex:n];
-     NSLog(@" for (int n=0; n<[arrayPrueba count]; n++) Plato>>> %@", pl.nombre);
-     }
-     */
-    
-    
-    //
-    //
-    //
+   // [[DAOPlatos sharedInstance] loadPlatesFromDB];
+}
 
+-(void)loadDataFromServer{
+    [[DAOPlatosJSON sharedInstance] loadPlatesFromServer];
 }
 
 - (void)moverBotones

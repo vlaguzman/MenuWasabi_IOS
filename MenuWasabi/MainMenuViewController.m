@@ -13,8 +13,9 @@
 @end
 
 @implementation MainMenuViewController
-//@synthesize rootViewController = _rootViewController;
+
 @synthesize menuViewController = _menuViewController;
+@synthesize textTableNumber;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -33,6 +34,10 @@
 
 - (void)viewDidUnload
 {
+
+   
+    [textTableNumber release];
+    textTableNumber = nil;
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -75,6 +80,15 @@
     //_rootViewController = nil;
     [_menuViewController release];
     _menuViewController = nil;
+    [textTableNumber release];
     [super dealloc];
+}
+- (IBAction)addTableNumber:(id)sender {
+    
+    NSString *num = @"";
+    num = [textTableNumber text];
+    textTableNumber.enabled = false;
+    NSLog(@"ESTE ES EL NÚMERO %@", num);
+    
 }
 @end

@@ -47,7 +47,7 @@ static DAOTipoPlatoJSON *sharedDAOTipoPlatoJSON = nil;
     
     NSDictionary *jsondict = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
     NSArray *tipoplatos = [jsondict objectForKey:@"tipo_platos"];
-    NSLog(@"loadTipoDatosFromDB -------------------- %@ --- No de tipo platos %i", tipoplatos, tipoplatos.count);
+    NSLog(@"loadTipoDatosFromServer -------------------- %@ --- No de tipo platos %i", tipoplatos, tipoplatos.count);
     
     TipoPlato *auxTipoPlato = [[TipoPlato alloc]init];
     

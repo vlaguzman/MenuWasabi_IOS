@@ -16,7 +16,7 @@ if($resultado)
 		while ($unRegistro = mysql_fetch_assoc($resultado)) {
 			$registros[] = array(
 				'id_plato' => $unRegistro['id_plato'],
-				'nombre' => $unRegistro['nombre'],
+				'nombre' => utf8_encode($unRegistro['nombre']),
 				'descripcion' => utf8_encode($unRegistro['descripcion']),
 				'id_tipoplato' => $unRegistro['id_tipoplato'],
 				'precio' => $unRegistro['precio'],
