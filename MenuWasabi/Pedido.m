@@ -12,6 +12,11 @@
 
 @synthesize totalCuenta, id_mesa, id_pedido, platosActuales, bebidasActuales;
 
+-(id)init
+{
+    totalCuenta = 0;
+    return self;
+}
 
 -(NSMutableArray *)platosActuales
 {

@@ -311,7 +311,7 @@ BOOL bool_swipe = YES;
         [self addChild:menu_agregar];
 
         
-        CCMenuItemImage *item_barra = [CCMenuItemImage itemWithNormalImage:sectionTinyPlates selectedImage:sectionTinyPlates target:self selector:@selector(nothingHere:)];
+        CCMenuItemImage *item_barra = [CCMenuItemImage itemWithNormalImage:sectionTinyPlates selectedImage:sectionTinyPlates];
         menu_barra = [[CCMenu alloc]init];
         [menu_barra addChild:item_barra];
         
@@ -330,9 +330,9 @@ BOOL bool_swipe = YES;
         
         label_total = [CCLabelTTF labelWithString:@"" fontName:font fontSize:_fontSizeTotal];
         [label_total setColor:ccDARKRED];
-        lblTotal = [CCMenuItemLabel itemWithLabel:label_total target:self selector:@selector(nothingHere:)];
+        lblTotal = [CCMenuItemLabel itemWithLabel:label_total];
         
-        imgBtnTotal = [CCMenuItemImage itemWithNormalImage:btnHacerPedido selectedImage:btnHacerPedido target:self selector:@selector(nothingHere:)];
+        imgBtnTotal = [CCMenuItemImage itemWithNormalImage:btnHacerPedido selectedImage:btnHacerPedido target:self selector:@selector(makeOrder:)];
 
         menu_up_down = [[CCMenu alloc]init];
         item_up_down =  [CCMenuItemImage itemWithNormalImage:upImage selectedImage:upImage target:self selector:@selector(onUpDown:)];
@@ -422,90 +422,7 @@ BOOL bool_swipe = YES;
         }
     }
 }
-/*
 
--(void)moveRight{
-    if(numPlates > 4){
-        if(bool_swipe){
-                        
-            pos = menu.position.x;
-         
-            winSize = [[CCDirector sharedDirector] winSize];
-            if(resul_dif<kMoveFast){
-                
-                pos-=resul_dif*kFast;
-                time_efect=tFast;
-                CCLOG(@"--------------------------------------------------------");
-                CCLOG(@"resul_dif<kMoveFast :=  kFast %f  || resul_dif %f || POS %f ", kMoveFast, resul_dif, pos);
-                CCLOG(@"--------------------------------------------------------");
-              
-                
-            }
-            else if (resul_dif<kMoveMedium){
-                pos-=resul_dif*kMedium;
-                time_efect = tMedium;
-                CCLOG(@"--------------------------------------------------------");
-                CCLOG(@"resul_dif<kMoveMedium :=  kMedium %d  || resul_dif %f || POS %f ", kMoveMedium, resul_dif, pos);
-                CCLOG(@"--------------------------------------------------------");
-            }
-            else{
-                pos-=resul_dif*kSlow;
-                time_efect=tSlow;
-                CCLOG(@"--------------------------------------------------------");
-                CCLOG(@"resul_dif<KmoveSlow :=  kSlow %d  || resul_dif %d || POS %d ", kSlow, resul_dif, pos);
-                CCLOG(@"--------------------------------------------------------");
-            }
-            if(pos < limitMoveRight ){
-                pos = limitMoveRight;
-            }
-            CCLOG(@"moveRight   este es el POS %f y este el resul_dif %f TIME EFECT %f", pos, resul_dif, time_efect);
-            [self moveMenu_withMenu: menu withXpox:pos withYpos:AHalfWinSizeY withTimeTransition:time_efect];
-        }
-    }
-}
-
-
--(void)moveLeft{
-    if(numPlates>4){
-        if(bool_swipe){
-    
-            pos = menu.position.x;
-           
-            winSize = [[CCDirector sharedDirector] winSize];
-            if(resul_dif<kMoveFast){
-                pos+=resul_dif*kFast;
-                time_efect=tFast;
-                CCLOG(@"--------------------------------------------------------");
-                 CCLOG(@"resul_dif<kMoveFast :=  kFast %f  || resul_dif %f || POS %f ", kMoveFast, resul_dif, pos);
-                 CCLOG(@"--------------------------------------------------------");
-            }
-            else if (resul_dif<kMoveMedium){
-                pos+=resul_dif*kMedium;
-                time_efect = tMedium;
-                CCLOG(@"--------------------------------------------------------");
-                CCLOG(@"resul_dif<kMoveMedium :=  kMedium %f  || resul_dif %f || POS %f ", kMoveMedium, resul_dif, pos);
-                CCLOG(@"--------------------------------------------------------");
-               
-            }
-            else{
-                pos+=resul_dif*kSlow;
-                time_efect=tFast;
-                CCLOG(@"--------------------------------------------------------");
-                CCLOG(@"resul_dif<KmoveSlow :=  kSlow %f  || resul_dif %f || POS %f ", kSlow, resul_dif, pos);
-                CCLOG(@"--------------------------------------------------------");
-                
-
-            }
-            if(pos > limitMoveLeft){
-                pos =limitMoveLeft;
-            }
-            CCLOG(@"moveLeft   este es el POS %f y este el resul_dif %f TIME EFECT %f", pos, resul_dif, time_efect);
-            [self moveMenu_withMenu: menu withXpox:pos withYpos:AHalfWinSizeY withTimeTransition:time_efect];
-        }
-    }
-}
-
-*/
 - (void)onExit {
   	//[self removeAllChildrenWithCleanup:YES];
   //  [[[CCDirector sharedDirector] openGLView] removeGestureRecognizer:_swipeLeftRecognizer];
@@ -534,20 +451,7 @@ BOOL bool_swipe = YES;
 -(void) ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event{
 }
 
-/*
-- (void)handleLeftSwipe:(UISwipeGestureRecognizer *)swipeRecognizer {
-    CCLOG(@"Swipe Left!");
-    [self moveLeft];
-    
-}
-
-- (void)handleRightSwipe:(UISwipeGestureRecognizer *)swipeRecognizer {
-    CCLOG(@"Swipe Right!");
-    [self moveRight];
-    
-}
- */
--(void) nothingHere: (id *) sender
+-(void) makeOrder: (id *) sender
 {
     CCLOG(@"------------------- nothingHere ----------------------");
 }
