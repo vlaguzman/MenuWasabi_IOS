@@ -10,9 +10,9 @@
 
 @interface Mesa : NSObject
 {
-    NSString *id_mesa, *estado;
-    int numero;
+    NSString *id_mesa;
+    int numero, estado;
 }
-    @property (nonatomic, strong) NSString *id_mesa, *estado;
-    @property int numero;
+    @property (nonatomic, strong) NSString *id_mesa;
+    @property int numero, estado;
 @end

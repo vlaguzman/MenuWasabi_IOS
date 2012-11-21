@@ -14,7 +14,7 @@
 
 -(id)init
 {
-    estado = @"vacio";
+    estado = -1;
     return self;
 }
 

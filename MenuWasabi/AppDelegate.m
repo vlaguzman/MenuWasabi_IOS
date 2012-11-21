@@ -202,7 +202,7 @@
 }
 */
 -(void)pruba{
-    [[DAOMesaJSON sharedInstance] getTableByNumber:2];
+    [[DAOMesaJSON sharedInstance] getTableByNumber:1];
 }
 -(void)loadDataFromJson{
    //NSURL *jsonURL = [NSURL URLWithString:@"http://localhost:8888/wasabi/consultaplatos.php"];

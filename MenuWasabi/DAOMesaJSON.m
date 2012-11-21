@@ -40,12 +40,25 @@ static DAOMesaJSON *sharedDAOMesaJSON = nil;
 
     NSDictionary *mesa= [_mesa objectAtIndex:0];
      
-    NSString *_estado = [mesa objectForKey:@"estado"];
-    NSLog(@"Estado -----> %@", _estado);
+    int _estado = [[mesa objectForKey:@"estado"] intValue];
+    NSLog(@"Estado -----> %i", _estado);
     
     table.estado = _estado;
     
     return table;
+}
+
+-(void)updateTableState:(int)_table withState:(int)_state{
+    NSURL *url = [NSURL URLWithString:[[NSString alloc] initWithFormat:@"http://www.brainztore.com/wasabi/updateestadomesa.php?mesa=%i&estado=%i", _table, _state]];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+    [request addValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    [request setHTTPMethod:@"POST"];
+    NSLog(@"request %@", request);
+    conx = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    if(conx){
+        webData=[NSMutableData data];
+        NSLog(@"conexión exitosa updateTableState");
+    }
 }
 
 

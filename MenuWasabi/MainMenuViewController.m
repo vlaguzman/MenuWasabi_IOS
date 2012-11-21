@@ -7,6 +7,10 @@
 //
 
 #import "MainMenuViewController.h"
+#import "DAOMesaJSON.h"
+
+#define OCUPADA 1
+#define DISPONIBLE 2
 
 @interface MainMenuViewController ()
 
@@ -85,14 +89,24 @@
     [textTableNumber release];
     [super dealloc];
 }
+
 - (IBAction)addTableNumber:(id)sender
 {
     
     NSString *num = @"";
     num = [textTableNumber text];
     
-    textTableNumber.enabled = false;
-    NSLog(@"ESTE ES EL NÚMERO %@", num);
+    Mesa *tempTable = [[Mesa alloc]init];
+    tempTable = [[DAOMesaJSON sharedInstance] getTableByNumber:[num intValue]];
+    if(tempTable.estado == DISPONIBLE){
+        textTableNumber.enabled = false;
+        NSLog(@"MESA DISPONOBLE ----- %@", num);
+        tempTable.estado = OCUPADA;
+        [[DAOMesaJSON sharedInstance] updateTableState:tempTable.numero withState:OCUPADA];
+        [[DAOMesaJSON sharedInstance] setActualTable:tempTable];
+    }
+    else
+        NSLog(@"MESA OCUPADA ---- %@", num);
     
     
 }
