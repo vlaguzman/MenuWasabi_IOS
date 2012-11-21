@@ -15,8 +15,6 @@
 
 @implementation BrainMenu
 
-@synthesize platosAgregados = _platosAgregados;
-@synthesize totalCuenta = _totalCuenta;
 @synthesize tipoPlatoActual = _tipoPlatoActual;
 
 static BrainMenu *sharedBrainMenu = nil;
@@ -28,40 +26,6 @@ static BrainMenu *sharedBrainMenu = nil;
     }
     return sharedBrainMenu;
     
-}
-
--(NSMutableArray *)platosAgregados
-{
-    if (_platosAgregados == nil) {
-        _platosAgregados = [[NSMutableArray alloc]init];
-    }
-    return _platosAgregados;
-}
-
--(void)agregarPlato:(Plato *)_plato
-{
-    _totalCuenta += _plato.precio;
-    [self.platosAgregados addObject:_plato];
-    
-}
-
--(void)eliminarPlato:(Plato *)_plato
-{
-    NSLog(@"estamos en eliminarPlato del BrainMenu y este es nombre : %@ del plato ", _plato.nombre);
-    _totalCuenta -= _plato.precio;
-    [self.platosAgregados removeObject:_plato];
-    
-}
-
--(Plato *)demePlatoEnUbicacion:(int)_index{
-    Plato *aux = [[Plato alloc]init];
-    aux = [_platosAgregados objectAtIndex:_index];
-    NSLog(@"AGREGADO PLATO  %i, %@, %@", aux.precio, aux.nombre, aux.fuente_img);
-    return aux;
-}
-
--(BOOL)estaPlato:(Plato *)_plato{
-    return [self.platosAgregados containsObject:_plato.self];
 }
 
 + (id)allocWithZone:(NSZone *)zone

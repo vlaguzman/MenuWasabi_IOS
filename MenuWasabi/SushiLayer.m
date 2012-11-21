@@ -201,6 +201,7 @@ BOOL bool_swipe = YES;
 {
     if( (self=[super init] )) {
         _rootViewController = rootViewController;
+        
         bool_swipe=YES;
         [self changeValueNumPlates];
         CGSize winSize = [[CCDirector sharedDirector] winSize];
@@ -460,13 +461,13 @@ BOOL bool_swipe = YES;
 -(void) onPushSceneTranImage: (CCMenuItemImage *) sender
 {
    //bool_swipe=NO;
-    CCLOG(@" onPushSceneTranImage Tag sender: %i", [sender tag]);
+   // CCLOG(@" onPushSceneTranImage Tag sender: %i", [sender tag]);
     iactualPlate = [sender tag];
     [self desaparecerMenus];
     Plato *pl = [[Plato alloc]init];
     //pl = [[DAOPlatos sharedInstance] getPlateById:[[NSString alloc]initWithFormat:@"%i", iactualPlate]];
    pl = [[DAOPlatosJSON sharedInstance] getPlateById:[[NSString alloc]initWithFormat:@"%i", iactualPlate]];
-    CCLOG(@" onPushSceneTranImage Vamos a ver si se hace algo  %@", pl.nombre);
+   // CCLOG(@" onPushSceneTranImage Vamos a ver si se hace algo  %@", pl.nombre);
     // [label_descripcion setString:[_rootViewController demeDescripcionPlatoPorId:@(iactualPlate)]];
     [label_descripcion setString:pl.descripcion];
 
@@ -593,9 +594,7 @@ BOOL bool_swipe = YES;
 }
 
 -(void)moveMenu_withMenu:(CCMenu *)_menu withXpox:(float) _posx withYpos:(float)_posyA withTimeTransition:(float)_time{
-    CCLOG(@" moveMenu_withMenu %f", pos);
     id mover = [CCMoveTo actionWithDuration:_time position:ccp(_posx,_posyA)];
-    
     [_menu runAction:mover];
 }
 

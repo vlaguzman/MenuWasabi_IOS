@@ -11,21 +11,12 @@
 
 @interface BrainMenu : NSObject
 {
-    int totalCuenta;
     NSString *tipoPlatoActual;
-    NSMutableArray *platosAgregados;
 }
 
-@property int totalCuenta;//, tipoPlatoActual;
-@property (nonatomic, strong) NSMutableArray *platosAgregados;
 @property (nonatomic, strong) NSString *tipoPlatoActual;
 
 + (BrainMenu*) sharedInstance;
-
--(void)agregarPlato:(Plato *)_plato;
--(void)eliminarPlato:(Plato *)_plato;
--(Plato *)demePlatoEnUbicacion:(int)_index;
--(BOOL)estaPlato:(Plato *)_plato;
 
 
 @end

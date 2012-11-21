@@ -84,7 +84,7 @@ static DAOPlatosJSON *sharedDAOPlatoJSON = nil;
     
     NSDictionary *jsondict = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
     NSArray *platos = [jsondict objectForKey:@"platos"];
-    NSLog(@"loadPlatesFromServer - %@ platos.count := %i -", platos, platos.count);
+  //  NSLog(@"loadPlatesFromServer - %@ platos.count := %i -", platos, platos.count);
     
     
     
@@ -92,39 +92,39 @@ static DAOPlatosJSON *sharedDAOPlatoJSON = nil;
         Plato *auxPlato = [[Plato alloc]init];
         
         NSDictionary *plato= [platos objectAtIndex:num_plates];
-        NSLog(@"este es el plato que se está agregando-------------------- %@", plato);
+      //  NSLog(@"este es el plato que se está agregando-------------------- %@", plato);
         
         NSString *id_plato =  [plato objectForKey:@"id_plato"];
-        NSLog(@"ID plato -----> %@", id_plato);
+      //  NSLog(@"ID plato -----> %@", id_plato);
         auxPlato.id_plato = id_plato;
-        NSLog(@"ID plato - auxPlato.id_plato ----> %@", auxPlato.id_plato);
+     //   NSLog(@"ID plato - auxPlato.id_plato ----> %@", auxPlato.id_plato);
         
         NSString *tipo_plato =  [plato objectForKey:@"id_tipoplato"];
-        NSLog(@"tipo_plato -----> %@", tipo_plato);
+       // NSLog(@"tipo_plato -----> %@", tipo_plato);
         auxPlato.tipo = tipo_plato;
         
         NSString *nombre =  [plato objectForKey:@"nombre"];
-        NSLog(@"Nombre -----> %@", nombre);
+       // NSLog(@"Nombre -----> %@", nombre);
         auxPlato.nombre = nombre;
         
         NSString *descripcion =  [plato objectForKey:@"descripcion"];
-        NSLog(@"descripcion -----> %@", descripcion);
+       // NSLog(@"descripcion -----> %@", descripcion);
         auxPlato.descripcion = descripcion;
         
         NSNumber *precio = [plato objectForKey:@"precio"];
-        NSLog(@"Precio -----> %@", precio);
+       // NSLog(@"Precio -----> %@", precio);
         auxPlato.precio = [precio intValue];
        
         NSString *img_grande =  [plato objectForKey:@"img_grande"];
-        NSLog(@"img_grande -----> %@", img_grande);
+       // NSLog(@"img_grande -----> %@", img_grande);
         auxPlato.fuente_img_grande = img_grande;
         
         NSString *img_pequena =  [plato objectForKey:@"img_pequena"];
-        NSLog(@"img_pequena -----> %@", img_pequena);
+       // NSLog(@"img_pequena -----> %@", img_pequena);
         auxPlato.fuente_img_peq = img_pequena;
         
         NSString *img_principal =  [plato objectForKey:@"img_principal"];
-        NSLog(@"img_principal -----> %@", img_principal);
+      //  NSLog(@"img_principal -----> %@", img_principal);
         auxPlato.fuente_img = img_principal;
         
         [platesArray addObject:auxPlato];

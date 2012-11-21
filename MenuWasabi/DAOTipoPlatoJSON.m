@@ -47,19 +47,19 @@ static DAOTipoPlatoJSON *sharedDAOTipoPlatoJSON = nil;
     
     NSDictionary *jsondict = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
     NSArray *tipoplatos = [jsondict objectForKey:@"tipo_platos"];
-    NSLog(@"loadTipoDatosFromServer -------------------- %@ --- No de tipo platos %i", tipoplatos, tipoplatos.count);
+  //  NSLog(@"loadTipoDatosFromServer -------------------- %@ --- No de tipo platos %i", tipoplatos, tipoplatos.count);
     
     TipoPlato *auxTipoPlato = [[TipoPlato alloc]init];
     
     for (int num_tipos=0; num_tipos<tipoplatos.count; num_tipos++) {
        
         NSDictionary *tipoplato= [tipoplatos objectAtIndex:num_tipos];
-        NSLog(@"tipo -------------------- %@", tipoplato);
+       // NSLog(@"tipo -------------------- %@", tipoplato);
         
         NSString *id_tipo = [tipoplato objectForKey:@"id_tipoPlato"];
-        NSLog(@"Tipo -----> %@", id_tipo);
+       // NSLog(@"Tipo -----> %@", id_tipo);
         NSString *nombre = [tipoplato objectForKey:@"nombre"];
-        NSLog(@"Nombre -----> %@", nombre);
+       // NSLog(@"Nombre -----> %@", nombre);
         
         auxTipoPlato.id_tipoPlato = id_tipo;
         auxTipoPlato.nombre = nombre;

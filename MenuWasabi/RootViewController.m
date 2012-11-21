@@ -22,6 +22,7 @@
 #import "DAOPlatos.h"
 #import "DAOTipoPlato.h"
 
+#import "DAOPedidoJSON.h"
 #import "DAOPlatosJSON.h"
 #import "DAOTipoPlatoJSON.h"
 
@@ -104,6 +105,7 @@ CCScene *scene;
     //[self addTipoPlato];
     //[self loadTipoDatosFromDB];
     [self loadTipoDatosFromServer];
+    [[DAOPedidoJSON sharedInstance] begigOrder];
    // [self loadDataBase];
    // [self grabarTabla];
     //[self leerTabla];
@@ -274,7 +276,7 @@ CCScene *scene;
 
 -(BOOL)estaPlato:(NSString*)_id{
    // return [[BrainMenu sharedInstance] estaPlato:[[DAOPlatos sharedInstance] getPlateById:_id]];// [platos objectForKey:_id]];
-    return [[BrainMenu sharedInstance] estaPlato:[[DAOPlatosJSON sharedInstance] getPlateById:_id]];
+    return [[DAOPedidoJSON sharedInstance] estaPlato:[[DAOPlatosJSON sharedInstance] getPlateById:_id]];
 
 }
 
@@ -348,28 +350,28 @@ CCScene *scene;
 
 - (int)demeNumeroPlatosEnOrden
 {
-    return [BrainMenu sharedInstance].platosAgregados.count;
+    return [DAOPedidoJSON sharedInstance].actualOrder.platosActuales.count;
 }
 
 - (Plato *)demeDatosPlatoEnUbicacion:(int)_ubicacion{
-    return [[BrainMenu sharedInstance] demePlatoEnUbicacion:_ubicacion];
+    return [[DAOPedidoJSON sharedInstance] demePlatoEnUbicacion:_ubicacion];
 }
 
 
 - (void)agregarPlato:(NSString*)_id
 {
    // [[BrainMenu sharedInstance] agregarPlato:[[DAOPlatos sharedInstance] getPlateById:_id]];//[platos objectForKey:_id]];
-    [[BrainMenu sharedInstance] agregarPlato:[[DAOPlatosJSON sharedInstance] getPlateById:_id]];
+    [[DAOPedidoJSON sharedInstance] agregarPlato:[[DAOPlatosJSON sharedInstance] getPlateById:_id]];
 }
 
 - (void)eliminarPlato:(NSString*)_id withKindPlate:(NSString*)_kind
 {
    // [[BrainMenu sharedInstance] eliminarPlato:[[DAOPlatos sharedInstance] getPlateById:_id]];//[platos objectForKey:_id]];
-    [[BrainMenu sharedInstance] eliminarPlato:[[DAOPlatosJSON sharedInstance] getPlateById:_id]];
+    [[DAOPedidoJSON sharedInstance] eliminarPlato:[[DAOPlatosJSON sharedInstance] getPlateById:_id]];
 }
 
 -(int)demeTotalCuenta{
-    return [[BrainMenu sharedInstance] totalCuenta];
+    return [DAOPedidoJSON sharedInstance].actualOrder.totalCuenta;
 }
 
 @end

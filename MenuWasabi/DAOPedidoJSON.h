@@ -18,6 +18,8 @@
 
 + (DAOPedidoJSON*)sharedInstance;
 
+-(void)begigOrder;
+
 -(NSMutableArray *)platosActuales;
 -(void)agregarPlato:(Plato *)_plato;
 -(void)eliminarPlato:(Plato *)_plato;
