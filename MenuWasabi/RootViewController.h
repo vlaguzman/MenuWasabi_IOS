@@ -49,4 +49,6 @@
 -(int)getNumberOfPlates;
 -(int)getNumberOfPlatesWithKind:(NSString*)_kind;
 
+-(int)createNewOrder;
+
 @end

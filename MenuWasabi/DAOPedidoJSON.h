@@ -12,6 +12,8 @@
 @interface DAOPedidoJSON : NSObject
 {
     Pedido *actualOrder;
+    NSURLConnection *conx;
+    NSMutableData *webData;
 }
 
 @property (nonatomic, strong) Pedido *actualOrder;
@@ -25,5 +27,7 @@
 -(void)eliminarPlato:(Plato *)_plato;
 -(Plato *)demePlatoEnUbicacion:(int)_index;
 -(BOOL)estaPlato:(Plato *)_plato;
+
+-(int)createNewOrder;
 
 @end

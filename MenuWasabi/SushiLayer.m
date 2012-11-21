@@ -347,7 +347,7 @@ BOOL bool_swipe = YES;
         
         menu_up_down.position = CGPointMake(522, 35);
         [self addChild:menu_up_down];
-        CCLOG(@"  ------------- Menu up/down agregado  ---------------- ");
+
         //
         //
         //
@@ -454,7 +454,9 @@ BOOL bool_swipe = YES;
 
 -(void) makeOrder: (id *) sender
 {
-    CCLOG(@"------------------- nothingHere ----------------------");
+    if ([_rootViewController createNewOrder] == 1) {
+        CCLOG(@"Pedido realizado");
+    }
 }
 
 

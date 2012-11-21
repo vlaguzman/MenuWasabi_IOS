@@ -7,6 +7,9 @@
 //
 
 #import "DAOPedidoJSON.h"
+#import "DAOMesaJSON.h"
+
+#define CREATE_NEW_ORDER @"http://www.brainztore.com/wasabi/updateestadomesa.php?mesa=%i&total=%i&estado=%@&cantidadplatos=%i";
 
 @implementation DAOPedidoJSON
 
@@ -33,31 +36,54 @@ static DAOPedidoJSON *sharedDAOPedidoJSON = nil;
 
 -(NSMutableArray *)platosActuales
 {
-   // [self begigOrder];
     return actualOrder.platosActuales;
 }
 
 -(void)agregarPlato:(Plato *)_plato
 {
-   // [self begigOrder];
     [actualOrder agregarPlato:_plato];
 }
 
 -(void)eliminarPlato:(Plato *)_plato
 {
-   // [self begigOrder];
     [actualOrder eliminarPlato:_plato];
     
 }
 
 -(Plato *)demePlatoEnUbicacion:(int)_index{
-  //  [self begigOrder];
     return [actualOrder demePlatoEnUbicacion:_index];
 }
 
 -(BOOL)estaPlato:(Plato *)_plato{
-  //  [self begigOrder];
     return [actualOrder estaPlato:_plato];
 }
+
+-(int)createNewOrder{
+    int ret = -1;
+    Mesa *tempTable = [[DAOMesaJSON sharedInstance] actualTable];
+    NSString *stringURLPlates=@"";
+    
+    for (int n=0; n<actualOrder.platosActuales.count; n++) {
+        if (n>0) {
+            stringURLPlates = [[NSString alloc] initWithFormat:@"%@&", stringURLPlates];
+        }
+        Plato *tempPlate = [self demePlatoEnUbicacion:n];
+        stringURLPlates = [[NSString alloc] initWithFormat:@"%@plato%i=%@&cantidad%i=1", stringURLPlates, n+1, tempPlate.id_plato, n+1];
+    }
+        
+    NSURL *url = [NSURL URLWithString:[[NSString alloc] initWithFormat:@"http://www.brainztore.com/wasabi/insertpedido.php?mesa=%i&total=%i&estado=%@&cantidadplatos=%i&%@", tempTable.numero, actualOrder.totalCuenta, @"solicitado", actualOrder.platosActuales.count, stringURLPlates]];
+       
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+    [request addValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    [request setHTTPMethod:@"POST"];
+    conx = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    if(conx){
+        webData=[NSMutableData data];
+        NSLog(@"conexión hecha createNewOrder");
+        ret = 1;
+    }
+    return ret;
+}
+
 
 @end

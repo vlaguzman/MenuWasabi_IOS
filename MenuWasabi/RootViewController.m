@@ -374,5 +374,9 @@ CCScene *scene;
     return [DAOPedidoJSON sharedInstance].actualOrder.totalCuenta;
 }
 
+-(int)createNewOrder{
+    return [[DAOPedidoJSON sharedInstance] createNewOrder];
+}
+
 @end
 

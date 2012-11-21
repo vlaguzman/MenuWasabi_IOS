@@ -332,6 +332,7 @@
 		C1C4C382162F5AC5006AA580 /* gaseosa.png in Resources */ = {isa = PBXBuildFile; fileRef = C1C4C37F162F5AC5006AA580 /* gaseosa.png */; };
 		C1C4C383162F5AC5006AA580 /* jugos.png in Resources */ = {isa = PBXBuildFile; fileRef = C1C4C380162F5AC5006AA580 /* jugos.png */; };
 		C1C4C389162F6C23006AA580 /* pata_02.png in Resources */ = {isa = PBXBuildFile; fileRef = C1C4C388162F6C23006AA580 /* pata_02.png */; };
+		C1CFA23E165D761E003738F9 /* gracias.png in Resources */ = {isa = PBXBuildFile; fileRef = C1CFA23D165D761E003738F9 /* gracias.png */; };
 		C1D11B74164463B4003F0D4B /* menu_pago.png in Resources */ = {isa = PBXBuildFile; fileRef = C1D11B73164463B2003F0D4B /* menu_pago.png */; };
 		C1D3B69B161A3D8000542A4C /* Plato.m in Sources */ = {isa = PBXBuildFile; fileRef = C1D3B69A161A3D7F00542A4C /* Plato.m */; };
 		C1DBD7C3164022CC00C9A070 /* DAOTipoPlato.m in Sources */ = {isa = PBXBuildFile; fileRef = C1DBD7C2164022CC00C9A070 /* DAOTipoPlato.m */; };
@@ -854,6 +855,7 @@
 		C1C4C37F162F5AC5006AA580 /* gaseosa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gaseosa.png; sourceTree = "<group>"; };
 		C1C4C380162F5AC5006AA580 /* jugos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = jugos.png; sourceTree = "<group>"; };
 		C1C4C388162F6C23006AA580 /* pata_02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pata_02.png; sourceTree = "<group>"; };
+		C1CFA23D165D761E003738F9 /* gracias.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gracias.png; sourceTree = "<group>"; };
 		C1D11B73164463B2003F0D4B /* menu_pago.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu_pago.png; sourceTree = "<group>"; };
 		C1D3B699161A3D7E00542A4C /* Plato.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Plato.h; sourceTree = "<group>"; };
 		C1D3B69A161A3D7F00542A4C /* Plato.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Plato.m; sourceTree = "<group>"; };
@@ -1650,6 +1652,7 @@
 				C1E9690F1614F2E6006E58F3 /* plato_descripcion.png */,
 				C1E9690A1614EB87006E58F3 /* fondo_btn_.png */,
 				C1E9689F16149C1F006E58F3 /* btn_cerrar.png */,
+				C1CFA23D165D761E003738F9 /* gracias.png */,
 				C1E968A016149C1F006E58F3 /* btn_regresar.png */,
 				C1E968A116149C1F006E58F3 /* nombres.png */,
 				C1E968A216149C1F006E58F3 /* plato_grande.png */,
@@ -2355,6 +2358,7 @@
 				C1EDA14A165BCC2A00B1C43D /* btn_agregar2.png in Resources */,
 				C1EDA14C165BCC7700B1C43D /* numero_mesa.png in Resources */,
 				C1EDA14E165BDA5E00B1C43D /* btn_enviar.png in Resources */,
+				C1CFA23E165D761E003738F9 /* gracias.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
