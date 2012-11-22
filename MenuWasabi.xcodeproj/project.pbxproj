@@ -332,6 +332,7 @@
 		C1C4C383162F5AC5006AA580 /* jugos.png in Resources */ = {isa = PBXBuildFile; fileRef = C1C4C380162F5AC5006AA580 /* jugos.png */; };
 		C1C4C389162F6C23006AA580 /* pata_02.png in Resources */ = {isa = PBXBuildFile; fileRef = C1C4C388162F6C23006AA580 /* pata_02.png */; };
 		C1CFA23E165D761E003738F9 /* gracias.png in Resources */ = {isa = PBXBuildFile; fileRef = C1CFA23D165D761E003738F9 /* gracias.png */; };
+		C1CFA24C165EC609003738F9 /* PlatoxPedido.m in Sources */ = {isa = PBXBuildFile; fileRef = C1CFA24B165EC608003738F9 /* PlatoxPedido.m */; };
 		C1D11B74164463B4003F0D4B /* menu_pago.png in Resources */ = {isa = PBXBuildFile; fileRef = C1D11B73164463B2003F0D4B /* menu_pago.png */; };
 		C1D3B69B161A3D8000542A4C /* Plato.m in Sources */ = {isa = PBXBuildFile; fileRef = C1D3B69A161A3D7F00542A4C /* Plato.m */; };
 		C1DBD7C3164022CC00C9A070 /* DAOTipoPlato.m in Sources */ = {isa = PBXBuildFile; fileRef = C1DBD7C2164022CC00C9A070 /* DAOTipoPlato.m */; };
@@ -853,6 +854,8 @@
 		C1C4C380162F5AC5006AA580 /* jugos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = jugos.png; sourceTree = "<group>"; };
 		C1C4C388162F6C23006AA580 /* pata_02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pata_02.png; sourceTree = "<group>"; };
 		C1CFA23D165D761E003738F9 /* gracias.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gracias.png; sourceTree = "<group>"; };
+		C1CFA24A165EC608003738F9 /* PlatoxPedido.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlatoxPedido.h; sourceTree = "<group>"; };
+		C1CFA24B165EC608003738F9 /* PlatoxPedido.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlatoxPedido.m; sourceTree = "<group>"; };
 		C1D11B73164463B2003F0D4B /* menu_pago.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu_pago.png; sourceTree = "<group>"; };
 		C1D3B699161A3D7E00542A4C /* Plato.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Plato.h; sourceTree = "<group>"; };
 		C1D3B69A161A3D7F00542A4C /* Plato.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Plato.m; sourceTree = "<group>"; };
@@ -1958,6 +1961,8 @@
 				C1D3B699161A3D7E00542A4C /* Plato.h */,
 				C1DBD7D01640306A00C9A070 /* Pedido.h */,
 				C1DBD7D11640306A00C9A070 /* Pedido.m */,
+				C1CFA24A165EC608003738F9 /* PlatoxPedido.h */,
+				C1CFA24B165EC608003738F9 /* PlatoxPedido.m */,
 				C1DBD7D31640307A00C9A070 /* Mesa.h */,
 				C1DBD7D41640307A00C9A070 /* Mesa.m */,
 			);
@@ -2481,6 +2486,7 @@
 				C1468F21165AA8280083FC46 /* DAOTipoPlatoJSON.m in Sources */,
 				C1EDA151165BEA6300B1C43D /* DAOMesaJSON.m in Sources */,
 				C1EDA154165BEB0A00B1C43D /* DAOPedidoJSON.m in Sources */,
+				C1CFA24C165EC609003738F9 /* PlatoxPedido.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
