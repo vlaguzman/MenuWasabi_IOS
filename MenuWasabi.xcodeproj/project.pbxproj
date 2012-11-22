@@ -232,7 +232,6 @@
 		C123C9681638907100474B44 /* CombosLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C123C9671638907100474B44 /* CombosLayer.m */; };
 		C123C96F163897FB00474B44 /* menu_combos.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = C123C96E163897FB00474B44 /* menu_combos.jpeg */; };
 		C123C97116389C4A00474B44 /* btn_hacerpedido.png in Resources */ = {isa = PBXBuildFile; fileRef = C123C97016389C4600474B44 /* btn_hacerpedido.png */; };
-		C12E6CFA1610CE17009BB015 /* fondo4.png in Resources */ = {isa = PBXBuildFile; fileRef = C12E6CF91610CE17009BB015 /* fondo4.png */; };
 		C12E6D011610D2FE009BB015 /* fondo5.png in Resources */ = {isa = PBXBuildFile; fileRef = C12E6D001610D2FE009BB015 /* fondo5.png */; };
 		C13F82651652BAA700012F5E /* combo_special_mix_p.png in Resources */ = {isa = PBXBuildFile; fileRef = C13F82641652BAA700012F5E /* combo_special_mix_p.png */; };
 		C144B2701639B0340091A8E0 /* ComboViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C144B26E1639B0340091A8E0 /* ComboViewController.xib */; };
@@ -367,7 +366,6 @@
 		C1EFBF6D160CCF7C0005ECF1 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1EFBF6C160CCF7C0005ECF1 /* MainWindow.xib */; };
 		C1EFBF71160CD7470005ECF1 /* MainMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1EFBF6F160CD7470005ECF1 /* MainMenuViewController.m */; };
 		C1EFBF72160CD7470005ECF1 /* MainMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1EFBF70160CD7470005ECF1 /* MainMenuViewController.xib */; };
-		C1EFBF74160CD8710005ECF1 /* fondo1.png in Resources */ = {isa = PBXBuildFile; fileRef = C1EFBF73160CD8710005ECF1 /* fondo1.png */; };
 		C1EFBF8A160D08010005ECF1 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1EFBF89160D08010005ECF1 /* RootViewController.m */; };
 		C1EFBF94160D0FB20005ECF1 /* fondo3.png in Resources */ = {isa = PBXBuildFile; fileRef = C1EFBF93160D0FB20005ECF1 /* fondo3.png */; };
 		C1EFBF98160D11780005ECF1 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1EFBF96160D11780005ECF1 /* MenuViewController.m */; };
@@ -751,7 +749,6 @@
 		C123C9671638907100474B44 /* CombosLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CombosLayer.m; sourceTree = "<group>"; };
 		C123C96E163897FB00474B44 /* menu_combos.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = menu_combos.jpeg; sourceTree = "<group>"; };
 		C123C97016389C4600474B44 /* btn_hacerpedido.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_hacerpedido.png; sourceTree = "<group>"; };
-		C12E6CF91610CE17009BB015 /* fondo4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fondo4.png; sourceTree = "<group>"; };
 		C12E6D001610D2FE009BB015 /* fondo5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fondo5.png; sourceTree = "<group>"; };
 		C13F82641652BAA700012F5E /* combo_special_mix_p.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = combo_special_mix_p.png; sourceTree = "<group>"; };
 		C144B26E1639B0340091A8E0 /* ComboViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ComboViewController.xib; sourceTree = "<group>"; };
@@ -901,7 +898,6 @@
 		C1EFBF6E160CD7470005ECF1 /* MainMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuViewController.h; sourceTree = "<group>"; };
 		C1EFBF6F160CD7470005ECF1 /* MainMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuViewController.m; sourceTree = "<group>"; };
 		C1EFBF70160CD7470005ECF1 /* MainMenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenuViewController.xib; sourceTree = "<group>"; };
-		C1EFBF73160CD8710005ECF1 /* fondo1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fondo1.png; sourceTree = "<group>"; };
 		C1EFBF88160D08010005ECF1 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		C1EFBF89160D08010005ECF1 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		C1EFBF93160D0FB20005ECF1 /* fondo3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fondo3.png; sourceTree = "<group>"; };
@@ -1663,7 +1659,6 @@
 				C11DC6DE1611ED2F00D8DCA3 /* individual.png */,
 				C11DC6DF1611ED2F00D8DCA3 /* muro.jpg */,
 				C11DC6E01611ED2F00D8DCA3 /* piso.jpg */,
-				C12E6CF91610CE17009BB015 /* fondo4.png */,
 				C12E6D001610D2FE009BB015 /* fondo5.png */,
 				C1EFBF9B160D14230005ECF1 /* btn_bebidas.png */,
 				C1EFBF9C160D14230005ECF1 /* btn_ensaladas.png */,
@@ -1682,7 +1677,6 @@
 				C1BF203716430B8400DE285F /* background_vert.jpg */,
 				C1EFBFA5160D14230005ECF1 /* btn_wok.png */,
 				C1EFBF93160D0FB20005ECF1 /* fondo3.png */,
-				C1EFBF73160CD8710005ECF1 /* fondo1.png */,
 			);
 			name = Adicionales;
 			sourceTree = "<group>";
@@ -2128,7 +2122,6 @@
 				C10A6796160CBBF400489A45 /* ChangeLog in Resources */,
 				C1EFBF6D160CCF7C0005ECF1 /* MainWindow.xib in Resources */,
 				C1EFBF72160CD7470005ECF1 /* MainMenuViewController.xib in Resources */,
-				C1EFBF74160CD8710005ECF1 /* fondo1.png in Resources */,
 				C1EFBF94160D0FB20005ECF1 /* fondo3.png in Resources */,
 				C1EFBF99160D11780005ECF1 /* MenuViewController.xib in Resources */,
 				C1EFBFA6160D14230005ECF1 /* btn_bebidas.png in Resources */,
@@ -2142,7 +2135,6 @@
 				C1EFBFAE160D14230005ECF1 /* btn_sushi.png in Resources */,
 				C1EFBFAF160D14230005ECF1 /* btn_teppanyaki.png in Resources */,
 				C1EFBFB0160D14230005ECF1 /* btn_wok.png in Resources */,
-				C12E6CFA1610CE17009BB015 /* fondo4.png in Resources */,
 				C12E6D011610D2FE009BB015 /* fondo5.png in Resources */,
 				C11DC6E11611ED2F00D8DCA3 /* individual.png in Resources */,
 				C11DC6E21611ED2F00D8DCA3 /* muro.jpg in Resources */,

@@ -125,11 +125,12 @@ NSString *btnGoBack = @"btn_regresar.png";
 NSString *sectionTinyPlates = @"barra_agregar.png";
 NSString *upImage = @"flecha_total_up.png";
 NSString *DownImage = @"flecha_total.png";
+NSString *thanxImage = @"bg_detalle.jpg";
 NSString *fotter = @"pata_02.png";
 NSString *textFotter = @" Domicilios: (+57)(1) 522 6412                                         Calle 109 # 17-55 piso 2, Bogotá. Ver mapa   info@wasabisushilounge.co                                                                                      Powered by 3dementes";
 
 CCSprite *plato_grande1, *descripcion, *cuadro_total;
-
+CCSprite *spriteThanxsImage;
 
 CCLabelTTF *label, *label2;
 CCLabelTTF *label_descripcion, *label_fotter;
@@ -281,7 +282,6 @@ BOOL bool_swipe = YES;
         
         CCMenuItemImage *itemBigPlateDescription;
         itemBigPlateDescription = [[CCMenuItemImage alloc]init];
-     
         itemBigPlateDescription =  [CCMenuItemImage itemWithNormalImage:bigPlateImageDescription selectedImage:bigPlateImageDescription];
   
         [menu_detalles addChild:itemBigPlateDescription];
@@ -367,7 +367,19 @@ BOOL bool_swipe = YES;
 		label_fotter.position =  ccp(522 , 8);
 		[self addChild: label_fotter];
     
-         
+        
+        //
+        // Imagen "Gracias por su compra"
+        //
+        
+        
+        spriteThanxsImage = [CCSprite spriteWithFile:thanxImage rect:CGRectMake(0, 0, 1024, 768)];
+        spriteThanxsImage.position = ccp(AHalfWinSizeX, -AHalfWinSizeY);
+        [self addChild:spriteThanxsImage];
+        
+        //
+        //
+        //
          UIPanGestureRecognizer *panRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(move:)];
          [panRecognizer setMinimumNumberOfTouches:1];
          [panRecognizer setMaximumNumberOfTouches:1];
@@ -455,7 +467,9 @@ BOOL bool_swipe = YES;
 -(void) makeOrder: (id *) sender
 {
     if ([_rootViewController createNewOrder] == 1) {
-        CCLOG(@"Pedido realizado");
+        [self moveSprite: spriteThanxsImage with_pox:AHalfWinSizeX with_posy:AHalfWinSizeY withTimeTransition:0.5];
+        [_rootViewController hidePrincipalButton];
+        [_rootViewController showCloseButton:735 withPosY:525];
     }
 }
 
@@ -468,7 +482,7 @@ BOOL bool_swipe = YES;
     [self desaparecerMenus];
     Plato *pl = [[Plato alloc]init];
     //pl = [[DAOPlatos sharedInstance] getPlateById:[[NSString alloc]initWithFormat:@"%i", iactualPlate]];
-   pl = [[DAOPlatosJSON sharedInstance] getPlateById:[[NSString alloc]initWithFormat:@"%i", iactualPlate]];
+    pl = [[DAOPlatosJSON sharedInstance] getPlateById:[[NSString alloc]initWithFormat:@"%i", iactualPlate]];
    // CCLOG(@" onPushSceneTranImage Vamos a ver si se hace algo  %@", pl.nombre);
     // [label_descripcion setString:[_rootViewController demeDescripcionPlatoPorId:@(iactualPlate)]];
     [label_descripcion setString:pl.descripcion];

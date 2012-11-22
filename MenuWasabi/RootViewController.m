@@ -212,6 +212,8 @@ CCScene *scene;
     
     [btnPrincipal release];
     btnPrincipal = nil;
+    [btnClose release];
+    btnClose = nil;
     [super viewDidUnload];
     [[CCDirector sharedDirector] end];
     // Release any retained subviews of the main view.
@@ -222,6 +224,7 @@ CCScene *scene;
 - (void)dealloc {
     [scene release];
     [btnPrincipal release];
+    [btnClose release];
     [super dealloc];
 }
 
@@ -376,6 +379,32 @@ CCScene *scene;
 
 -(int)createNewOrder{
     return [[DAOPedidoJSON sharedInstance] createNewOrder];
+}
+
+-(void)hidePrincipalButton{
+    [self moverBoton:btnPrincipal posx:385 posy:-300 alpha:1.0 duracion:1.0 delay:0.0];
+}
+-(void)showCloseButton:(int)_posx withPosY:(int)_posy{
+    [self moverBoton:btnClose posx:_posx posy:_posy alpha:1.0 duracion:1.0 delay:0.0];
+}
+
+- (IBAction)closeApp:(id)sender {
+    exit(0);
+}
+
+-(void)moverBoton:(UIButton *)botn_ posx:(int)x_ posy:(int)y_ alpha:(double)alpha_ duracion:(double)tiempo_ delay:(double)delay_{
+    
+    [UIView beginAnimations:@"advancedAimations" context:nil];
+    [UIView setAnimationDuration:tiempo_];
+    [UIView setAnimationDelay:delay_];
+    
+    CGRect botonFrame = botn_.frame;
+    botn_.alpha=alpha_;
+    botonFrame.origin.x=x_;
+    botonFrame.origin.y=y_;
+    botn_.frame=botonFrame;
+    
+    [UIView commitAnimations];
 }
 
 @end

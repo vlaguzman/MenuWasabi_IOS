@@ -52,6 +52,7 @@ NSString *imageUp = @"flecha_total_up.png";
 NSString *imageDown = @"flecha_total.png";
 NSString *imageSectionTinyPlates = @"menu_pago.png";
 NSString *imageSpaceNameDescription = @"nombres.png";
+NSString *imageThankYouPage = @"background_vert.jpg";
 
 CCMenu *principalMenu, *bigPlateImage, *bigPlateDescription, *goBackMenu, *addPlateMenu, *orderMenu, *upDownMenu, *actualPlatesMenu;
 //BOOL bool_swipe_combos = YES;
@@ -65,7 +66,7 @@ NSString *strComboPrice1;
 CCMenuItemLabel *itemComboDescription;
 CCMenuItemImage *itemComboImage2, *itemImageDescriptionSpace;
 CCLabelTTF *comboDescription;
-
+CCSprite *spriteThankYouImage;
 
 @implementation CombosLayer
 
@@ -79,6 +80,8 @@ CCLabelTTF *comboDescription;
 	[scene addChild: layer];
 	return scene;
 }
+
+
 
 -(id) initWithVC: (RootViewController *) rootViewController
 {
@@ -219,7 +222,7 @@ CCLabelTTF *comboDescription;
         //
         orderMenu = [[CCMenu alloc] init];
         
-        CCMenuItemImage *imgBtnTotal;
+       // CCMenuItemImage *imgBtnTotal;
         CCMenuItemLabel *lblTotal;
         CCMenuItemImage *itemMenuOrder = [CCMenuItemImage itemWithNormalImage:imageSectionTinyPlates selectedImage:imageSectionTinyPlates];
         
@@ -227,13 +230,13 @@ CCLabelTTF *comboDescription;
         [labelTotal setColor:cc_DARKRED];
         lblTotal = [CCMenuItemLabel itemWithLabel:labelTotal];
         
-        imgBtnTotal = [CCMenuItemImage itemWithNormalImage:imageBtnMakeOrder selectedImage:imageBtnMakeOrder];
+       // imgBtnTotal = [CCMenuItemImage itemWithNormalImage:imageBtnMakeOrder selectedImage:imageBtnMakeOrder target:self selector:@selector(makeOrder:)];
         
         lblTotal.position = CGPointMake(220, -20);
-        imgBtnTotal.position = CGPointMake(280, -60);
+       // imgBtnTotal.position = CGPointMake(280, -60);//-60
         
         [orderMenu addChild:itemMenuOrder];
-        [orderMenu addChild:imgBtnTotal];
+       // [orderMenu addChild:imgBtnTotal];
         [orderMenu addChild:lblTotal];
         orderMenu.position = CGPointMake(A_HALF_X_WIN_SIZE, -70);
         
@@ -249,24 +252,47 @@ CCLabelTTF *comboDescription;
         //
         // Button to show or hide the menu actual order
         //
-        upDownMenu = [[CCMenu alloc]init];
+        CCMenuItemImage *imgBtnTotal;
         
+        upDownMenu = [[CCMenu alloc]init];
         imgUpDown =  [CCMenuItemImage itemWithNormalImage:imageUp selectedImage:imageUp target:self selector:@selector(onUpDown:)];
         [upDownMenu addChild:imgUpDown];
         upDownMenu.position = CGPointMake(A_HALF_X_WIN_SIZE+2, 10);
         
+        imgBtnTotal = [CCMenuItemImage itemWithNormalImage:imageBtnMakeOrder selectedImage:imageBtnMakeOrder target:self selector:@selector(makeOrder:)];
+        imgBtnTotal.position = CGPointMake(A_HALF_X_WIN_SIZE-105, -140);
+        [upDownMenu addChild:imgBtnTotal];
+        
         [self addChild:upDownMenu];
+        
         
         [self updateTotalBill];
         [self loadMenuResume];
+        
+        //
+        // Image Thank you page
+        //
+        spriteThankYouImage = [CCSprite spriteWithFile:imageThankYouPage rect:CGRectMake(0, 0, 768, 1024)];
+        spriteThankYouImage.position = ccp(-A_HALF_X_WIN_SIZE, A_HALF_Y_WIN_SIZE);
+        [self addChild:spriteThankYouImage];
    }
 
     return self;
 }
 
 
--(void) nothingThere{
+-(void) makeOrder: (id *) sender
+{
+     CCLOG(@" ------------- makeOrder---- makeOrder---- makeOrder---- makeOrder");
+    if ([_rootViewController createNewOrder] == 1) {
+        [self moveSprite: spriteThankYouImage with_pox:A_HALF_X_WIN_SIZE with_posy:A_HALF_Y_WIN_SIZE withTimeTransition:0.5];
+        [_rootViewController showCloseButton:525 withPosY:735];
+    }
+}
 
+-(void) moveSprite:(CCSprite *)_sprite with_pox:(float)_posx with_posy:(float)_posy withTimeTransition:(float)_time{
+    id mover3 = [CCMoveTo actionWithDuration:_time position:ccp(_posx,_posy)];
+    [_sprite runAction:mover3];
 }
 
 -(void) onPushSceneTranImage: (CCMenuItemImage *) sender

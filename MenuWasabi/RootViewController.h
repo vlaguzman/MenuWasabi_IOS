@@ -18,6 +18,7 @@
     AppController *appControler;
     TipoPlato *auxTipoPlato;
     NSMutableArray *tipoPlatosArray;
+    IBOutlet UIButton *btnClose;
     
 }
 @property (nonatomic, strong) TipoPlato *auxTipoPlato;
@@ -50,5 +51,9 @@
 -(int)getNumberOfPlatesWithKind:(NSString*)_kind;
 
 -(int)createNewOrder;
+
+-(void)hidePrincipalButton;
+-(void)showCloseButton:(int)_posx withPosY:(int)_posy;
+- (IBAction)closeApp:(id)sender;
 
 @end
