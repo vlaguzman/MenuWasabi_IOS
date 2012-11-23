@@ -115,6 +115,7 @@ int _fontSizeNameDrink = 10;
 NSString *bigPlateImageDescription = @"descripcion.png";
 NSString *btnHacerPedido = @"btn_hacerpedido.png";
 NSString *btnClose = @"btn_cerrar.png";
+NSString *btnCloseApp = @"btn_closeapp.png";
 NSString *font = @"Helvetica";
 //NSString *fontTotal = @"Marker Felt";
 //NSString *fontNames = @"Marker Felt";
@@ -125,7 +126,7 @@ NSString *btnGoBack = @"btn_regresar.png";
 NSString *sectionTinyPlates = @"barra_agregar.png";
 NSString *upImage = @"flecha_total_up.png";
 NSString *DownImage = @"flecha_total.png";
-NSString *thanxImage = @"bg_detalle.jpg";
+NSString *thanxImage = @"fin_hor.png";
 NSString *fotter = @"pata_02.png";
 NSString *textFotter = @" Domicilios: (+57)(1) 522 6412                                         Calle 109 # 17-55 piso 2, Bogotá. Ver mapa   info@wasabisushilounge.co                                                                                      Powered by 3dementes";
 
@@ -333,7 +334,7 @@ BOOL bool_swipe = YES;
         [label_total setColor:ccDARKRED];
         lblTotal = [CCMenuItemLabel itemWithLabel:label_total];
         
-        imgBtnTotal = [CCMenuItemImage itemWithNormalImage:btnHacerPedido selectedImage:btnHacerPedido target:self selector:@selector(makeOrder:)];
+        imgBtnTotal = [CCMenuItemImage itemWithNormalImage:btnCloseApp selectedImage:btnCloseApp target:self selector:@selector(makeOrder:)];
 
         menu_up_down = [[CCMenu alloc]init];
         item_up_down =  [CCMenuItemImage itemWithNormalImage:upImage selectedImage:upImage target:self selector:@selector(onUpDown:)];

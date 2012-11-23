@@ -46,13 +46,14 @@ NSString *fontCombos = @"Helvetica";
 NSString *imageBtnGoBack = @"btn_regresar.png";
 NSString *imageBtnAddPlate = @"btn_agregar.png";
 NSString *imageBtnClose = @"btn_cerrar.png";
+NSString *imageBtnCloseApp = @"btn_closeapp.png";
 NSString *imageBtnMakeOrder = @"btn_hacerpedido.png";
 NSString *imageBigPlateDescription = @"descripcion.png";
 NSString *imageUp = @"flecha_total_up.png";
 NSString *imageDown = @"flecha_total.png";
 NSString *imageSectionTinyPlates = @"menu_pago.png";
 NSString *imageSpaceNameDescription = @"nombres.png";
-NSString *imageThankYouPage = @"background_vert.jpg";
+NSString *imageThankYouPage = @"fin_vert.png";
 
 CCMenu *principalMenu, *bigPlateImage, *bigPlateDescription, *goBackMenu, *addPlateMenu, *orderMenu, *upDownMenu, *actualPlatesMenu;
 //BOOL bool_swipe_combos = YES;
@@ -259,7 +260,7 @@ CCSprite *spriteThankYouImage;
         [upDownMenu addChild:imgUpDown];
         upDownMenu.position = CGPointMake(A_HALF_X_WIN_SIZE+2, 10);
         
-        imgBtnTotal = [CCMenuItemImage itemWithNormalImage:imageBtnMakeOrder selectedImage:imageBtnMakeOrder target:self selector:@selector(makeOrder:)];
+        imgBtnTotal = [CCMenuItemImage itemWithNormalImage:imageBtnCloseApp selectedImage:imageBtnCloseApp target:self selector:@selector(makeOrder:)];
         imgBtnTotal.position = CGPointMake(A_HALF_X_WIN_SIZE-105, -140);
         [upDownMenu addChild:imgBtnTotal];
         
