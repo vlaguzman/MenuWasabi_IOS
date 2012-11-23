@@ -10,6 +10,12 @@
 		28C30774165FD3E20019D042 /* btn_closeapp.png in Resources */ = {isa = PBXBuildFile; fileRef = 28C30771165FD3DD0019D042 /* btn_closeapp.png */; };
 		28C30775165FD3E20019D042 /* fin_hor.png in Resources */ = {isa = PBXBuildFile; fileRef = 28C30772165FD3DF0019D042 /* fin_hor.png */; };
 		28C30776165FD3E20019D042 /* fin_ver.png in Resources */ = {isa = PBXBuildFile; fileRef = 28C30773165FD3E10019D042 /* fin_ver.png */; };
+		28C3077B165FDC1D0019D042 /* especiales_temaki_ebi_tempura_g.png in Resources */ = {isa = PBXBuildFile; fileRef = 28C30778165FDC1D0019D042 /* especiales_temaki_ebi_tempura_g.png */; };
+		28C3077C165FDC1D0019D042 /* especiales_temaki_ebi_tempura_p.png in Resources */ = {isa = PBXBuildFile; fileRef = 28C30779165FDC1D0019D042 /* especiales_temaki_ebi_tempura_p.png */; };
+		28C3077D165FDC1D0019D042 /* especiales_temaki_ebi_tempura.png in Resources */ = {isa = PBXBuildFile; fileRef = 28C3077A165FDC1D0019D042 /* especiales_temaki_ebi_tempura.png */; };
+		28C30781165FDC3C0019D042 /* postre_lychees_con_arequipe_g.png in Resources */ = {isa = PBXBuildFile; fileRef = 28C3077E165FDC3C0019D042 /* postre_lychees_con_arequipe_g.png */; };
+		28C30782165FDC3C0019D042 /* postre_lychees_con_arequipe_p.png in Resources */ = {isa = PBXBuildFile; fileRef = 28C3077F165FDC3C0019D042 /* postre_lychees_con_arequipe_p.png */; };
+		28C30783165FDC3C0019D042 /* postre_lychees_con_arequipe.png in Resources */ = {isa = PBXBuildFile; fileRef = 28C30780165FDC3C0019D042 /* postre_lychees_con_arequipe.png */; };
 		C10863281631B597007D361E /* barra_agregar.png in Resources */ = {isa = PBXBuildFile; fileRef = C10863271631B597007D361E /* barra_agregar.png */; };
 		C108632B16320367007D361E /* lista_bebidas.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C108632A16320367007D361E /* lista_bebidas.jpg */; };
 		C10A662D160CBBF200489A45 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C10A662C160CBBF200489A45 /* QuartzCore.framework */; };
@@ -393,6 +399,12 @@
 		28C30771165FD3DD0019D042 /* btn_closeapp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_closeapp.png; sourceTree = "<group>"; };
 		28C30772165FD3DF0019D042 /* fin_hor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fin_hor.png; sourceTree = "<group>"; };
 		28C30773165FD3E10019D042 /* fin_ver.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fin_ver.png; sourceTree = "<group>"; };
+		28C30778165FDC1D0019D042 /* especiales_temaki_ebi_tempura_g.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = especiales_temaki_ebi_tempura_g.png; sourceTree = "<group>"; };
+		28C30779165FDC1D0019D042 /* especiales_temaki_ebi_tempura_p.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = especiales_temaki_ebi_tempura_p.png; sourceTree = "<group>"; };
+		28C3077A165FDC1D0019D042 /* especiales_temaki_ebi_tempura.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = especiales_temaki_ebi_tempura.png; sourceTree = "<group>"; };
+		28C3077E165FDC3C0019D042 /* postre_lychees_con_arequipe_g.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = postre_lychees_con_arequipe_g.png; sourceTree = "<group>"; };
+		28C3077F165FDC3C0019D042 /* postre_lychees_con_arequipe_p.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = postre_lychees_con_arequipe_p.png; sourceTree = "<group>"; };
+		28C30780165FDC3C0019D042 /* postre_lychees_con_arequipe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = postre_lychees_con_arequipe.png; sourceTree = "<group>"; };
 		C10863271631B597007D361E /* barra_agregar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = barra_agregar.png; sourceTree = "<group>"; };
 		C108632A16320367007D361E /* lista_bebidas.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = lista_bebidas.jpg; sourceTree = "<group>"; };
 		C10A6628160CBBF200489A45 /* MenuWasabi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MenuWasabi.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1737,6 +1749,7 @@
 		C1C23C85162DBDC300843CBA /* pequenas */ = {
 			isa = PBXGroup;
 			children = (
+				28C3077F165FDC3C0019D042 /* postre_lychees_con_arequipe_p.png */,
 				C1BF1FF71642BF3000DE285F /* postre_citrus_sensation_p.png */,
 				C1BF1FF81642BF3000DE285F /* postre_nutella-fruit-roll_p.png */,
 				C1BF1FF91642BF3000DE285F /* postres_postre_de_las_tres_leches_p.png */,
@@ -1747,6 +1760,7 @@
 		C1C23C86162DBDC900843CBA /* normales */ = {
 			isa = PBXGroup;
 			children = (
+				28C30780165FDC3C0019D042 /* postre_lychees_con_arequipe.png */,
 				C1BF1FFD1642BF3800DE285F /* postre_citrus_sensation.png */,
 				C1BF1FFE1642BF3800DE285F /* postre_nutella-fruit-roll.png */,
 				C1BF1FFF1642BF3800DE285F /* postres_postre_de_las_tres_leches.png */,
@@ -1757,6 +1771,7 @@
 		C1C23C87162DBDD400843CBA /* grandes */ = {
 			isa = PBXGroup;
 			children = (
+				28C3077E165FDC3C0019D042 /* postre_lychees_con_arequipe_g.png */,
 				C1BF1FF11642BF2800DE285F /* postre_citrus_sensation_g.png */,
 				C1BF1FF21642BF2800DE285F /* postre_nutella-fruit-roll_g.png */,
 				C1BF1FF31642BF2800DE285F /* postres_postre_de_las_tres_leches_g.png */,
@@ -1811,6 +1826,7 @@
 		C1C23C9F162DC49600843CBA /* pequenas */ = {
 			isa = PBXGroup;
 			children = (
+				28C30779165FDC1D0019D042 /* especiales_temaki_ebi_tempura_p.png */,
 				C1BF1FED1642BEF100DE285F /* especiales_titanic_wasabi_p.png */,
 			);
 			name = pequenas;
@@ -1819,6 +1835,7 @@
 		C1C23CA0162DC49D00843CBA /* normales */ = {
 			isa = PBXGroup;
 			children = (
+				28C3077A165FDC1D0019D042 /* especiales_temaki_ebi_tempura.png */,
 				C1BF1FEF1642BEF600DE285F /* especiales_titanic_wasabi.png */,
 			);
 			name = normales;
@@ -1827,6 +1844,7 @@
 		C1C23CA1162DC4A500843CBA /* grandes */ = {
 			isa = PBXGroup;
 			children = (
+				28C30778165FDC1D0019D042 /* especiales_temaki_ebi_tempura_g.png */,
 				C1BF1FEB1642BEEB00DE285F /* especiales_titanic_wasabi_g.png */,
 			);
 			name = grandes;
@@ -2364,6 +2382,12 @@
 				28C30774165FD3E20019D042 /* btn_closeapp.png in Resources */,
 				28C30775165FD3E20019D042 /* fin_hor.png in Resources */,
 				28C30776165FD3E20019D042 /* fin_ver.png in Resources */,
+				28C3077B165FDC1D0019D042 /* especiales_temaki_ebi_tempura_g.png in Resources */,
+				28C3077C165FDC1D0019D042 /* especiales_temaki_ebi_tempura_p.png in Resources */,
+				28C3077D165FDC1D0019D042 /* especiales_temaki_ebi_tempura.png in Resources */,
+				28C30781165FDC3C0019D042 /* postre_lychees_con_arequipe_g.png in Resources */,
+				28C30782165FDC3C0019D042 /* postre_lychees_con_arequipe_p.png in Resources */,
+				28C30783165FDC3C0019D042 /* postre_lychees_con_arequipe.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

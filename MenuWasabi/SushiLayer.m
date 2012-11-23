@@ -179,7 +179,7 @@ BOOL bool_swipe = YES;
     else if (numPlates == 3){
         posXprincipalMenu = posXprincipalMenuThreePlates;
     }
-    else if (numPlates > 4){
+    else if (numPlates >= 4){
         posXprincipalMenu = posXprincipalMenuMorePlates;
         limitMoveRight = ((numPlates-4) * limitMoveLeftMenuFactorSushi)+limitMoveLeft;
     }
