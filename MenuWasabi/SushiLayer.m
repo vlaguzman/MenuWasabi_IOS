@@ -334,7 +334,7 @@ BOOL bool_swipe = YES;
         [label_total setColor:ccDARKRED];
         lblTotal = [CCMenuItemLabel itemWithLabel:label_total];
         
-        imgBtnTotal = [CCMenuItemImage itemWithNormalImage:btnCloseApp selectedImage:btnCloseApp target:self selector:@selector(makeOrder:)];
+        imgBtnTotal = [CCMenuItemImage itemWithNormalImage:btnHacerPedido selectedImage:btnHacerPedido target:self selector:@selector(makeOrder:)];
 
         menu_up_down = [[CCMenu alloc]init];
         item_up_down =  [CCMenuItemImage itemWithNormalImage:upImage selectedImage:upImage target:self selector:@selector(onUpDown:)];
@@ -470,7 +470,7 @@ BOOL bool_swipe = YES;
     if ([_rootViewController createNewOrder] == 1) {
         [self moveSprite: spriteThanxsImage with_pox:AHalfWinSizeX with_posy:AHalfWinSizeY withTimeTransition:0.5];
         [_rootViewController hidePrincipalButton];
-        [_rootViewController showCloseButton:735 withPosY:525];
+        [_rootViewController showCloseButton:470 withPosY:AHalfWinSizeY-45];
     }
 }
 
