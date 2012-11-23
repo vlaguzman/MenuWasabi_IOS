@@ -34,7 +34,7 @@ static DAOPedidoJSON *sharedDAOPedidoJSON = nil;
     
 }
 
--(NSMutableArray *)platosActuales
+-(NSDictionary *)platosActuales
 {
     return actualOrder.platosActuales;
 }
@@ -53,6 +53,13 @@ static DAOPedidoJSON *sharedDAOPedidoJSON = nil;
 -(Plato *)demePlatoEnUbicacion:(int)_index{
     return [actualOrder demePlatoEnUbicacion:_index];
 }
+-(PlatoxPedido *)demePlatosYCantidadesEnUbicacion:(int)_index{
+    return [actualOrder demePlatoyCantidadEnUbicacion:_index];
+}
+
+-(int)demeCantidadPlatos:(NSString *)_id{
+    return [actualOrder demeCantidadPlatos:_id];
+}
 
 -(BOOL)estaPlato:(Plato *)_plato{
     return [actualOrder estaPlato:_plato];
@@ -67,8 +74,9 @@ static DAOPedidoJSON *sharedDAOPedidoJSON = nil;
         if (n>0) {
             stringURLPlates = [[NSString alloc] initWithFormat:@"%@&", stringURLPlates];
         }
-        Plato *tempPlate = [self demePlatoEnUbicacion:n];
-        stringURLPlates = [[NSString alloc] initWithFormat:@"%@plato%i=%@&cantidad%i=1", stringURLPlates, n+1, tempPlate.id_plato, n+1];
+    //    Plato *tempPlate = [self demePlatoEnUbicacion:n];
+        PlatoxPedido *tempPlatesAndAmounts = [self demePlatosYCantidadesEnUbicacion:n];
+        stringURLPlates = [[NSString alloc] initWithFormat:@"%@plato%i=%@&cantidad%i=%i", stringURLPlates, n+1, tempPlatesAndAmounts.plate.id_plato, n+1, tempPlatesAndAmounts.amount];
     }
         
     NSURL *url = [NSURL URLWithString:[[NSString alloc] initWithFormat:@"http://www.brainztore.com/wasabi/insertpedido.php?mesa=%i&total=%i&estado=%@&cantidadplatos=%i&%@", tempTable.numero, actualOrder.totalCuenta, @"solicitado", actualOrder.platosActuales.count, stringURLPlates]];

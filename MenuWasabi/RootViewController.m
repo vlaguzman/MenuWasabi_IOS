@@ -295,6 +295,9 @@ CCScene *scene;
     return plato_return.tipo;
 }
 
+-(int)demeCantidadPlatoPorId:(NSString*)_id{
+    return [[DAOPedidoJSON sharedInstance] demeCantidadPlatos:_id];
+}
 
 -(NSString *)demeDescripcionPlatoPorId:(NSString*)_id{
     Plato *plato_return;

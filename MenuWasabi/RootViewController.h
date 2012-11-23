@@ -43,7 +43,7 @@
 - (Plato *)demeDatosPlatoEnUbicacion:(int)_ubicacion;
 -(BOOL)estaPlato:(NSString*)_idplato;
 -(NSString *)demeTipoActual;
-
+-(int)demeCantidadPlatoPorId:(NSString*)_id;
 -(void)addTipoPlato;
 - (void)loadTipoDatosFromDB;
 

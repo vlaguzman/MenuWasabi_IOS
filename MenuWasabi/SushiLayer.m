@@ -276,9 +276,6 @@ BOOL bool_swipe = YES;
         [self addChild:menu_platosgrandes];
         
         
-        
-        
-        
         menu_detalles = [[CCMenu alloc]init];
         
         CCMenuItemImage *itemBigPlateDescription;
@@ -590,10 +587,10 @@ BOOL bool_swipe = YES;
         
         [self moveMenu_withMenu:menu_detalles withXpox:posXShowBigPlatesDescription withYpos:posYBigPlatesDescription withTimeTransition:1.0];
         [self moveLabel:label_descripcion with_pox:posXShowBigPlatesDescription with_posy:posYBigPlatesDescription withTimeTransition:1.0];
-        if ((![_rootViewController estaPlato:[[NSString alloc]initWithFormat:@"%i", iactualPlate]])&&(_rootViewController.demeNumeroPlatosEnOrden < 6)) {
+        //if ((![_rootViewController estaPlato:[[NSString alloc]initWithFormat:@"%i", iactualPlate]])&&(_rootViewController.demeNumeroPlatosEnOrden < 6)) {
             
                 [self moveMenu_withMenu:menu_agregar withXpox:posXaparecerAgregar withYpos:posYaparecerAgregar withTimeTransition:1.0];
-        }
+        //}
     }
 
 }
@@ -641,7 +638,7 @@ BOOL bool_swipe = YES;
 -(void) onAddPlate:(id) sender
 {
     
-    if (![_rootViewController estaPlato:[[NSString alloc]initWithFormat:@"%i", iactualPlate]]) {
+   // if (![_rootViewController estaPlato:[[NSString alloc]initWithFormat:@"%i", iactualPlate]]) {
         //Plato *pl = [[DAOPlatos sharedInstance] getPlateById:[[NSString alloc]initWithFormat:@"%i", iactualPlate]];
         Plato *pl = [[DAOPlatosJSON sharedInstance] getPlateById:[[NSString alloc]initWithFormat:@"%i", iactualPlate]];
         [_rootViewController agregarPlato:pl.id_plato];
@@ -649,12 +646,12 @@ BOOL bool_swipe = YES;
         [self loadPlateWithIdPlate:pl.id_plato withSourceImg:pl.fuente_img_peq withSourceClose:btnClose withPrice:pl.precio withKindPlate:pl.tipo withName:pl.nombre withNum:numPlates];
         [self updateTotalBill];
         //RETIRO EL BOTON DE AGREGAR
-        [self moveMenu_withMenu:menu_agregar withXpox:posXdesaparecerAgregar withYpos:winSize.height+100 withTimeTransition:1.0];
+        //[self moveMenu_withMenu:menu_agregar withXpox:posXdesaparecerAgregar withYpos:winSize.height+100 withTimeTransition:1.0];
         if(menu_barra.position.y!=120){
             [self onUpDown:self];
         }
         
-    }
+   // }
     
 }
 
@@ -681,6 +678,7 @@ BOOL bool_swipe = YES;
     //traigo el precio del plato actual
     NSString *str_precio = [[NSString alloc]initWithFormat:@"$ %i", _price];
     [precio_plato setString:str_precio];
+    
     //agrego el label al menu y le asigno el mismo id que las imagenes anteriores
     itemPrecio = [CCMenuItemLabel itemWithLabel:precio_plato];
     itemPrecio.tag = [_idPlate intValue];
@@ -731,9 +729,9 @@ BOOL bool_swipe = YES;
     [label_total setString:str_total];
     
     
-    if((iactualPlate == _tag)||(!([_rootViewController estaPlato:[[NSString alloc]initWithFormat:@"%i", iactualPlate]])&&(iactualPlate!=-1)&&(_rootViewController.demeNumeroPlatosEnOrden < 6))){
+    /*if((iactualPlate == _tag)||(!([_rootViewController estaPlato:[[NSString alloc]initWithFormat:@"%i", iactualPlate]])&&(iactualPlate!=-1)&&(_rootViewController.demeNumeroPlatosEnOrden < 6))){
         [self moveMenu_withMenu:menu_agregar withXpox:posXaparecerAgregar withYpos:posYaparecerAgregar withTimeTransition:1.0];
-    }
+    }*/
     
 }
 

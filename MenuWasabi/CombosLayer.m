@@ -53,7 +53,7 @@ NSString *imageUp = @"flecha_total_up.png";
 NSString *imageDown = @"flecha_total.png";
 NSString *imageSectionTinyPlates = @"menu_pago.png";
 NSString *imageSpaceNameDescription = @"nombres.png";
-NSString *imageThankYouPage = @"fin_vert.png";
+NSString *imageThankYouPage = @"fin_ver.png";
 
 CCMenu *principalMenu, *bigPlateImage, *bigPlateDescription, *goBackMenu, *addPlateMenu, *orderMenu, *upDownMenu, *actualPlatesMenu;
 //BOOL bool_swipe_combos = YES;
@@ -260,7 +260,7 @@ CCSprite *spriteThankYouImage;
         [upDownMenu addChild:imgUpDown];
         upDownMenu.position = CGPointMake(A_HALF_X_WIN_SIZE+2, 10);
         
-        imgBtnTotal = [CCMenuItemImage itemWithNormalImage:imageBtnCloseApp selectedImage:imageBtnCloseApp target:self selector:@selector(makeOrder:)];
+        imgBtnTotal = [CCMenuItemImage itemWithNormalImage:imageBtnMakeOrder selectedImage:imageBtnMakeOrder target:self selector:@selector(makeOrder:)];
         imgBtnTotal.position = CGPointMake(A_HALF_X_WIN_SIZE-105, -140);
         [upDownMenu addChild:imgBtnTotal];
         
@@ -287,7 +287,7 @@ CCSprite *spriteThankYouImage;
      CCLOG(@" ------------- makeOrder---- makeOrder---- makeOrder---- makeOrder");
     if ([_rootViewController createNewOrder] == 1) {
         [self moveSprite: spriteThankYouImage with_pox:A_HALF_X_WIN_SIZE with_posy:A_HALF_Y_WIN_SIZE withTimeTransition:0.5];
-        [_rootViewController showCloseButton:525 withPosY:735];
+        [_rootViewController showCloseButton:350 withPosY:480];
     }
 }
 
@@ -353,7 +353,7 @@ CCSprite *spriteThankYouImage;
 -(void) onAddPlate:(id) sender
 {
     CCLOG(@"Click onAddPlate");
-    if (![_rootViewController estaPlato:[[NSString alloc]initWithFormat:@"%i", actualCombo]]) {
+    //if (![_rootViewController estaPlato:[[NSString alloc]initWithFormat:@"%i", actualCombo]]) {
         CCLOG(@"pasamos el if %i", actualCombo);
         //Plato *combo = [[DAOPlatos sharedInstance] getPlateById:[[NSString alloc]initWithFormat:@"%i", actualCombo]];
         Plato *combo = [[DAOPlatosJSON sharedInstance] getPlateById:[[NSString alloc]initWithFormat:@"%i", actualCombo]];
@@ -367,7 +367,7 @@ CCSprite *spriteThankYouImage;
             [self onUpDown:self];
         }
         
-    }
+  //  }
     
 }
 
@@ -456,9 +456,9 @@ CCSprite *spriteThankYouImage;
     [labelTotal setString:str_total];
     
     
-    if((actualCombo == _tag)||(!([_rootViewController estaPlato:[[NSString alloc]initWithFormat:@"%i", actualCombo]])&&(actualCombo!=-1)&&(_rootViewController.demeNumeroPlatosEnOrden < 4))){
+    /*if((actualCombo == _tag)||(!([_rootViewController estaPlato:[[NSString alloc]initWithFormat:@"%i", actualCombo]])&&(actualCombo!=-1)&&(_rootViewController.demeNumeroPlatosEnOrden < 4))){
         [self moveMenu_withMenu:addPlateMenu withXpox:addPlateMenu.position.x withYpos:Y_WIN_SIZE+100 withTimeTransition:1.0];
-    }
+    }*/
   
 }
 

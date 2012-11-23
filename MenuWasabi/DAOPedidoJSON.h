@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "Pedido.h"
+#import "PlatoxPedido.h"
 
 @interface DAOPedidoJSON : NSObject
 {
@@ -22,12 +23,12 @@
 
 -(void)begigOrder;
 
--(NSMutableArray *)platosActuales;
+-(NSDictionary *)platosActuales;
 -(void)agregarPlato:(Plato *)_plato;
 -(void)eliminarPlato:(Plato *)_plato;
 -(Plato *)demePlatoEnUbicacion:(int)_index;
 -(BOOL)estaPlato:(Plato *)_plato;
-
+-(int)demeCantidadPlatos:(NSString *)_id;
 -(int)createNewOrder;
 
 @end

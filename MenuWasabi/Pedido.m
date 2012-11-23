@@ -18,10 +18,10 @@
     return self;
 }
 
--(NSMutableArray *)platosActuales
+-(NSMutableDictionary *)platosActuales
 {
     if (platosActuales == nil) {
-        platosActuales = [[NSMutableArray alloc]init];
+        platosActuales = [[NSMutableDictionary alloc]init];
     }
     return platosActuales;
 }
@@ -29,27 +29,64 @@
 -(void)agregarPlato:(Plato *)_plato
 {
     totalCuenta += _plato.precio;
-    [self.platosActuales addObject:_plato];
-    
+    PlatoxPedido *auxPlate = [[PlatoxPedido alloc]init];
+    if([self.platosActuales objectForKey:_plato.id_plato]){
+        auxPlate = [self.platosActuales objectForKey:_plato.id_plato];
+        auxPlate.amount++;
+    }
+    else {
+        auxPlate.plate = _plato;
+        auxPlate.amount = 1;
+    }
+    [self.platosActuales setObject:auxPlate forKey:_plato.id_plato];
+}
+
+-(int)demeCantidadPlatos:(NSString *)_id{
+    PlatoxPedido *auxPlate = [[PlatoxPedido alloc]init];
+    auxPlate = [self.platosActuales objectForKey:_id];
+    return auxPlate.amount;
 }
 
 -(void)eliminarPlato:(Plato *)_plato
 {
     NSLog(@"estamos en eliminarPlato del BrainMenu y este es nombre : %@ del plato ", _plato.nombre);
     totalCuenta -= _plato.precio;
-    [self.platosActuales removeObject:_plato];
+    PlatoxPedido *auxPlate = [[PlatoxPedido alloc]init];
+    auxPlate = [self.platosActuales objectForKey:_plato.id_plato];
+    if (auxPlate.amount>1) {
+        auxPlate.amount--;
+    }
+    else {
+        [platosActuales removeObjectForKey:_plato.id_plato];
+    } 
     
 }
 
 -(Plato *)demePlatoEnUbicacion:(int)_index{
-    Plato *aux = [[Plato alloc]init];
-    aux = [platosActuales objectAtIndex:_index];
-    NSLog(@"AGREGADO PLATO  %i, %@, %@", aux.precio, aux.nombre, aux.fuente_img);
+    PlatoxPedido *aux = [[PlatoxPedido alloc]init];
+
+    NSArray *arrayPlates = [platosActuales  allValues];
+    aux = [arrayPlates objectAtIndex:_index];
+    
+    
+    return aux.plate;
+}
+-(PlatoxPedido *)demePlatoyCantidadEnUbicacion:(int)_index{
+    PlatoxPedido *aux = [[PlatoxPedido alloc]init];
+    
+    NSArray *arrayPlates = [platosActuales  allValues];
+    aux = [arrayPlates objectAtIndex:_index];
+    
+    
     return aux;
 }
 
 -(BOOL)estaPlato:(Plato *)_plato{
-    return [self.platosActuales containsObject:_plato.self];
+    BOOL rtrn = NO;
+    if([self.platosActuales objectForKey:_plato.id_plato]){
+        rtrn = YES;
+    }
+    return rtrn;
 }
 
 @end

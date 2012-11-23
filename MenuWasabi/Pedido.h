@@ -8,23 +8,25 @@
 
 #import <Foundation/Foundation.h>
 #import "Plato.h"
+#import "PlatoxPedido.h"
 
 @interface Pedido : NSObject
 {
     int totalCuenta;
     NSString *id_pedido, *id_mesa;
-    NSMutableArray *platosActuales, *bebidasActuales;
+    NSMutableDictionary *platosActuales, *bebidasActuales;
 }
 
 
 @property int totalCuenta;
 @property (nonatomic, strong) NSString *id_pedido, *id_mesa;
-@property (nonatomic, strong) NSMutableArray *platosActuales, *bebidasActuales;
+@property (nonatomic, strong) NSMutableDictionary *platosActuales, *bebidasActuales;
 
 -(void)agregarPlato:(Plato *)_plato;
 -(void)eliminarPlato:(Plato *)_plato;
 -(Plato *)demePlatoEnUbicacion:(int)_index;
+-(PlatoxPedido *)demePlatoyCantidadEnUbicacion:(int)_index;
 -(BOOL)estaPlato:(Plato *)_plato;
-
+-(int)demeCantidadPlatos:(NSString *)_id;
 
 @end

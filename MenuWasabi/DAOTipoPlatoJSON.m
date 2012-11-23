@@ -68,7 +68,7 @@ static DAOTipoPlatoJSON *sharedDAOTipoPlatoJSON = nil;
     }
     
 
-   
+    
 }
 
 @end
