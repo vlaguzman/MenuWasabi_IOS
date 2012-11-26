@@ -352,22 +352,19 @@ CCSprite *spriteThankYouImage;
 }
 -(void) onAddPlate:(id) sender
 {
-    CCLOG(@"Click onAddPlate");
-    //if (![_rootViewController estaPlato:[[NSString alloc]initWithFormat:@"%i", actualCombo]]) {
-        CCLOG(@"pasamos el if %i", actualCombo);
-        //Plato *combo = [[DAOPlatos sharedInstance] getPlateById:[[NSString alloc]initWithFormat:@"%i", actualCombo]];
-        Plato *combo = [[DAOPlatosJSON sharedInstance] getPlateById:[[NSString alloc]initWithFormat:@"%i", actualCombo]];
-        [_rootViewController agregarPlato:combo.id_plato];
-        int numPlates = [_rootViewController demeNumeroPlatosEnOrden];
-        [self loadPlateWithIdPlate:combo.id_plato withSourceImg:combo.fuente_img_peq withSourceClose:imageBtnClose withPrice:combo.precio withKindPlate:combo.tipo withName:combo.nombre withNum:numPlates];
-        [self updateTotalBill];
-        //RETIRO EL BOTON DE AGREGAR
-       // [self moveMenu_withMenu:addPlateMenu withXpox:posXdesaparecerAgregar withYpos:winSize.height+100 withTimeTransition:1.0];
-        if(orderMenu.position.y!=120){
-            [self onUpDown:self];
-        }
+    Plato *combo = [[DAOPlatosJSON sharedInstance] getPlateById:[[NSString alloc]initWithFormat:@"%i", actualCombo]];
+    [_rootViewController agregarPlato:combo.id_plato];
+    [actualPlatesMenu removeAllChildrenWithCleanup:YES];   
+    /*
+    int numPlates = [_rootViewController demeNumeroPlatosEnOrden];
+    [self loadPlateWithIdPlate:combo.id_plato withSourceImg:combo.fuente_img_peq withSourceClose:imageBtnClose withPrice:combo.precio withKindPlate:combo.tipo withName:combo.nombre withNum:numPlates];
+    */
+    [self updateTotalBill];
+    if(orderMenu.position.y!=120){
+        [self onUpDown:self];
+    }
         
-  //  }
+    [self loadMenuResume];
     
 }
 
@@ -396,9 +393,9 @@ CCSprite *spriteThankYouImage;
     
 }
 
--(void)loadPlateWithIdPlate:(NSString *) _idPlate withSourceImg:(NSString *) _sourceImg withSourceClose:(NSString *) _sourceImgClose withPrice:(int) _price withKindPlate:(NSString *) _tipo withName:(NSString *)_name withNum:(int)_num{
+-(void)loadPlateWithIdPlate:(NSString *) _idPlate withSourceImg:(NSString *) _sourceImg withSourceClose:(NSString *) _sourceImgClose withPrice:(int) _price withKindPlate:(NSString *) _tipo withName:(NSString *)_name withNum:(int)_num withAmount:(int)_amount{
     CCMenuItemImage *itemImg, *itemCerrar;
-    CCMenuItemLabel *itemPrecio, *itemName;
+    CCMenuItemLabel *itemPrecio, *itemName, *itemAmount;
     
     //Creo una imagen para agregar al menu
     itemImg = [CCMenuItemImage itemWithNormalImage:_sourceImg selectedImage:_sourceImg];
@@ -428,14 +425,20 @@ CCSprite *spriteThankYouImage;
     itemName.tag = [_idPlate intValue];
     
     
-    CCLOG(@"num %i", _num);
+    CCLabelTTF *amount_plates = [CCLabelTTF labelWithString:@"amount" fontName:fontCombos fontSize:_fontSizeOrderComboName];
+    NSString *str_amount = [[NSString alloc]initWithFormat:@"x %i", _amount];
+    [amount_plates setString:str_amount];
+    itemAmount = [CCMenuItemLabel itemWithLabel:amount_plates];
+    itemAmount.tag = [_idPlate intValue];
     
     itemImg.position = CGPointMake((_num*PADDING_TINY_PLATES)-100, itemImg.position.y);
+    itemAmount.position = CGPointMake((_num*PADDING_TINY_PLATES)-50, -30);
     itemName.position = CGPointMake((_num*PADDING_TINY_PLATES)-95, -45);
     itemPrecio.position = CGPointMake((_num*PADDING_TINY_PLATES)-100, -70);
     itemCerrar.position = CGPointMake((_num*PADDING_TINY_PLATES)-50, 35);
     
     [actualPlatesMenu addChild:itemImg];
+    [actualPlatesMenu addChild:itemAmount];
     [actualPlatesMenu addChild:itemName];
     [actualPlatesMenu addChild:itemPrecio];
     [actualPlatesMenu addChild:itemCerrar];
@@ -468,7 +471,7 @@ CCSprite *spriteThankYouImage;
     for (int n=0; n<cantidadPlatos; n++) {
         platoTemp = [_rootViewController demeDatosPlatoEnUbicacion:n];
         CCLOG(@"tipo plato caragdo ID %@ TIPO %@", platoTemp.id_plato, platoTemp.tipo);
-        [self loadPlateWithIdPlate:platoTemp.id_plato withSourceImg:platoTemp.fuente_img_peq withSourceClose:imageBtnClose withPrice:platoTemp.precio withKindPlate: platoTemp.tipo withName:platoTemp.nombre withNum: (n+1)];
+        [self loadPlateWithIdPlate:platoTemp.id_plato withSourceImg:platoTemp.fuente_img_peq withSourceClose:imageBtnClose withPrice:platoTemp.precio withKindPlate: platoTemp.tipo withName:platoTemp.nombre withNum: (n+1) withAmount:[_rootViewController demeCantidadPlatoPorId:platoTemp.id_plato]];
     }
 }
 
