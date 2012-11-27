@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		280238B61664261E00E69577 /* total_a_pagar_h.png in Resources */ = {isa = PBXBuildFile; fileRef = 280238B51664261E00E69577 /* total_a_pagar_h.png */; };
+		281FAA161665194A00322A34 /* flecha_der.png in Resources */ = {isa = PBXBuildFile; fileRef = 281FAA141665194A00322A34 /* flecha_der.png */; };
+		281FAA171665194A00322A34 /* flecha_izq.png in Resources */ = {isa = PBXBuildFile; fileRef = 281FAA151665194A00322A34 /* flecha_izq.png */; };
 		28C30774165FD3E20019D042 /* btn_closeapp.png in Resources */ = {isa = PBXBuildFile; fileRef = 28C30771165FD3DD0019D042 /* btn_closeapp.png */; };
 		28C30775165FD3E20019D042 /* fin_hor.png in Resources */ = {isa = PBXBuildFile; fileRef = 28C30772165FD3DF0019D042 /* fin_hor.png */; };
 		28C30776165FD3E20019D042 /* fin_ver.png in Resources */ = {isa = PBXBuildFile; fileRef = 28C30773165FD3E10019D042 /* fin_ver.png */; };
@@ -396,6 +399,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		280238B51664261E00E69577 /* total_a_pagar_h.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = total_a_pagar_h.png; sourceTree = "<group>"; };
+		281FAA141665194A00322A34 /* flecha_der.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flecha_der.png; sourceTree = "<group>"; };
+		281FAA151665194A00322A34 /* flecha_izq.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flecha_izq.png; sourceTree = "<group>"; };
 		28C30771165FD3DD0019D042 /* btn_closeapp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_closeapp.png; sourceTree = "<group>"; };
 		28C30772165FD3DF0019D042 /* fin_hor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fin_hor.png; sourceTree = "<group>"; };
 		28C30773165FD3E10019D042 /* fin_ver.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fin_ver.png; sourceTree = "<group>"; };
@@ -1644,6 +1650,9 @@
 			isa = PBXGroup;
 			children = (
 				28C30771165FD3DD0019D042 /* btn_closeapp.png */,
+				280238B51664261E00E69577 /* total_a_pagar_h.png */,
+				281FAA141665194A00322A34 /* flecha_der.png */,
+				281FAA151665194A00322A34 /* flecha_izq.png */,
 				28C30772165FD3DF0019D042 /* fin_hor.png */,
 				28C30773165FD3E10019D042 /* fin_ver.png */,
 				C1D11B73164463B2003F0D4B /* menu_pago.png */,
@@ -2388,6 +2397,9 @@
 				28C30781165FDC3C0019D042 /* postre_lychees_con_arequipe_g.png in Resources */,
 				28C30782165FDC3C0019D042 /* postre_lychees_con_arequipe_p.png in Resources */,
 				28C30783165FDC3C0019D042 /* postre_lychees_con_arequipe.png in Resources */,
+				280238B61664261E00E69577 /* total_a_pagar_h.png in Resources */,
+				281FAA161665194A00322A34 /* flecha_der.png in Resources */,
+				281FAA171665194A00322A34 /* flecha_izq.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

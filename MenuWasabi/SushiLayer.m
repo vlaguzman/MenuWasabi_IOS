@@ -1,9 +1,8 @@
 //
 //  SushiLayer.m
 //  MenuWasabi
-//  CUIDADO
-//  Created by GIOVANNI LOPEZ on 21/09/12.
-//  Copyright 2012 __MyCompanyName__. All rights reserved.
+//  Created by Vladimir Guzmán on 21/09/12.
+//  Copyright 2012 3dementes All rights reserved.
 //
 
 #import "SushiLayer.h"
@@ -127,7 +126,10 @@ NSString *sectionTinyPlates = @"barra_agregar.png";
 NSString *upImage = @"flecha_total_up.png";
 NSString *DownImage = @"flecha_total.png";
 NSString *thanxImage = @"fin_hor.png";
+NSString *totalImage = @"total_a_pagar_h.png";
 NSString *fotter = @"pata_02.png";
+NSString *flechaIzq = @"flecha_izq.png";
+NSString *flechaDer = @"flecha_der.png";
 NSString *textFotter = @" Domicilios: (+57)(1) 522 6412                                         Calle 109 # 17-55 piso 2, Bogotá. Ver mapa   info@wasabisushilounge.co                                                                                      Powered by 3dementes";
 
 CCSprite *plato_grande1, *descripcion, *cuadro_total;
@@ -137,7 +139,6 @@ CCLabelTTF *label, *label2;
 CCLabelTTF *label_descripcion, *label_fotter;
 CCLabelTTF *label_total;
 CGPoint  initialPoint;
-//CGFloat xVelocityA, xVelocityB;
 float timei, timem, pos, resul_dif, time_efect;
 int changedLevel, difPlatesNames;
 
@@ -147,7 +148,7 @@ CGFloat finalX;
 CGFloat finalY;
 CGFloat animationDuration;
 
-CCMenu *menu, *menu_bebidas, *menu_atras, *menu_agregar, *menu_barra, *menu_pedidos, *menu_platosgrandes, *menu_detalles, *menu_up_down;
+CCMenu *menu, *menu_bebidas, *menu_atras, *menu_agregar, *menu_barra, *menu_pedidos, *menu_platosgrandes, *menu_detalles, *menu_up_down, *menu_total, *menu_hacerpedido, *menu_flechas;
 CGSize winSize;
 
 CCMenu *menuprueba;
@@ -159,17 +160,9 @@ BOOL bool_swipe = YES;
 
 
 -(void)changeValueNumPlates{
-  
-    NSString *tipoPlato = [_rootViewController demeTipoActual];
     NSMutableArray *platos = [[NSMutableArray alloc]init];
-    //platos = [[DAOPlatos sharedInstance] getPlatesByKind:[_rootViewController demeTipoActual]];
     platos = [[DAOPlatosJSON sharedInstance] getPlatesByKind:[_rootViewController demeTipoActual]];
-
     numPlates = [platos count];
-    
-    if (tipoPlato == tipoLicores){
-        limitMoveRight = ((numPlates-4) * limitMoveLeftMenuFactor)+limitMoveLeft;
-    }
     if (numPlates == 1) {
         posXprincipalMenu = posXprincipalMenuOnePlate;
     }
@@ -252,7 +245,7 @@ BOOL bool_swipe = YES;
             itemPrecio = [CCMenuItemLabel itemWithLabel:precio_plato target:self selector:@selector(onPushSceneTranLabel:)];
           
             itemAux = [CCMenuItemImage itemWithNormalImage:auxPlate.fuente_img selectedImage:auxPlate.fuente_img target:self selector:@selector(onPushSceneTranImage:)];
-           itemAux.tag=[auxPlate.id_plato intValue];
+            itemAux.tag=[auxPlate.id_plato intValue];
             
             itemAux.position = CGPointMake(itemAux.position.x +(i*paddingPrincipalPlates), itemAux.position.y);
             itemNombrePlato.position = CGPointMake(itemNombrePlato.position.x +(i*paddingPrincipalPlates), 168);
@@ -295,93 +288,103 @@ BOOL bool_swipe = YES;
 
         
         CCMenuItemImage *item_atras = [CCMenuItemImage itemWithNormalImage:btnGoBack selectedImage:btnGoBack target:self selector:@selector(onGoBack:)];
-        
         menu_atras = [CCMenu menuWithItems:item_atras, nil];
         menu_atras.position = CGPointMake(940, winSize.height+100);
         [menu_atras alignItemsVertically];
         [self addChild:menu_atras];
-         //menu agregar oculto
+        //
+        //menu agregar oculto
+        //
         CCMenuItemImage *item_agregar = [CCMenuItemImage itemWithNormalImage:btnAddPlate selectedImage:btnAddPlate target:self selector:@selector(onAddPlate:)];
-        
-       
         menu_agregar = [CCMenu menuWithItems:item_agregar, nil];
         menu_agregar.position = CGPointMake(640, winSize.height+100);
         [menu_agregar alignItemsVertically];
         [self addChild:menu_agregar];
-
-        
-        CCMenuItemImage *item_barra = [CCMenuItemImage itemWithNormalImage:sectionTinyPlates selectedImage:sectionTinyPlates];
-        menu_barra = [[CCMenu alloc]init];
-        [menu_barra addChild:item_barra];
-        
+        //
         //menu agregar oculto
-        //menu_barra = [CCMenu menuWithItems:item_barra, item_up_down, nil];
+        //
+        menu_barra = [[CCMenu alloc]init];
+        CCMenuItemImage *item_barra = [CCMenuItemImage itemWithNormalImage:sectionTinyPlates selectedImage:sectionTinyPlates];
+        [menu_barra addChild:item_barra];
         menu_barra.position = CGPointMake(522, -50);
         [menu_barra alignItemsVertically];
         [self addChild:menu_barra];
-        
         //
         // Menú inferior - Total cuenta
         //
-        
-        CCMenuItemImage *imgBtnTotal;
-        CCMenuItemLabel *lblTotal;
-        
-        label_total = [CCLabelTTF labelWithString:@"" fontName:font fontSize:_fontSizeTotal];
-        [label_total setColor:ccDARKRED];
-        lblTotal = [CCMenuItemLabel itemWithLabel:label_total];
-        
-        imgBtnTotal = [CCMenuItemImage itemWithNormalImage:btnHacerPedido selectedImage:btnHacerPedido target:self selector:@selector(makeOrder:)];
-
         menu_up_down = [[CCMenu alloc]init];
         item_up_down =  [CCMenuItemImage itemWithNormalImage:upImage selectedImage:upImage target:self selector:@selector(onUpDown:)];
-        
-        imgBtnTotal.position = CGPointMake(posXimagenBotonTotalPagar, posYimagenBotonTotalPagar);
-        lblTotal.position = CGPointMake(posXlabelTotal, posYlabelTotal);
-        
-        [menu_up_down addChild:imgBtnTotal];
-        [menu_up_down addChild:lblTotal];
         [menu_up_down addChild:item_up_down];
-        
         menu_up_down.position = CGPointMake(522, 35);
         [self addChild:menu_up_down];
-
         //
+        //Menú grilla platos actuales
         //
-        //
-        
         menu_pedidos = [[CCMenu alloc]init];
         menu_pedidos.position = CGPointMake(posXmenuPedidos, posYmenuPedidos);
         [self addChild:menu_pedidos];
+        //
+        //Menú total cuenta
+        //
+        menu_total = [[CCMenu alloc]init];
+        CCMenuItemImage *imgTotal;
+        CCMenuItemLabel *lblTotal;
+        imgTotal = [CCMenuItemImage itemWithNormalImage:totalImage selectedImage:totalImage];
+        label_total = [CCLabelTTF labelWithString:@"" fontName:font fontSize:_fontSizeTotal];
+        [label_total setColor:ccDARKRED];
+        lblTotal = [CCMenuItemLabel itemWithLabel:label_total];
+        lblTotal.position = CGPointMake(-80, -32);
+        [menu_total addChild:imgTotal];
+        [menu_total addChild:lblTotal];
+         menu_total.position = CGPointMake(910, posYmenuPedidos);
+        [self addChild:menu_total];
+        //
+        //Menú botones desplazamiento
+        //
+        menu_flechas = [[CCMenu alloc]init];
+        CCMenuItemImage *item_izq = [CCMenuItemImage itemWithNormalImage:flechaIzq selectedImage:flechaIzq target:self selector:@selector(moveLeftMenuActualPlates:)];
+        CCMenuItemImage *item_der = [CCMenuItemImage itemWithNormalImage:flechaDer selectedImage:flechaDer target:self selector:@selector(moveRightMenuActualPlates:)];
+        item_izq.position = CGPointMake(-500, -20);
+        item_der.position = CGPointMake(265, -20);
+        [menu_flechas addChild:item_izq];
+        [menu_flechas addChild:item_der];
+        menu_flechas.position = CGPointMake(522, posYmenuPedidos);
+        [self addChild:menu_flechas];
 
-        
+        //
+        //Menú Botón total cuenta
+        //
+        menu_hacerpedido = [[CCMenu alloc]init];
+        CCMenuItemImage *imgBtnTotal;
+        imgTotal = [CCMenuItemImage itemWithNormalImage:totalImage selectedImage:totalImage];
+        imgBtnTotal = [CCMenuItemImage itemWithNormalImage:btnHacerPedido selectedImage:btnHacerPedido target:self selector:@selector(makeOrder:)];
+        imgBtnTotal.position = CGPointMake(-10, -50);
+        [menu_hacerpedido addChild:imgBtnTotal];
+        menu_hacerpedido.position = CGPointMake(910, posYmenuPedidos);
+        [self addChild:menu_hacerpedido];
+        //
+        // Fotter
+        //
         CCSprite *img_fotter;
         img_fotter = [CCSprite spriteWithFile:fotter rect:CGRectMake(0, 0, 1024, 26)];
         img_fotter.position = ccp(522, 5);
         [self addChild:img_fotter];
-        
         label_fotter = [CCLabelTTF labelWithString:textFotter fontName:font fontSize:_fontSizeFotter];
-        //[label_total setColor:ccDARKRED];
 		label_fotter.position =  ccp(522 , 8);
 		[self addChild: label_fotter];
-    
-        
         //
         // Imagen "Gracias por su compra"
         //
-        
-        
         spriteThanxsImage = [CCSprite spriteWithFile:thanxImage rect:CGRectMake(0, 0, 1024, 768)];
         spriteThanxsImage.position = ccp(AHalfWinSizeX, -AHalfWinSizeY);
         [self addChild:spriteThanxsImage];
         
         //
-        //
+        // Reconocimiento de toruch
         //
          UIPanGestureRecognizer *panRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(move:)];
          [panRecognizer setMinimumNumberOfTouches:1];
          [panRecognizer setMaximumNumberOfTouches:1];
-         //[panRecognizer setDelegate:self];
          [[[CCDirector sharedDirector] openGLView] addGestureRecognizer:panRecognizer];
          [panRecognizer release];
          
@@ -729,10 +732,10 @@ BOOL bool_swipe = YES;
     NSString *str_total = [[NSString alloc]initWithFormat:@"$ %i", [_rootViewController demeTotalCuenta]];
     [label_total setString:str_total];
     
-    
-    /*if((iactualPlate == _tag)||(!([_rootViewController estaPlato:[[NSString alloc]initWithFormat:@"%i", iactualPlate]])&&(iactualPlate!=-1)&&(_rootViewController.demeNumeroPlatosEnOrden < 6))){
-        [self moveMenu_withMenu:menu_agregar withXpox:posXaparecerAgregar withYpos:posYaparecerAgregar withTimeTransition:1.0];
-    }*/
+    if (_rootViewController.demeNumeroPlatosEnOrden <= 6) {
+        [self moveMenu_withMenu:menu_pedidos withXpox:posXmenuPedidos withYpos:menu_pedidos.position.y withTimeTransition:1];
+    }
+
     
 }
 
@@ -751,10 +754,27 @@ BOOL bool_swipe = YES;
     [self moveMenu_withMenu:menu_up_down withXpox:menu_up_down.position.x withYpos:posy+85 withTimeTransition:0.5];
     [self moveMenu_withMenu:menu_barra withXpox:menu_barra.position.x withYpos:posy withTimeTransition:0.5];
     [self moveMenu_withMenu:menu_pedidos withXpox:menu_pedidos.position.x withYpos:posy withTimeTransition:0.5];
+    [self moveMenu_withMenu:menu_total withXpox:menu_total.position.x withYpos:posy withTimeTransition:0.5];
+    [self moveMenu_withMenu:menu_hacerpedido withXpox:menu_total.position.x withYpos:posy withTimeTransition:0.5];
+    [self moveMenu_withMenu:menu_flechas withXpox:menu_flechas.position.x withYpos:posy withTimeTransition:0.5];
     [self moveSprite: cuadro_total with_pox:cuadro_total.position.x with_posy:posy withTimeTransition:0.5];
 
 
 }
+
+-(void)moveLeftMenuActualPlates:(id) sender{
+    if (_rootViewController.demeNumeroPlatosEnOrden > 6) {
+        [self moveMenu_withMenu:menu_pedidos withXpox:menu_pedidos.position.x-128 withYpos:menu_pedidos.position.y withTimeTransition:0.5];
+    }
+    
+}
+
+-(void)moveRightMenuActualPlates:(id) sender{
+    if (_rootViewController.demeNumeroPlatosEnOrden > 6) {
+        [self moveMenu_withMenu:menu_pedidos withXpox:menu_pedidos.position.x+128 withYpos:menu_pedidos.position.y withTimeTransition:0.5];
+    }
+}
+
 
 - (void) dealloc
 {

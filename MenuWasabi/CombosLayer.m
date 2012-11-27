@@ -457,11 +457,7 @@ CCSprite *spriteThankYouImage;
     [self loadMenuResume];
     NSString *str_total = [[NSString alloc]initWithFormat:@"$ %i", [_rootViewController demeTotalCuenta]];
     [labelTotal setString:str_total];
-    
-    
-    /*if((actualCombo == _tag)||(!([_rootViewController estaPlato:[[NSString alloc]initWithFormat:@"%i", actualCombo]])&&(actualCombo!=-1)&&(_rootViewController.demeNumeroPlatosEnOrden < 4))){
-        [self moveMenu_withMenu:addPlateMenu withXpox:addPlateMenu.position.x withYpos:Y_WIN_SIZE+100 withTimeTransition:1.0];
-    }*/
+
   
 }
 
