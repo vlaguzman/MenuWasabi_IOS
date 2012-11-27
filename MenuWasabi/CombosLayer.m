@@ -26,6 +26,9 @@
 #define Y_POS_COMBO_M 50
 #define X_POS_COMBOS_RIGHT 250
 #define Y_POS_COMBOS_DOWN -100
+#define X_POS_ACTUAL_PLATES_MENU 50
+#define Y_POS_ACTUAL_PLATES_MENU -100
+
 #define DIFFERENCE_IMAGE_NAME 110
 #define DIFFERENCE_IMAGE_PRICE 130
 #define DIFFERENCE_IMAGE_SPACE_DESCRIPTION 120
@@ -54,8 +57,12 @@ NSString *imageDown = @"flecha_total.png";
 NSString *imageSectionTinyPlates = @"menu_pago.png";
 NSString *imageSpaceNameDescription = @"nombres.png";
 NSString *imageThankYouPage = @"fin_ver.png";
+NSString *imageLeftArrow = @"flecha_izq.png";
+NSString *imageRightArrow = @"flecha_der.png";
+NSString *imageTotalSection = @"total_a_pagar_h.png";
+NSString *imageSectionLeft = @"left.png";
 
-CCMenu *principalMenu, *bigPlateImage, *bigPlateDescription, *goBackMenu, *addPlateMenu, *orderMenu, *upDownMenu, *actualPlatesMenu;
+CCMenu *principalMenu, *bigPlateImage, *bigPlateDescription, *goBackMenu, *addPlateMenu, *orderMenu, *upDownMenu, *actualPlatesMenu, *totalMenu, *arrowsMenu, *btnMakeOrderMenu;
 //BOOL bool_swipe_combos = YES;
 
 CCMenuItemLabel *itemComboName1, *itemComboPrice1;
@@ -99,7 +106,6 @@ CCSprite *spriteThankYouImage;
         //
         //Principal menu items
         //
-        
         principalMenu = [[CCMenu alloc]init];
     
         NSMutableArray *platos = [[NSMutableArray alloc]init];
@@ -167,13 +173,10 @@ CCSprite *spriteThankYouImage;
         
         principalMenu.position = CGPointMake(A_HALF_X_WIN_SIZE, A_HALF_Y_WIN_SIZE);
         [self addChild:principalMenu];
-        
-
         //
         // Big plate image
         //
         bigPlateImage = [[CCMenu alloc]init];
-        
         itemComboImage2 = [[CCMenuItemImage alloc]init];
         [bigPlateImage addChild:itemComboImage2];
         bigPlateImage.position = CGPointMake(X_WIN_SIZE+A_HALF_X_WIN_SIZE, A_HALF_Y_WIN_SIZE-50);
@@ -184,26 +187,21 @@ CCSprite *spriteThankYouImage;
         // Big plate description items
         //
         bigPlateDescription = [[CCMenu alloc]init];
-        
         comboDescription = [CCLabelTTF  labelWithString:@"" dimensions:CGSizeMake(180, 100) hAlignment:UITextAlignmentCenter vAlignment:UITextAlignmentCenter fontName:fontCombos fontSize:_fontSizeComboDescription];
         itemImageDescriptionSpace = [CCMenuItemImage itemWithNormalImage:imageBigPlateDescription selectedImage:imageBigPlateDescription];
         itemComboDescription = [CCMenuItemLabel itemWithLabel:comboDescription];
         [bigPlateDescription addChild:itemImageDescriptionSpace];
         [bigPlateDescription addChild:itemComboDescription];
         bigPlateDescription.position = CGPointMake(-A_HALF_X_WIN_SIZE, A_HALF_Y_WIN_SIZE+150);
-        
         [self addChild:bigPlateDescription];
         
         //
         // Go Back Menu
         //
         goBackMenu = [[CCMenu alloc]init];
-        
         CCMenuItemImage *itemImageGoBack = [CCMenuItemImage itemWithNormalImage:imageBtnGoBack selectedImage:imageBtnGoBack target:self selector:@selector(onGoBack:)];
-        
         goBackMenu = [CCMenu menuWithItems:itemImageGoBack, nil];
         goBackMenu.position = CGPointMake(X_WIN_SIZE-100, Y_WIN_SIZE+100);
-
         [self addChild:goBackMenu];
         
         //
@@ -222,60 +220,78 @@ CCSprite *spriteThankYouImage;
         // Menu actual order
         //
         orderMenu = [[CCMenu alloc] init];
-        
-       // CCMenuItemImage *imgBtnTotal;
-        CCMenuItemLabel *lblTotal;
         CCMenuItemImage *itemMenuOrder = [CCMenuItemImage itemWithNormalImage:imageSectionTinyPlates selectedImage:imageSectionTinyPlates];
-        
-        labelTotal = [CCLabelTTF labelWithString:@"0" fontName:fontCombos fontSize:_fontSizeTotalCombos];
-        [labelTotal setColor:cc_DARKRED];
-        lblTotal = [CCMenuItemLabel itemWithLabel:labelTotal];
-        
-       // imgBtnTotal = [CCMenuItemImage itemWithNormalImage:imageBtnMakeOrder selectedImage:imageBtnMakeOrder target:self selector:@selector(makeOrder:)];
-        
-        lblTotal.position = CGPointMake(220, -20);
-       // imgBtnTotal.position = CGPointMake(280, -60);//-60
-        
         [orderMenu addChild:itemMenuOrder];
-       // [orderMenu addChild:imgBtnTotal];
-        [orderMenu addChild:lblTotal];
         orderMenu.position = CGPointMake(A_HALF_X_WIN_SIZE, -70);
         
         [self addChild:orderMenu];
-        
         //
         // Menu actual plates
         //
         actualPlatesMenu = [[CCMenu alloc] init];
-        actualPlatesMenu.position = CGPointMake(50, -100);
+        actualPlatesMenu.position = CGPointMake(X_POS_ACTUAL_PLATES_MENU, Y_POS_ACTUAL_PLATES_MENU);
         [self addChild:actualPlatesMenu];
-        
         //
         // Button to show or hide the menu actual order
         //
-        CCMenuItemImage *imgBtnTotal;
-        
         upDownMenu = [[CCMenu alloc]init];
         imgUpDown =  [CCMenuItemImage itemWithNormalImage:imageUp selectedImage:imageUp target:self selector:@selector(onUpDown:)];
         [upDownMenu addChild:imgUpDown];
         upDownMenu.position = CGPointMake(A_HALF_X_WIN_SIZE+2, 10);
-        
-        imgBtnTotal = [CCMenuItemImage itemWithNormalImage:imageBtnMakeOrder selectedImage:imageBtnMakeOrder target:self selector:@selector(makeOrder:)];
-        imgBtnTotal.position = CGPointMake(A_HALF_X_WIN_SIZE-105, -140);
-        [upDownMenu addChild:imgBtnTotal];
-        
+
         [self addChild:upDownMenu];
-        
-        
-        [self updateTotalBill];
-        [self loadMenuResume];
-        
+
+        //
+        //Menú total Bill - Label total and img 
+        //
+        totalMenu = [[CCMenu alloc]init];
+        CCMenuItemImage *imgTotal, *imgLeft;
+        CCMenuItemLabel *lblTotal;
+        labelTotal = [CCLabelTTF labelWithString:@"0" fontName:fontCombos fontSize:_fontSizeTotalCombos];
+        [labelTotal setColor:cc_DARKRED];
+        lblTotal = [CCMenuItemLabel itemWithLabel:labelTotal];
+        imgTotal = [CCMenuItemImage itemWithNormalImage:imageTotalSection selectedImage:imageTotalSection];
+        imgLeft = [CCMenuItemImage itemWithNormalImage:imageSectionLeft selectedImage:imageSectionLeft];
+        lblTotal.position = CGPointMake(-75, -15);
+        imgLeft.position= CGPointMake(-652, 0);
+        [totalMenu addChild:imgLeft];
+        [totalMenu addChild:imgTotal];
+        [totalMenu addChild:lblTotal];
+        totalMenu.position = CGPointMake(662, -138);
+        [self addChild:totalMenu];
+        //
+        //Menú botones desplazamiento
+        //
+        arrowsMenu = [[CCMenu alloc]init];
+        CCMenuItemImage *item_izq = [CCMenuItemImage itemWithNormalImage:imageLeftArrow selectedImage:imageLeftArrow target:self selector:@selector(moveLeftMenuActualPlates:)];
+        CCMenuItemImage *item_der = [CCMenuItemImage itemWithNormalImage:imageRightArrow selectedImage:imageRightArrow target:self selector:@selector(moveRightMenuActualPlates:)];
+        item_izq.position = CGPointMake(-510, -20);
+        item_der.position = CGPointMake(25, -20);
+        [arrowsMenu addChild:item_izq];
+        [arrowsMenu addChild:item_der];
+        arrowsMenu.position = CGPointMake(522, -140);
+        [self addChild:arrowsMenu];
+        //
+        //Menú total bill botton
+        //
+        btnMakeOrderMenu = [[CCMenu alloc]init];
+        CCMenuItemImage *imgBtnTotal;
+        imgBtnTotal = [CCMenuItemImage itemWithNormalImage:imageBtnMakeOrder selectedImage:imageBtnMakeOrder target:self selector:@selector(makeOrder:)];
+        imgBtnTotal.position = CGPointMake(-10, -50);
+        [btnMakeOrderMenu addChild:imgBtnTotal];
+        btnMakeOrderMenu.position = CGPointMake(650, -140);
+        [self addChild:btnMakeOrderMenu];
         //
         // Image Thank you page
         //
         spriteThankYouImage = [CCSprite spriteWithFile:imageThankYouPage rect:CGRectMake(0, 0, 768, 1024)];
         spriteThankYouImage.position = ccp(-A_HALF_X_WIN_SIZE, A_HALF_Y_WIN_SIZE);
         [self addChild:spriteThankYouImage];
+        //
+        // Aditional functions to update the total and actual order
+        //
+        [self updateTotalBill];
+        [self loadMenuResume];
    }
 
     return self;
@@ -388,6 +404,11 @@ CCSprite *spriteThankYouImage;
     [self moveMenu_withMenu:orderMenu withXpox:orderMenu.position.x withYpos:posy withTimeTransition:0.5];
     [self moveMenu_withMenu:upDownMenu withXpox:upDownMenu.position.x withYpos:posy+80 withTimeTransition:0.5];
     [self moveMenu_withMenu:actualPlatesMenu withXpox:actualPlatesMenu.position.x withYpos:posy withTimeTransition:0.5];
+    
+    [self moveMenu_withMenu:totalMenu withXpox:totalMenu.position.x withYpos:posy-2 withTimeTransition:0.5];
+    [self moveMenu_withMenu:btnMakeOrderMenu withXpox:btnMakeOrderMenu.position.x withYpos:posy withTimeTransition:0.5];
+    [self moveMenu_withMenu:arrowsMenu withXpox:arrowsMenu.position.x withYpos:posy withTimeTransition:0.5];
+    
    /// [self moveSprite: cuadro_total with_pox:cuadro_total.position.x with_posy:posy withTimeTransition:0.5];
     
     
@@ -448,7 +469,6 @@ CCSprite *spriteThankYouImage;
 
 -(void) onDeletePlate:(id) sender
 {
-    CCLOG(@"onDeletePlate ");
     NSInteger _tag = [sender tag];
     NSString *_kind_str = [sender accessibilityValue];
     
@@ -458,7 +478,9 @@ CCSprite *spriteThankYouImage;
     NSString *str_total = [[NSString alloc]initWithFormat:@"$ %i", [_rootViewController demeTotalCuenta]];
     [labelTotal setString:str_total];
 
-  
+    if (_rootViewController.demeNumeroPlatosEnOrden <= 4) {
+        [self moveMenu_withMenu:actualPlatesMenu withXpox:X_POS_ACTUAL_PLATES_MENU withYpos:actualPlatesMenu.position.y withTimeTransition:1];
+    }
 }
 
 -(void) loadMenuResume{
@@ -470,5 +492,19 @@ CCSprite *spriteThankYouImage;
         [self loadPlateWithIdPlate:platoTemp.id_plato withSourceImg:platoTemp.fuente_img_peq withSourceClose:imageBtnClose withPrice:platoTemp.precio withKindPlate: platoTemp.tipo withName:platoTemp.nombre withNum: (n+1) withAmount:[_rootViewController demeCantidadPlatoPorId:platoTemp.id_plato]];
     }
 }
+
+-(void)moveLeftMenuActualPlates:(id) sender{
+    if (_rootViewController.demeNumeroPlatosEnOrden > 4) {
+        [self moveMenu_withMenu:actualPlatesMenu withXpox:actualPlatesMenu.position.x-128 withYpos:actualPlatesMenu.position.y withTimeTransition:0.5];
+    }
+    
+}
+
+-(void)moveRightMenuActualPlates:(id) sender{
+    if (_rootViewController.demeNumeroPlatosEnOrden > 4) {
+        [self moveMenu_withMenu:actualPlatesMenu withXpox:actualPlatesMenu.position.x+128 withYpos:actualPlatesMenu.position.y withTimeTransition:0.5];
+    }
+}
+
 
 @end

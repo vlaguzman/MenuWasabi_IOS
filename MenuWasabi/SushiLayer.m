@@ -127,6 +127,7 @@ NSString *upImage = @"flecha_total_up.png";
 NSString *DownImage = @"flecha_total.png";
 NSString *thanxImage = @"fin_hor.png";
 NSString *totalImage = @"total_a_pagar_h.png";
+NSString *sectionLeftImage = @"left.png";
 NSString *fotter = @"pata_02.png";
 NSString *flechaIzq = @"flecha_izq.png";
 NSString *flechaDer = @"flecha_der.png";
@@ -310,7 +311,7 @@ BOOL bool_swipe = YES;
         [menu_barra alignItemsVertically];
         [self addChild:menu_barra];
         //
-        // Menú inferior - Total cuenta
+        // Menú inferior 
         //
         menu_up_down = [[CCMenu alloc]init];
         item_up_down =  [CCMenuItemImage itemWithNormalImage:upImage selectedImage:upImage target:self selector:@selector(onUpDown:)];
@@ -321,19 +322,22 @@ BOOL bool_swipe = YES;
         //Menú grilla platos actuales
         //
         menu_pedidos = [[CCMenu alloc]init];
-        menu_pedidos.position = CGPointMake(posXmenuPedidos, posYmenuPedidos);
+        menu_pedidos.position = CGPointMake(posXmenuPedidos+10, posYmenuPedidos);
         [self addChild:menu_pedidos];
         //
         //Menú total cuenta
         //
         menu_total = [[CCMenu alloc]init];
-        CCMenuItemImage *imgTotal;
+        CCMenuItemImage *imgTotal, *imgSectionLeft;
         CCMenuItemLabel *lblTotal;
         imgTotal = [CCMenuItemImage itemWithNormalImage:totalImage selectedImage:totalImage];
+        imgSectionLeft = [CCMenuItemImage itemWithNormalImage:sectionLeftImage selectedImage:sectionLeftImage];
         label_total = [CCLabelTTF labelWithString:@"" fontName:font fontSize:_fontSizeTotal];
         [label_total setColor:ccDARKRED];
         lblTotal = [CCMenuItemLabel itemWithLabel:label_total];
         lblTotal.position = CGPointMake(-80, -32);
+        imgSectionLeft.position = CGPointMake(-880, 0);
+        [menu_total addChild:imgSectionLeft];
         [menu_total addChild:imgTotal];
         [menu_total addChild:lblTotal];
          menu_total.position = CGPointMake(910, posYmenuPedidos);
@@ -345,7 +349,7 @@ BOOL bool_swipe = YES;
         CCMenuItemImage *item_izq = [CCMenuItemImage itemWithNormalImage:flechaIzq selectedImage:flechaIzq target:self selector:@selector(moveLeftMenuActualPlates:)];
         CCMenuItemImage *item_der = [CCMenuItemImage itemWithNormalImage:flechaDer selectedImage:flechaDer target:self selector:@selector(moveRightMenuActualPlates:)];
         item_izq.position = CGPointMake(-500, -20);
-        item_der.position = CGPointMake(265, -20);
+        item_der.position = CGPointMake(270, -20);
         [menu_flechas addChild:item_izq];
         [menu_flechas addChild:item_der];
         menu_flechas.position = CGPointMake(522, posYmenuPedidos);
@@ -356,7 +360,6 @@ BOOL bool_swipe = YES;
         //
         menu_hacerpedido = [[CCMenu alloc]init];
         CCMenuItemImage *imgBtnTotal;
-        imgTotal = [CCMenuItemImage itemWithNormalImage:totalImage selectedImage:totalImage];
         imgBtnTotal = [CCMenuItemImage itemWithNormalImage:btnHacerPedido selectedImage:btnHacerPedido target:self selector:@selector(makeOrder:)];
         imgBtnTotal.position = CGPointMake(-10, -50);
         [menu_hacerpedido addChild:imgBtnTotal];
@@ -680,7 +683,7 @@ BOOL bool_swipe = YES;
     itemPrecio = [CCMenuItemLabel itemWithLabel:precio_plato];
     itemPrecio.tag = [_idPlate intValue];
     
-    CCLabelTTF *name_plate = [CCLabelTTF labelWithString:@"name" dimensions:CGSizeMake(120, 60) hAlignment:UITextAlignmentCenter vAlignment:UITextAlignmentCenter fontName:font fontSize:_fontSizeOrderName];
+    CCLabelTTF *name_plate = [CCLabelTTF labelWithString:@"name" dimensions:CGSizeMake(100, 60) hAlignment:UITextAlignmentCenter vAlignment:UITextAlignmentCenter fontName:font fontSize:_fontSizeOrderName];
     [name_plate setString:_name];
     itemName = [CCMenuItemLabel itemWithLabel:name_plate];
     itemName.tag = [_idPlate intValue];
@@ -722,7 +725,6 @@ BOOL bool_swipe = YES;
 
 -(void) onDeletePlate:(id) sender
 {
-    CCLOG(@"onDeletePlate %i", [_rootViewController demeNumeroPlatosEnOrden]);
     NSInteger _tag = [sender tag];
     NSString *_kind_str = [sender accessibilityValue];
         
@@ -763,18 +765,23 @@ BOOL bool_swipe = YES;
 }
 
 -(void)moveLeftMenuActualPlates:(id) sender{
+    [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(moveLeftMenu:) userInfo:nil repeats:NO];
+}
+
+-(void)moveLeftMenu{
     if (_rootViewController.demeNumeroPlatosEnOrden > 6) {
         [self moveMenu_withMenu:menu_pedidos withXpox:menu_pedidos.position.x-128 withYpos:menu_pedidos.position.y withTimeTransition:0.5];
     }
-    
 }
 
 -(void)moveRightMenuActualPlates:(id) sender{
+    [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(moveRightMenu:) userInfo:nil repeats:NO];
+}
+-(void)moveRightMenu{
     if (_rootViewController.demeNumeroPlatosEnOrden > 6) {
         [self moveMenu_withMenu:menu_pedidos withXpox:menu_pedidos.position.x+128 withYpos:menu_pedidos.position.y withTimeTransition:0.5];
     }
 }
-
 
 - (void) dealloc
 {
