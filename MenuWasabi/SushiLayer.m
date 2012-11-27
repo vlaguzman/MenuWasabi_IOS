@@ -127,7 +127,7 @@ NSString *upImage = @"flecha_total_up.png";
 NSString *DownImage = @"flecha_total.png";
 NSString *thanxImage = @"fin_hor.png";
 NSString *totalImage = @"total_a_pagar_h.png";
-NSString *sectionLeftImage = @"left.png";
+NSString *sectionLeftImage = @"left2.png";
 NSString *fotter = @"pata_02.png";
 NSString *flechaIzq = @"flecha_izq.png";
 NSString *flechaDer = @"flecha_der.png";
@@ -307,7 +307,7 @@ BOOL bool_swipe = YES;
         menu_barra = [[CCMenu alloc]init];
         CCMenuItemImage *item_barra = [CCMenuItemImage itemWithNormalImage:sectionTinyPlates selectedImage:sectionTinyPlates];
         [menu_barra addChild:item_barra];
-        menu_barra.position = CGPointMake(522, -50);
+        menu_barra.position = CGPointMake(515, -50);
         [menu_barra alignItemsVertically];
         [self addChild:menu_barra];
         //
@@ -316,13 +316,13 @@ BOOL bool_swipe = YES;
         menu_up_down = [[CCMenu alloc]init];
         item_up_down =  [CCMenuItemImage itemWithNormalImage:upImage selectedImage:upImage target:self selector:@selector(onUpDown:)];
         [menu_up_down addChild:item_up_down];
-        menu_up_down.position = CGPointMake(522, 35);
+        menu_up_down.position = CGPointMake(515, 35);
         [self addChild:menu_up_down];
         //
         //Menú grilla platos actuales
         //
         menu_pedidos = [[CCMenu alloc]init];
-        menu_pedidos.position = CGPointMake(posXmenuPedidos+10, posYmenuPedidos);
+        menu_pedidos.position = CGPointMake(posXmenuPedidos+10-7, posYmenuPedidos);
         [self addChild:menu_pedidos];
         //
         //Menú total cuenta
@@ -336,11 +336,11 @@ BOOL bool_swipe = YES;
         [label_total setColor:ccDARKRED];
         lblTotal = [CCMenuItemLabel itemWithLabel:label_total];
         lblTotal.position = CGPointMake(-80, -32);
-        imgSectionLeft.position = CGPointMake(-880, 0);
+        imgSectionLeft.position = CGPointMake(-895, 0);
         [menu_total addChild:imgSectionLeft];
         [menu_total addChild:imgTotal];
         [menu_total addChild:lblTotal];
-         menu_total.position = CGPointMake(910, posYmenuPedidos);
+         menu_total.position = CGPointMake(903, posYmenuPedidos);
         [self addChild:menu_total];
         //
         //Menú botones desplazamiento
@@ -352,7 +352,7 @@ BOOL bool_swipe = YES;
         item_der.position = CGPointMake(270, -20);
         [menu_flechas addChild:item_izq];
         [menu_flechas addChild:item_der];
-        menu_flechas.position = CGPointMake(522, posYmenuPedidos);
+        menu_flechas.position = CGPointMake(515, posYmenuPedidos);
         [self addChild:menu_flechas];
 
         //
@@ -363,7 +363,7 @@ BOOL bool_swipe = YES;
         imgBtnTotal = [CCMenuItemImage itemWithNormalImage:btnHacerPedido selectedImage:btnHacerPedido target:self selector:@selector(makeOrder:)];
         imgBtnTotal.position = CGPointMake(-10, -50);
         [menu_hacerpedido addChild:imgBtnTotal];
-        menu_hacerpedido.position = CGPointMake(910, posYmenuPedidos);
+        menu_hacerpedido.position = CGPointMake(903, posYmenuPedidos);
         [self addChild:menu_hacerpedido];
         //
         // Fotter
@@ -765,23 +765,18 @@ BOOL bool_swipe = YES;
 }
 
 -(void)moveLeftMenuActualPlates:(id) sender{
-    [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(moveLeftMenu:) userInfo:nil repeats:NO];
+   // if (_rootViewController.demeNumeroPlatosEnOrden > 6) {
+        [self moveMenu_withMenu:menu_pedidos withXpox:menu_pedidos.position.x-128 withYpos:menu_pedidos.position.y withTimeTransition:0.3];
+   // }
 }
 
--(void)moveLeftMenu{
-    if (_rootViewController.demeNumeroPlatosEnOrden > 6) {
-        [self moveMenu_withMenu:menu_pedidos withXpox:menu_pedidos.position.x-128 withYpos:menu_pedidos.position.y withTimeTransition:0.5];
-    }
-}
 
 -(void)moveRightMenuActualPlates:(id) sender{
-    [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(moveRightMenu:) userInfo:nil repeats:NO];
+    //if (_rootViewController.demeNumeroPlatosEnOrden > 6) {
+        [self moveMenu_withMenu:menu_pedidos withXpox:menu_pedidos.position.x+128 withYpos:menu_pedidos.position.y withTimeTransition:0.3];
+    //}
 }
--(void)moveRightMenu{
-    if (_rootViewController.demeNumeroPlatosEnOrden > 6) {
-        [self moveMenu_withMenu:menu_pedidos withXpox:menu_pedidos.position.x+128 withYpos:menu_pedidos.position.y withTimeTransition:0.5];
-    }
-}
+
 
 - (void) dealloc
 {

@@ -12,6 +12,7 @@
 		281FAA171665194A00322A34 /* flecha_izq.png in Resources */ = {isa = PBXBuildFile; fileRef = 281FAA151665194A00322A34 /* flecha_izq.png */; };
 		281FAA1A1665350000322A34 /* instrucciones.png in Resources */ = {isa = PBXBuildFile; fileRef = 281FAA191665350000322A34 /* instrucciones.png */; };
 		281FAA1C1665350D00322A34 /* left.png in Resources */ = {isa = PBXBuildFile; fileRef = 281FAA1B1665350D00322A34 /* left.png */; };
+		281FAA1E16656FCD00322A34 /* left2.png in Resources */ = {isa = PBXBuildFile; fileRef = 281FAA1D16656FCD00322A34 /* left2.png */; };
 		28C30774165FD3E20019D042 /* btn_closeapp.png in Resources */ = {isa = PBXBuildFile; fileRef = 28C30771165FD3DD0019D042 /* btn_closeapp.png */; };
 		28C30775165FD3E20019D042 /* fin_hor.png in Resources */ = {isa = PBXBuildFile; fileRef = 28C30772165FD3DF0019D042 /* fin_hor.png */; };
 		28C30776165FD3E20019D042 /* fin_ver.png in Resources */ = {isa = PBXBuildFile; fileRef = 28C30773165FD3E10019D042 /* fin_ver.png */; };
@@ -406,6 +407,7 @@
 		281FAA151665194A00322A34 /* flecha_izq.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flecha_izq.png; sourceTree = "<group>"; };
 		281FAA191665350000322A34 /* instrucciones.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = instrucciones.png; sourceTree = "<group>"; };
 		281FAA1B1665350D00322A34 /* left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = left.png; sourceTree = "<group>"; };
+		281FAA1D16656FCD00322A34 /* left2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = left2.png; sourceTree = "<group>"; };
 		28C30771165FD3DD0019D042 /* btn_closeapp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_closeapp.png; sourceTree = "<group>"; };
 		28C30772165FD3DF0019D042 /* fin_hor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fin_hor.png; sourceTree = "<group>"; };
 		28C30773165FD3E10019D042 /* fin_ver.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fin_ver.png; sourceTree = "<group>"; };
@@ -1662,6 +1664,7 @@
 				28C30773165FD3E10019D042 /* fin_ver.png */,
 				C1D11B73164463B2003F0D4B /* menu_pago.png */,
 				C1EDA14D165BDA5C00B1C43D /* btn_enviar.png */,
+				281FAA1D16656FCD00322A34 /* left2.png */,
 				281FAA1B1665350D00322A34 /* left.png */,
 				C108632A16320367007D361E /* lista_bebidas.jpg */,
 				C123C97016389C4600474B44 /* btn_hacerpedido.png */,
@@ -2408,6 +2411,7 @@
 				281FAA171665194A00322A34 /* flecha_izq.png in Resources */,
 				281FAA1A1665350000322A34 /* instrucciones.png in Resources */,
 				281FAA1C1665350D00322A34 /* left.png in Resources */,
+				281FAA1E16656FCD00322A34 /* left2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
