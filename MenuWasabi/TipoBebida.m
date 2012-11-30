@@ -9,7 +9,7 @@
 #import "TipoBebida.h"
 
 @implementation TipoBebida
-@synthesize id_bebida, nombre, fuente_img, fuente_img_grande, fuente_img_peq, tipo;
+@synthesize id_tipoBebida, nombre, fuente_img, fuente_img_grande, fuente_img_peq;
 
 -(id)init{
     nombre = @"vacio";

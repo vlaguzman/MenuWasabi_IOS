@@ -22,7 +22,6 @@
 -(int) getNumberOfPlates;
 - (int) getNumberOfPlatesByKind:(NSString *) _kind;
 
-
 - (Plato*) getPlateById:(NSString*) _idPlate;
 - (NSMutableArray*) getPlatesByKind:(NSString *) _kind;
 

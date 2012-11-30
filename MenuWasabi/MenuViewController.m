@@ -26,6 +26,7 @@
 
 //#import "DAOPlatos.h"
 #import "DAOPlatosJSON.h"
+#import "DAOTipoBebidasJSON.h"
 #import "Plato.h"
 //#import "DAOTipoPlato.h"
 #import "DAOTipoPlatoJSON.h"
@@ -65,6 +66,7 @@
 
 -(void)loadDataFromServer{
     [[DAOPlatosJSON sharedInstance] loadPlatesFromServer];
+    [[DAOTipoBebidasJSON sharedInstance] loadBeverageTypesFromServer];
 }
 
 - (void)moverBotones
@@ -125,8 +127,6 @@
 }
 
 
-
-//251-126
 
 -(void)moverBoton:(UIButton *)botn_ posx:(int)x_ posy:(int)y_ alpha:(double)alpha_ duracion:(double)tiempo_ delay:(double)delay_{
     

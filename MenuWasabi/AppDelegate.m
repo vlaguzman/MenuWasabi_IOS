@@ -64,8 +64,7 @@
     //self.databasePath = pathExample;
     NSLog(@"DATA BASE PATH  %@", self.databasePath);
     // Cargo la base de datos
-    //[self loadTipoPlatosJson];
-    [self pruba];
+    [self loadDataFromJson];
     
     //  [self updatePlato];
     // [self loadDataBase];
@@ -164,33 +163,27 @@
     }
 }
 */
--(void)pruba{
-    [[DAOMesaJSON sharedInstance] getTableByNumber:1];
-}
+
 -(void)loadDataFromJson{
-   //NSURL *jsonURL = [NSURL URLWithString:@"http://localhost:8888/wasabi/consultaplatos.php"];
-    NSURL *jsonURL = [NSURL URLWithString:@"http://www.brainztore.com/wasabi/consultaplatos.php"];
-    
+  
+    NSURL *jsonURL = [NSURL URLWithString:@"http://www.brainztore.com/wasabi/consultatipobebidas.php"];
     NSError *error = nil;
-       
-    NSString *jsonString = [[NSString alloc]initWithContentsOfURL:jsonURL encoding:NSUTF8StringEncoding error:&error];
     NSData *data = [NSData dataWithContentsOfURL:jsonURL];
-    
     NSDictionary *jsondict = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
-    NSArray *platos = [jsondict objectForKey:@"platos"];
-    NSLog(@"platos -------------------- %@ --- No de platos %i", platos, platos.count);
-    NSDictionary *plato= [platos objectAtIndex:3];
-    NSLog(@"plato -------------------- %@", plato);
-    NSNumber *precio = [plato objectForKey:@"precio"];
-    NSLog(@"Precio -----> %@", precio);
-    NSNumber *tipoplato = [plato objectForKey:@"id_tipoplato"];
+    NSArray *tbebidas = [jsondict objectForKey:@"tipoBebidas"];
+    NSLog(@"platos -------------------- %@ --- No de platos %i", tbebidas, tbebidas.count);
+    NSDictionary *tbebida= [tbebidas objectAtIndex:3];
+    NSLog(@"t bebida -------------------- %@", tbebida);
+    NSNumber *tipoplato = [tbebida objectForKey:@"id_tipoBebida"];
     NSLog(@"Tipo -----> %@", tipoplato);
-    NSString *descripcion = [plato objectForKey:@"descripcion"];
-    NSLog(@"Descripcion -----> %@", descripcion);
-    NSString *img_peq = [plato objectForKey:@"img_pequena"];
+    NSString *img_peq = [tbebida objectForKey:@"img_pequena"];
     NSLog(@"img_peq -----> %@", img_peq);
     
 }
+
+
+
+
 -(void)loadTipoPlatosJson{
     //NSURL *jsonURL = [NSURL URLWithString:@"http://localhost:8888/wasabi/consultaplatos.php"];
     NSURL *jsonURL = [NSURL URLWithString:@"http://www.brainztore.com/wasabi/consultatipoplatos.php"];

@@ -7,10 +7,11 @@
 
 #import "SushiLayer.h"
 #import "Plato.h"
+#import "TipoBebida.h"
 #import "AppDelegate.h"
 #import "CCTouchDispatcher.h"
 #import "CCActionInterval.h"
-//#import "DAOPlatos.h"
+#import "DAOTipoBebidasJSON.h"
 #import "DAOPlatosJSON.h"
 
 #define kMoveMedium 0.2
@@ -155,7 +156,9 @@ CGSize winSize;
 CCMenu *menuprueba;
 CCMenuItemImage *itemAux2, *item_up_down;
 BOOL bool_swipe = YES;
+BOOL es_comida = YES;
 
+NSString *tipoActual;
 
 @implementation SushiLayer
 
@@ -164,6 +167,17 @@ BOOL bool_swipe = YES;
     NSMutableArray *platos = [[NSMutableArray alloc]init];
     platos = [[DAOPlatosJSON sharedInstance] getPlatesByKind:[_rootViewController demeTipoActual]];
     numPlates = [platos count];
+    [self evalueNumPlates];
+}
+
+-(void)changeValueNumPlatesBeverages{
+    NSMutableArray *beverages = [[NSMutableArray alloc]init];
+    beverages = [[DAOTipoBebidasJSON sharedInstance] getBeverageTypesByKind:[_rootViewController demeTipoActual]];
+    numPlates = [beverages count];
+    [self evalueNumPlates];
+}
+
+-(void)evalueNumPlates{
     if (numPlates == 1) {
         posXprincipalMenu = posXprincipalMenuOnePlate;
     }
@@ -178,7 +192,6 @@ BOOL bool_swipe = YES;
         limitMoveRight = ((numPlates-4) * limitMoveLeftMenuFactorSushi)+limitMoveLeft;
     }
 }
-
 
 +(CCScene *) sceneWithVC:(RootViewController *)rootViewController
 {
@@ -196,10 +209,20 @@ BOOL bool_swipe = YES;
 -(id) initWithVC: (RootViewController *) rootViewController
 {
     if( (self=[super init] )) {
-        _rootViewController = rootViewController;
         
         bool_swipe=YES;
-        [self changeValueNumPlates];
+        _rootViewController = rootViewController;
+        
+        tipoActual = [_rootViewController demeTipoActual];
+        if(tipoActual == tipoBebidas) es_comida = NO;
+        if(tipoActual == tipoLicores) es_comida = NO;
+        if (es_comida) {
+            [self changeValueNumPlates];
+        }
+        else {
+            [self changeValueNumPlatesBeverages];
+        }
+        
         CGSize winSize = [[CCDirector sharedDirector] winSize];
         self.isTouchEnabled = YES;
         
@@ -220,42 +243,71 @@ BOOL bool_swipe = YES;
         itemPrecio = [[CCMenuItemLabel alloc]init];
         itemAux = [[CCMenuItemImage alloc]init];
         
-        NSMutableArray *platos = [[NSMutableArray alloc]init];
-        //platos = [[DAOPlatos sharedInstance] getPlatesByKind:[_rootViewController demeTipoActual]];
-        platos = [[DAOPlatosJSON sharedInstance] getPlatesByKind:[_rootViewController demeTipoActual]];
-        Plato *auxPlate = [[Plato alloc]init];
+        if (es_comida) {
+            NSMutableArray *platos = [[NSMutableArray alloc]init];
+            platos = [[DAOPlatosJSON sharedInstance] getPlatesByKind:[_rootViewController demeTipoActual]];
+            Plato *auxPlate = [[Plato alloc]init];
         
-        for (int i = 0; i < [platos count]; i++) {
+            for (int i = 0; i < [platos count]; i++) {
             
-            auxPlate = [platos objectAtIndex:i];
+                auxPlate = [platos objectAtIndex:i];
          
-            nombre_plato = [CCLabelTTF labelWithString:@"" dimensions:CGSizeMake(165, 60) hAlignment:UITextAlignmentCenter vAlignment:UITextAlignmentCenter fontName:font fontSize:_fontSizeTitleName];
-            precio_plato = [CCLabelTTF labelWithString:@"" dimensions:CGSizeMake(165, 60) hAlignment:UITextAlignmentCenter vAlignment:UITextAlignmentCenter fontName:font fontSize:_fontSizeTitlePrice];
-            strnombrePlato = auxPlate.nombre;
-            [nombre_plato setString:strnombrePlato];
-            NSString *_tipo = [_rootViewController demeTipoActual];
-            BOOL _tipoBool = YES;
-            if(_tipo == tipoBebidas) _tipoBool = NO;
-            if(_tipo == tipoLicores) _tipoBool = NO;
-            
-            if(_tipoBool){
+                nombre_plato = [CCLabelTTF labelWithString:@"" dimensions:CGSizeMake(165, 60) hAlignment:UITextAlignmentCenter vAlignment:UITextAlignmentCenter fontName:font fontSize:_fontSizeTitleName];
+                precio_plato = [CCLabelTTF labelWithString:@"" dimensions:CGSizeMake(165, 60) hAlignment:UITextAlignmentCenter vAlignment:UITextAlignmentCenter fontName:font fontSize:_fontSizeTitlePrice];
+                strnombrePlato = auxPlate.nombre;
+                [nombre_plato setString:strnombrePlato];
+                
                 strprecioPlato = [[NSString alloc]initWithFormat:@"$ %i", auxPlate.precio];
                 [precio_plato setString:strprecioPlato];
+                
+                itemNombrePlato = [CCMenuItemLabel itemWithLabel:nombre_plato target:self selector:@selector(onPushSceneTranLabel:)];
+                itemPrecio = [CCMenuItemLabel itemWithLabel:precio_plato target:self selector:@selector(onPushSceneTranLabel:)];
+            
+                itemAux = [CCMenuItemImage itemWithNormalImage:auxPlate.fuente_img selectedImage:auxPlate.fuente_img target:self selector:@selector(onPushSceneTranImage:)];
+                itemAux.tag=[auxPlate.id_plato intValue];
+            
+                itemAux.position = CGPointMake(itemAux.position.x +(i*paddingPrincipalPlates), itemAux.position.y);
+                itemNombrePlato.position = CGPointMake(itemNombrePlato.position.x +(i*paddingPrincipalPlates), 168);
+                itemPrecio.position = CGPointMake(itemPrecio.position.x +(i*paddingPrincipalPlates), 145);
+            
+                [menu addChild:itemAux];
+                [menu addChild:itemNombrePlato];
+                [menu addChild:itemPrecio];
+            
             }
-            itemNombrePlato = [CCMenuItemLabel itemWithLabel:nombre_plato target:self selector:@selector(onPushSceneTranLabel:)];
-            itemPrecio = [CCMenuItemLabel itemWithLabel:precio_plato target:self selector:@selector(onPushSceneTranLabel:)];
-          
-            itemAux = [CCMenuItemImage itemWithNormalImage:auxPlate.fuente_img selectedImage:auxPlate.fuente_img target:self selector:@selector(onPushSceneTranImage:)];
-            itemAux.tag=[auxPlate.id_plato intValue];
+        }
+        else {
+            NSMutableArray *bebidas = [[NSMutableArray alloc]init];
+            bebidas = [[DAOTipoBebidasJSON sharedInstance] getBeverageTypesByKind:[_rootViewController demeTipoActual]];
+            TipoBebida *auxTipoBebida = [[TipoBebida alloc]init];
             
-            itemAux.position = CGPointMake(itemAux.position.x +(i*paddingPrincipalPlates), itemAux.position.y);
-            itemNombrePlato.position = CGPointMake(itemNombrePlato.position.x +(i*paddingPrincipalPlates), 168);
-            itemPrecio.position = CGPointMake(itemPrecio.position.x +(i*paddingPrincipalPlates), 145);
-            
-            [menu addChild:itemAux];
-            [menu addChild:itemNombrePlato];
-            [menu addChild:itemPrecio];
-            
+            for (int i = 0; i < [bebidas count]; i++) {
+                CCLOG(@" --   -(id) initWithVC: (RootViewController *) rootViewController ---");
+                CCLOG(@"Fuente imagen %@", auxTipoBebida.fuente_img);
+                auxTipoBebida = [bebidas objectAtIndex:i];
+                
+               // nombre_plato = [CCLabelTTF labelWithString:@"" dimensions:CGSizeMake(165, 60) hAlignment:UITextAlignmentCenter vAlignment:UITextAlignmentCenter fontName:font fontSize:_fontSizeTitleName];
+               // precio_plato = [CCLabelTTF labelWithString:@"" dimensions:CGSizeMake(165, 60) hAlignment:UITextAlignmentCenter vAlignment:UITextAlignmentCenter fontName:font fontSize:_fontSizeTitlePrice];
+                //strnombrePlato = auxTipoBebida.nombre;
+                //[nombre_plato setString:strnombrePlato];
+                
+                //itemNombrePlato = [CCMenuItemLabel itemWithLabel:nombre_plato target:self selector:@selector(onPushSceneTranLabel:)];
+               // itemPrecio = [CCMenuItemLabel itemWithLabel:precio_plato target:self selector:@selector(onPushSceneTranLabel:)];
+                //
+                itemAux = [CCMenuItemImage itemWithNormalImage:auxTipoBebida.fuente_img selectedImage:auxTipoBebida.fuente_img target:self selector:@selector(onPushSceneTranImage:)];
+               
+                itemAux.tag=[auxTipoBebida.id_tipoBebida intValue];
+                
+                itemAux.position = CGPointMake(itemAux.position.x +(i*paddingPrincipalPlates), itemAux.position.y);
+                //itemNombrePlato.position = CGPointMake(itemNombrePlato.position.x +(i*paddingPrincipalPlates), 168);
+                //itemPrecio.position = CGPointMake(itemPrecio.position.x +(i*paddingPrincipalPlates), 145);
+                
+                [menu addChild:itemAux];
+                //[menu addChild:itemNombrePlato];
+               // [menu addChild:itemPrecio];
+                
+            }
+
         }
      
         menu.position = CGPointMake(posXprincipalMenu, AHalfWinSizeY);
