@@ -11,8 +11,8 @@
 @interface TipoBebida : NSObject
 {
     NSString *nombre, *fuente_img, *fuente_img_grande, *fuente_img_peq;
-    NSString *id_tipoBebida;
+    NSString *id_tipoBebida, *id_tipo;
 }
-@property (nonatomic, strong) NSString *id_tipoBebida, *nombre, *fuente_img, *fuente_img_grande, *fuente_img_peq;
+@property (nonatomic, strong) NSString *id_tipoBebida, *nombre, *fuente_img, *fuente_img_grande, *fuente_img_peq, *id_tipo;
 
 @end

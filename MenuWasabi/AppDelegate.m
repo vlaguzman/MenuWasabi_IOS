@@ -174,8 +174,10 @@
     NSLog(@"platos -------------------- %@ --- No de platos %i", tbebidas, tbebidas.count);
     NSDictionary *tbebida= [tbebidas objectAtIndex:3];
     NSLog(@"t bebida -------------------- %@", tbebida);
-    NSNumber *tipoplato = [tbebida objectForKey:@"id_tipoBebida"];
-    NSLog(@"Tipo -----> %@", tipoplato);
+    NSNumber *tipobebida = [tbebida objectForKey:@"id_tipoBebida"];
+    NSLog(@"Tipo Bebida -----> %@", tipobebida);
+    NSNumber *tipo = [tbebida objectForKey:@"id_tipo"];
+    NSLog(@"Tipo -----> %@", tipo);
     NSString *img_peq = [tbebida objectForKey:@"img_pequena"];
     NSLog(@"img_peq -----> %@", img_peq);
     

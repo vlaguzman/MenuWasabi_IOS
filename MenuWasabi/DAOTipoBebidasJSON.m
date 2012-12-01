@@ -44,6 +44,8 @@ static DAOTipoBebidasJSON *sharedDAOTipoBebidasJSON = nil;
         NSDictionary *tipoBebida= [tipoBebidas objectAtIndex:num_beberage];
         NSString *id_beberageType =  [tipoBebida objectForKey:@"id_tipoBebida"];
         auxBeverageType.id_tipoBebida = id_beberageType;
+        NSString *id_type =  [tipoBebida objectForKey:@"id_tipo"];
+        auxBeverageType.id_tipo = id_type;
         NSString *nombre =  [tipoBebida objectForKey:@"nombre"];
         auxBeverageType.nombre = nombre;
         NSString *img_silueta =  [tipoBebida objectForKey:@"img_silueta"];
@@ -66,7 +68,7 @@ static DAOTipoBebidasJSON *sharedDAOTipoBebidasJSON = nil;
     TipoBebida *auxBeverage = [[TipoBebida alloc]init];
     for (int i=0; i<[beverageTypesArray count]; i++) {
         auxBeverage = [beverageTypesArray objectAtIndex:i];
-        if ([auxBeverage.id_tipoBebida intValue] == [_kind intValue]) {
+        if ([auxBeverage.id_tipo intValue] == [_kind intValue]) {
             [beverageTypesTemp addObject:auxBeverage];
         }
     }
