@@ -13,6 +13,7 @@
 #import "CCActionInterval.h"
 #import "DAOTipoBebidasJSON.h"
 #import "DAOPlatosJSON.h"
+#import "DAOBebidasJSON.h"
 
 #define kMoveMedium 0.2
 #define kMoveFast 0.05
@@ -150,7 +151,7 @@ CGFloat finalX;
 CGFloat finalY;
 CGFloat animationDuration;
 
-CCMenu *menu, *menu_bebidas, *menu_atras, *menu_agregar, *menu_barra, *menu_pedidos, *menu_platosgrandes, *menu_detalles, *menu_up_down, *menu_total, *menu_hacerpedido, *menu_flechas;
+CCMenu *menu, *menu_bebidas, *menu_atras, *menu_agregar, *menu_barra, *menu_pedidos, *menu_platosgrandes, *menu_detalles, *menu_up_down, *menu_total, *menu_hacerpedido, *menu_flechas, *menu_bebidas_detalle;
 CGSize winSize;
 
 CCMenu *menuprueba;
@@ -285,51 +286,40 @@ NSString *tipoActual;
                 CCLOG(@" --   -(id) initWithVC: (RootViewController *) rootViewController ---");
                 CCLOG(@"Fuente imagen %@", auxTipoBebida.fuente_img);
                 auxTipoBebida = [bebidas objectAtIndex:i];
-                
-               // nombre_plato = [CCLabelTTF labelWithString:@"" dimensions:CGSizeMake(165, 60) hAlignment:UITextAlignmentCenter vAlignment:UITextAlignmentCenter fontName:font fontSize:_fontSizeTitleName];
-               // precio_plato = [CCLabelTTF labelWithString:@"" dimensions:CGSizeMake(165, 60) hAlignment:UITextAlignmentCenter vAlignment:UITextAlignmentCenter fontName:font fontSize:_fontSizeTitlePrice];
-                //strnombrePlato = auxTipoBebida.nombre;
-                //[nombre_plato setString:strnombrePlato];
-                
-                //itemNombrePlato = [CCMenuItemLabel itemWithLabel:nombre_plato target:self selector:@selector(onPushSceneTranLabel:)];
-               // itemPrecio = [CCMenuItemLabel itemWithLabel:precio_plato target:self selector:@selector(onPushSceneTranLabel:)];
-                //
-                itemAux = [CCMenuItemImage itemWithNormalImage:auxTipoBebida.fuente_img selectedImage:auxTipoBebida.fuente_img target:self selector:@selector(onPushSceneTranImage:)];
-               
+
+                itemAux = [CCMenuItemImage itemWithNormalImage:auxTipoBebida.fuente_img selectedImage:auxTipoBebida.fuente_img target:self selector:@selector(onPushSceneTranImageBeverage:)];
                 itemAux.tag=[auxTipoBebida.id_tipoBebida intValue];
-                
                 itemAux.position = CGPointMake(itemAux.position.x +(i*paddingPrincipalPlates), itemAux.position.y);
-                //itemNombrePlato.position = CGPointMake(itemNombrePlato.position.x +(i*paddingPrincipalPlates), 168);
-                //itemPrecio.position = CGPointMake(itemPrecio.position.x +(i*paddingPrincipalPlates), 145);
                 
                 [menu addChild:itemAux];
-                //[menu addChild:itemNombrePlato];
-               // [menu addChild:itemPrecio];
                 
             }
 
+            menu_bebidas_detalle = [[CCMenu alloc]init];
+            menu_bebidas_detalle.position = CGPointMake(posXBigPlatesMenu, AHalfWinSizeY); 
+            [self addChild:menu_bebidas_detalle];
+
+            
         }
      
         menu.position = CGPointMake(posXprincipalMenu, AHalfWinSizeY);
  		[self addChild: menu];
-       
-        
+        //
+        //Menú platos grandes
+        //
         menu_platosgrandes = [[CCMenu alloc]init];
         itemAux2 = [[CCMenuItemImage alloc]init];
         menu_platosgrandes.position = CGPointMake(posXBigPlatesMenu, AHalfWinSizeY);
         [menu_platosgrandes addChild:itemAux2];
-        
         [self addChild:menu_platosgrandes];
-        
-        
+        //
+        //Menú descipción platos grandes
+        //
         menu_detalles = [[CCMenu alloc]init];
-        
         CCMenuItemImage *itemBigPlateDescription;
         itemBigPlateDescription = [[CCMenuItemImage alloc]init];
         itemBigPlateDescription =  [CCMenuItemImage itemWithNormalImage:bigPlateImageDescription selectedImage:bigPlateImageDescription];
-  
         [menu_detalles addChild:itemBigPlateDescription];
-        
         menu_detalles.position = CGPointMake(posXBigPlatesDescription, posYBigPlatesDescription);
         [menu_detalles alignItemsVerticallyWithPadding:paddingDescriptionPlatesMenu];
         [self addChild:menu_detalles];
@@ -338,8 +328,9 @@ NSString *tipoActual;
         label_descripcion.position =  ccp(posXBigPlatesDescription , posYBigPlatesDescription);
         
 		[self addChild: label_descripcion];
-
-        
+        //
+        //Menú botón atrás
+        //
         CCMenuItemImage *item_atras = [CCMenuItemImage itemWithNormalImage:btnGoBack selectedImage:btnGoBack target:self selector:@selector(onGoBack:)];
         menu_atras = [CCMenu menuWithItems:item_atras, nil];
         menu_atras.position = CGPointMake(940, winSize.height+100);
@@ -532,28 +523,38 @@ NSString *tipoActual;
 
 -(void) onPushSceneTranImage: (CCMenuItemImage *) sender
 {
-
     iactualPlate = [sender tag];
     [self desaparecerMenus];
     Plato *pl = [[Plato alloc]init];
     pl = [[DAOPlatosJSON sharedInstance] getPlateById:[[NSString alloc]initWithFormat:@"%i", iactualPlate]];
     [label_descripcion setString:pl.descripcion];
     [itemAux2 setNormalImage:[CCMenuItemImage itemWithNormalImage:pl.fuente_img_grande selectedImage:pl.fuente_img_grande]];
+    [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(aparecerElementos:) userInfo:nil repeats:NO];
     
+}
+
+-(void) onPushSceneTranImageBeverage: (CCMenuItemImage *) sender
+{
+    iactualPlate = [sender tag];
+    CCLOG(@" ---- tag ---- %i", iactualPlate);
+    [self desaparecerMenus];
+    NSMutableArray *beverages = [[DAOBebidasJSON sharedInstance] getBeveragesByType:iactualPlate];
+   /* Plato *pl = [[Plato alloc]init];
+    pl = [[DAOPlatosJSON sharedInstance] getPlateById:[[NSString alloc]initWithFormat:@"%i", iactualPlate]];
+    [label_descripcion setString:pl.descripcion];
+    [itemAux2 setNormalImage:[CCMenuItemImage itemWithNormalImage:pl.fuente_img_grande selectedImage:pl.fuente_img_grande]];
     NSString *_tipo = [_rootViewController demeTipoActual];
     BOOL _tipoBool = NO;
     if(_tipo == tipoBebidas) _tipoBool = YES;
     if(_tipo == tipoLicores) _tipoBool = YES;
-    
     if(_tipoBool){
         // PENDIENTE: Configurar tipo de bebidas
         [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(loadDrinks:) userInfo:nil repeats:NO];
     }
-    
     [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(aparecerElementos:) userInfo:nil repeats:NO];
-    
-    
+    */
 }
+
 
 - (void) loadDrinks:(id)arg{
 
@@ -817,6 +818,7 @@ NSString *tipoActual;
 }
 
 -(void)moveLeftMenuActualPlates:(id) sender{
+    //necesario activar restriccion
    // if (_rootViewController.demeNumeroPlatosEnOrden > 6) {
         [self moveMenu_withMenu:menu_pedidos withXpox:menu_pedidos.position.x-128 withYpos:menu_pedidos.position.y withTimeTransition:0.3];
    // }

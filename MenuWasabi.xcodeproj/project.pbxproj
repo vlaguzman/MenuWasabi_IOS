@@ -51,6 +51,7 @@
 		28D557031668005000FA173A /* bebidas_calientes.png in Resources */ = {isa = PBXBuildFile; fileRef = 28D557001668005000FA173A /* bebidas_calientes.png */; };
 		28D557041668005000FA173A /* gaseosas.png in Resources */ = {isa = PBXBuildFile; fileRef = 28D557011668005000FA173A /* gaseosas.png */; };
 		28D557051668005000FA173A /* jugos.png in Resources */ = {isa = PBXBuildFile; fileRef = 28D557021668005000FA173A /* jugos.png */; };
+		28F7EF38166AB19600FF00C3 /* DAOBebidasJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F7EF37166AB19600FF00C3 /* DAOBebidasJSON.m */; };
 		C10863281631B597007D361E /* barra_agregar.png in Resources */ = {isa = PBXBuildFile; fileRef = C10863271631B597007D361E /* barra_agregar.png */; };
 		C10A662D160CBBF200489A45 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C10A662C160CBBF200489A45 /* QuartzCore.framework */; };
 		C10A662F160CBBF200489A45 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C10A662E160CBBF200489A45 /* OpenGLES.framework */; };
@@ -456,6 +457,8 @@
 		28D557001668005000FA173A /* bebidas_calientes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bebidas_calientes.png; sourceTree = "<group>"; };
 		28D557011668005000FA173A /* gaseosas.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gaseosas.png; sourceTree = "<group>"; };
 		28D557021668005000FA173A /* jugos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = jugos.png; sourceTree = "<group>"; };
+		28F7EF36166AB19600FF00C3 /* DAOBebidasJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAOBebidasJSON.h; sourceTree = "<group>"; };
+		28F7EF37166AB19600FF00C3 /* DAOBebidasJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAOBebidasJSON.m; sourceTree = "<group>"; };
 		C10863271631B597007D361E /* barra_agregar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = barra_agregar.png; sourceTree = "<group>"; };
 		C10A6628160CBBF200489A45 /* MenuWasabi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MenuWasabi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C10A662C160CBBF200489A45 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -1426,6 +1429,8 @@
 		C1468F1B165A7E5D0083FC46 /* Server */ = {
 			isa = PBXGroup;
 			children = (
+				28F7EF36166AB19600FF00C3 /* DAOBebidasJSON.h */,
+				28F7EF37166AB19600FF00C3 /* DAOBebidasJSON.m */,
 				C1468F1C165AA8050083FC46 /* DAOPlatosJSON.h */,
 				C1468F1D165AA8050083FC46 /* DAOPlatosJSON.m */,
 				C1468F1F165AA8280083FC46 /* DAOTipoPlatoJSON.h */,
@@ -2581,6 +2586,7 @@
 				C1EDA154165BEB0A00B1C43D /* DAOPedidoJSON.m in Sources */,
 				C1CFA24C165EC609003738F9 /* PlatoxPedido.m in Sources */,
 				280D56001669448D0043DF90 /* DAOTipoBebidasJSON.m in Sources */,
+				28F7EF38166AB19600FF00C3 /* DAOBebidasJSON.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
