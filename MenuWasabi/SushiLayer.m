@@ -538,7 +538,59 @@ NSString *tipoActual;
     iactualPlate = [sender tag];
     CCLOG(@" ---- tag ---- %i", iactualPlate);
     [self desaparecerMenus];
-    NSMutableArray *beverages = [[DAOBebidasJSON sharedInstance] getBeveragesByType:iactualPlate];
+    NSMutableArray *beverages = [[NSMutableArray alloc] init];
+    beverages = [[DAOBebidasJSON sharedInstance] getBeveragesByType:iactualPlate];
+    Bebida *auxBeverage = [[Bebida alloc]init];
+    
+    CCMenuItemLabel *itemBeverageName, *itemPrice;
+    CCMenuItemImage *itemAux;
+    CCLabelTTF *beverage_name;
+    CCLabelTTF *beverage_price;
+    NSString *strBeverageName;
+    NSString *strBeveragePrice;
+    
+    menu = [[CCMenu alloc]init];
+    itemBeverageName = [[CCMenuItemLabel alloc]init];
+    itemPrice = [[CCMenuItemLabel alloc]init];
+    itemAux = [[CCMenuItemImage alloc]init];
+    
+    for (int i = 0; i < [beverages count]; i++) {
+        
+        auxBeverage = [beverages objectAtIndex:i];
+        
+        NSLog(@"---------------------------------------------");
+        NSLog(@" auxBeverage Nombre %@", auxBeverage.nombre);
+        NSLog(@" auxBeverage Precio %i", auxBeverage.precio);
+        
+        beverage_name = [CCLabelTTF labelWithString:@"" dimensions:CGSizeMake(165, 60) hAlignment:UITextAlignmentCenter vAlignment:UITextAlignmentCenter fontName:font fontSize:_fontSizeTitleName];
+        beverage_price = [CCLabelTTF labelWithString:@"" dimensions:CGSizeMake(165, 60) hAlignment:UITextAlignmentCenter vAlignment:UITextAlignmentCenter fontName:font fontSize:_fontSizeTitlePrice];
+        strBeverageName = auxBeverage.nombre;
+        [beverage_name setString:strBeverageName];
+        
+        strBeveragePrice = [[NSString alloc]initWithFormat:@"$ %i", auxBeverage.precio];
+        [beverage_price setString:strBeveragePrice];
+        
+        itemBeverageName = [CCMenuItemLabel itemWithLabel:beverage_name target:self selector:@selector(onPushSceneTranLabel:)];
+        itemPrice = [CCMenuItemLabel itemWithLabel:beverage_price target:self selector:@selector(onPushSceneTranLabel:)];
+        
+        //itemAux = [CCMenuItemImage itemWithNormalImage:auxPlate.fuente_img selectedImage:auxPlate.fuente_img target:self selector:@selector(onPushSceneTranImage:)];
+        //itemAux.tag=[auxPlate.id_plato intValue];
+        
+        //itemAux.position = CGPointMake(itemAux.position.x +(i*paddingPrincipalPlates), itemAux.position.y);
+        itemBeverageName.position = CGPointMake(itemBeverageName.position.x +(i*paddingPrincipalPlates), 168);
+        itemPrice.position = CGPointMake(itemPrice.position.x +(i*paddingPrincipalPlates), 145);
+        
+        //[menu_bebidas_detalle addChild:itemAux];
+        [menu_bebidas_detalle addChild:itemBeverageName];
+        [menu_bebidas_detalle addChild:itemPrice];
+        
+    }
+
+    
+    
+    
+
+    
    /* Plato *pl = [[Plato alloc]init];
     pl = [[DAOPlatosJSON sharedInstance] getPlateById:[[NSString alloc]initWithFormat:@"%i", iactualPlate]];
     [label_descripcion setString:pl.descripcion];

@@ -25,22 +25,29 @@ static DAOBebidasJSON *sharedDAOBebidasJSON = nil;
 }
 
 - (NSMutableArray*) getBeveragesByType:(int) _type{
- NSLog(@"getBeveragesByType -   type - %i --- ", _type);
-    NSMutableArray *actualBeverageArray;      
+
+    NSLog(@"getBeveragesByType -   type - %i --- ", _type);
+    NSMutableArray *actualBeverageArray = [[NSMutableArray alloc] init];      
+    
     NSURL *jsonURL = [NSURL URLWithString:[[NSString alloc] initWithFormat:@"http://www.brainztore.com/wasabi/consultabebidasxtipo.php?tipo=%i", _type]];
     NSError *error = nil;
     NSData *data = [NSData dataWithContentsOfURL:jsonURL];
-     NSLog(@" ---   DATA %@  ---", data);
     NSDictionary *jsondict = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
     NSArray *_bebidas = [jsondict objectForKey:@"bebidas"];
-    NSLog(@"getBeveragesByType -Bebidas - %@ --- ", _bebidas);
-      
-    NSDictionary *bebida= [_bebidas objectAtIndex:0];
-      
-    int _nombre = [[bebida objectForKey:@"nombre"] intValue];
-    NSLog(@"Nombre -----> %i", _nombre);
+    
+    for (int num_beverares=0; num_beverares < _bebidas.count ; num_beverares++) {
+        Bebida *auxBeverage = [[Bebida alloc]init];
+        
+        NSDictionary *plato= [_bebidas objectAtIndex:num_beverares];
+        NSString *nombre =  [plato objectForKey:@"nombre"];
+        auxBeverage.nombre = nombre;
+        NSString *precio_principal =  [plato objectForKey:@"precio_principal"];
+        auxBeverage.precio = [precio_principal intValue];
+        
+        [actualBeverageArray addObject:auxBeverage];
+    }
+    
 
-    actualBeverageArray = [[NSMutableArray alloc]initWithArray:_bebidas];    
     return actualBeverageArray;
     
 }
