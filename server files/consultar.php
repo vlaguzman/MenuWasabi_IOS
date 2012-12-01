@@ -22,32 +22,8 @@ $platos_array = array();
 		while ($unRegistro = mysql_fetch_assoc($resultado)) {
 
 			$registros[] = $unRegistro;
-
-			$pedido = $unRegistro['id_pedido'];
-			
-			$consulta2 = sprintf("SELECT id_plato FROM wsb_platoxpedido WHERE id_pedido=%s", $pedido);
-			$resultado2 = mysql_query($consulta2, $conexion) or die ('Error en SQL: '.$consulta2);
-
-			if($resultado2){
-				
-				if(mysql_num_rows($resultado2)){
-					
-					while ( $unRegistro2 = mysql_fetch_assoc($resultado2)) {
-						$platos_array[] =  $unRegistro2 ;
-					}
-					
-
-				}
-
-			}
-			else{
-				echo "La defecamos en la segunda consulta";
-			}
-
 		}
 
-		var_dump($registros);
-		var_dump($platos_array);
 	}
 	
 }
