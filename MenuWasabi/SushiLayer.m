@@ -160,6 +160,7 @@ BOOL bool_swipe = YES;
 BOOL es_comida = YES;
 
 NSString *tipoActual;
+NSMutableArray *bebidas;
 
 @implementation SushiLayer
 
@@ -278,7 +279,7 @@ NSString *tipoActual;
             }
         }
         else {
-            NSMutableArray *bebidas = [[NSMutableArray alloc]init];
+            bebidas = [[NSMutableArray alloc]init];
             bebidas = [[DAOTipoBebidasJSON sharedInstance] getBeverageTypesByKind:[_rootViewController demeTipoActual]];
             TipoBebida *auxTipoBebida = [[TipoBebida alloc]init];
             
@@ -538,10 +539,12 @@ NSString *tipoActual;
     iactualPlate = [sender tag];
     CCLOG(@" ---- tag ---- %i", iactualPlate);
     [self desaparecerMenus];
+    TipoBebida *auxTipoBebida = [[TipoBebida alloc]init];
+    auxTipoBebida = [bebidas objectAtIndex:iactualPlate];
+    CCLOG(@" ---- tag ---- %i", iactualPlate);
     NSMutableArray *beverages = [[NSMutableArray alloc] init];
     beverages = [[DAOBebidasJSON sharedInstance] getBeveragesByType:iactualPlate];
     Bebida *auxBeverage = [[Bebida alloc]init];
-    
     CCMenuItemLabel *itemBeverageName, *itemPrice;
     CCMenuItemImage *itemAux;
     CCLabelTTF *beverage_name;
@@ -556,11 +559,13 @@ NSString *tipoActual;
     
     for (int i = 0; i < [beverages count]; i++) {
         
+        
         auxBeverage = [beverages objectAtIndex:i];
         
         NSLog(@"---------------------------------------------");
         NSLog(@" auxBeverage Nombre %@", auxBeverage.nombre);
         NSLog(@" auxBeverage Precio %i", auxBeverage.precio);
+        NSLog(@" auxBeverage Precio %@", auxTipoBebida.fuente_img_grande);
         
         beverage_name = [CCLabelTTF labelWithString:@"" dimensions:CGSizeMake(165, 60) hAlignment:UITextAlignmentCenter vAlignment:UITextAlignmentCenter fontName:font fontSize:_fontSizeTitleName];
         beverage_price = [CCLabelTTF labelWithString:@"" dimensions:CGSizeMake(165, 60) hAlignment:UITextAlignmentCenter vAlignment:UITextAlignmentCenter fontName:font fontSize:_fontSizeTitlePrice];
