@@ -181,6 +181,15 @@
     NSString *img_peq = [tbebida objectForKey:@"img_pequena"];
     NSLog(@"img_peq -----> %@", img_peq);
     
+
+    for (int n = 0; n<25; n++) {
+        int temp = (n-1)/8;
+        int mod = n % 8;
+        NSLog(@"---------------------------------------------- ");
+        NSLog(@"Entero temporal:(%i - 1 )/ 8 -----> %i",n, temp);
+        NSLog(@"MOD:%i mod 8 -----> %i",n, mod);
+    }
+    
 }
 
 

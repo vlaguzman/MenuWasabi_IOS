@@ -23,6 +23,6 @@
 - (int) getNumberOfBeverageTypes:(NSString *) _kind;
 
 - (TipoBebida*) getBeverageTypeById:(NSString*) _idPlate;
-- (NSMutableArray*) getBeverageTypesByKind:(NSString *) _kind;
+- (NSMutableDictionary*) getBeverageTypesByKind:(NSString *) _kind;
 
 @end

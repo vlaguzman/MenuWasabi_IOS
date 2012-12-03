@@ -122,11 +122,11 @@ CCSprite *spriteThankYouImage;
             //name
             strComboName1 = auxPlate.nombre;
             [comboName1 setString:strComboName1];
-            itemComboName1 = [CCMenuItemLabel itemWithLabel:comboName1 target:self selector:@selector(nothingThere:)];
+            itemComboName1 = [CCMenuItemLabel itemWithLabel:comboName1];
             //price
             strComboPrice1 = [[NSString alloc]initWithFormat:@"$ %i", auxPlate.precio];
             [comboPrice1 setString:strComboPrice1];
-            itemComboPrice1 = [CCMenuItemLabel itemWithLabel:comboPrice1 target:self selector:@selector(nothingThere:)];
+            itemComboPrice1 = [CCMenuItemLabel itemWithLabel:comboPrice1];
             //image
             itemComboImage1 = [CCMenuItemImage itemWithNormalImage:auxPlate.fuente_img selectedImage:auxPlate.fuente_img target:self selector:@selector(onPushSceneTranImage:)];
             itemComboImage1.tag = [auxPlate.id_plato intValue];
