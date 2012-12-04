@@ -64,8 +64,8 @@
     //self.databasePath = pathExample;
     NSLog(@"DATA BASE PATH  %@", self.databasePath);
     // Cargo la base de datos
-    [self loadDataFromJson];
     
+    //[self loadDataFromJson];
     //  [self updatePlato];
     // [self loadDataBase];
     //
@@ -165,7 +165,7 @@
 */
 
 -(void)loadDataFromJson{
-  /*
+  
     NSURL *jsonURL = [NSURL URLWithString:@"http://www.brainztore.com/wasabi/consultatipobebidas.php"];
     NSError *error = nil;
     NSData *data = [NSData dataWithContentsOfURL:jsonURL];
@@ -181,7 +181,7 @@
     NSString *img_peq = [tbebida objectForKey:@"img_pequena"];
     NSLog(@"img_peq -----> %@", img_peq);
     
-*/
+
     for (int n = 0; n<25; n++) {
         int temp = (n-1)/8;
         int mod = n % 8;

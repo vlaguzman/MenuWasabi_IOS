@@ -302,9 +302,8 @@ NSMutableDictionary *beveragesTypes;
           //  bebidas = [[NSMutableDictionary alloc]init];
             beveragesTypes = [[DAOTipoBebidasJSON sharedInstance] getBeverageTypesByKind:[_rootViewController demeTipoActual]];
             TipoBebida *auxTipoBebida = [[TipoBebida alloc]init];
-            int i = 1;
+            int i = 0;
             for (NSString* key in beveragesTypes) {
-                
                 auxTipoBebida = [beveragesTypes objectForKey:key];
                 itemAux = [CCMenuItemImage itemWithNormalImage:auxTipoBebida.fuente_img selectedImage:auxTipoBebida.fuente_img target:self selector:@selector(onPushSceneTranImageBeverage:)];
                 itemAux.tag=[auxTipoBebida.id_tipoBebida intValue];
@@ -766,15 +765,19 @@ NSMutableDictionary *beveragesTypes;
 {
         Plato *pl = [[DAOPlatosJSON sharedInstance] getPlateById:[[NSString alloc]initWithFormat:@"%i", iactualPlate]];
         [_rootViewController agregarPlato:pl.id_plato];
+    
         [menu_pedidos removeAllChildrenWithCleanup:YES];    
-     //    int numPlates = [_rootViewController demeNumeroPlatosEnOrden];
-     //    int plateAmount = [_rootViewController demeCantidadPlatoPorId:pl.id_plato];
-     //    if(plateAmount>1){
-            //[menu_pedidos removeAllChildrenWithCleanup:YES];
-     //    }
-       // else {
-         //   [self loadPlateWithIdPlate:pl.id_plato withSourceImg:pl.fuente_img_peq withSourceClose:btnClose withPrice:pl.precio withKindPlate:pl.tipo withName:pl.   nombre withNum:numPlates withAmount:plateAmount];
-        //}
+      
+     /*
+      int numPlates = [_rootViewController demeNumeroPlatosEnOrden];
+         int plateAmount = [_rootViewController demeCantidadPlatoPorId:pl.id_plato];
+         if(plateAmount>1){
+            [menu_pedidos removeAllChildrenWithCleanup:YES];
+         }
+          else {
+            [self loadPlateWithIdPlate:pl.id_plato withSourceImg:pl.fuente_img_peq withSourceClose:btnClose withPrice:pl.precio withKindPlate:pl.tipo withName:pl.   nombre withNum:numPlates withAmount:plateAmount];
+        }
+      */
             
         [self updateTotalBill];
         if(menu_barra.position.y!=120){
