@@ -90,6 +90,7 @@
 #define DIFFERENCE_Y_POS_NAME 10
 #define DIFFERENCE_Y_POS_PRICE -10
 #define DIFFERENCE_Y_POS_BTN -30
+#define PADDING_BEVERAGE_MENU 800
 
 static const ccColor3B ccDARKRED={139,0,0};
 //
@@ -151,6 +152,8 @@ NSString *flechaIzq = @"flecha_izq.png";
 NSString *flechaDer = @"flecha_der.png";
 NSString *textFotter = @" Domicilios: (+57)(1) 522 6412                                         Calle 109 # 17-55 piso 2, Bogotá. Ver mapa   info@wasabisushilounge.co                                                                                      Powered by 3dementes";
 NSString *beverageBaseImage = @"base_bebidas.png";
+NSString *flechaIzqBebidas = @"flecha_izq_bebidas.png";
+NSString *flechaDerBebidas = @"flecha_der_bebidas.png";
 
 CCSprite *plato_grande1, *descripcion, *cuadro_total;
 CCSprite *spriteThanxsImage;
@@ -168,7 +171,7 @@ CGFloat finalX;
 CGFloat finalY;
 CGFloat animationDuration;
 
-CCMenu *menu, *menu_bebidas, *menu_atras, *menu_agregar, *menu_barra, *menu_pedidos, *menu_platosgrandes, *menu_detalles, *menu_up_down, *menu_total, *menu_hacerpedido, *menu_flechas, *menu_bebidas_detalle;
+CCMenu *menu, *menu_bebidas, *menu_atras, *menu_agregar, *menu_barra, *menu_pedidos, *menu_platosgrandes, *menu_detalles, *menu_up_down, *menu_total, *menu_hacerpedido, *menu_flechas, *menu_bebidas_detalle, *menu_navegacion_bebidas;
 CGSize winSize;
 
 CCMenu *menuprueba;
@@ -191,10 +194,8 @@ NSMutableDictionary *beveragesTypes;
 
 -(void)changeValueNumPlatesBeverages{
     beveragesTypes = [[NSMutableDictionary alloc]init];
-    CCLOG(@"------- SE VA A TORIAR changeValueNumPlatesBeverages -------- %@", [_rootViewController demeTipoActual]);
     beveragesTypes = [[DAOTipoBebidasJSON sharedInstance] getBeverageTypesByKind:[_rootViewController demeTipoActual]];
     numPlates = [beveragesTypes count];
-     CCLOG(@"------- SE VA A TORIAR numPlates -------- %i", numPlates);
     [self evalueNumPlates];
 }
 
@@ -241,9 +242,7 @@ NSMutableDictionary *beveragesTypes;
             [self changeValueNumPlates];
         }
         else {
-            CCLOG(@"------- SE VA A TORIAR I --------");
             [self changeValueNumPlatesBeverages];
-            CCLOG(@"------- SE VA A TORIAR II --------");
         }
         
         CGSize winSize = [[CCDirector sharedDirector] winSize];
@@ -306,12 +305,7 @@ NSMutableDictionary *beveragesTypes;
             int i = 1;
             for (NSString* key in beveragesTypes) {
                 
-                
                 auxTipoBebida = [beveragesTypes objectForKey:key];
-                CCLOG(@" -----------------------  ");
-                CCLOG(@"Fuente imagen %@", auxTipoBebida.fuente_img);
-                
-                CCLOG(@"auxTipoBebida Nombre: %@ -- Fuente silueta: %@ -- ID: %i", auxTipoBebida.nombre, auxTipoBebida.fuente_img_grande, [auxTipoBebida.id_tipoBebida intValue]);
                 itemAux = [CCMenuItemImage itemWithNormalImage:auxTipoBebida.fuente_img selectedImage:auxTipoBebida.fuente_img target:self selector:@selector(onPushSceneTranImageBeverage:)];
                 itemAux.tag=[auxTipoBebida.id_tipoBebida intValue];
                 itemAux.position = CGPointMake(itemAux.position.x +(i*paddingPrincipalPlates), itemAux.position.y);
@@ -320,17 +314,14 @@ NSMutableDictionary *beveragesTypes;
                 i++;
             }
             
-       
-
-            CCMenuItemImage *beveragesBase;
-            beveragesBase = [[CCMenuItemImage alloc] init];
-            beveragesBase = [CCMenuItemImage itemWithNormalImage:beverageBaseImage selectedImage:beverageBaseImage];
-            
             menu_bebidas_detalle = [[CCMenu alloc]init];
             menu_bebidas_detalle.position = CGPointMake(posXBigPlatesMenu, AHalfWinSizeY); 
-            [menu_bebidas_detalle addChild:beveragesBase];
             [self addChild:menu_bebidas_detalle];
-
+            
+            
+            menu_navegacion_bebidas = [[CCMenu alloc]init];
+            menu_navegacion_bebidas.position = CGPointMake(posXBigPlatesMenu, AHalfWinSizeY); 
+            [self addChild:menu_navegacion_bebidas];
             
         }
      
@@ -568,15 +559,12 @@ NSMutableDictionary *beveragesTypes;
 -(void) onPushSceneTranImageBeverage: (CCMenuItemImage *) sender
 {
     iactualPlate = [sender tag];
-    NSLog(@" --------------------------- iactual plate %i", iactualPlate);
     [self desaparecerMenus];
     TipoBebida *auxTipoBebida = [[TipoBebida alloc]init];
     auxTipoBebida = [beveragesTypes objectForKey:[[NSString alloc]initWithFormat:@"%i", iactualPlate]];
-     NSLog(@" --------------------------- iactual plate %@", auxTipoBebida.nombre);
     NSMutableArray *beverages = [[NSMutableArray alloc] init];
     beverages = [[DAOBebidasJSON sharedInstance] getBeveragesByType:iactualPlate];
-     NSLog(@"--------------------[beverages count]--------------------- ");
-     NSLog(@"--------------------[beverages count]--------------------- %i", [beverages count]);
+
     Bebida *auxBeverage = [[Bebida alloc]init];
     CCMenuItemLabel *itemBeverageName, *itemPrice;
     CCMenuItemImage *itemShape, *itemBtnAddBeverage;
@@ -585,216 +573,141 @@ NSMutableDictionary *beveragesTypes;
     NSString *strBeverageName;
     NSString *strBeveragePrice;
     
-    //menu_bebidas_detalle = [[CCMenu alloc]init];
+    [menu_bebidas_detalle removeAllChildrenWithCleanup:YES];
+    
+    CCMenuItemImage *beveragesBase;
+   
     itemBeverageName = [[CCMenuItemLabel alloc]init];
     itemBtnAddBeverage = [[CCMenuItemImage alloc]init];
     itemPrice = [[CCMenuItemLabel alloc]init];
     itemShape = [[CCMenuItemImage alloc]init];
     int mod = 0;
-   
+    int page = 0;
+    int previous_page = -1;
+    
     for (int i = 0; i < [beverages count]; i++) {
-        
-        auxBeverage = [beverages objectAtIndex:i];
+        page = i/8;
         mod = i % 8;
-        NSLog(@"---------------------------------------------");
-        NSLog(@" auxBeverage Nombre %@", auxBeverage.nombre);
-        NSLog(@" auxBeverage Precio %i", auxBeverage.precio);
-        NSLog(@" auxBeverage Precio %@", auxTipoBebida.fuente_img_grande);
+        auxBeverage = [beverages objectAtIndex:i];
         
         
-        
-        beverage_name = [CCLabelTTF labelWithString:@"" dimensions:CGSizeMake(165, 60) hAlignment:UITextAlignmentLeft vAlignment:UITextAlignmentCenter fontName:font fontSize:_fontSizeTitleName];
-        beverage_price = [CCLabelTTF labelWithString:@"" dimensions:CGSizeMake(165, 60) hAlignment:UITextAlignmentCenter vAlignment:UITextAlignmentCenter fontName:font fontSize:_fontSizeTitlePrice];
+        beverage_name = [CCLabelTTF labelWithString:@"" dimensions:CGSizeMake(165, 60) hAlignment:UITextAlignmentLeft vAlignment:UITextAlignmentCenter fontName:font fontSize:_fontSizeBeverageName];
+        beverage_price = [CCLabelTTF labelWithString:@"" dimensions:CGSizeMake(165, 60) hAlignment:UITextAlignmentCenter vAlignment:UITextAlignmentCenter fontName:font fontSize:_fontSizeBeveragePrice];
         
         strBeverageName = auxBeverage.nombre;
         [beverage_name setString:strBeverageName];
-        
         strBeveragePrice = [[NSString alloc]initWithFormat:@"$ %i", auxBeverage.precio];
         [beverage_price setString:strBeveragePrice];
         
         itemBeverageName = [CCMenuItemLabel itemWithLabel:beverage_name];
         itemPrice = [CCMenuItemLabel itemWithLabel:beverage_price];
-        
         itemShape = [CCMenuItemImage itemWithNormalImage:auxTipoBebida.fuente_img_grande selectedImage:auxTipoBebida.fuente_img_grande];
-        
         itemBtnAddBeverage = [CCMenuItemImage itemWithNormalImage:btnAddBeverage selectedImage:btnAddBeverage target:self selector:@selector(addBeverage:)];
         
         if (mod==0) {
-            itemShape.position = CGPointMake(X_POS_BEVERAGES_RIGHT, Y_POS_BEVERAGES_TOP);
-            itemBeverageName.position = CGPointMake(X_POS_BEVERAGES_RIGHT+DIFFERENCE_X_POS_NAME,Y_POS_BEVERAGES_TOP+DIFFERENCE_Y_POS_NAME);
-            itemPrice.position = CGPointMake(X_POS_BEVERAGES_RIGHT+DIFFERENCE_X_POS_PRICE,Y_POS_BEVERAGES_TOP+DIFFERENCE_Y_POS_PRICE);
-            itemBtnAddBeverage.position =  CGPointMake(X_POS_BEVERAGES_RIGHT+DIFFERENCE_X_POS_BTN,Y_POS_BEVERAGES_TOP+DIFFERENCE_Y_POS_BTN);
+            itemShape.position = CGPointMake(X_POS_BEVERAGES_RIGHT+(PADDING_BEVERAGE_MENU*page), Y_POS_BEVERAGES_TOP);
+            itemBeverageName.position = CGPointMake(X_POS_BEVERAGES_RIGHT+DIFFERENCE_X_POS_NAME+(PADDING_BEVERAGE_MENU*page),Y_POS_BEVERAGES_TOP+DIFFERENCE_Y_POS_NAME);
+            itemPrice.position = CGPointMake(X_POS_BEVERAGES_RIGHT+DIFFERENCE_X_POS_PRICE+(PADDING_BEVERAGE_MENU*page),Y_POS_BEVERAGES_TOP+DIFFERENCE_Y_POS_PRICE);
+            itemBtnAddBeverage.position =  CGPointMake(X_POS_BEVERAGES_RIGHT+DIFFERENCE_X_POS_BTN+(PADDING_BEVERAGE_MENU*page),Y_POS_BEVERAGES_TOP+DIFFERENCE_Y_POS_BTN);
         }
         else if (mod==1){
-            itemShape.position = CGPointMake(X_POS_BEVERAGES_RIGHT, Y_POS_BEVERAGES_MTOP);
-            itemBeverageName.position = CGPointMake(X_POS_BEVERAGES_RIGHT+DIFFERENCE_X_POS_NAME,Y_POS_BEVERAGES_MTOP+DIFFERENCE_Y_POS_NAME);
-            itemPrice.position = CGPointMake(X_POS_BEVERAGES_RIGHT+DIFFERENCE_X_POS_PRICE,Y_POS_BEVERAGES_MTOP+DIFFERENCE_Y_POS_PRICE);
-            itemBtnAddBeverage.position =  CGPointMake(X_POS_BEVERAGES_RIGHT+DIFFERENCE_X_POS_BTN,Y_POS_BEVERAGES_MTOP+DIFFERENCE_Y_POS_BTN);
+            itemShape.position = CGPointMake(X_POS_BEVERAGES_RIGHT+(PADDING_BEVERAGE_MENU*page), Y_POS_BEVERAGES_MTOP);
+            itemBeverageName.position = CGPointMake(X_POS_BEVERAGES_RIGHT+DIFFERENCE_X_POS_NAME+(PADDING_BEVERAGE_MENU*page),Y_POS_BEVERAGES_MTOP+DIFFERENCE_Y_POS_NAME);
+            itemPrice.position = CGPointMake(X_POS_BEVERAGES_RIGHT+DIFFERENCE_X_POS_PRICE+(PADDING_BEVERAGE_MENU*page),Y_POS_BEVERAGES_MTOP+DIFFERENCE_Y_POS_PRICE);
+            itemBtnAddBeverage.position =  CGPointMake(X_POS_BEVERAGES_RIGHT+DIFFERENCE_X_POS_BTN+(PADDING_BEVERAGE_MENU*page),Y_POS_BEVERAGES_MTOP+DIFFERENCE_Y_POS_BTN);
         }
         else if (mod==2){
-            itemShape.position = CGPointMake(X_POS_BEVERAGES_RIGHT, Y_POS_BEVERAGES_MBOTTOM);
-            itemBeverageName.position = CGPointMake(X_POS_BEVERAGES_RIGHT+DIFFERENCE_X_POS_NAME,Y_POS_BEVERAGES_MBOTTOM+DIFFERENCE_Y_POS_NAME);
-            itemPrice.position = CGPointMake(X_POS_BEVERAGES_RIGHT+DIFFERENCE_X_POS_PRICE,Y_POS_BEVERAGES_MBOTTOM+DIFFERENCE_Y_POS_PRICE);
-            itemBtnAddBeverage.position =  CGPointMake(X_POS_BEVERAGES_RIGHT+DIFFERENCE_X_POS_BTN,Y_POS_BEVERAGES_MBOTTOM+DIFFERENCE_Y_POS_BTN);        
+            itemShape.position = CGPointMake(X_POS_BEVERAGES_RIGHT+(PADDING_BEVERAGE_MENU*page), Y_POS_BEVERAGES_MBOTTOM);
+            itemBeverageName.position = CGPointMake(X_POS_BEVERAGES_RIGHT+DIFFERENCE_X_POS_NAME+(PADDING_BEVERAGE_MENU*page),Y_POS_BEVERAGES_MBOTTOM+DIFFERENCE_Y_POS_NAME);
+            itemPrice.position = CGPointMake(X_POS_BEVERAGES_RIGHT+DIFFERENCE_X_POS_PRICE+(PADDING_BEVERAGE_MENU*page),Y_POS_BEVERAGES_MBOTTOM+DIFFERENCE_Y_POS_PRICE);
+            itemBtnAddBeverage.position =  CGPointMake(X_POS_BEVERAGES_RIGHT+DIFFERENCE_X_POS_BTN+(PADDING_BEVERAGE_MENU*page),Y_POS_BEVERAGES_MBOTTOM+DIFFERENCE_Y_POS_BTN);        
         }
         else if (mod==3){
-            itemShape.position = CGPointMake(X_POS_BEVERAGES_RIGHT, Y_POS_BEVERAGES_BOTTOM);
-            itemBeverageName.position = CGPointMake(X_POS_BEVERAGES_RIGHT+DIFFERENCE_X_POS_NAME,Y_POS_BEVERAGES_BOTTOM+DIFFERENCE_Y_POS_NAME);
-            itemPrice.position = CGPointMake(X_POS_BEVERAGES_RIGHT+DIFFERENCE_X_POS_PRICE,Y_POS_BEVERAGES_BOTTOM+DIFFERENCE_Y_POS_PRICE);
-            itemBtnAddBeverage.position =  CGPointMake(X_POS_BEVERAGES_RIGHT+DIFFERENCE_X_POS_BTN,Y_POS_BEVERAGES_BOTTOM+DIFFERENCE_Y_POS_BTN);        
+            itemShape.position = CGPointMake(X_POS_BEVERAGES_RIGHT+(PADDING_BEVERAGE_MENU*page), Y_POS_BEVERAGES_BOTTOM);
+            itemBeverageName.position = CGPointMake(X_POS_BEVERAGES_RIGHT+DIFFERENCE_X_POS_NAME+(PADDING_BEVERAGE_MENU*page),Y_POS_BEVERAGES_BOTTOM+DIFFERENCE_Y_POS_NAME);
+            itemPrice.position = CGPointMake(X_POS_BEVERAGES_RIGHT+DIFFERENCE_X_POS_PRICE+(PADDING_BEVERAGE_MENU*page),Y_POS_BEVERAGES_BOTTOM+DIFFERENCE_Y_POS_PRICE);
+            itemBtnAddBeverage.position =  CGPointMake(X_POS_BEVERAGES_RIGHT+DIFFERENCE_X_POS_BTN+(PADDING_BEVERAGE_MENU*page),Y_POS_BEVERAGES_BOTTOM+DIFFERENCE_Y_POS_BTN);        
         }
         else if (mod==4){
-            itemShape.position = CGPointMake(X_POS_BEVERAGES_LEFT, Y_POS_BEVERAGES_TOP);
-            itemBeverageName.position = CGPointMake(X_POS_BEVERAGES_LEFT+DIFFERENCE_X_POS_NAME,Y_POS_BEVERAGES_TOP+DIFFERENCE_Y_POS_NAME);
-            itemPrice.position = CGPointMake(X_POS_BEVERAGES_LEFT+DIFFERENCE_X_POS_PRICE,Y_POS_BEVERAGES_TOP+DIFFERENCE_Y_POS_PRICE);
-            itemBtnAddBeverage.position =  CGPointMake(X_POS_BEVERAGES_LEFT+DIFFERENCE_X_POS_BTN,Y_POS_BEVERAGES_TOP+DIFFERENCE_Y_POS_BTN);
+            itemShape.position = CGPointMake(X_POS_BEVERAGES_LEFT+(PADDING_BEVERAGE_MENU*page), Y_POS_BEVERAGES_TOP);
+            itemBeverageName.position = CGPointMake(X_POS_BEVERAGES_LEFT+DIFFERENCE_X_POS_NAME+(PADDING_BEVERAGE_MENU*page),Y_POS_BEVERAGES_TOP+DIFFERENCE_Y_POS_NAME);
+            itemPrice.position = CGPointMake(X_POS_BEVERAGES_LEFT+DIFFERENCE_X_POS_PRICE+(PADDING_BEVERAGE_MENU*page),Y_POS_BEVERAGES_TOP+DIFFERENCE_Y_POS_PRICE);
+            itemBtnAddBeverage.position =  CGPointMake(X_POS_BEVERAGES_LEFT+DIFFERENCE_X_POS_BTN+(PADDING_BEVERAGE_MENU*page),Y_POS_BEVERAGES_TOP+DIFFERENCE_Y_POS_BTN);
         }
         else if  (mod==5) {
-            itemShape.position = CGPointMake(X_POS_BEVERAGES_LEFT, Y_POS_BEVERAGES_MTOP);
-            itemBeverageName.position = CGPointMake(X_POS_BEVERAGES_LEFT+DIFFERENCE_X_POS_NAME,Y_POS_BEVERAGES_MTOP+DIFFERENCE_Y_POS_NAME);
-            itemPrice.position = CGPointMake(X_POS_BEVERAGES_LEFT+DIFFERENCE_X_POS_PRICE,Y_POS_BEVERAGES_MTOP+DIFFERENCE_Y_POS_PRICE);
-            itemBtnAddBeverage.position =  CGPointMake(X_POS_BEVERAGES_LEFT+DIFFERENCE_X_POS_BTN,Y_POS_BEVERAGES_MTOP+DIFFERENCE_Y_POS_BTN);
+            itemShape.position = CGPointMake(X_POS_BEVERAGES_LEFT+(PADDING_BEVERAGE_MENU*page), Y_POS_BEVERAGES_MTOP);
+            itemBeverageName.position = CGPointMake(X_POS_BEVERAGES_LEFT+DIFFERENCE_X_POS_NAME+(PADDING_BEVERAGE_MENU*page),Y_POS_BEVERAGES_MTOP+DIFFERENCE_Y_POS_NAME);
+            itemPrice.position = CGPointMake(X_POS_BEVERAGES_LEFT+DIFFERENCE_X_POS_PRICE+(PADDING_BEVERAGE_MENU*page),Y_POS_BEVERAGES_MTOP+DIFFERENCE_Y_POS_PRICE);
+            itemBtnAddBeverage.position =  CGPointMake(X_POS_BEVERAGES_LEFT+DIFFERENCE_X_POS_BTN+(PADDING_BEVERAGE_MENU*page),Y_POS_BEVERAGES_MTOP+DIFFERENCE_Y_POS_BTN);
         }
         else if (mod==6){
-            itemShape.position = CGPointMake(X_POS_BEVERAGES_LEFT, Y_POS_BEVERAGES_MBOTTOM);
-            itemBeverageName.position = CGPointMake(X_POS_BEVERAGES_LEFT+DIFFERENCE_X_POS_NAME,Y_POS_BEVERAGES_MBOTTOM+DIFFERENCE_Y_POS_NAME);
-            itemPrice.position = CGPointMake(X_POS_BEVERAGES_LEFT+DIFFERENCE_X_POS_PRICE,Y_POS_BEVERAGES_MBOTTOM+DIFFERENCE_Y_POS_PRICE);
-            itemBtnAddBeverage.position =  CGPointMake(X_POS_BEVERAGES_LEFT+DIFFERENCE_X_POS_BTN,Y_POS_BEVERAGES_MBOTTOM+DIFFERENCE_Y_POS_BTN);
+            itemShape.position = CGPointMake(X_POS_BEVERAGES_LEFT+(PADDING_BEVERAGE_MENU*page), Y_POS_BEVERAGES_MBOTTOM);
+            itemBeverageName.position = CGPointMake(X_POS_BEVERAGES_LEFT+DIFFERENCE_X_POS_NAME+(PADDING_BEVERAGE_MENU*page),Y_POS_BEVERAGES_MBOTTOM+DIFFERENCE_Y_POS_NAME);
+            itemPrice.position = CGPointMake(X_POS_BEVERAGES_LEFT+DIFFERENCE_X_POS_PRICE+(PADDING_BEVERAGE_MENU*page),Y_POS_BEVERAGES_MBOTTOM+DIFFERENCE_Y_POS_PRICE);
+            itemBtnAddBeverage.position =  CGPointMake(X_POS_BEVERAGES_LEFT+DIFFERENCE_X_POS_BTN+(PADDING_BEVERAGE_MENU*page),Y_POS_BEVERAGES_MBOTTOM+DIFFERENCE_Y_POS_BTN);
         }
         else if (mod==7){
-            itemShape.position = CGPointMake(X_POS_BEVERAGES_LEFT, Y_POS_BEVERAGES_BOTTOM);
-            itemBeverageName.position = CGPointMake(X_POS_BEVERAGES_LEFT+DIFFERENCE_X_POS_NAME,Y_POS_BEVERAGES_BOTTOM+DIFFERENCE_Y_POS_NAME);
-            itemPrice.position = CGPointMake(X_POS_BEVERAGES_LEFT+DIFFERENCE_X_POS_PRICE,Y_POS_BEVERAGES_BOTTOM+DIFFERENCE_Y_POS_PRICE);
-            itemBtnAddBeverage.position =  CGPointMake(X_POS_BEVERAGES_LEFT+DIFFERENCE_X_POS_BTN,Y_POS_BEVERAGES_BOTTOM+DIFFERENCE_Y_POS_BTN);        
+            itemShape.position = CGPointMake(X_POS_BEVERAGES_LEFT+(PADDING_BEVERAGE_MENU*page), Y_POS_BEVERAGES_BOTTOM);
+            itemBeverageName.position = CGPointMake(X_POS_BEVERAGES_LEFT+DIFFERENCE_X_POS_NAME+(PADDING_BEVERAGE_MENU*page),Y_POS_BEVERAGES_BOTTOM+DIFFERENCE_Y_POS_NAME);
+            itemPrice.position = CGPointMake(X_POS_BEVERAGES_LEFT+DIFFERENCE_X_POS_PRICE+(PADDING_BEVERAGE_MENU*page),Y_POS_BEVERAGES_BOTTOM+DIFFERENCE_Y_POS_PRICE);
+            itemBtnAddBeverage.position =  CGPointMake(X_POS_BEVERAGES_LEFT+DIFFERENCE_X_POS_BTN+(PADDING_BEVERAGE_MENU*page),Y_POS_BEVERAGES_BOTTOM+DIFFERENCE_Y_POS_BTN);        
         }
-
-       
         
+
+        if (previous_page!=page) {
+            beveragesBase = [[CCMenuItemImage alloc] init];
+            beveragesBase = [CCMenuItemImage itemWithNormalImage:beverageBaseImage selectedImage:beverageBaseImage]; 
+            beveragesBase.position = ccp(page*PADDING_BEVERAGE_MENU ,0);
+            [menu_bebidas_detalle addChild:beveragesBase];
+        }
         [menu_bebidas_detalle addChild:itemShape];
         [menu_bebidas_detalle addChild:itemBeverageName];
         [menu_bebidas_detalle addChild:itemPrice];
         [menu_bebidas_detalle addChild:itemBtnAddBeverage];
+        previous_page = page;
         
     }
 
+    if (page>0) {
+        CCMenuItemImage *itemArrowLeftBeverage = [[CCMenuItemImage alloc]init];
+        CCMenuItemImage *itemArrowRightBeverage = [[CCMenuItemImage alloc]init];
+        itemArrowLeftBeverage = [CCMenuItemImage itemWithNormalImage:flechaIzqBebidas selectedImage:flechaIzqBebidas target:self selector:@selector(moveLeftBeverageMenu:)];
+        itemArrowRightBeverage = [CCMenuItemImage itemWithNormalImage:flechaDerBebidas selectedImage:flechaDerBebidas target:self selector:@selector(moveRightBeverageMenu:)];
+        itemArrowLeftBeverage.position = ccp(-250, 0);
+        itemArrowRightBeverage.position = ccp(250, 0);
+        [menu_navegacion_bebidas addChild:itemArrowLeftBeverage];
+        [menu_navegacion_bebidas addChild:itemArrowRightBeverage];
+    }
     [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(aparecerElementosBebidas:) userInfo:nil repeats:NO];
-   /* Plato *pl = [[Plato alloc]init];
-    pl = [[DAOPlatosJSON sharedInstance] getPlateById:[[NSString alloc]initWithFormat:@"%i", iactualPlate]];
-    [label_descripcion setString:pl.descripcion];
-    [itemAux2 setNormalImage:[CCMenuItemImage itemWithNormalImage:pl.fuente_img_grande selectedImage:pl.fuente_img_grande]];
-    NSString *_tipo = [_rootViewController demeTipoActual];
-    BOOL _tipoBool = NO;
-    if(_tipo == tipoBebidas) _tipoBool = YES;
-    if(_tipo == tipoLicores) _tipoBool = YES;
-    if(_tipoBool){
-        // PENDIENTE: Configurar tipo de bebidas
-        [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(loadDrinks:) userInfo:nil repeats:NO];
-    }
-    [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(aparecerElementos:) userInfo:nil repeats:NO];
-    */
-}
 
-
-- (void) loadDrinks:(id)arg{
-
-    CCLOG(@" loadDrinks en SushiLayer sin implementar");
-    //
-    // Menú de bebidas
-    //
-    
-    CCMenuItemLabel *itemLabelNameDrink, *itemLabelPrincipalPriceDrink, *itemLabelSecondPriceDrink;
-    CCMenuItemImage *itemImageButtonAddDrink;
-    CCLabelTTF *nameDrink, *principalPriceDrink, *secondPriceDrink;
-    NSString *strNameDrink, *strPrincipalPriceDrink, *strSecondPriceDrink;
-    
-    menu_bebidas = [[CCMenu alloc]init];
-    for (int i = 1; i <= numDrinks; i++) {
-        
-        nameDrink = [[CCLabelTTF alloc]initWithString:@"" fontName:font fontSize:_fontSizeNameDrink];
-        principalPriceDrink = [[CCLabelTTF alloc]initWithString:@"" fontName:font fontSize:_fontSizePricesDrink];
-        secondPriceDrink = [[CCLabelTTF alloc]initWithString:@"" fontName:font fontSize:_fontSizePricesDrink];
-   /*
-        strNameDrink = [_rootViewController demeNombrePlatoPorId:@(i+KindFactor)];
-        [nombre_plato setString:strnombrePlato];
-        
-        int _tipo = [_rootViewController demeTipoActual];
-        BOOL _tipoBool = YES;
-        if(_tipo == tipoBebidas) _tipoBool = NO;
-        if(_tipo == tipoLicores) _tipoBool = NO;
-        
-        if(_tipoBool){
-            strprecioPlato = [[NSString alloc] initWithFormat:@"$ %i", [_rootViewController demePrecioPlatoPorId:@(i+KindFactor)]];
-            [precio_plato setString:strprecioPlato];
-        }
-        itemNombrePlato = [CCMenuItemLabel itemWithLabel:nombre_plato target:self selector:@selector(onPushSceneTranLabel:)];
-        itemPrecio = [CCMenuItemLabel itemWithLabel:precio_plato target:self selector:@selector(onPushSceneTranLabel:)];
-        itemAux = [CCMenuItemImage itemWithNormalImage:[_rootViewController demeFuenteImagenPlatoPorId:@(i+KindFactor)] selectedImage:[_rootViewController demeFuenteImagenPlatoPorId:@(i+KindFactor)] target:self selector:@selector(onPushSceneTranImage:)];
-        itemAux.tag=i+KindFactor;
-        
-        itemAux.position = CGPointMake(itemAux.position.x +(i*paddingPrincipalPlates), itemAux.position.y);
-        itemNombrePlato.position = CGPointMake(itemNombrePlato.position.x +(i*paddingPrincipalPlates)+5, 165);
-        itemPrecio.position = CGPointMake(itemPrecio.position.x +(i*paddingPrincipalPlates)+5, 148);
-        
-        [menu addChild:itemAux];
-        [menu addChild:itemNombrePlato];
-        [menu addChild:itemPrecio];
-        */
-    }
-    
-    //
-    // Fin menú bebidas
-    //
-
-    
 }
 
 
 -(void)aparecerMenus:(id)arg{
     bool_swipe=YES;
-   
     [self moveMenu_withMenu: menu withXpox:menu.position.x withYpos:AHalfWinSizeY withTimeTransition:1.0];
-    
 }
 
 -(void)desaparecerMenus{
     bool_swipe=NO;
     winSize = [[CCDirector sharedDirector] winSize];
-    
-    [self moveMenu_withMenu: menu withXpox:menu.position.x withYpos:winSize.height+200 withTimeTransition:1.0];
-    
+    [self moveMenu_withMenu:menu withXpox:menu.position.x withYpos:winSize.height+200 withTimeTransition:1.0];
 }
 
 -(void)aparecerElementos:(id)arg{
-    winSize = [[CCDirector sharedDirector] winSize];
-
     [self moveMenu_withMenu:menu_platosgrandes withXpox:AHalfWinSizeX withYpos:menu_platosgrandes.position.y withTimeTransition:1.0];
     [self moveMenu_withMenu:menu_atras withXpox:940 withYpos:740 withTimeTransition:1.0];
-    
-    NSString *_tipo = [_rootViewController demeTipoActual];
-    BOOL _tipoBool = YES;
-    if(_tipo == tipoBebidas) _tipoBool = NO;
-    if(_tipo == tipoLicores) _tipoBool = NO;
-    
-    if(_tipoBool){
-        
-        [self moveMenu_withMenu:menu_detalles withXpox:posXShowBigPlatesDescription withYpos:posYBigPlatesDescription withTimeTransition:1.0];
-        [self moveLabel:label_descripcion with_pox:posXShowBigPlatesDescription with_posy:posYBigPlatesDescription withTimeTransition:1.0];
-        //if ((![_rootViewController estaPlato:[[NSString alloc]initWithFormat:@"%i", iactualPlate]])&&(_rootViewController.demeNumeroPlatosEnOrden < 6)) {
-            
-                [self moveMenu_withMenu:menu_agregar withXpox:posXaparecerAgregar withYpos:posYaparecerAgregar withTimeTransition:1.0];
-        //}
-    }
+    [self moveMenu_withMenu:menu_detalles withXpox:posXShowBigPlatesDescription withYpos:posYBigPlatesDescription withTimeTransition:1.0];
+    [self moveLabel:label_descripcion with_pox:posXShowBigPlatesDescription with_posy:posYBigPlatesDescription withTimeTransition:1.0];
+    [self moveMenu_withMenu:menu_agregar withXpox:posXaparecerAgregar withYpos:posYaparecerAgregar withTimeTransition:1.0];
+
 
 }
 
 -(void)aparecerElementosBebidas:(id)arg{
-    winSize = [[CCDirector sharedDirector] winSize];
-    
     [self moveMenu_withMenu:menu_bebidas_detalle withXpox:AHalfWinSizeX withYpos:menu_bebidas_detalle.position.y withTimeTransition:1.0];
+    [self moveMenu_withMenu:menu_navegacion_bebidas withXpox:AHalfWinSizeX withYpos:menu_navegacion_bebidas.position.y withTimeTransition:1.0];
     [self moveMenu_withMenu:menu_atras withXpox:940 withYpos:740 withTimeTransition:1.0];
-    
-
-    
 }
 
 -(void)desaparecerElementos{
@@ -805,6 +718,8 @@ NSMutableDictionary *beveragesTypes;
     [self moveMenu_withMenu:menu_atras withXpox:940 withYpos:winSize.height+100 withTimeTransition:1.0];
     [self moveMenu_withMenu:menu_agregar withXpox:posXdesaparecerAgregar withYpos:winSize.height+100 withTimeTransition:1.0];
     [self moveLabel:label_descripcion with_pox:posXdesaparecerDetalles with_posy:posYBigPlatesDescription withTimeTransition:1.0];
+    [self moveMenu_withMenu:menu_bebidas_detalle withXpox:posXBigPlatesMenu withYpos:menu_bebidas_detalle.position.y withTimeTransition:1.0];
+    [self moveMenu_withMenu:menu_navegacion_bebidas withXpox:posXBigPlatesMenu withYpos:menu_navegacion_bebidas.position.y withTimeTransition:1.0];
     
     iactualPlate = -1;
 }
@@ -828,6 +743,16 @@ NSMutableDictionary *beveragesTypes;
 -(void) moveItemImage:(CCMenuItemImage *)_itemImage with_pox:(float)_posx with_posy:(float)_posy withTimeTransition:(float)_time{
     id moveii = [CCMoveTo actionWithDuration:_time position:ccp(_posx,_posy)];
     [_itemImage runAction:moveii];
+}
+
+-(void) moveLeftBeverageMenu:(id)sender
+{
+    [self moveMenu_withMenu:menu_bebidas_detalle withXpox:menu_bebidas_detalle.position.x-800 withYpos:menu_bebidas_detalle.position.y withTimeTransition:1.0];
+}
+
+-(void) moveRightBeverageMenu:(id)sender
+{
+    [self moveMenu_withMenu:menu_bebidas_detalle withXpox:menu_bebidas_detalle.position.x+800 withYpos:menu_bebidas_detalle.position.y withTimeTransition:1.0];
 }
 
 -(void) onGoBack:(id) sender

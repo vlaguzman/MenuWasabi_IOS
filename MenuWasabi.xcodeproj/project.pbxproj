@@ -10,6 +10,8 @@
 		280238B61664261E00E69577 /* total_a_pagar_h.png in Resources */ = {isa = PBXBuildFile; fileRef = 280238B51664261E00E69577 /* total_a_pagar_h.png */; };
 		280D55FC166944020043DF90 /* base_bebidas.png in Resources */ = {isa = PBXBuildFile; fileRef = 280D55FB166944020043DF90 /* base_bebidas.png */; };
 		280D56001669448D0043DF90 /* DAOTipoBebidasJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 280D55FF1669448D0043DF90 /* DAOTipoBebidasJSON.m */; };
+		2810240D166E8B7F00C20E6C /* flecha_der_bebidas.png in Resources */ = {isa = PBXBuildFile; fileRef = 2810240B166E8B6F00C20E6C /* flecha_der_bebidas.png */; };
+		2810240E166E8B7F00C20E6C /* flecha_izq_bebidas.png in Resources */ = {isa = PBXBuildFile; fileRef = 2810240C166E8B7700C20E6C /* flecha_izq_bebidas.png */; };
 		281FAA161665194A00322A34 /* flecha_der.png in Resources */ = {isa = PBXBuildFile; fileRef = 281FAA141665194A00322A34 /* flecha_der.png */; };
 		281FAA171665194A00322A34 /* flecha_izq.png in Resources */ = {isa = PBXBuildFile; fileRef = 281FAA151665194A00322A34 /* flecha_izq.png */; };
 		281FAA1A1665350000322A34 /* instrucciones.png in Resources */ = {isa = PBXBuildFile; fileRef = 281FAA191665350000322A34 /* instrucciones.png */; };
@@ -416,6 +418,8 @@
 		280D55FB166944020043DF90 /* base_bebidas.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = base_bebidas.png; sourceTree = "<group>"; };
 		280D55FE1669448D0043DF90 /* DAOTipoBebidasJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAOTipoBebidasJSON.h; sourceTree = "<group>"; };
 		280D55FF1669448D0043DF90 /* DAOTipoBebidasJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAOTipoBebidasJSON.m; sourceTree = "<group>"; };
+		2810240B166E8B6F00C20E6C /* flecha_der_bebidas.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flecha_der_bebidas.png; sourceTree = "<group>"; };
+		2810240C166E8B7700C20E6C /* flecha_izq_bebidas.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flecha_izq_bebidas.png; sourceTree = "<group>"; };
 		281FAA141665194A00322A34 /* flecha_der.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flecha_der.png; sourceTree = "<group>"; };
 		281FAA151665194A00322A34 /* flecha_izq.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flecha_izq.png; sourceTree = "<group>"; };
 		281FAA191665350000322A34 /* instrucciones.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = instrucciones.png; sourceTree = "<group>"; };
@@ -1683,6 +1687,8 @@
 			children = (
 				28C30771165FD3DD0019D042 /* btn_closeapp.png */,
 				280238B51664261E00E69577 /* total_a_pagar_h.png */,
+				2810240B166E8B6F00C20E6C /* flecha_der_bebidas.png */,
+				2810240C166E8B7700C20E6C /* flecha_izq_bebidas.png */,
 				281FAA141665194A00322A34 /* flecha_der.png */,
 				281FAA151665194A00322A34 /* flecha_izq.png */,
 				28C30772165FD3DF0019D042 /* fin_hor.png */,
@@ -2454,6 +2460,8 @@
 				28D557041668005000FA173A /* gaseosas.png in Resources */,
 				28D557051668005000FA173A /* jugos.png in Resources */,
 				280D55FC166944020043DF90 /* base_bebidas.png in Resources */,
+				2810240D166E8B7F00C20E6C /* flecha_der_bebidas.png in Resources */,
+				2810240E166E8B7F00C20E6C /* flecha_izq_bebidas.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
