@@ -178,7 +178,7 @@ BOOL es_comida = YES;
 
 NSString *tipoActual;
 NSMutableArray *bebidas;
-NSMutableDictionary *beverages;
+NSMutableDictionary *beveragesTypes;
 @implementation SushiLayer
 
 
@@ -190,9 +190,11 @@ NSMutableDictionary *beverages;
 }
 
 -(void)changeValueNumPlatesBeverages{
-    beverages = [[NSMutableDictionary alloc]init];
-    beverages = [[DAOTipoBebidasJSON sharedInstance] getBeverageTypesByKind:[_rootViewController demeTipoActual]];
-    numPlates = [beverages count];
+    beveragesTypes = [[NSMutableDictionary alloc]init];
+    CCLOG(@"------- SE VA A TORIAR changeValueNumPlatesBeverages -------- %@", [_rootViewController demeTipoActual]);
+    beveragesTypes = [[DAOTipoBebidasJSON sharedInstance] getBeverageTypesByKind:[_rootViewController demeTipoActual]];
+    numPlates = [beveragesTypes count];
+     CCLOG(@"------- SE VA A TORIAR numPlates -------- %i", numPlates);
     [self evalueNumPlates];
 }
 
@@ -239,7 +241,9 @@ NSMutableDictionary *beverages;
             [self changeValueNumPlates];
         }
         else {
+            CCLOG(@"------- SE VA A TORIAR I --------");
             [self changeValueNumPlatesBeverages];
+            CCLOG(@"------- SE VA A TORIAR II --------");
         }
         
         CGSize winSize = [[CCDirector sharedDirector] winSize];
@@ -297,21 +301,26 @@ NSMutableDictionary *beverages;
         }
         else {
           //  bebidas = [[NSMutableDictionary alloc]init];
-          //  bebidas = [[DAOTipoBebidasJSON sharedInstance] getBeverageTypesByKind:[_rootViewController demeTipoActual]];
+            beveragesTypes = [[DAOTipoBebidasJSON sharedInstance] getBeverageTypesByKind:[_rootViewController demeTipoActual]];
             TipoBebida *auxTipoBebida = [[TipoBebida alloc]init];
-            
-            for (int i = 1; i <= [beverages count]; i++) {
-               CCLOG(@" -----------------------  ");
+            int i = 1;
+            for (NSString* key in beveragesTypes) {
+                
+                
+                auxTipoBebida = [beveragesTypes objectForKey:key];
+                CCLOG(@" -----------------------  ");
                 CCLOG(@"Fuente imagen %@", auxTipoBebida.fuente_img);
-                auxTipoBebida = [beverages objectForKey:[[NSString alloc] initWithFormat:@"%i", i]];
+                
                 CCLOG(@"auxTipoBebida Nombre: %@ -- Fuente silueta: %@ -- ID: %i", auxTipoBebida.nombre, auxTipoBebida.fuente_img_grande, [auxTipoBebida.id_tipoBebida intValue]);
                 itemAux = [CCMenuItemImage itemWithNormalImage:auxTipoBebida.fuente_img selectedImage:auxTipoBebida.fuente_img target:self selector:@selector(onPushSceneTranImageBeverage:)];
                 itemAux.tag=[auxTipoBebida.id_tipoBebida intValue];
                 itemAux.position = CGPointMake(itemAux.position.x +(i*paddingPrincipalPlates), itemAux.position.y);
                 
                 [menu addChild:itemAux];
-                
+                i++;
             }
+            
+       
 
             CCMenuItemImage *beveragesBase;
             beveragesBase = [[CCMenuItemImage alloc] init];
@@ -562,10 +571,12 @@ NSMutableDictionary *beverages;
     NSLog(@" --------------------------- iactual plate %i", iactualPlate);
     [self desaparecerMenus];
     TipoBebida *auxTipoBebida = [[TipoBebida alloc]init];
-    auxTipoBebida = [beverages objectForKey:[[NSString alloc]initWithFormat:@"%i", iactualPlate]];
+    auxTipoBebida = [beveragesTypes objectForKey:[[NSString alloc]initWithFormat:@"%i", iactualPlate]];
      NSLog(@" --------------------------- iactual plate %@", auxTipoBebida.nombre);
     NSMutableArray *beverages = [[NSMutableArray alloc] init];
     beverages = [[DAOBebidasJSON sharedInstance] getBeveragesByType:iactualPlate];
+     NSLog(@"--------------------[beverages count]--------------------- ");
+     NSLog(@"--------------------[beverages count]--------------------- %i", [beverages count]);
     Bebida *auxBeverage = [[Bebida alloc]init];
     CCMenuItemLabel *itemBeverageName, *itemPrice;
     CCMenuItemImage *itemShape, *itemBtnAddBeverage;
@@ -580,16 +591,17 @@ NSMutableDictionary *beverages;
     itemPrice = [[CCMenuItemLabel alloc]init];
     itemShape = [[CCMenuItemImage alloc]init];
     int mod = 0;
-    
+   
     for (int i = 0; i < [beverages count]; i++) {
         
+        auxBeverage = [beverages objectAtIndex:i];
         mod = i % 8;
         NSLog(@"---------------------------------------------");
         NSLog(@" auxBeverage Nombre %@", auxBeverage.nombre);
         NSLog(@" auxBeverage Precio %i", auxBeverage.precio);
         NSLog(@" auxBeverage Precio %@", auxTipoBebida.fuente_img_grande);
         
-        auxBeverage = [beverages objectAtIndex:i];
+        
         
         beverage_name = [CCLabelTTF labelWithString:@"" dimensions:CGSizeMake(165, 60) hAlignment:UITextAlignmentLeft vAlignment:UITextAlignmentCenter fontName:font fontSize:_fontSizeTitleName];
         beverage_price = [CCLabelTTF labelWithString:@"" dimensions:CGSizeMake(165, 60) hAlignment:UITextAlignmentCenter vAlignment:UITextAlignmentCenter fontName:font fontSize:_fontSizeTitlePrice];

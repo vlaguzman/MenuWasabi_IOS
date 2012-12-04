@@ -26,9 +26,8 @@ static DAOBebidasJSON *sharedDAOBebidasJSON = nil;
 
 - (NSMutableArray*) getBeveragesByType:(int) _type{
 
-    NSLog(@"getBeveragesByType -   type - %i --- ", _type);
+   
     NSMutableArray *actualBeverageArray = [[NSMutableArray alloc] init];      
-    
     NSURL *jsonURL = [NSURL URLWithString:[[NSString alloc] initWithFormat:@"http://www.brainztore.com/wasabi/consultabebidasxtipo.php?tipo=%i", _type]];
     NSError *error = nil;
     NSData *data = [NSData dataWithContentsOfURL:jsonURL];
@@ -40,11 +39,21 @@ static DAOBebidasJSON *sharedDAOBebidasJSON = nil;
         
         NSDictionary *plato= [_bebidas objectAtIndex:num_beverares];
         NSString *nombre =  [plato objectForKey:@"nombre"];
-        auxBeverage.nombre = nombre;
-        NSString *precio_principal =  [plato objectForKey:@"precio_principal"];
-        auxBeverage.precio = [precio_principal intValue];
         
-        [actualBeverageArray addObject:auxBeverage];
+       
+        NSString *precio_principal =  [plato objectForKey:@"precio_principal"];
+         
+      //   NSString *precio_principal =  [plato objectForKey:@"precio_principal"];
+      //  NSString *precio_principal =  [plato objectForKey:@"precio_principal"];
+        if ([precio_principal intValue]!=0) {
+            auxBeverage.precio = [precio_principal intValue];
+            [actualBeverageArray addObject:auxBeverage];
+        }
+        else {
+            NSLog(@"este plato no ha sido agregado %@", auxBeverage.nombre);
+        }
+        
+        auxBeverage.nombre = nombre;
     }
     
 
