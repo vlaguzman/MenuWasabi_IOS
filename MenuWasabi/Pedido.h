@@ -8,7 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import "Plato.h"
+#import "Bebida.h"
 #import "PlatoxPedido.h"
+#import "BebidaxPedido.h"
 
 @interface Pedido : NSObject
 {
@@ -23,10 +25,18 @@
 @property (nonatomic, strong) NSMutableDictionary *platosActuales, *bebidasActuales;
 
 -(void)agregarPlato:(Plato *)_plato;
+-(void)agregarBebida:(Bebida *)_bebida;
+
 -(void)eliminarPlato:(Plato *)_plato;
+
 -(Plato *)demePlatoEnUbicacion:(int)_index;
+-(Bebida *)demeBebidaEnUbicacion:(int)_index;
+
 -(PlatoxPedido *)demePlatoyCantidadEnUbicacion:(int)_index;
 -(BOOL)estaPlato:(Plato *)_plato;
+
 -(int)demeCantidadPlatos:(NSString *)_id;
+-(int)demeCantidadBebidas:(NSString *)_id;
+
 
 @end

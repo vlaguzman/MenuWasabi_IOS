@@ -171,7 +171,7 @@ CGFloat finalX;
 CGFloat finalY;
 CGFloat animationDuration;
 
-CCMenu *menu, *menu_bebidas, *menu_atras, *menu_agregar, *menu_barra, *menu_pedidos, *menu_platosgrandes, *menu_detalles, *menu_up_down, *menu_total, *menu_hacerpedido, *menu_flechas, *menu_bebidas_detalle, *menu_navegacion_bebidas;
+CCMenu *menu, *menu_bebidas, *menu_atras, *menu_agregar, *menu_barra, *menu_pedidos, *menu_platosgrandes, *menu_detalles, *menu_up_down, *menu_total, *menu_hacerpedido, *menu_flechas, *menu_bebidas_detalle, *menu_navegacion_bebidas, *menu_botones_agregar_bebidas;
 CGSize winSize;
 
 CCMenu *menuprueba;
@@ -317,6 +317,9 @@ NSMutableDictionary *beveragesTypes;
             menu_bebidas_detalle.position = CGPointMake(posXBigPlatesMenu, AHalfWinSizeY); 
             [self addChild:menu_bebidas_detalle];
             
+            menu_botones_agregar_bebidas = [[CCMenu alloc]init];
+            menu_botones_agregar_bebidas.position = CGPointMake(posXBigPlatesMenu, AHalfWinSizeY); 
+            [self addChild:menu_botones_agregar_bebidas];
             
             menu_navegacion_bebidas = [[CCMenu alloc]init];
             menu_navegacion_bebidas.position = CGPointMake(posXBigPlatesMenu, AHalfWinSizeY); 
@@ -573,6 +576,7 @@ NSMutableDictionary *beveragesTypes;
     NSString *strBeveragePrice;
     
     [menu_bebidas_detalle removeAllChildrenWithCleanup:YES];
+    [menu_botones_agregar_bebidas removeAllChildrenWithCleanup:YES];
     
     CCMenuItemImage *beveragesBase;
    
@@ -601,7 +605,7 @@ NSMutableDictionary *beveragesTypes;
         itemBeverageName = [CCMenuItemLabel itemWithLabel:beverage_name];
         itemPrice = [CCMenuItemLabel itemWithLabel:beverage_price];
         itemShape = [CCMenuItemImage itemWithNormalImage:auxTipoBebida.fuente_img_grande selectedImage:auxTipoBebida.fuente_img_grande];
-        itemBtnAddBeverage = [CCMenuItemImage itemWithNormalImage:btnAddBeverage selectedImage:btnAddBeverage target:self selector:@selector(addBeverage:)];
+        itemBtnAddBeverage = [CCMenuItemImage itemWithNormalImage:btnAddBeverage selectedImage:btnAddBeverage target:self selector:@selector(onAddPlate:)];
         
         if (mod==0) {
             itemShape.position = CGPointMake(X_POS_BEVERAGES_RIGHT+(PADDING_BEVERAGE_MENU*page), Y_POS_BEVERAGES_TOP);
@@ -659,10 +663,14 @@ NSMutableDictionary *beveragesTypes;
             beveragesBase.position = ccp(page*PADDING_BEVERAGE_MENU ,0);
             [menu_bebidas_detalle addChild:beveragesBase];
         }
+        
         [menu_bebidas_detalle addChild:itemShape];
         [menu_bebidas_detalle addChild:itemBeverageName];
         [menu_bebidas_detalle addChild:itemPrice];
-        [menu_bebidas_detalle addChild:itemBtnAddBeverage];
+        
+        [menu_botones_agregar_bebidas addChild:itemBtnAddBeverage];
+        
+        
         previous_page = page;
         
     }
@@ -705,6 +713,8 @@ NSMutableDictionary *beveragesTypes;
 
 -(void)aparecerElementosBebidas:(id)arg{
     [self moveMenu_withMenu:menu_bebidas_detalle withXpox:AHalfWinSizeX withYpos:menu_bebidas_detalle.position.y withTimeTransition:1.0];
+    [self moveMenu_withMenu:menu_botones_agregar_bebidas withXpox:AHalfWinSizeX withYpos:menu_botones_agregar_bebidas.position.y withTimeTransition:1.0];
+    
     [self moveMenu_withMenu:menu_navegacion_bebidas withXpox:AHalfWinSizeX withYpos:menu_navegacion_bebidas.position.y withTimeTransition:1.0];
     [self moveMenu_withMenu:menu_atras withXpox:940 withYpos:740 withTimeTransition:1.0];
 }
@@ -717,7 +727,10 @@ NSMutableDictionary *beveragesTypes;
     [self moveMenu_withMenu:menu_atras withXpox:940 withYpos:winSize.height+100 withTimeTransition:1.0];
     [self moveMenu_withMenu:menu_agregar withXpox:posXdesaparecerAgregar withYpos:winSize.height+100 withTimeTransition:1.0];
     [self moveLabel:label_descripcion with_pox:posXdesaparecerDetalles with_posy:posYBigPlatesDescription withTimeTransition:1.0];
+    
     [self moveMenu_withMenu:menu_bebidas_detalle withXpox:posXBigPlatesMenu withYpos:menu_bebidas_detalle.position.y withTimeTransition:1.0];
+    [self moveMenu_withMenu:menu_botones_agregar_bebidas withXpox:posXBigPlatesMenu withYpos:menu_botones_agregar_bebidas.position.y withTimeTransition:1.0];
+    
     [self moveMenu_withMenu:menu_navegacion_bebidas withXpox:posXBigPlatesMenu withYpos:menu_navegacion_bebidas.position.y withTimeTransition:1.0];
     
     iactualPlate = -1;
@@ -746,12 +759,15 @@ NSMutableDictionary *beveragesTypes;
 
 -(void) moveLeftBeverageMenu:(id)sender
 {
+    
     [self moveMenu_withMenu:menu_bebidas_detalle withXpox:menu_bebidas_detalle.position.x-800 withYpos:menu_bebidas_detalle.position.y withTimeTransition:1.0];
+    [self moveMenu_withMenu:menu_botones_agregar_bebidas withXpox:menu_botones_agregar_bebidas.position.x-800 withYpos:menu_botones_agregar_bebidas.position.y withTimeTransition:1.0];
 }
 
 -(void) moveRightBeverageMenu:(id)sender
 {
     [self moveMenu_withMenu:menu_bebidas_detalle withXpox:menu_bebidas_detalle.position.x+800 withYpos:menu_bebidas_detalle.position.y withTimeTransition:1.0];
+    [self moveMenu_withMenu:menu_botones_agregar_bebidas withXpox:menu_botones_agregar_bebidas.position.x+800 withYpos:menu_botones_agregar_bebidas.position.y withTimeTransition:1.0];
 }
 
 -(void) onGoBack:(id) sender
@@ -763,10 +779,14 @@ NSMutableDictionary *beveragesTypes;
 
 -(void) onAddPlate:(id) sender
 {
-        Plato *pl = [[DAOPlatosJSON sharedInstance] getPlateById:[[NSString alloc]initWithFormat:@"%i", iactualPlate]];
-        [_rootViewController agregarPlato:pl.id_plato];
-    
-        [menu_pedidos removeAllChildrenWithCleanup:YES];    
+    NSLog(@" -(void) onAddPlate:(id) sender ");
+    if (es_comida) {
+        [_rootViewController agregarPlato:[[NSString alloc]initWithFormat:@"%i", iactualPlate]];
+    }    
+    else {
+        [_rootViewController agregarBebida:[[NSString alloc]initWithFormat:@"%i", iactualPlate]];
+    }
+    [menu_pedidos removeAllChildrenWithCleanup:YES];    
       
      /*
       int numPlates = [_rootViewController demeNumeroPlatosEnOrden];
@@ -779,12 +799,11 @@ NSMutableDictionary *beveragesTypes;
         }
       */
             
-        [self updateTotalBill];
-        if(menu_barra.position.y!=120){
-            [self onUpDown:self];
-        }
-        [self loadMenuResume];
-
+    [self updateTotalBill];
+    if(menu_barra.position.y!=120){
+        [self onUpDown:self];
+    }
+    [self loadMenuResume];
 }
 
 
@@ -841,11 +860,27 @@ NSMutableDictionary *beveragesTypes;
 -(void) loadMenuResume{
     Plato *platoTemp = [[Plato alloc]init];
     int cantidadPlatos = [_rootViewController demeNumeroPlatosEnOrden];
+    
     for (int n=0; n<cantidadPlatos; n++) {
         platoTemp = [_rootViewController demeDatosPlatoEnUbicacion:n];
         CCLOG(@"tipo plato caragdo ID %@ TIPO %@ Ubicacion %i", platoTemp.id_plato, platoTemp.tipo, n);
         [self loadPlateWithIdPlate:platoTemp.id_plato withSourceImg:platoTemp.fuente_img_peq withSourceClose:btnClose withPrice:platoTemp.precio withKindPlate: platoTemp.tipo withName:platoTemp.nombre withNum: (n+1) withAmount:[_rootViewController demeCantidadPlatoPorId:platoTemp.id_plato]];
     }
+    
+    Bebida *bebidaTemp = [[Bebida alloc]init];
+    int cantidadBebidas = [_rootViewController demeNumeroBebidasEnOrden];
+    TipoBebida *tipoBebidaTemp; 
+    
+    for (int n=0; n<cantidadBebidas; n++) {
+        NSLog(@" SI ESTAMOS ENTRANDO");
+        bebidaTemp = [_rootViewController demeDatosBebidaEnUbicacion:n];
+        int tipo_bebida = bebidaTemp.tipo;
+        tipoBebidaTemp = [[DAOTipoBebidasJSON sharedInstance] getBeverageTypeById:[[NSString alloc] initWithFormat:@"%i",tipo_bebida ]];
+        
+        CCLOG(@"--- BEBIDA %@ ---- TIPO BEBIDA %@ ----", bebidaTemp.nombre, tipoBebidaTemp.nombre);
+        [self loadPlateWithIdPlate:bebidaTemp.id_bebida withSourceImg:tipoBebidaTemp.fuente_img_peq withSourceClose:btnClose withPrice:bebidaTemp.precio withKindPlate: [[NSString alloc] initWithFormat:@"%i",bebidaTemp.tipo ] withName:bebidaTemp.nombre withNum: (n+1) withAmount:[_rootViewController demeCantidadBebidaPorId:bebidaTemp.id_bebida]];
+    }
+    
 }
 
 -(void) updateTotalBill{

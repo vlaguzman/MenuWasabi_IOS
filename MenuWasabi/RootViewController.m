@@ -23,6 +23,7 @@
 #import "DAOTipoPlato.h"
 
 #import "DAOPedidoJSON.h"
+#import "DAOBebidasJSON.h"
 #import "DAOPlatosJSON.h"
 #import "DAOTipoPlatoJSON.h"
 
@@ -299,6 +300,10 @@ CCScene *scene;
     return [[DAOPedidoJSON sharedInstance] demeCantidadPlatos:_id];
 }
 
+-(int)demeCantidadBebidaPorId:(NSString*)_id{
+    return [[DAOPedidoJSON sharedInstance] demeCantidadBebidas:_id];
+}
+
 -(NSString *)demeDescripcionPlatoPorId:(NSString*)_id{
     Plato *plato_return;
     NSString *description=@"";
@@ -359,20 +364,30 @@ CCScene *scene;
     return [DAOPedidoJSON sharedInstance].actualOrder.platosActuales.count;
 }
 
+- (int)demeNumeroBebidasEnOrden
+{
+    return [DAOPedidoJSON sharedInstance].actualOrder.bebidasActuales.count;
+}
+
 - (Plato *)demeDatosPlatoEnUbicacion:(int)_ubicacion{
     return [[DAOPedidoJSON sharedInstance] demePlatoEnUbicacion:_ubicacion];
 }
 
+- (Bebida *)demeDatosBebidaEnUbicacion:(int)_ubicacion{
+    return [[DAOPedidoJSON sharedInstance] demeBebidaEnUbicacion:_ubicacion];
+}
 
 - (void)agregarPlato:(NSString*)_id
 {
-   // [[BrainMenu sharedInstance] agregarPlato:[[DAOPlatos sharedInstance] getPlateById:_id]];//[platos objectForKey:_id]];
     [[DAOPedidoJSON sharedInstance] agregarPlato:[[DAOPlatosJSON sharedInstance] getPlateById:_id]];
+}
+- (void)agregarBebida:(NSString*)_id
+{
+    [[DAOPedidoJSON sharedInstance] agregarBebida:[[DAOBebidasJSON sharedInstance] getBeverageById:_id]];
 }
 
 - (void)eliminarPlato:(NSString*)_id withKindPlate:(NSString*)_kind
 {
-   // [[BrainMenu sharedInstance] eliminarPlato:[[DAOPlatos sharedInstance] getPlateById:_id]];//[platos objectForKey:_id]];
     [[DAOPedidoJSON sharedInstance] eliminarPlato:[[DAOPlatosJSON sharedInstance] getPlateById:_id]];
 }
 

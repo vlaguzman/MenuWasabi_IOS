@@ -7,7 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Bebida.h"
 
 @interface BebidaxPedido : NSObject
+{
+    Bebida *beverage;
+    int amount;
+}
+
+@property (nonatomic, strong) Bebida *beverage;
+@property int amount;
 
 @end

@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
 #import "Plato.h"
+#import "Bebida.h"
 #import "TipoPlato.h"
 
 @interface RootViewController : UIViewController
@@ -36,14 +37,24 @@
 - (NSString *)demeDescripcionPlatoPorId:(NSString*)_id;
 - (int)demePrecioPlatoPorId:(NSString*)_id;
 - (int)demeTotalCuenta;
+
 - (void)agregarPlato:(NSString*)_id;
+- (void)agregarBebida:(NSString*)_id;
 - (void)eliminarPlato:(NSString*)_id withKindPlate:(NSString*)_kind;
 - (void)cambiarEstadoPedido:(NSString*)_id;
+
 - (int)demeNumeroPlatosEnOrden;
+- (int)demeNumeroBebidasEnOrden;
+
 - (Plato *)demeDatosPlatoEnUbicacion:(int)_ubicacion;
+- (Bebida *)demeDatosBebidaEnUbicacion:(int)_ubicacion;
+
 -(BOOL)estaPlato:(NSString*)_idplato;
 -(NSString *)demeTipoActual;
+
 -(int)demeCantidadPlatoPorId:(NSString*)_id;
+-(int)demeCantidadBebidaPorId:(NSString*)_id;
+
 -(void)addTipoPlato;
 - (void)loadTipoDatosFromDB;
 

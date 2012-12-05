@@ -19,7 +19,9 @@
 
 @property (nonatomic, strong) NSMutableArray *beverageArray;
 
+- (void)loadBeveragesFromServer;
 + (DAOBebidasJSON*)sharedInstance;
 - (NSMutableArray*) getBeveragesByType:(int) _type;
+- (Bebida*) getBeverageById:(NSString*) _idBeverage;
 
 @end

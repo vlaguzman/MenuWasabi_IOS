@@ -58,7 +58,6 @@ static DAOPlatosJSON *sharedDAOPlatoJSON = nil;
 -(Plato *)getPlateById:(NSString *)_idPlate
 {
     Plato *auxPlatoReturn = [[Plato alloc]init];
-    NSMutableArray *platesTemp = [[NSMutableArray alloc]init];
     Plato *auxPlate = [[Plato alloc]init];
     for (int i=0; i<[platesArray count]; i++) {
         auxPlate = [platesArray objectAtIndex:i];

@@ -53,6 +53,7 @@
 		28D557031668005000FA173A /* bebidas_calientes.png in Resources */ = {isa = PBXBuildFile; fileRef = 28D557001668005000FA173A /* bebidas_calientes.png */; };
 		28D557041668005000FA173A /* gaseosas.png in Resources */ = {isa = PBXBuildFile; fileRef = 28D557011668005000FA173A /* gaseosas.png */; };
 		28D557051668005000FA173A /* jugos.png in Resources */ = {isa = PBXBuildFile; fileRef = 28D557021668005000FA173A /* jugos.png */; };
+		28D8BE46166FAF0500FB8A41 /* BebidaxPedido.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D8BE45166FAF0500FB8A41 /* BebidaxPedido.m */; };
 		28F7EF38166AB19600FF00C3 /* DAOBebidasJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F7EF37166AB19600FF00C3 /* DAOBebidasJSON.m */; };
 		C10863281631B597007D361E /* barra_agregar.png in Resources */ = {isa = PBXBuildFile; fileRef = C10863271631B597007D361E /* barra_agregar.png */; };
 		C10A662D160CBBF200489A45 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C10A662C160CBBF200489A45 /* QuartzCore.framework */; };
@@ -461,6 +462,8 @@
 		28D557001668005000FA173A /* bebidas_calientes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bebidas_calientes.png; sourceTree = "<group>"; };
 		28D557011668005000FA173A /* gaseosas.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gaseosas.png; sourceTree = "<group>"; };
 		28D557021668005000FA173A /* jugos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = jugos.png; sourceTree = "<group>"; };
+		28D8BE44166FAF0500FB8A41 /* BebidaxPedido.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BebidaxPedido.h; sourceTree = "<group>"; };
+		28D8BE45166FAF0500FB8A41 /* BebidaxPedido.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BebidaxPedido.m; sourceTree = "<group>"; };
 		28F7EF36166AB19600FF00C3 /* DAOBebidasJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAOBebidasJSON.h; sourceTree = "<group>"; };
 		28F7EF37166AB19600FF00C3 /* DAOBebidasJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAOBebidasJSON.m; sourceTree = "<group>"; };
 		C10863271631B597007D361E /* barra_agregar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = barra_agregar.png; sourceTree = "<group>"; };
@@ -2045,6 +2048,8 @@
 				C1DBD7D11640306A00C9A070 /* Pedido.m */,
 				C1CFA24A165EC608003738F9 /* PlatoxPedido.h */,
 				C1CFA24B165EC608003738F9 /* PlatoxPedido.m */,
+				28D8BE44166FAF0500FB8A41 /* BebidaxPedido.h */,
+				28D8BE45166FAF0500FB8A41 /* BebidaxPedido.m */,
 				C1DBD7D31640307A00C9A070 /* Mesa.h */,
 				C1DBD7D41640307A00C9A070 /* Mesa.m */,
 			);
@@ -2595,6 +2600,7 @@
 				C1CFA24C165EC609003738F9 /* PlatoxPedido.m in Sources */,
 				280D56001669448D0043DF90 /* DAOTipoBebidasJSON.m in Sources */,
 				28F7EF38166AB19600FF00C3 /* DAOBebidasJSON.m in Sources */,
+				28D8BE46166FAF0500FB8A41 /* BebidaxPedido.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

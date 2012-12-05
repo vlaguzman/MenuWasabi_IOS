@@ -9,7 +9,7 @@
 #import "Bebida.h"
 
 @implementation Bebida
-@synthesize id_plato, nombre, precio, precio_media, precio_trago, categoria, tipo;
+@synthesize id_bebida, nombre, precio, precio_media, precio_trago, categoria, tipo;
 
 -(id)init{
     nombre = @"vacio";

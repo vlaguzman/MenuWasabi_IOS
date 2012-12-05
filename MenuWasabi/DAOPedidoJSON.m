@@ -44,6 +44,11 @@ static DAOPedidoJSON *sharedDAOPedidoJSON = nil;
     [actualOrder agregarPlato:_plato];
 }
 
+-(void)agregarBebida:(Bebida *)_bebida
+{
+    [actualOrder agregarBebida:_bebida];
+}
+
 -(void)eliminarPlato:(Plato *)_plato
 {
     [actualOrder eliminarPlato:_plato];
@@ -53,6 +58,11 @@ static DAOPedidoJSON *sharedDAOPedidoJSON = nil;
 -(Plato *)demePlatoEnUbicacion:(int)_index{
     return [actualOrder demePlatoEnUbicacion:_index];
 }
+
+-(Bebida *)demeBebidaEnUbicacion:(int)_index{
+    return [actualOrder demeBebidaEnUbicacion:_index];
+}
+
 -(PlatoxPedido *)demePlatosYCantidadesEnUbicacion:(int)_index{
     return [actualOrder demePlatoyCantidadEnUbicacion:_index];
 }
@@ -60,6 +70,12 @@ static DAOPedidoJSON *sharedDAOPedidoJSON = nil;
 -(int)demeCantidadPlatos:(NSString *)_id{
     return [actualOrder demeCantidadPlatos:_id];
 }
+
+
+-(int)demeCantidadBebidas:(NSString *)_id{
+    return [actualOrder demeCantidadBebidas:_id];
+}
+
 
 -(BOOL)estaPlato:(Plato *)_plato{
     return [actualOrder estaPlato:_plato];

@@ -60,8 +60,6 @@ static DAOTipoBebidasJSON *sharedDAOTipoBebidasJSON = nil;
 
 }
 
-
-
 - (NSMutableDictionary*) getBeverageTypesByKind:(NSString *) _kind{
     NSMutableDictionary *beverageTypesTemp = [[NSMutableDictionary alloc]init];
     TipoBebida *auxBeverage = [[TipoBebida alloc]init];
@@ -73,5 +71,21 @@ static DAOTipoBebidasJSON *sharedDAOTipoBebidasJSON = nil;
     }
     return beverageTypesTemp;
 }
+
+- (TipoBebida*) getBeverageById:(NSString*) _idBeverageType{
+    
+    TipoBebida *auxBeverageTypeReturn = [[TipoBebida alloc]init];
+    NSMutableArray *beverageTypesTemp = [[NSMutableArray alloc]init];
+    TipoBebida *auxBeverageType = [[TipoBebida alloc]init];
+    for (int i=0; i<[beverageTypesTemp count]; i++) {
+        auxBeverageType = [beverageTypesTemp objectAtIndex:i];
+        if ([auxBeverageType.id_tipoBebida intValue] == [_idBeverageType intValue]) {
+            auxBeverageTypeReturn = auxBeverageType;
+        }
+    }
+    return auxBeverageTypeReturn;
+}
+
+
 
 @end

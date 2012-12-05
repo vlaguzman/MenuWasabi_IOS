@@ -28,6 +28,7 @@
 
 -(void)agregarPlato:(Plato *)_plato
 {
+    
     totalCuenta += _plato.precio;
     PlatoxPedido *auxPlate = [[PlatoxPedido alloc]init];
     if([self.platosActuales objectForKey:_plato.id_plato]){
@@ -41,10 +42,37 @@
     [self.platosActuales setObject:auxPlate forKey:_plato.id_plato];
 }
 
+
+-(void)agregarBebida:(Bebida *)_bebida
+{
+    
+    totalCuenta += _bebida.precio;
+    BebidaxPedido *auxBeverage = [[BebidaxPedido alloc]init];
+    if([self.bebidasActuales objectForKey:_bebida.id_bebida]){
+        NSLog(@" --agregarBebida - ");
+        auxBeverage = [self.bebidasActuales objectForKey:_bebida.id_bebida];
+        auxBeverage.amount++;
+    }
+    else {
+        NSLog(@" --agregarBebida -- else %@", _bebida.nombre);
+        auxBeverage.beverage = _bebida;
+        auxBeverage.amount = 1;
+    }
+    NSLog(@"Cantidad   === %i", bebidasActuales.count);
+    [self.bebidasActuales setObject:auxBeverage forKey:_bebida.id_bebida];
+}
+
+
 -(int)demeCantidadPlatos:(NSString *)_id{
     PlatoxPedido *auxPlate = [[PlatoxPedido alloc]init];
     auxPlate = [self.platosActuales objectForKey:_id];
     return auxPlate.amount;
+}
+
+-(int)demeCantidadBebidas:(NSString *)_id{
+    BebidaxPedido *auxBebidas = [[BebidaxPedido alloc]init];
+    auxBebidas = [self.bebidasActuales objectForKey:_id];
+    return auxBebidas.amount;
 }
 
 -(void)eliminarPlato:(Plato *)_plato
@@ -71,6 +99,16 @@
     
     return aux.plate;
 }
+
+-(Bebida *)demeBebidaEnUbicacion:(int)_index{
+    BebidaxPedido *aux = [[BebidaxPedido alloc]init];
+    
+    NSArray *arrayBeverages = [bebidasActuales allValues];
+    aux = [arrayBeverages objectAtIndex:_index];
+    
+    return aux.beverage;
+}
+
 -(PlatoxPedido *)demePlatoyCantidadEnUbicacion:(int)_index{
     PlatoxPedido *aux = [[PlatoxPedido alloc]init];
     
