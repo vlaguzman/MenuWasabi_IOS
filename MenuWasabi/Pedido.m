@@ -26,6 +26,14 @@
     return platosActuales;
 }
 
+-(NSMutableDictionary *)bebidasActuales
+{
+    if (bebidasActuales == nil) {
+        bebidasActuales = [[NSMutableDictionary alloc]init];
+    }
+    return bebidasActuales;
+}
+
 -(void)agregarPlato:(Plato *)_plato
 {
     
@@ -60,6 +68,7 @@
     }
     NSLog(@"Cantidad   === %i", bebidasActuales.count);
     [self.bebidasActuales setObject:auxBeverage forKey:_bebida.id_bebida];
+     NSLog(@"Cantidad   === %i", bebidasActuales.count);
 }
 
 

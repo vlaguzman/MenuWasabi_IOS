@@ -33,6 +33,7 @@ static DAOBebidasJSON *sharedDAOBebidasJSON = nil;
         auxBeverage = [beverageArray objectAtIndex:i];
         if ([auxBeverage.id_bebida intValue] == [_idBeverage intValue]) {
             auxBeverageReturn = auxBeverage;
+            NSLog(@" DAOBEBIDA - Nombre %@ - Id %@", auxBeverageReturn.nombre, auxBeverageReturn.id_bebida);
         }
     }
     return auxBeverageReturn;
@@ -59,7 +60,6 @@ static DAOBebidasJSON *sharedDAOBebidasJSON = nil;
         auxBebida.id_bebida = id_bebida;
         NSString *nombre =  [bebida objectForKey:@"nombre"];
         auxBebida.nombre = nombre;
-        NSLog(@"NOMBRE loadBeveragesFromServer %@", nombre);
         NSString *tipo_bebida =  [bebida objectForKey:@"id_tipoBebida"];
         auxBebida.tipo = [tipo_bebida intValue];
         NSString *categoria =  [bebida objectForKey:@"id_categoriaBebida"];
@@ -78,6 +78,16 @@ static DAOBebidasJSON *sharedDAOBebidasJSON = nil;
 
 - (NSMutableArray*) getBeveragesByType:(int) _type{
 
+    NSMutableArray *beveragesTemp = [[NSMutableArray alloc]init];
+    Bebida *auxBebida = [[Bebida alloc]init];
+    for (int i=0; i<[beverageArray count]; i++) {
+        auxBebida = [beverageArray objectAtIndex:i];
+        if (auxBebida.tipo == _type) {
+            [beveragesTemp addObject:auxBebida];
+        }
+    }
+    return beveragesTemp;
+    /*
     NSMutableArray *actualBeverageArray = [[NSMutableArray alloc] init];      
     NSURL *jsonURL = [NSURL URLWithString:[[NSString alloc] initWithFormat:@"http://www.brainztore.com/wasabi/consultabebidasxtipo.php?tipo=%i", _type]];
     NSError *error = nil;
@@ -102,7 +112,7 @@ static DAOBebidasJSON *sharedDAOBebidasJSON = nil;
         auxBeverage.nombre = nombre;
     }
     return actualBeverageArray;
-    
+    */
 }
 
 @end

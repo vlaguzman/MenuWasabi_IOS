@@ -592,7 +592,7 @@ NSMutableDictionary *beveragesTypes;
         page = i/8;
         mod = i % 8;
         auxBeverage = [beverages objectAtIndex:i];
-        
+
         
         beverage_name = [CCLabelTTF labelWithString:@"" dimensions:CGSizeMake(165, 60) hAlignment:UITextAlignmentLeft vAlignment:UITextAlignmentCenter fontName:font fontSize:_fontSizeBeverageName];
         beverage_price = [CCLabelTTF labelWithString:@"" dimensions:CGSizeMake(165, 60) hAlignment:UITextAlignmentCenter vAlignment:UITextAlignmentCenter fontName:font fontSize:_fontSizeBeveragePrice];
@@ -605,7 +605,13 @@ NSMutableDictionary *beveragesTypes;
         itemBeverageName = [CCMenuItemLabel itemWithLabel:beverage_name];
         itemPrice = [CCMenuItemLabel itemWithLabel:beverage_price];
         itemShape = [CCMenuItemImage itemWithNormalImage:auxTipoBebida.fuente_img_grande selectedImage:auxTipoBebida.fuente_img_grande];
+        //
+        //Averiguar porqué estoy reduciendo en 1 el tag
+        //
+
+        
         itemBtnAddBeverage = [CCMenuItemImage itemWithNormalImage:btnAddBeverage selectedImage:btnAddBeverage target:self selector:@selector(onAddPlate:)];
+        itemBtnAddBeverage.tag = [auxBeverage.id_bebida intValue];
         
         if (mod==0) {
             itemShape.position = CGPointMake(X_POS_BEVERAGES_RIGHT+(PADDING_BEVERAGE_MENU*page), Y_POS_BEVERAGES_TOP);
@@ -779,12 +785,12 @@ NSMutableDictionary *beveragesTypes;
 
 -(void) onAddPlate:(id) sender
 {
-    NSLog(@" -(void) onAddPlate:(id) sender ");
+    NSLog(@"  ----------------------------------------------- onAddPlate ---- sender tag %i", [sender tag]);
     if (es_comida) {
         [_rootViewController agregarPlato:[[NSString alloc]initWithFormat:@"%i", iactualPlate]];
     }    
     else {
-        [_rootViewController agregarBebida:[[NSString alloc]initWithFormat:@"%i", iactualPlate]];
+        [_rootViewController agregarBebida:[[NSString alloc]initWithFormat:@"%i", [sender tag]]];
     }
     [menu_pedidos removeAllChildrenWithCleanup:YES];    
       
@@ -870,12 +876,14 @@ NSMutableDictionary *beveragesTypes;
     Bebida *bebidaTemp = [[Bebida alloc]init];
     int cantidadBebidas = [_rootViewController demeNumeroBebidasEnOrden];
     TipoBebida *tipoBebidaTemp; 
-    
+    NSLog(@" ---------- SUSHI LAYER - CANTIDAD BEBIDAS  %i", cantidadBebidas);
     for (int n=0; n<cantidadBebidas; n++) {
-        NSLog(@" SI ESTAMOS ENTRANDO");
         bebidaTemp = [_rootViewController demeDatosBebidaEnUbicacion:n];
+        NSLog(@" SUSHI LAYER - loadMenuResume - bebidaTemp.NOMBRE %@", bebidaTemp.nombre);
+        NSLog(@" SUSHI LAYER - loadMenuResume - bebidaTemp.id %i", bebidaTemp.tipo);
         int tipo_bebida = bebidaTemp.tipo;
-        tipoBebidaTemp = [[DAOTipoBebidasJSON sharedInstance] getBeverageTypeById:[[NSString alloc] initWithFormat:@"%i",tipo_bebida ]];
+        NSLog(@" SUSHI LAYER - loadMenuResume - tipo_bebida %i", tipo_bebida);
+        tipoBebidaTemp = [[DAOTipoBebidasJSON sharedInstance] getBeverageTypeById:[[NSString alloc] initWithFormat:@"%i",tipo_bebida]];
         
         CCLOG(@"--- BEBIDA %@ ---- TIPO BEBIDA %@ ----", bebidaTemp.nombre, tipoBebidaTemp.nombre);
         [self loadPlateWithIdPlate:bebidaTemp.id_bebida withSourceImg:tipoBebidaTemp.fuente_img_peq withSourceClose:btnClose withPrice:bebidaTemp.precio withKindPlate: [[NSString alloc] initWithFormat:@"%i",bebidaTemp.tipo ] withName:bebidaTemp.nombre withNum: (n+1) withAmount:[_rootViewController demeCantidadBebidaPorId:bebidaTemp.id_bebida]];
