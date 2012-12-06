@@ -86,7 +86,7 @@
 
 -(void)eliminarPlato:(Plato *)_plato
 {
-    NSLog(@"estamos en eliminarPlato del BrainMenu y este es nombre : %@ del plato ", _plato.nombre);
+  
     totalCuenta -= _plato.precio;
     PlatoxPedido *auxPlate = [[PlatoxPedido alloc]init];
     auxPlate = [self.platosActuales objectForKey:_plato.id_plato];
@@ -97,6 +97,19 @@
         [platosActuales removeObjectForKey:_plato.id_plato];
     } 
     
+}
+
+-(void)eliminarBebida:(Bebida *)_bebida{
+  
+    totalCuenta -= _bebida.precio;
+    BebidaxPedido *auxBebida = [[BebidaxPedido alloc]init];
+    auxBebida = [self.bebidasActuales objectForKey:_bebida.id_bebida];
+    if (auxBebida.amount>1) {
+        auxBebida.amount--;
+    }
+    else {
+        [bebidasActuales removeObjectForKey:_bebida.id_bebida];
+    } 
 }
 
 -(Plato *)demePlatoEnUbicacion:(int)_index{

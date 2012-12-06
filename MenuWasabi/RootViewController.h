@@ -40,7 +40,10 @@
 
 - (void)agregarPlato:(NSString*)_id;
 - (void)agregarBebida:(NSString*)_id;
+
 - (void)eliminarPlato:(NSString*)_id withKindPlate:(NSString*)_kind;
+- (void)deleteBeverage:(NSString*)_id withBeverageType:(NSString*)_kind;
+
 - (void)cambiarEstadoPedido:(NSString*)_id;
 
 - (int)demeNumeroPlatosEnOrden;

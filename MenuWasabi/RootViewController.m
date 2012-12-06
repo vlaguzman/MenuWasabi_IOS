@@ -391,6 +391,10 @@ CCScene *scene;
     [[DAOPedidoJSON sharedInstance] eliminarPlato:[[DAOPlatosJSON sharedInstance] getPlateById:_id]];
 }
 
+- (void)deleteBeverage:(NSString*)_id withBeverageType:(NSString*)_kind{
+    [[DAOPedidoJSON sharedInstance] eliminarBebida:[[DAOBebidasJSON sharedInstance] getBeverageById:_id]];
+}
+
 -(int)demeTotalCuenta{
     return [DAOPedidoJSON sharedInstance].actualOrder.totalCuenta;
 }

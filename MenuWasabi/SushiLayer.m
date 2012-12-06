@@ -869,23 +869,17 @@ NSMutableDictionary *beveragesTypes;
     
     for (int n=0; n<cantidadPlatos; n++) {
         platoTemp = [_rootViewController demeDatosPlatoEnUbicacion:n];
-        CCLOG(@"tipo plato caragdo ID %@ TIPO %@ Ubicacion %i", platoTemp.id_plato, platoTemp.tipo, n);
         [self loadPlateWithIdPlate:platoTemp.id_plato withSourceImg:platoTemp.fuente_img_peq withSourceClose:btnClose withPrice:platoTemp.precio withKindPlate: platoTemp.tipo withName:platoTemp.nombre withNum: (n+1) withAmount:[_rootViewController demeCantidadPlatoPorId:platoTemp.id_plato]];
     }
     
     Bebida *bebidaTemp = [[Bebida alloc]init];
     int cantidadBebidas = [_rootViewController demeNumeroBebidasEnOrden];
     TipoBebida *tipoBebidaTemp; 
-    NSLog(@" ---------- SUSHI LAYER - CANTIDAD BEBIDAS  %i", cantidadBebidas);
+
     for (int n=0; n<cantidadBebidas; n++) {
         bebidaTemp = [_rootViewController demeDatosBebidaEnUbicacion:n];
-        NSLog(@" SUSHI LAYER - loadMenuResume - bebidaTemp.NOMBRE %@", bebidaTemp.nombre);
-        NSLog(@" SUSHI LAYER - loadMenuResume - bebidaTemp.id %i", bebidaTemp.tipo);
         int tipo_bebida = bebidaTemp.tipo;
-        NSLog(@" SUSHI LAYER - loadMenuResume - tipo_bebida %i", tipo_bebida);
         tipoBebidaTemp = [[DAOTipoBebidasJSON sharedInstance] getBeverageTypeById:[[NSString alloc] initWithFormat:@"%i",tipo_bebida]];
-        
-        CCLOG(@"--- BEBIDA %@ ---- TIPO BEBIDA %@ ----", bebidaTemp.nombre, tipoBebidaTemp.nombre);
         [self loadPlateWithIdPlate:bebidaTemp.id_bebida withSourceImg:tipoBebidaTemp.fuente_img_peq withSourceClose:btnClose withPrice:bebidaTemp.precio withKindPlate: [[NSString alloc] initWithFormat:@"%i",bebidaTemp.tipo ] withName:bebidaTemp.nombre withNum: (n+1) withAmount:[_rootViewController demeCantidadBebidaPorId:bebidaTemp.id_bebida]];
     }
     
@@ -900,13 +894,18 @@ NSMutableDictionary *beveragesTypes;
 {
     NSInteger _tag = [sender tag];
     NSString *_kind_str = [sender accessibilityValue];
-        
-    [_rootViewController eliminarPlato:[[NSString alloc]initWithFormat:@"%i", _tag] withKindPlate:_kind_str];
+    if (es_comida) {
+        [_rootViewController eliminarPlato:[[NSString alloc]initWithFormat:@"%i", _tag] withKindPlate:_kind_str];
+    }
+    else {
+        [_rootViewController deleteBeverage:[[NSString alloc]initWithFormat:@"%i", _tag] withBeverageType:_kind_str];
+    }
+    
+    
     [menu_pedidos removeAllChildrenWithCleanup:YES];
     [self loadMenuResume];
     NSString *str_total = [[NSString alloc]initWithFormat:@"$ %i", [_rootViewController demeTotalCuenta]];
     [label_total setString:str_total];
-    
     if (_rootViewController.demeNumeroPlatosEnOrden <= 6) {
         [self moveMenu_withMenu:menu_pedidos withXpox:posXmenuPedidos withYpos:menu_pedidos.position.y withTimeTransition:1];
     }

@@ -29,6 +29,7 @@
 -(void)agregarPlato:(Plato *)_plato;
 -(void)agregarBebida:(Bebida *)_bebida;
 -(void)eliminarPlato:(Plato *)_plato;
+-(void)eliminarBebida:(Bebida *)_bebida;
 -(Plato *)demePlatoEnUbicacion:(int)_index;
 -(Bebida *)demeBebidaEnUbicacion:(int)_index;
 -(BOOL)estaPlato:(Plato *)_plato;

@@ -55,6 +55,12 @@ static DAOPedidoJSON *sharedDAOPedidoJSON = nil;
     
 }
 
+-(void)eliminarBebida:(Bebida *)_bebida
+{
+    [actualOrder eliminarBebida:_bebida];
+    
+}
+
 -(Plato *)demePlatoEnUbicacion:(int)_index{
     return [actualOrder demePlatoEnUbicacion:_index];
 }
