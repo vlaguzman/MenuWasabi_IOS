@@ -231,17 +231,19 @@ NSMutableDictionary *beveragesTypes;
 -(id) initWithVC: (RootViewController *) rootViewController
 {
     if( (self=[super init] )) {
-        
-        bool_swipe=YES;
+        es_comida = YES;
+        bool_swipe = YES;
         _rootViewController = rootViewController;
         
         tipoActual = [_rootViewController demeTipoActual];
         if(tipoActual == tipoBebidas) es_comida = NO;
         if(tipoActual == tipoLicores) es_comida = NO;
         if (es_comida) {
+            NSLog(@" ----       es comida        ---");
             [self changeValueNumPlates];
         }
         else {
+            NSLog(@" ----       es bebida        ---");
             [self changeValueNumPlatesBeverages];
         }
         
@@ -866,10 +868,11 @@ NSMutableDictionary *beveragesTypes;
 -(void) loadMenuResume{
     Plato *platoTemp = [[Plato alloc]init];
     int cantidadPlatos = [_rootViewController demeNumeroPlatosEnOrden];
+    int num_p;
     
-    for (int n=0; n<cantidadPlatos; n++) {
-        platoTemp = [_rootViewController demeDatosPlatoEnUbicacion:n];
-        [self loadPlateWithIdPlate:platoTemp.id_plato withSourceImg:platoTemp.fuente_img_peq withSourceClose:btnClose withPrice:platoTemp.precio withKindPlate: platoTemp.tipo withName:platoTemp.nombre withNum: (n+1) withAmount:[_rootViewController demeCantidadPlatoPorId:platoTemp.id_plato]];
+    for (num_p=0; num_p<cantidadPlatos; num_p++) {
+        platoTemp = [_rootViewController demeDatosPlatoEnUbicacion:num_p];
+        [self loadPlateWithIdPlate:platoTemp.id_plato withSourceImg:platoTemp.fuente_img_peq withSourceClose:btnClose withPrice:platoTemp.precio withKindPlate: platoTemp.tipo withName:platoTemp.nombre withNum: (num_p+1) withAmount:[_rootViewController demeCantidadPlatoPorId:platoTemp.id_plato]];
     }
     
     Bebida *bebidaTemp = [[Bebida alloc]init];
@@ -877,10 +880,12 @@ NSMutableDictionary *beveragesTypes;
     TipoBebida *tipoBebidaTemp; 
 
     for (int n=0; n<cantidadBebidas; n++) {
+        num_p++;
         bebidaTemp = [_rootViewController demeDatosBebidaEnUbicacion:n];
         int tipo_bebida = bebidaTemp.tipo;
         tipoBebidaTemp = [[DAOTipoBebidasJSON sharedInstance] getBeverageTypeById:[[NSString alloc] initWithFormat:@"%i",tipo_bebida]];
-        [self loadPlateWithIdPlate:bebidaTemp.id_bebida withSourceImg:tipoBebidaTemp.fuente_img_peq withSourceClose:btnClose withPrice:bebidaTemp.precio withKindPlate: [[NSString alloc] initWithFormat:@"%i",bebidaTemp.tipo ] withName:bebidaTemp.nombre withNum: (n+1) withAmount:[_rootViewController demeCantidadBebidaPorId:bebidaTemp.id_bebida]];
+        [self loadPlateWithIdPlate:bebidaTemp.id_bebida withSourceImg:tipoBebidaTemp.fuente_img_peq withSourceClose:btnClose withPrice:bebidaTemp.precio withKindPlate: [[NSString alloc] initWithFormat:@"%i",bebidaTemp.tipo ] withName:bebidaTemp.nombre withNum: (num_p) withAmount:[_rootViewController demeCantidadBebidaPorId:bebidaTemp.id_bebida]];
+        
     }
     
 }
