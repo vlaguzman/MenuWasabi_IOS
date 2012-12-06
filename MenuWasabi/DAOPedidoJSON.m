@@ -73,6 +73,10 @@ static DAOPedidoJSON *sharedDAOPedidoJSON = nil;
     return [actualOrder demePlatoyCantidadEnUbicacion:_index];
 }
 
+-(BebidaxPedido *)demeBebidasYCantidadesEnUbicacion:(int)_index{
+    return [actualOrder demeBebidayCantidadEnUbicacion:_index];
+}
+
 -(int)demeCantidadPlatos:(NSString *)_id{
     return [actualOrder demeCantidadPlatos:_id];
 }
@@ -92,17 +96,27 @@ static DAOPedidoJSON *sharedDAOPedidoJSON = nil;
     Mesa *tempTable = [[DAOMesaJSON sharedInstance] actualTable];
     NSString *stringURLPlates=@"";
     
+    
     for (int n=0; n<actualOrder.platosActuales.count; n++) {
         if (n>0) {
             stringURLPlates = [[NSString alloc] initWithFormat:@"%@&", stringURLPlates];
         }
-    //    Plato *tempPlate = [self demePlatoEnUbicacion:n];
         PlatoxPedido *tempPlatesAndAmounts = [self demePlatosYCantidadesEnUbicacion:n];
-        stringURLPlates = [[NSString alloc] initWithFormat:@"%@plato%i=%@&cantidad%i=%i", stringURLPlates, n+1, tempPlatesAndAmounts.plate.id_plato, n+1, tempPlatesAndAmounts.amount];
+        stringURLPlates = [[NSString alloc] initWithFormat:@"%@plato%i=%@&cantidad%i=%i&parcial%i=%i", stringURLPlates, n+1, tempPlatesAndAmounts.plate.id_plato, n+1, tempPlatesAndAmounts.amount, n+1, tempPlatesAndAmounts.parcial];
     }
+    
+    NSString *stringURLBeverages=@"";
+    
+    for (int n=0; n<actualOrder.bebidasActuales.count; n++) {
+        if (n>0) {
+            stringURLBeverages = [[NSString alloc] initWithFormat:@"%@&", stringURLBeverages];
+        }
+        BebidaxPedido *tempBeveragesAndAmounts = [self demeBebidasYCantidadesEnUbicacion:n];
+        stringURLBeverages = [[NSString alloc] initWithFormat:@"%@bebida%i=%@&cantidadb%i=%i&parcialb%i=%i", stringURLBeverages, n+1, tempBeveragesAndAmounts.beverage.id_bebida, n+1, tempBeveragesAndAmounts.amount, n+1, tempBeveragesAndAmounts.parcial];
+    }    
         
-    NSURL *url = [NSURL URLWithString:[[NSString alloc] initWithFormat:@"http://www.brainztore.com/wasabi/insertpedido.php?mesa=%i&total=%i&estado=%@&cantidadplatos=%i&%@", tempTable.numero, actualOrder.totalCuenta, @"solicitado", actualOrder.platosActuales.count, stringURLPlates]];
-       
+    NSURL *url = [NSURL URLWithString:[[NSString alloc] initWithFormat:@"http://www.brainztore.com/wasabi/insertpedido.php?mesa=%i&total=%i&estado=%@&cantidadplatos=%i&%@&cantidadbebidas=%i&%@", tempTable.numero, actualOrder.totalCuenta, @"solicitado", actualOrder.platosActuales.count, stringURLPlates, actualOrder.bebidasActuales.count, stringURLBeverages]];
+    NSLog(@" ------   Esta es la URL   ------   %@", url);
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     [request addValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
     [request setHTTPMethod:@"POST"];

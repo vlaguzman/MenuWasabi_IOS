@@ -899,6 +899,7 @@ NSMutableDictionary *beveragesTypes;
 {
     NSInteger _tag = [sender tag];
     NSString *_kind_str = [sender accessibilityValue];
+    
     if (es_comida) {
         [_rootViewController eliminarPlato:[[NSString alloc]initWithFormat:@"%i", _tag] withKindPlate:_kind_str];
     }

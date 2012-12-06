@@ -34,6 +34,8 @@
 -(Bebida *)demeBebidaEnUbicacion:(int)_index;
 
 -(PlatoxPedido *)demePlatoyCantidadEnUbicacion:(int)_index;
+-(BebidaxPedido *)demeBebidayCantidadEnUbicacion:(int)_index;
+
 -(BOOL)estaPlato:(Plato *)_plato;
 
 -(int)demeCantidadPlatos:(NSString *)_id;

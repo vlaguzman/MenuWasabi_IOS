@@ -10,6 +10,6 @@
 
 @implementation BebidaxPedido
 
-@synthesize beverage, amount;
+@synthesize beverage, amount, parcial;
 
 @end

@@ -55,13 +55,14 @@ include_once "consultar.php";
 		<?php
 			if(isset($_POST['consultar'])){ 
 			    include_once "consultar_detallepedido.php";
+			    include_once "consultar_detallepedido_bebidas.php";
 			    ?>
 				<table> 
 					<tr>
-						<td> ID PLATO </td> 
+						<td> ID </td> 
 						<td> NOMBRE </td> 
-						<td> PRECIO </td> 
 						<td> CANTIDAD</td>
+						<td> PARCIAL </td> 
 					</tr> 
 					<?php 
 					foreach ($registros_detalles as $key => $detalle) 
@@ -70,8 +71,22 @@ include_once "consultar.php";
 					<tr>
 						<td> <?= $detalle['id_plato'] ?></td> 
 						<td> <?= $detalle['nombre'] ?></td> 
-						<td> <?= $detalle['precio'] ?></td> 
 						<td> <?= $detalle['cantidad'] ?></td> 			
+						<td> <?= $detalle['total_parcial'] ?></td> 
+					</tr>
+					<?php
+				    }
+				     ?>
+
+				     <?php 
+					foreach ($registros_bebidas as $key => $bebida) 
+					{
+					?>
+					<tr>
+						<td> <?= $bebida['id_bebida'] ?></td> 
+						<td> <?= $bebida['nombre'] ?></td> 
+						<td> <?= $bebida['cantidad'] ?></td> 			
+						<td> <?= $bebida['total_parcial'] ?></td> 
 					</tr>
 					<?php
 				    }

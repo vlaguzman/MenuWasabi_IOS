@@ -14,6 +14,7 @@ $id_mesa = $_GET["mesa"];
 $total = $_GET["total"];
 $estado = $_GET["estado"];
 $num_platos = $_GET["cantidadplatos"];
+$num_bebidas = $_GET["cantidadbebidas"];
 
 $conexion = mysql_connect("localhost", "brain140_adminwb", "Lounge140") or die ("Error conexión BD");
 mysql_select_db('brain140_wasabi', $conexion)or die('No se encuentra la base de datos');
@@ -41,9 +42,26 @@ echo "Last id: $last_id";
 for ($num=1; $num<=$num_platos ; $num++) { 
 	$plato = $_GET["plato".$num];
 	$cant = $_GET["cantidad".$num];
+	$total_parcial = $_GET["parcial".$num];
 	echo "plato: $plato";
 
-	$query = sprintf("INSERT INTO wsb_platoxpedido (id_pedido, id_plato, cantidad) VALUES (%s,%s,%s)", $id_pedido, $plato, $cant);
+	$query = sprintf("INSERT INTO wsb_platoxpedido (id_pedido, id_plato, cantidad, total_parcial) VALUES (%s,%s,%s,%s)", $id_pedido, $plato, $cant, $total_parcial);
+	$result = mysql_query($query);
+
+	if (!$result) {
+    	$message  = 'Invalid query: ' . mysql_error() . "\n";
+    	$message .= 'Whole query: ' . $query;
+    	die($message);
+	}
+}
+
+for ($num=1; $num<=$num_bebidas ; $num++) { 
+	$bebida = $_GET["bebida".$num];
+	$cantd = $_GET["cantidadb".$num];
+	$total_parcialb = $_GET["parcialb".$num];
+	echo "bebida: $bebida";
+
+	$query = sprintf("INSERT INTO wsb_bebidaxpedido (id_pedido, id_bebida, cantidad, total_parcial) VALUES (%s,%s,%s,%s)", $id_pedido, $bebida, $cantd, $total_parcialb);
 	$result = mysql_query($query);
 
 	if (!$result) {

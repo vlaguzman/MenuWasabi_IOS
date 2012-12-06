@@ -12,10 +12,10 @@
 @interface BebidaxPedido : NSObject
 {
     Bebida *beverage;
-    int amount;
+    int amount, parcial;
 }
 
 @property (nonatomic, strong) Bebida *beverage;
-@property int amount;
+@property int amount, parcial;
 
 @end

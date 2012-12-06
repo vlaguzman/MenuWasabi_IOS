@@ -13,8 +13,9 @@
 {
     Plato *plate;
     int amount;
+    int parcial;
 }
 @property (nonatomic, strong) Plato *plate;
-@property int amount;
+@property int amount, parcial;
 
 @end

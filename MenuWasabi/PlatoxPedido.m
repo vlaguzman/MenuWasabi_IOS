@@ -10,6 +10,6 @@
 
 @implementation PlatoxPedido
 
-@synthesize plate, amount;
+@synthesize plate, amount, parcial;
 
 @end
