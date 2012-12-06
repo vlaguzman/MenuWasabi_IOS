@@ -166,6 +166,7 @@ float timei, timem, pos, resul_dif, time_efect;
 int changedLevel, difPlatesNames;
 
 int firstX, firstY, iactualPlate;
+int numOfPages=0, actualPage=0;
 
 CGFloat finalX;
 CGFloat finalY;
@@ -233,6 +234,7 @@ NSMutableDictionary *beveragesTypes;
     if( (self=[super init] )) {
         es_comida = YES;
         bool_swipe = YES;
+        actualPage=0;
         _rootViewController = rootViewController;
         
         tipoActual = [_rootViewController demeTipoActual];
@@ -682,7 +684,7 @@ NSMutableDictionary *beveragesTypes;
         previous_page = page;
         
     }
-
+    numOfPages = page;
     if (page>0) {
         CCMenuItemImage *itemArrowLeftBeverage = [[CCMenuItemImage alloc]init];
         CCMenuItemImage *itemArrowRightBeverage = [[CCMenuItemImage alloc]init];
@@ -715,8 +717,6 @@ NSMutableDictionary *beveragesTypes;
     [self moveMenu_withMenu:menu_detalles withXpox:posXShowBigPlatesDescription withYpos:posYBigPlatesDescription withTimeTransition:1.0];
     [self moveLabel:label_descripcion with_pox:posXShowBigPlatesDescription with_posy:posYBigPlatesDescription withTimeTransition:1.0];
     [self moveMenu_withMenu:menu_agregar withXpox:posXaparecerAgregar withYpos:posYaparecerAgregar withTimeTransition:1.0];
-
-
 }
 
 -(void)aparecerElementosBebidas:(id)arg{
@@ -767,15 +767,23 @@ NSMutableDictionary *beveragesTypes;
 
 -(void) moveLeftBeverageMenu:(id)sender
 {
-    
-    [self moveMenu_withMenu:menu_bebidas_detalle withXpox:menu_bebidas_detalle.position.x-800 withYpos:menu_bebidas_detalle.position.y withTimeTransition:1.0];
-    [self moveMenu_withMenu:menu_botones_agregar_bebidas withXpox:menu_botones_agregar_bebidas.position.x-800 withYpos:menu_botones_agregar_bebidas.position.y withTimeTransition:1.0];
+    if (actualPage>0) {
+        [self moveMenu_withMenu:menu_bebidas_detalle withXpox:menu_bebidas_detalle.position.x+800 withYpos:menu_bebidas_detalle.position.y withTimeTransition:1.0];
+        [self moveMenu_withMenu:menu_botones_agregar_bebidas withXpox:menu_botones_agregar_bebidas.position.x+800 withYpos:menu_botones_agregar_bebidas.position.y withTimeTransition:1.0];
+        actualPage--;
+    }
+
 }
 
 -(void) moveRightBeverageMenu:(id)sender
 {
-    [self moveMenu_withMenu:menu_bebidas_detalle withXpox:menu_bebidas_detalle.position.x+800 withYpos:menu_bebidas_detalle.position.y withTimeTransition:1.0];
-    [self moveMenu_withMenu:menu_botones_agregar_bebidas withXpox:menu_botones_agregar_bebidas.position.x+800 withYpos:menu_botones_agregar_bebidas.position.y withTimeTransition:1.0];
+    if (actualPage<numOfPages) {
+        [self moveMenu_withMenu:menu_bebidas_detalle withXpox:menu_bebidas_detalle.position.x-800 withYpos:menu_bebidas_detalle.position.y withTimeTransition:1.0];
+        [self moveMenu_withMenu:menu_botones_agregar_bebidas withXpox:menu_botones_agregar_bebidas.position.x-800 withYpos:menu_botones_agregar_bebidas.position.y withTimeTransition:1.0];
+        actualPage++;
+    }
+
+
 }
 
 -(void) onGoBack:(id) sender
@@ -787,7 +795,7 @@ NSMutableDictionary *beveragesTypes;
 
 -(void) onAddPlate:(id) sender
 {
-    NSLog(@"  ----------------------------------------------- onAddPlate ---- sender tag %i", [sender tag]);
+    
     if (es_comida) {
         [_rootViewController agregarPlato:[[NSString alloc]initWithFormat:@"%i", iactualPlate]];
     }    
@@ -943,17 +951,17 @@ NSMutableDictionary *beveragesTypes;
 }
 
 -(void)moveLeftMenuActualPlates:(id) sender{
-    //necesario activar restriccion
-   // if (_rootViewController.demeNumeroPlatosEnOrden > 6) {
-        [self moveMenu_withMenu:menu_pedidos withXpox:menu_pedidos.position.x-128 withYpos:menu_pedidos.position.y withTimeTransition:0.3];
-   // }
+    
+    if (_rootViewController.demeNumeroPlatosEnOrden > 6) {
+        [self moveMenu_withMenu:menu_pedidos withXpox:menu_pedidos.position.x+128 withYpos:menu_pedidos.position.y withTimeTransition:0.3];
+    }
 }
 
 
 -(void)moveRightMenuActualPlates:(id) sender{
-    //if (_rootViewController.demeNumeroPlatosEnOrden > 6) {
-        [self moveMenu_withMenu:menu_pedidos withXpox:menu_pedidos.position.x+128 withYpos:menu_pedidos.position.y withTimeTransition:0.3];
-    //}
+    if (_rootViewController.demeNumeroPlatosEnOrden > 6) {
+        [self moveMenu_withMenu:menu_pedidos withXpox:menu_pedidos.position.x-128 withYpos:menu_pedidos.position.y withTimeTransition:0.3];
+    }
 }
 
 

@@ -1,4 +1,23 @@
-div{
-	display: inline-block;
-
+table
+{
+	border-collapse:collapse;
+	width:100%;
+}
+tr
+{
+	height:50px;
+	background-color:green;
+	color:white;
+}
+table,tr, td
+{
+	border: 1px solid black;
+	border:1px solid green;
+}
+td
+{
+	text-align:right;
+	height:50px;
+	vertical-align:bottom;
+	padding:15px;
 }
