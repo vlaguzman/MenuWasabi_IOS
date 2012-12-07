@@ -125,7 +125,7 @@ int _fontSizeTitlePrice = 14;
 int _fontSizeBeverageName = 12;
 int _fontSizeBeveragePrice = 12;
 int _fontSizeOrderPrice = 14;
-int _fontSizeOrderName = 13;
+int _fontSizeOrderName = 11;
 int _fontSizePricesDrink = 10;
 int _fontSizeNameDrink = 10;
 
