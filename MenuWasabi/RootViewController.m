@@ -276,6 +276,8 @@ CCScene *scene;
 
 -(NSString *)demeTipoActual{
     return [[BrainMenu sharedInstance] tipoPlatoActual];
+    
+    
 }
 
 -(BOOL)estaPlato:(NSString*)_id{

@@ -169,6 +169,7 @@ int changedLevel, difPlatesNames;
 
 int firstX, firstY, iactualPlate;
 int numOfPages=0, actualPage=0;
+int pos_izq = 0, pos_der = 0;
 
 CGFloat finalX;
 CGFloat finalY;
@@ -237,8 +238,13 @@ NSMutableDictionary *beveragesTypes, *validatorKind;
         es_comida = YES;
         bool_swipe = YES;
         actualPage=0;
+        
+        
         validatorKind = [[NSMutableDictionary alloc] init];
         _rootViewController = rootViewController;
+        
+        
+        pos_der = _rootViewController.demeNumeroPlatosEnOrden + _rootViewController.demeNumeroBebidasEnOrden;
         
         tipoActual = [_rootViewController demeTipoActual];
         if(tipoActual == tipoBebidas) es_comida = NO;
@@ -797,7 +803,7 @@ NSMutableDictionary *beveragesTypes, *validatorKind;
 
 -(void) onAddPlate:(id) sender
 {
-    
+    pos_der++;
     if (es_comida) {
         [_rootViewController agregarPlato:[[NSString alloc]initWithFormat:@"%i", iactualPlate]];
     }    
@@ -924,10 +930,10 @@ NSMutableDictionary *beveragesTypes, *validatorKind;
     [self loadMenuResume];
     NSString *str_total = [[NSString alloc]initWithFormat:@"$ %i", [_rootViewController demeTotalCuenta]];
     [label_total setString:str_total];
-    if (_rootViewController.demeNumeroPlatosEnOrden <= 6) {
+    if ((_rootViewController.demeNumeroPlatosEnOrden + _rootViewController.demeNumeroBebidasEnOrden) <= 6) {
         [self moveMenu_withMenu:menu_pedidos withXpox:posXmenuPedidos withYpos:menu_pedidos.position.y withTimeTransition:1];
     }
-
+    pos_der--;
     
 }
 
@@ -955,17 +961,25 @@ NSMutableDictionary *beveragesTypes, *validatorKind;
 }
 
 -(void)moveLeftMenuActualPlates:(id) sender{
-    
-    if (_rootViewController.demeNumeroPlatosEnOrden > 6) {
+    NSLog(@"Antes Left  - pos der %i - pos izq %i", pos_der, pos_izq);
+    if (((_rootViewController.demeNumeroPlatosEnOrden + _rootViewController.demeNumeroBebidasEnOrden) > 6)&&(pos_izq<0)) {
         [self moveMenu_withMenu:menu_pedidos withXpox:menu_pedidos.position.x+128 withYpos:menu_pedidos.position.y withTimeTransition:0.3];
+        pos_der++;
+        pos_izq++;
     }
+     NSLog(@"Después Left  - pos der %i - pos izq %i", pos_der, pos_izq);
 }
 
 
 -(void)moveRightMenuActualPlates:(id) sender{
-    if (_rootViewController.demeNumeroPlatosEnOrden > 6) {
+     NSLog(@"Antes Right  - pos der %i - pos izq %i", pos_der, pos_izq);
+    if (((_rootViewController.demeNumeroPlatosEnOrden + _rootViewController.demeNumeroBebidasEnOrden)> 6)&&(pos_der > 6)) {
+        
         [self moveMenu_withMenu:menu_pedidos withXpox:menu_pedidos.position.x-128 withYpos:menu_pedidos.position.y withTimeTransition:0.3];
+        pos_izq--;
+        pos_der--;
     }
+     NSLog(@"Después Right  - pos der %i - pos izq %i", pos_der, pos_izq);
 }
 
 
