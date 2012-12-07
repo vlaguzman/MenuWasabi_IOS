@@ -91,6 +91,8 @@
 #define DIFFERENCE_Y_POS_PRICE -10
 #define DIFFERENCE_Y_POS_BTN -30
 #define PADDING_BEVERAGE_MENU 800
+#define TEXT_FOOD @"comida"
+#define TEXT_BEVERAGE @"bebida"
 
 static const ccColor3B ccDARKRED={139,0,0};
 //
@@ -182,7 +184,7 @@ BOOL es_comida = YES;
 
 NSString *tipoActual;
 NSMutableArray *bebidas;
-NSMutableDictionary *beveragesTypes;
+NSMutableDictionary *beveragesTypes, *validatorKind;
 @implementation SushiLayer
 
 
@@ -235,17 +237,16 @@ NSMutableDictionary *beveragesTypes;
         es_comida = YES;
         bool_swipe = YES;
         actualPage=0;
+        validatorKind = [[NSMutableDictionary alloc] init];
         _rootViewController = rootViewController;
         
         tipoActual = [_rootViewController demeTipoActual];
         if(tipoActual == tipoBebidas) es_comida = NO;
         if(tipoActual == tipoLicores) es_comida = NO;
         if (es_comida) {
-            NSLog(@" ----       es comida        ---");
-            [self changeValueNumPlates];
+                [self changeValueNumPlates];
         }
         else {
-            NSLog(@" ----       es bebida        ---");
             [self changeValueNumPlatesBeverages];
         }
         
@@ -788,6 +789,7 @@ NSMutableDictionary *beveragesTypes;
 
 -(void) onGoBack:(id) sender
 {
+    actualPage = 0;
     [self desaparecerElementos];
     [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(aparecerMenus:) userInfo:nil repeats:NO];
     
@@ -824,7 +826,7 @@ NSMutableDictionary *beveragesTypes;
 
 
 
--(void)loadPlateWithIdPlate:(NSString *) _idPlate withSourceImg:(NSString *) _sourceImg withSourceClose:(NSString *) _sourceImgClose withPrice:(int) _price withKindPlate:(NSString *) _tipo withName:(NSString *)_name withNum:(int)_num withAmount:(int)_amount{
+-(void)loadPlateWithIdPlate:(NSString *) _idPlate withSourceImg:(NSString *) _sourceImg withSourceClose:(NSString *) _sourceImgClose withPrice:(int) _price withKindPlate:(NSString *) _tipo withName:(NSString *)_name withNum:(int)_num withAmount:(int)_amount withKindFood:(NSString *) _kind_food{
     CCMenuItemImage *itemImg, *itemCerrar;
     CCMenuItemLabel *itemPrecio, *itemName, *itemAmount;
     
@@ -838,6 +840,7 @@ NSMutableDictionary *beveragesTypes;
     //asigno el mismo id que el de la imagen para cuando sea necesario eliminar la imagen
     itemCerrar.tag = [_idPlate intValue];
     itemCerrar.accessibilityValue = _tipo;
+    itemCerrar.accessibilityLanguage = _kind_food;
     
     //Creo un label para mostrar el valor del plato
     CCLabelTTF *precio_plato = [[CCLabelTTF alloc]initWithString:@"precio" fontName:font fontSize:_fontSizeOrderPrice];
@@ -880,7 +883,7 @@ NSMutableDictionary *beveragesTypes;
     
     for (num_p=0; num_p<cantidadPlatos; num_p++) {
         platoTemp = [_rootViewController demeDatosPlatoEnUbicacion:num_p];
-        [self loadPlateWithIdPlate:platoTemp.id_plato withSourceImg:platoTemp.fuente_img_peq withSourceClose:btnClose withPrice:platoTemp.precio withKindPlate: platoTemp.tipo withName:platoTemp.nombre withNum: (num_p+1) withAmount:[_rootViewController demeCantidadPlatoPorId:platoTemp.id_plato]];
+        [self loadPlateWithIdPlate:platoTemp.id_plato withSourceImg:platoTemp.fuente_img_peq withSourceClose:btnClose withPrice:platoTemp.precio withKindPlate: platoTemp.tipo withName:platoTemp.nombre withNum: (num_p+1) withAmount:[_rootViewController demeCantidadPlatoPorId:platoTemp.id_plato] withKindFood:TEXT_FOOD];
     }
     
     Bebida *bebidaTemp = [[Bebida alloc]init];
@@ -892,7 +895,7 @@ NSMutableDictionary *beveragesTypes;
         bebidaTemp = [_rootViewController demeDatosBebidaEnUbicacion:n];
         int tipo_bebida = bebidaTemp.tipo;
         tipoBebidaTemp = [[DAOTipoBebidasJSON sharedInstance] getBeverageTypeById:[[NSString alloc] initWithFormat:@"%i",tipo_bebida]];
-        [self loadPlateWithIdPlate:bebidaTemp.id_bebida withSourceImg:tipoBebidaTemp.fuente_img_peq withSourceClose:btnClose withPrice:bebidaTemp.precio withKindPlate: [[NSString alloc] initWithFormat:@"%i",bebidaTemp.tipo ] withName:bebidaTemp.nombre withNum: (num_p) withAmount:[_rootViewController demeCantidadBebidaPorId:bebidaTemp.id_bebida]];
+        [self loadPlateWithIdPlate:bebidaTemp.id_bebida withSourceImg:tipoBebidaTemp.fuente_img_peq withSourceClose:btnClose withPrice:bebidaTemp.precio withKindPlate: [[NSString alloc] initWithFormat:@"%i",bebidaTemp.tipo ] withName:bebidaTemp.nombre withNum: (num_p) withAmount:[_rootViewController demeCantidadBebidaPorId:bebidaTemp.id_bebida] withKindFood:TEXT_BEVERAGE];
         
     }
     
@@ -907,11 +910,12 @@ NSMutableDictionary *beveragesTypes;
 {
     NSInteger _tag = [sender tag];
     NSString *_kind_str = [sender accessibilityValue];
-    
-    if (es_comida) {
+    NSString *_kind_food = [sender accessibilityLanguage];
+
+    if (_kind_food == TEXT_FOOD) {
         [_rootViewController eliminarPlato:[[NSString alloc]initWithFormat:@"%i", _tag] withKindPlate:_kind_str];
     }
-    else {
+    else{
         [_rootViewController deleteBeverage:[[NSString alloc]initWithFormat:@"%i", _tag] withBeverageType:_kind_str];
     }
     
