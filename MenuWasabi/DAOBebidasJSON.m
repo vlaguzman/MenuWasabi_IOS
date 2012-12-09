@@ -33,7 +33,6 @@ static DAOBebidasJSON *sharedDAOBebidasJSON = nil;
         auxBeverage = [beverageArray objectAtIndex:i];
         if ([auxBeverage.id_bebida intValue] == [_idBeverage intValue]) {
             auxBeverageReturn = auxBeverage;
-            NSLog(@" DAOBEBIDA - Nombre %@ - Id %@", auxBeverageReturn.nombre, auxBeverageReturn.id_bebida);
         }
     }
     return auxBeverageReturn;
